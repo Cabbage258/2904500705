@@ -97,4 +97,16 @@ git
         提交所有tag
             git push [远程仓库] --tags
         新建一个分支,指向某个tag
-            git checkout -b [
+            git checkout -b [分支] [标签]
+    7.查看信息
+        显示有变更的文件
+            git status
+        显示当前分支的版本历史
+            git log
+        显示commit历史,以及每次commit发生变更的文件
+            git log --stat
+        搜索提交历史,根据关键词
+            git log -S [密码]
+        显示某个commit之后的所有变动,每个commit占据一行
+            git log [标签] HEAD --pretty=format:%s
+        显示某个
