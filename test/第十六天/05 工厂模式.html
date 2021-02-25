@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>工厂模式</title>
+</head>
+<body>
+<script>
+    //工厂模式:成批创建相似对象
+    //传统方式创建
+    /*var obj1 = new Object({
+        name : 'Tom',
+        age: 15,
+        fn: function(){
+            return this.name + this.age;
+        }
+    })
+    var obj2 = new Object({
+        name : 'Mickle',
+        age: 18,
+        fn: function(){
+            return this.name + this.age;
+        }
+    })
+    console.log(obj1,obj2)*/
+
+    //传统创建相似对象的缺陷:代码重复率太高
+
+    //工厂模式创建对象
+    function createObj(name, age){
+        var obj = new Object();
+        obj.name = name;
+        obj.age = age;
+        obj.fn = function(){
+            return this.name + this.age;
+        }
+        return obj;
+    }
+    var obj3 = createObj('张三', 16);
+    var obj4 = createObj('李四', 19);
+    console.log(obj3,obj4)
+
+    console.log(typeof obj3,typeof obj4)//typeof一般用来获取基本数据类型;而引用类型返回的都是object
+    // instanceof:用来测试引用类型的实例属于哪一个类
+    console.log(obj3 instanceof Object,obj4 instanceof Object)//ture ture
+    var x = 100;
+    var y = 'abc';
+    console.log(typeof x,typeof y);
+
+    var obj5 = {gname:'xxxx',price: 12.9}
+    var arr = [1,2,3];
+    var fn = new Function('console.log(1111)');
+    console.log(typeof obj5,typeof arr,typeof fn);
+    console.log(arr instanceof Array)//ture
+    console.log(arr instanceof Object)//ture
+    //所有的引用类型都属于Object的实例
+
+    //构造函数创建对象
+    //创建构造函数(类)
+    function Person(name,age=18){    //构造函数名首字母要大写(这里创建的不止是一个函数,实际上是构建了一个类
+        this.name = name;   //this代表的不是person,而是实例化后的对象
+        this.age = age;
+        this.fn = function() {
+            return this.name + this.age;
+        }
+    }
+    //实例化对象
+    var obj7 = new Person('武松',28);//实例化时this指向该对象obj7
+    var obj8 = new Person('武大');    //实例化时this指向该对象obj8
+    console.log(obj7)
+    console.log(obj7.name)
+    console.log(obj7.fn())
+
+    console.log(obj7 instanceof Object)// true
+    console.log(obj7 instanceof Person)// true
+</script>
+</body>
+</html>

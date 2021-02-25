@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定义数组</title>
+</head>
+<body>
+<script>
+    //a.new
+    var arr1 = new Array();//创建一个空数组,这里的arr1为数组名,存储的是该数组的首地址.
+    arr1.push(1);
+    arr1.push(true);
+    arr1.push('abc');
+    for(var i=1;i<=10;i++){
+        arr1.push(i);
+
+    }
+    console.log(arr1);
+
+    var arr2 = new Array(123,false,null,'aaa');//创建一个数组,同时对该数组进行初始化
+    console.log(arr2);
+    //b.字面量创建
+    var arr3 = [];//创建一个空数组,这里的arr3
+    arr3.push(3);
+    arr3.push(true);
+    arr3.push('abc');
+    console.log(arr3);
+
+    var arr4 = [1,2,3,'aaa',true];//创建一个数组,同时对该数组进行初始化.在实际项目开发中,一个数组中尽量存放同一种类型的数据.
+
+
+
+</script>
+</body>
+</html>

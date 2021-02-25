@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        .box1{
+            width: 0;
+            height: 0;
+            border-color:transparent #eee transparent transparent;
+            border-style: solid;
+            border-width: 100px 8px 0 0;
+        }
+        .box2{
+            width: 160px;
+            height: 23px;
+            border: 1px solid red;
+            margin: 0 auto;
+        }
+        .box2 span:nth-child(1){
+            position: relative;
+            float: left;
+            width: 90px;
+            height: 100%;
+            background-color: red;
+            text-align: center;
+            font-weight: 700;
+            color: #fff;
+        }
+        .box2 span i{
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 0;
+            height: 0;
+            border-color: transparent #ffffff transparent transparent;
+            border-width: 23px 10px 0 0;
+            border-style: solid;
+        }
+    </style>
+</head>
+<body>
+<div class="box1"></div>
+<div class="box2">
+    <span>1650
+        <i></i>
+    </span>
+    <span>5000</span>
+</div>
+
+</body>
+</html>

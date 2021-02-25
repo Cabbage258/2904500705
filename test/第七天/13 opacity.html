@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>opacity</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        ul{
+            width: 550px;
+            height: 44px;
+            line-height: 44px;
+            margin:100px auto 0;
+        }
+        ul li{
+            display: inline-block;
+            width: 100px;
+            text-align: center;
+            background: #0927ec;
+            color:#fff;
+        }
+        ul li+li{
+            margin-left: -5px;
+        }
+        ul li:hover{
+            opacity:0.75;/*IE8以上识别该行代码*/
+            filter:alpha(opacity=75);/*IE8及IE8以下版本不识别上一行代码,但识别该行代码*/
+            color: #eae3e3;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>菜单项1</li>
+        <li>菜单项2</li>
+        <li>菜单项3</li>
+        <li>菜单项4</li>
+        <li>菜单项5</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>draft1</title>
+    <script src="./charts-project/js/jquery.min.js"></script>
+</head>
+<body>
+<div class="flxBox1_2">
+    <div class="temp">
+        <a href="javascript:" class="flxBox1_2_current1">故障设备监控</a><span>丨</span><a href="javascript:" class="flxBox_1_2_current2">异常设备监控</a><br/>
+    </div>
+    <div class="flxBox1_2_row2">
+        <span>故障时间</span><span>设备地址</span><span>异常代码</span>
+    </div>
+    <div class="flxBox1_2Content" style="display:block">
+        <p>001</p>
+        <p>002</p>
+        <p>003</p>
+        <p>004</p>
+        <p>005</p>
+        <p>006</p>
+        <p>007</p>
+        <p>008</p>
+        <p>009</p>
+        <p>010</p>
+    </div>
+    <div class="flxBox1_2Content" style="display:none">
+        <p>001</p>
+        <p>002</p>
+        <p>003</p>
+        <p>004</p>
+        <p>005</p>
+        <p>006</p>
+        <p>007</p>
+        <p>008</p>
+        <p>009</p>
+        <p>010</p>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    $(function(){
+        $('.flxBox1_2').on('click','a',function(){
+            $(this).addClass('active').siblings().removeClass('active');
+            $('.flxBox1_2 .flxBox1_2Content').eq(this.dataset.index).show().siblings('.flxBox1_2Content').hide()
+        })
+    })
+</script>

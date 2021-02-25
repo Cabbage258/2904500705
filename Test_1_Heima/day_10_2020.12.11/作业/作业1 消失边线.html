@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        header{
+            width: 300px;
+            margin:0 auto;
+        }
+        header ul{
+
+        }
+        header ul li{
+            display: inline-block;
+            margin-top: 5px;
+            border-right: 1px solid #000;
+            font-size: 18px;
+            line-height: 20px;
+            text-align: center;
+            width: 96px;
+            box-sizing: border-box;
+        }
+        header ul li:nth-child(3n),header ul li:last-child{
+            border-right: none;
+        }
+
+    </style>
+</head>
+<body>
+<header>
+    <ul>
+        <li>测试</li>
+        <li>消失</li>
+        <li>边界线</li>
+        <li>右侧</li>
+        <li>边界线</li>
+        <li>消失</li>
+        <li>测试</li>
+    </ul>
+</header>
+</body>
+</html>

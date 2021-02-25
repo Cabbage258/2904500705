@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>立即执行函数的作用</title>
+</head>
+<body>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>
+<script>
+    //立即执行函数的作用只有一个:创建一个独立的作用域.这个作用域里面的变量,外面访问不到.
+    /*var ul = document.querySelector('ul')
+    var liList = document.querySelectorAll('li');
+    for(var i = 0;i < liList.length;i++){
+        liList[i].onclick = function(){
+            console.log(i)
+        }
+        console.log(1)
+    }*/
+    //由于for循环所在环境为全局,所以for循环条件声明的i是全局变量,因此
+    /*for (var i = 0;i < 5;i++){
+        setTimeout(function(){
+            console.log(i)
+        },1000)
+    }
+    console.log(i)*/
+    //先打印5,一秒后打印5个5,由于计时器在for循环内,所以5个5几乎同时输出
+    for (var i = 0; i < 5;i++){
+        (function(i){
+            setTimeout(function(){
+                console.log(i)
+            },i * 1000)
+        })(i)
+    }
+    //输出0-4,每次循环比上次多1000毫秒,循环几乎瞬间完成,所以每个i比上个i晚打印1秒
+    setTimeout(function(){
+        console.log(i)
+    },i * 1000)
+    //i为5时第五秒输出5
+</script>

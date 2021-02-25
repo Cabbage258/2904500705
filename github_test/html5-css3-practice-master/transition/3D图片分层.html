@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D 图片分层 </title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      cursor: pointer;
+      position: relative;
+      width: 360px;
+      height: 640px;
+      margin-top: 150px;
+      background-color: rgba(0, 0, 0, .2);
+      transform: rotate(-30deg) skew(25deg) scale(.8);
+      transition: .5s;
+    }
+    .container img {
+      position: absolute;
+      width: 100%;
+      transition: .5s;
+    }
+    .container:hover img:nth-child(4) {
+      transform: translate(160px, -160px);
+      opacity: 1;
+    }
+    .container:hover img:nth-child(3) {
+      transform: translate(120px, -120px);
+      opacity: .8;
+    }
+    .container:hover img:nth-child(2) {
+      transform: translate(80px, -80px);
+      opacity: .6;
+    }
+    .container:hover img:nth-child(1) {
+      transform: translate(40px, -40px);
+      opacity: .4;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="../assets/images/img1.jpg" alt="">
+    <img src="../assets/images/img1.jpg" alt="">
+    <img src="../assets/images/img1.jpg" alt="">
+    <img src="../assets/images/img1.jpg" alt="">
+  </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+1.HTML是一种超文本标记语言,他不属于编程语言.
+2.HTML5是2014年后推出的,他是公认的下一代web语言,是重要的网络推手.
+3.HTML具有简易型,可扩展性,平台无关性和通用性等特点,2
+4.网页分为静态和动态两种
+5.五大主流浏览器:IE(Edge),FireFox,Chrome,Opera,safari
+6.浏览器内核由渲染引擎和JS引擎两部分组成
+    内核:Trident(IE),gECKO(FireFox),Webkit(safari/chrome)Blink(chrome/opera)
+    国内大多数浏览器采用的双核驱动(Trident&Webkit 或 Trident&Blink)
+    移动端:iphone/ipad采用的是webkit内核,android4.4以下版本采用webkit内核,而4.4以上版本采用的是Blink内核
+7.常用的专业开发工具有
+8.
+9.标签分为块级和行级(内联)两种
+    块级独占一行,书别狂傲,如果不设置,宽度为整行宽度,高度为内容实际高度;
+    行级不独占一行,不能设置宽高,宽高分别为内容实际宽高.
+    块级标签可以通过设置样式:display:inline; 转换为行级标签而行级标签可以通过设置样式 display:block;转换为块级标签
+
+    学过的块级标签有:
+                    div,p,h1-h6t,ul,ol,pre,table,address等
+          行级标签:
+                    span,a,b,strong,i,em,sup,sub
+        img属于行级块标签.相当于执行了display:inline-block;操作,
+10.w3c规范是由结构,表现和行为三部分组成.
+11.w3c中的嵌套规范
+    1)块级标签可以包含行级元素,但行级元素只能包含行级元素
+    2)p,h1-h6,dt等标签中只能包含行级标签,不能再包含块级标签.
+    3)块级元素与块级元素并列,行级元素与行级元素并列
+12.在开发过程中,尽量要使用语义化标签.

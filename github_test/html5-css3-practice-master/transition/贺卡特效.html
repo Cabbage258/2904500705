@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>skew 贺卡</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        div {
+            width: 200px;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #e74c3c;
+            color: white;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: perspective(900px) rotateX(45deg) rotateY(15deg);
+        }
+        
+        div::before,
+        div::after {
+            position: absolute;
+            transition: 2s;
+            width: 50%;
+            height: 100%;
+            background: tomato;
+            color: whitesmoke;
+            box-sizing: border-box;
+        }
+        
+        div::before {
+            left: 0;
+            top: 0;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            content: '新年';
+            padding-right: 10px;
+            border-right: 1px solid red;
+            transform-origin: left;
+        }
+        
+        div::after {
+            right: 0;
+            top: 0;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            content: '快乐';
+            padding-left: 10px;
+            border-left: 1px solid red;
+            transform-origin: right;
+            ;
+        }
+        
+        div:hover {
+            cursor: pointer;
+        }
+        
+        div:hover::before {
+            transform: rotateY(-180deg);
+        }
+        
+        div:hover::after {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        liguirong
+    </div>
+</body>
+
+</html>

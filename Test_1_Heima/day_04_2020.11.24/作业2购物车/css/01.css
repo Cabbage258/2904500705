@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    display: block;
+    width: 67px;
+    height: 31px;
+    background: url(../images/shopcar_01.png);
+}
+
+a:hover {
+    background: url(../images/shopcar_02.png);
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浮动</title>
+    <style>
+        .wrapper{
+            width:600px;
+            margin:0 auto;
+            border:1px solid #666;
+            /*overflow:hidden;!*清除浮动方法2*!*/
+        }
+        .wrapper:after{/*清除浮动方法3*/
+            content:"";
+            display:block;
+            clear:both;
+        }
+        .box1,.box2,.box3{
+            width: 200px;
+            height: 150px;
+        }
+        .box1{
+            background-color: #ff0000;
+            float:left;
+        }
+        .box2{
+            background-color: #217aff;
+            float:right;
+        }
+        .clear{
+            clear:both;
+        }
+        .box3{
+            background-color: #58ff62;
+        }
+
+    </style>
+</head>
+<body>
+<!--    <div class="wrapper">
+        <div class="box1">box1</div>&lt;!&ndash;这里的div属于块级标签,会独占一行&ndash;&gt;
+        <div class="box2">box2</div>
+        &lt;!&ndash;清除浮动方法1&ndash;&gt;
+        <div class="clear"></div>
+        <div class="box3">box3</div>
+    </div>-->
+
+    <div class="wrapper">
+        <div class="box1">box1</div><!--这里的div属于块级标签,会独占一行-->
+        <div class="box2">box2</div>
+    </div>
+    <div class="box3">box3</div>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>左侧固定,中间自适应,右侧固定</title>
+    <style>
+        .container{
+            color: #fff;
+            overflow: hidden;
+        }
+        .left,.right{
+            float: left;
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            position:relative;
+        }
+        .left{
+            background-color: #00ff00;
+            margin-right: -200px;
+            width: 200px;
+        }
+        .center{
+            width: 100%;
+            line-height: 200px;
+            float: left;
+            background-color: #ff0;
+        }
+        .content{
+            margin: 0 200px;
+        }
+        .right{
+            width: 150px;
+             background-color: #0ff;
+            margin-left: -150px;
+         }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">左侧固定</div>
+        <div class="center">
+            <div class="content">中间自适应</div>
+        </div>
+        <div class="right">右侧固定</div>
+    </div>
+</body>
+</html>

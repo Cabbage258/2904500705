@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>translate</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: #f00;
+            /*margin: 200px auto;*/
+            /*-webkit-transform:translate(100px,200px);!*兼容谷歌和苹果*!
+            -moz-transform:translate(100px,200px);!*兼容火狐*!
+            -ms-transform:translate(100px,200px);!*兼容IE*!
+            -o-transform:translate(100px,200px);!*兼容Opera*!
+            transform:translate(100px,200px);!*W3C浏览器*!*/
+
+            /*-webkit-transform:translate(-100px,200px);
+            -moz-transform:translate(-100px,200px);
+            -ms-transform:translate(-100px,200px);
+            -o-transform:translate(-100px,200px);
+            transform:translate(-100px,200px);*/
+
+            /*-webkit-transform:translate(200px);!*如果只带一个参数,这个参数代表的是X方向位移值.Y方向位移为0*!
+            -moz-transform:translate(200px);
+            -ms-transform:translate(200px);
+            -o-transform:translate(200px);
+            transform:translate(200px);*/
+
+            /*-webkit-transform:translateX(200px);
+            -moz-transform:translateX(200px);
+            -ms-transform:translateX(200px);
+            -o-transform:translateX(200px);
+            transform:translateX(200px);*/
+
+            -webkit-transform:translateY(200px);
+            -moz-transform:translateY(200px);
+            -ms-transform:translateY(200px);
+            -o-transform:translateY(200px);
+            transform:translateY(200px);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+
+    </div>
+</body>
+</html>

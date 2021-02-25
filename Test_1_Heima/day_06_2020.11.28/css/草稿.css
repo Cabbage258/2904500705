@@ -1,0 +1,22 @@
+/*父级添加after伪元素*/
+*{
+    margin:0;
+    padding:0;
+}
+a{
+    text-decoration: none;
+}
+li{
+    list-style-type:none;
+}
+
+.clearfix:after{
+    content:"";
+    display:block;
+    height: 0;
+    clear:both;
+    visibility:hidden;
+}
+.clearfix{
+    *zoom:1;
+}

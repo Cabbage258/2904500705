@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>date</title>
+</head>
+<body>
+<script>
+    /*var time = new Date()
+    console.log(time)*/
+
+    /*var date1 = Date.now()
+    console.log(date1)
+
+    var date2 = new Date()
+    console.log(date2.getFullYear())//当前年份
+    console.log(date2.getMonth())//当前月份(索引0-11)
+    console.log(date2.getDate())//号
+    console.log(date2.getDay())//索引周日-周一(0-6)
+
+    var year = date2.getFullYear(),month = date2.getMonth(),dates = date2.getDate(),day = date2.getDay(),arr = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六',]
+    console.log(' 今天是 ' + year + ' 年 ' + (month + 1) + ' 月 ' + dates + ' 日 ' + arr[day])*/
+
+
+
+
+
+    //需求:倒计时
+    //当前时间,未来时间
+    var nowTime = new Date(),futureTime = new Date('2021-02-05 17:00:00')
+    console.log(futureTime - nowTime + 'ms')//毫秒差值    1s = 1000ms
+    //一天 == 24 * 60 * 60 s
+    var second = (Math.floor((futureTime - nowTime) / 1000))//倒计时秒
+    var day = Math.floor(second / 60 / 60 / 24),hour = Math.floor(second / 60 / 60 - day * 24),minute = Math.floor(second / 60 - day * 24 * 60 - hour * 60),second1 = Math.floor(second - day * 24 * 60 * 60 - hour * 60 * 60 - minute * 60 )
+    console.log(day)//剩余天
+    console.log(hour)//剩余小时
+    console.log(minute)//剩余分钟
+    console.log(second1)//剩余秒
+    day = day < 10 ? '0' + day : day//不够两位时补'0'
+    hour = hour < 10 ? '0' + hour : hour
+    minute = minute < 10 ? '0' + minute : minute
+    second1 = second1 < 10 ? '0' + second1 : second1
+    document.write('剩余' + day + '天' + hour + '小时' + minute + '分' + second1 + '秒')
+
+
+
+</script>
+</body>
+</html>

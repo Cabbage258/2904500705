@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画函数</title>
+    <style>
+        .div1{
+            position: relative;
+            width: 50px;
+            height: 50px;
+            background-color: skyblue;
+        }
+        .div2{
+            position: relative;
+            width: 60px;
+            height: 60px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+<div class="div1"></div>
+<div class="div2"></div>
+</body>
+<script>
+    //抓取DOM
+    var div1 = document.querySelector('.div1')
+    var div2 = document.querySelector('.div2')
+    // 获得盒子当前位置
+    //div.offsetLeft
+
+    // 让盒子在当前位置+1个单位的移动距离
+    //div.style.left = div.offsetLeft + 1 + 'px'
+
+
+    // 定时器重复
+    /*setInterval(function(){
+        div.style.left = div.offsetLeft + 1 + 'px'
+    })*/
+
+
+    // (条件)结束定时器
+    /*var timer = setInterval(function(){
+        //到指定位置(条件)停下
+        if(div.offsetLeft >= 600){
+            //停止定时器  停止动画
+           clearInterval(timer)
+        }
+        div.style.left = div.offsetLeft + 1 + 'px'
+    },30)*/
+
+    //封装
+
+    /*function animate(obj,target,ms){
+    var timer = setInterval(function(){
+        //到指定位置(条件)停下
+        if(obj.offsetLeft >= target){
+            //停止定时器  停止动画
+            clearInterval(timer)
+        }
+        obj.style.left = obj.offsetLeft + 1 + 'px'
+    },ms)}
+    animate(div1,600,100)
+    animate(div2,400,300)*/
+
+    //
+    function animate(obj,target,ms){
+        //防止绑定事件内重复触发绑定事件导致该函数重复调用,每次调用都清除一次之前添加的定时器
+        //确保每次调用只有一个定时器在运作
+        clearInterval(obj.timer)
+        //定时器作为属性添加到元素对象
+    obj.timer = setInterval(function(){
+        //到指定位置(条件)停下
+        if(obj.offsetLeft >= target){
+            //停止定时器  停止动画
+            clearInterval(obj.timer)
+        }
+        obj.style.left = obj.offsetLeft + 1 + 'px'
+    },ms)}
+    animate(div1,600,50)
+    animate(div2,400,20)
+
+</script>
+</html>

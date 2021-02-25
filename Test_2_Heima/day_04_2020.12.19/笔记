@@ -1,0 +1,142 @@
+1.变形(transform)
+    translate(x,y) 定义2D转换,沿着x轴和y轴移动元素.                    位移效果
+    translateX(n)  定义2D转换,沿着x轴移动元素.
+    translateY(n)  定义2D转换,沿着y轴移动元素.
+    translate3d(x,y,z) 定义3D转换,沿着x,y,z轴移动元素.(三个值必须给出)
+
+    Tips:
+        
+
+    scale(x,y)     定义2D缩放转换,改变元素的宽度和高度.                 缩放效果
+    scaleX(n)      定义2D缩放转换,改变元素的宽度.
+    scae(angle)  定义2D旋转,在参数中规定角度.(-360deg,360deg)         旋转效果
+
+    skew(x-angle,y-angle) 定义2D倾斜旋转,沿着x轴和y轴.                  变形效果
+    skewX(angle)    定义2D倾斜旋转,沿着x轴.
+    skewY(angle)    定义2D倾斜旋转,沿着y轴.
+
+    matrix:矩阵,爪巴
+
+    Tips:
+        i)百分比值相对于自身;translate只有一个值为x轴.
+        ii)2d,x轴,y轴将跟随rotate变动.
+        iii)transform偏移旋转:先偏移,后旋转.
+        iv)scale内的值为倍数,1倍为原长宽.
+        v)x,y,z轴旋转方向:
+            轴正方向即为入视方向,正值为顺时针.
+
+
+
+2.transform-origin:调整元素的基点(旋转中心)
+    transform-origin:x-axis y-axis z-axis:
+    属性值:
+        x-axis:定义视图被置于x轴的何处.可能的值:left,center,right,length,%
+        y-axis:定义视图被置于y轴的何处.可能的值:left,center,bottom,length,%
+        z-axis:定义视图被置于z轴的何处.可能的值:length.
+
+3.perspective   
+    让子元素获取透视效果
+    perspective:length | none;
+    指定观察者与[z=0]平面的距离,使具有三维位置变换的元素产生透视效果.三维元素的大小程度由该属性值决定
+    主流浏览器都不支持,谷歌要加-webkit-,或者在长度后面加单位.
+        
+        a.直接给body
+            i) 直接给body的时候 如果里边子盒子的父类没有做旋转 那么子类 也会有透视效果.
+            ii)直接给body的时候 如果父类做了旋转 那么子类 就不会有透视效果(如果想让子类有 那么要加上transform-style: preserve-3 必须给子类的父元素才可以)
+        
+        b.直接给父类添加透视
+
+4.transform-style
+    在3D空间中呈现被嵌套的元素.(该属性必须与transform属性一同使用).
+
+    transform-style:flat | preserve-3d(子元素开启立体空间);
+
+5.rotateZ 
+    沿着Z轴的方向顺时针旋转.
+
+6.transition过渡动画
+    1)常规用法
+        transition-property
+        transition-duration
+        transition-timing-function
+        transition-delay
+    2)简洁(复合)用法:
+        transition:property-name-list|all duration timing-function delay;
+
+        a)要过渡的属性,可以使用的属性有:
+            i)颜色:
+                color background-color border-color outline-color
+            ii)位置:
+                background-position left right top bottom
+            iii)长度:
+                ma-height min-height max-width min-width height width
+                border-width margin padding outline-width outline-offset
+                font-size line-height text-indent vertical-aline
+                border-spacing letter-spacing word-spacing
+            iv)数字:
+                opacity visibility z-index font-weight zoom
+            v)组合:
+                text-shadow transform box-shadow clip
+            vi)其他:
+                gradient
+            all:全部属性过渡
+        b)duration:动画持续时间,一般以秒(s)或毫秒(ms)为单位
+        c)timing-function:动画函数
+            i)linear:匀速
+            ii)ease:变速(先慢后快,最后再慢)
+            iii)ease-in:变速(由慢到快)
+            iv)ease-out:变速(由快到慢)
+            v)ease-in-out:变速(慢速开始,慢速结束)
+            vi)cubic-bezier(n,n,n,n):自行设定变速,n的值在0-1之间
+        d)delay:动画延时时间,一般以秒(s)或毫秒(ms)为单位
+
+7.关键帧动画
+    步骤:
+        1)设置关键帧
+            a)如果只有两个关键帧:
+                   @keyframes 动画名称{
+                    0%:{样式表}
+                    100%:{样式表}
+                }
+                或:
+                @keyframes 动画名称{
+                                from:{样式表}
+                                to:{样式表}
+                }
+            b)如果是多个关键帧:
+                @keyframes 动画名称{
+                    0%:{样式表}
+                    25%:{样式表}
+                    60%:{样式表}
+                    ...
+                    100%:{样式表}
+                } 
+                注意:这里的百分比一般是升序值,可以是0%-100%之间的任意值,也可以使倒序.
+        
+        2)实施动画
+            a)常规用法
+                animation-name:来自于@keyframes定义的动画名
+                animation-duration:动画持续时间,一般以秒(s)或毫秒(ms)为单位(默认为0)
+                animation-timing-function:动画函数
+                    i)linear:匀速
+                    ii)ease:变速(先慢后快,最后再慢)(默认值)
+                    iii)ease-in:变速(由慢到快)
+                    iv)ease-out:变速(由快到慢)
+                    v)ease-in-out:变速(慢速开始,慢速结束)
+                    vi)cubic-bezier(n,n,n,n):自行设定变速,n的值在0-1之间
+                    vii)steps(<integer>[, [ start | end ] ]?)：
+                        接受两个参数的步进函数。第一个参数必须为正整数，指定函数的步数。
+                        第二个参数取值可以是start或end，指定每一步的值发生变化的时间点。第二个参数是可选的，默认值为end。
+                animation-delay:动画延时时间,一般以秒(s)或毫秒(ms)为单位
+                animation-iteration-count:动画循环的次数
+                    1)number:按设定次数循环(默认次数为1次)
+                    2)infinite:一直循环播放
+                animation-direction:动画播放完后是否反向播放    
+                    1)normal:不反向(默认值)
+                    2)alternate:反向
+                animation-play-state:动画播放或停止播放
+                    1)paused:停止播放
+                    2)running:播放(默认值)
+                animation-play-state
+            b)简洁用法
+                animation:name duration timing-function delay iteration-count direction;

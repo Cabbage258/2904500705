@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>XMLHttpRequest</title>
+    <script src="lib/jquery.js"></script>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    //XMLHttpRequest本身是一个构造函数
+    var xhr = new XMLHttpRequest()
+    console.log(xhr.__proto__ === XMLHttpRequest.prototype)
+    */
+    //使用XMLHttpRequest
+    /*
+    //发起get请求
+    //  实例化XMLHttpRequest
+        var xhr = new XMLHttpRequest()
+        console.log(xhr.readyState)
+    //  使用open()方法初始化一个请求
+        xhr.open('get','http://www.liulongbin.top:3006/api/getbooks?id=1&bookname=%e8%a5%bf%e6%b8%b8%e8%ae%b0',true)
+        console.log(xhr.readyState)
+    //  绑定监听事件
+        xhr.onreadystatechange = function(){
+            console.log(xhr.responseText)
+            console.log(xhr.readyState)
+        }
+        console.log(xhr.readyState)
+    //设置HTTP请求头信息(前提是已经调用open()方法打开了一个url)
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+        console.log(xhr.readyState)
+    //使用send()方法发送请求.(所有相关的事件绑定必须在调用该方法之前完成)
+        xhr.send()
+    console.log(xhr.readyState)
+    */
+
+    //发起post请求
+        //实例化XMLHttpRequest
+        let xhr1 = new XMLHttpRequest();
+        //使用open()方法初始化请求
+        xhr1.open('post','http://www.liulongbin.top:3006/api/addbook',true)
+        //绑定监听事件
+        /*xhr1.onreadystatechange = function() {
+            console.log(xhr1.readyState)
+            if (xhr1.readyState === 4 && xhr1.status === 200) {
+                console.log(xhr1.responseText)
+            }
+        }*/
+        xhr1.addEventListener('readystatechange',function(){
+            console.log(xhr1.readyState)
+            if(xhr1.readyState === 4 && xhr1.status === 200){
+                console.log(xhr1.responseText)
+            }
+        })
+    //设置HTTP请求头信息
+        xhr1.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+    //使用send()方法发送请求
+        xhr1.send('bookname=新华字典3&author=新华字典&publisher=新华出版社')
+
+</script>

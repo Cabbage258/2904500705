@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基本选择器</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script>
+        //如果JQ代码写在body前,必须将代码写在ready事件中,ready事件表示所有DOM加载完成之后才执行
+        /*$(document).ready(function(){
+            console.log($('.box'))
+        })*/
+
+        // 简化写法
+        /*$(function(){
+            console.log($('.box'))
+        })
+        $(function(){               //ready事件可以写多个,相当于JS中的onload事件,区别:ready事件可以出现多次;onload一个页面中只能出现一次
+            console.log($('.box'))
+        })*/
+        $(function(){
+            $('#box').css({
+                color:'blue',
+                background:'#ccc'
+            })
+        })
+
+        $(function(){
+            $('.box').css({
+                color:'red',
+                background:'#000',
+                //'margin-bottom':'10px',
+                marginBottom:'10px',
+            })
+        })
+        $(function(){
+            $('p').css({
+                color:'green',
+                fontSize:'18px',
+            })
+        })
+        /*$(function(){
+            console.log($('*'))
+        })*/
+
+        //逗号
+        $(function (){
+            $('#box,.box,p').click(function(){
+                console.log($(this).html())
+            })
+        })
+
+    </script>
+</head>
+<body>
+<div class="box">class</div>
+<div class="box">class</div>
+<div class="box">class</div>
+<div id="box">id</div>
+<p>123456</p>
+<p>123456</p>
+<p>123456</p>
+
+
+
+</body>
+<!--<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+<script>
+    console.log($('.box'))
+</script>-->
+</html>

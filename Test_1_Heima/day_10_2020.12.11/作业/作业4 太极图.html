@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>太极图</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #cccccc;
+        }
+        .box{
+            position: relative;
+            margin:100px auto;
+            width: 300px;
+            height: 300px;
+            background:linear-gradient(to right,#000 50%,#fff 50%);
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            transition: all 2s ;
+            -webkit-animation: move 3s linear infinite;
+            -o-animation: move 3s linear infinite;
+            animation: move 3s linear infinite;
+            -webkit-box-shadow: 0 0 20px #4e4e4e;
+            -moz-box-shadow: 0 0 20px #4e4e4e;
+            box-shadow: 0 0 20px #4e4e4e;
+        }
+        .box:after{
+            content:"";
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+            background: radial-gradient(at 172px 215px,rgba(0, 0, 0, .1),rgba(0,0,0,.3),rgba(0,0,0,.5),rgba(0,0,0,.1));
+        }
+        .box1,.box2{
+            position: absolute;
+            left: 25%;
+            width: 50%;
+            height: 50%;
+            box-sizing: border-box;
+            border-radius: 50%;
+        }
+        .box1{
+            top: 0;
+            background-color: #fff;
+            border:60px solid #000;
+            -webkit-animation: colorone 2s linear infinite;
+            -o-animation: colorone 2s linear infinite;
+            animation: colorone 2s linear infinite;
+        }
+        .box2{
+            top: 50%;
+            background-color: #000;
+            border:60px solid #fff;
+            -webkit-animation: colortow 2s linear infinite;
+            -o-animation: colortow 2s linear infinite;
+            animation: colortow 2s linear infinite;
+        }
+        /*.box:hover{
+            transform: rotate(360deg);
+        }*/
+        @keyframes move {
+             0%{
+                 transform:rotate(0deg);
+                 top:0;
+
+        }
+            50%{
+                transform:rotate(180deg);
+                top:200px;
+            }
+            100%{
+                transform: rotate(360deg);
+                top: 0;
+            }
+        }
+
+        /*@keyframes colorone {
+            0%{
+                background-color: #fff;
+                border:60px solid #000;
+            }
+            100%{
+                background-color: #000;
+                border:60px solid #fff;
+            }
+        }
+        @keyframes colortow {
+            0%{
+                background-color: #000;
+                border:60px solid #fff;
+            }
+            100%{
+                background-color: #fff;
+                border:60px solid #000;
+            }
+        }*/
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="box1"></div>
+        <div class="box2"></div>
+    </div>
+
+</body>
+</html>

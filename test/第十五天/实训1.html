@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实训1</title>
+</head>
+<body>
+
+<script>
+    //需求:使用正则表达式校验密码:只能输入6-20个字母、数字、下划线.
+    var password = prompt('请输入要验证的密码:');
+    var reg = /^[A-Za-z0-9_]{6,20}$/;
+    if(!reg.test(password)){
+        alert('您输入的密码格式不正确,请输入由6-20个字母、数字、下划线组成的密码!');
+    }
+</script>
+</body>
+</html>

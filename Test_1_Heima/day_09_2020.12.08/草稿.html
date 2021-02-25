@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        /*span:first-child{
+            color:skyblue;
+            font-size: 28px;
+            background-image: linear-gradient(60deg,red,orange,yellow,green,blue,blueviolet);
+            !*指定前景内容形状作为剪裁区域,然后文字填充为透明,显示效果为剪裁区域颜色*!
+            -webkit-background-clip: text;!* 从前景内容的形状（比如文字）作为裁剪区域向外裁剪，如此即可实现使用背景作为填充色之类的遮罩效果。*!
+            -webkit-text-fill-color: transparent;!*指定文字的填充颜色*!
+        }*/
+        .row1:before{
+            font-family: icomoon;
+            content:"\e900";
+            color:red;
+        }
+        .box1{
+            width: 0;
+            height: 0;
+            /*border:50px solid blue;*/
+            border-bottom:50px solid ;
+            border-image: linear-gradient(-60deg,red,orange,yellow,green,aqua,blue,purple) 50 round;
+        }
+        .box2{
+            width: 0;
+            height: 0;
+            border: 10px solid pink;
+            border-top:10px solid red;
+        }
+        .jd{
+            margin-top: 20px;
+            width: 120px;
+            height: 249px;
+            position: relative;
+            background-color: #eee;
+        }
+        .jd span{
+            position: absolute;
+            right: 15px;
+            top: -10px;
+            width: 0;
+            height: 0;
+            line-height: 0;
+            font-size: 0;
+            border: 5px solid transparent;
+            border-image: linear-gradient(-60deg,red,orange,yellow,green,aqua,blue,purple) round;
+            border-bottom-color: #eee;
+        }
+    </style>
+</head>
+<body>
+    <span class="icomoon icon-apache">1</span>
+    <span class="icomoon row1"></span>
+    <span class="icon-angellist"></span>
+    <br />
+    <br />
+    <br />
+
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="jd"><span></span></div>
+</body>
+</html>

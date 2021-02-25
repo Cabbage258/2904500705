@@ -1,0 +1,51 @@
+Ajax
+    1)什么是Ajax?
+        ajax(Asynchronous Javascript And Xml:异步的JavaScript和XML),目的是让Javascript发送http请求.与后台通信,获取数据.
+        Ajax技术的原理是实例化xmlhttp对象,使用此对象与后台通信.在通信过程中不会影响后续的JS的执行,从而实现异步
+    2)同步和异步
+        同步就是第二件事的开始将在第一件事结束后执行.(第二件事依赖于第一件事的完成)
+        异步就是多件事同时进行.
+    3)局部刷新和无刷新
+        Ajax可以实现局部刷新,也叫无刷新,就是整个页面不刷新,只是局部刷新.
+        Ajax可以自己发送请求,不用通过浏览器地址栏,不会刷新页面.
+    4)用Ajax发送请求
+        写法1:
+            $.ajax({
+                type:'请求方式(GET(默认)/POST)',
+                url:'请求的文件名或后台接口地址',
+                async:true/false,                           //异步或同步,默认为true
+                data:{这次请求要携带的数据},
+                dataType:'json/jsonp/xml/text/javascript',  //返回的数据类型或解决跨域(jsonp)
+                success:function(res){                      //成功回调的处理
+                   成功回调的处理代码
+                },
+                error:function(err){                        //失败回调的处理
+                   失败回调的处理代码
+                },
+                timeout:时间(毫秒),                          //请求超时时间
+                ...
+            })
+        写法2:
+            $.ajax({
+                type:'请求方式(GET(默认)/POST)',
+                url:'请求的文件名或后台接口地址',
+                async:true/false,                           //异步或同步,默认为true
+                data:{这次请求要携带的数据},
+                dataType:'json/jsonp/xml/text/javascript',  //返回的数据类型或解决跨域(jsonp)
+                timeout:时间(毫秒),                          //请求超时时间
+                ...
+            }).done(function(){                             //成功回调的处理
+                ...
+            }).fail(function(){                             //失败回调的处理
+                ...
+            })
+        写法3:
+            $.ajax({
+                type:'请求方式(GET(默认)/POST)',
+                url:'请求的文件名或后台接口地址',
+                async:true/false,                           //异步或同步,默认为true
+                data:{这次请求要携带的数据},
+                dataType:'json/jsonp/xml/text/javascript',  //返回的数据类型或解决跨域(jsonp)
+                timeout:时间(毫秒),                          //请求超时时间
+                ...
+            }).then(function(){成功回调的处理}).catch(function(){失败回调的处理})

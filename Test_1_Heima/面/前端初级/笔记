@@ -1,0 +1,328 @@
+1.前端需要注意哪些SEO
+    ·合理的title、description、keywords:
+        搜索对这三项的权重逐个减小
+            title值强调重点即可,重要关键词出现不要超过2次,而且要靠前,不同页面title要有所不同;
+            description把页面内容高度概括,长度合适,不可过分堆砌关键词,不同页面description有所不同;
+            keywords列举出重要关键词即可;
+    ·语义化的HTML代码,符合W3C规范:
+        语义化代码让搜索引擎容易理解网页
+    ·重要内容HTML代码放在最前面:
+        搜索引擎抓取HTML顺序是从上到下,有的搜索引擎对抓取长度有限制,保证重要内容一定会被抓取
+    ·重要内容不要用js输出:
+        爬虫不会执行js获取内容
+    ·少用iframe:
+        搜索引擎不会抓取iframe中的内容
+    ·非装饰性图片必须加alt
+    ·提高网站速度:
+        网站速度是搜索引擎排序的一个重要指标
+
+2.<img>的title和alt有什么区别
+
+3.HTTP的几种请求方法用途
+    ·GET方法
+        发送一个请求来取得服务器上的某一资源
+    ·POST方法
+        向URL指定的资源提交数据或附加新的数据
+    ·PUT方法
+        跟POST方法很像,也是向服务器提交数据,但是,它们之间有不同.PUT指定了资源在服务器上的位置,而POST没有
+    ·HEAD方法
+        只请求页面的首部
+    ·DELETE方法
+        删除服务器上的某资源
+    ·OPTIONS方法
+        它用于获取当前URL所支持的方法.如果请求成功,会有一个Allow的头包含类似"GET,POST"这样的信息
+    ·TRACE方法
+        TRACE方法被用于激发一个远程的,应用层的请求消息回路
+    ·CONNECT方法
+        把请求链接转换到透明的TCP/IP通道
+
+4.从浏览器地址栏输入url到显示页面的步骤
+    基础版:
+        ·浏览器根据请求的URL交给DNS域名解析,找到真实IP,向服务器发起请求;
+        ·服务器交给后台处理完成后返回数据,浏览器接收文件(HTML、JS、CSS、图像等);
+        ·浏览器对加载到的资源(HTML、JS、CSS等)进行语法解析,建立相应的内部数据结构(如HTML的DOM);
+        ·载入解析到的资源文件,渲染页面,完成.
+    &
+    详细简版:
+        1.从浏览器接收url到开启网络请求线程(这一部分可以展开浏览器的机制以及进程与线程之间的关系);
+        2.开启网络线程到发出一个完整的HTTP请求(这一部分涉及到dns查询,TCP/IP请求.五层因特网协议栈等知识);
+        3.从服务器接收到请求到对应后台接收到请求(这一部分可能涉及到负载均衡,安全拦截以及后台内部的处理等等);
+        4.后台和前台的HTTP交互(这一部分包括HTTP头部、响应码、报文结构、cookie等知识,可以提下静态资源的cookie优化,以及编码解码,如gzip压缩等);
+        5.单独拎出来的缓存问题,HTTP的缓存(这部分包括http缓存头部,ETag,catch-control等)
+        6.浏览器接收到HTTP数据包后的解析流程(解析html-词法分析然后解析成dom树、解析css生成css规则树,然后layout、painting渲染、复合图层的合成、GPU绘制、外链资源的处理、loaded和DOMContentloaded等);
+        7.CSS的可视化格式模型(元素的渲染规则,如包含块,控制框,BFC,IFC等概念);
+        8.JS引擎解析过程(JS的解释阶段,预处理阶段,执行阶段生成执行上下文,VO,作用域链、回收机制等等);
+        9.其他(可以拓展不同的知识模块,如跨域,web安全,hybrid模式等等内容);
+    &
+    详细版:
+        1.在浏览器地址栏输入URL.
+        2.浏览器查看缓存,如果请求资源在缓存中并且新鲜,跳转到转码步骤
+            a)如果资源未缓存,发起新请求
+            b)如果已缓存,检验是否足够新鲜,足够新鲜直接提供给客户端,否则与服务器进行验证
+            c)检验新鲜通常有两个HTTP头进行控制
+                Expires和Cache-Control:
+                    ·HTTP1.0提供Expires,值为一个绝对时间表示缓存新鲜日期
+                    ·HTTP1.1增加了 Cache-Control:max-age=,值为以秒为单位的最大新鲜时间
+        3.浏览器解析URL获取协议,主机,端口,path
+        4.浏览器组装一个HTTP(GET)请求报文
+        5.浏览器获取主机ip地址,过程如下:
+            a)浏览器缓存
+            b)本机缓存
+            c)hosts文件
+            d)路由器缓存
+            e)ISP DNS缓存
+            f)DNS递归查询(可能存在负载均衡导致每次IP不一样)
+        6.打开一个socket与目标IP地址,端口建立TCP链接,三次握手如下:
+            a)客户端发送一个TCP的SYN=1(建立连接),Seq=X的包到服务器端口
+            b)服务器发回SYN=1(建立连接),ACK=X+1(确认回复),Seq=Y的响应包   //半连接
+            c)客户端发送ACK=Y+1,Seq=Z                                //全连接
+        7.TCP链接建立后发送HTTP请求
+        8.服务器接受请求并解析,将请求转发到服务程序,如虚拟主机使用HTTP Host头部判断请求的服务程序
+        9.服务器检查HTTP请求头是否包含缓存验证信息,如果验证缓存新鲜,返回304等对应状态码
+        10.处理程序读取完整请求并准备HTTP响应,可能需要查询数据库等操作
+        11.服务器将响应报文通过TCP链接发送回浏览器
+        12.浏览器接受HTTP响应,然后根据情况选择关闭TCP链接或者保留重用,关闭TCP链接的四次挥手如下:
+            a)主动方发送Fin=1(断开连接),Ack=Z,Seq=X报文
+            b)被动方发送ACK=X+1,Seq=Z报文
+            c)被动方发送Fin=1,ACK=X,Seq=Y报文
+            d)主动方发送ACK=Y,Seq=X报文
+        13.浏览器检查响应状态码:是否为1XX,3XX,4XX,5XX,这些情况处理与2XX不同
+        14.如果资源可缓存,进行缓存
+        15.对响应进行解码(列如gzip压缩)
+        16.根据资源类型决定如何处理(假设资源为HTML文档)
+        17.解析HTML文档,构建DOM树,下载资源,构造CSSOM树,执行js脚本,这些操作没有严格的先后顺序,以下分别进行解释
+        18.构建DOM树:
+            a)Tokenizing:根据HTML规范将字符流解析为标记
+            b)Lexing:词法分析将标记转换为对象并定义属性和规则
+            c)DOM construction:根据HTML标记关系将对象组成DOM树
+        19.解析过程中遇到图片、样式表、js文件,启动下载
+        20.构建CSSOM树:00000000000
+            a)Tokenizing:字符流转换为标记流
+            b)Lexing:根据标记创建节点
+            c)CSSOM:节点创建CSSOM树
+        21.根据DOM树和CSSOM树构建渲染树
+            a)从DOM树的根节点遍历所有可见节点,不可见节点包括
+                i.script,meta这样本身不可见的标签.
+                ii.被css隐藏的节点,如display:none;
+            b)对每一个可见节点,找到恰当的CSSOM规则并应用
+            c)发布可视节点的内容和计算样式
+        22.js解析如下:
+            1.浏览器创建Document对象并解析HTML,将解析到的元素和文本节点添加到文档中,此时document.readystate为loading
+            2.HTML解析器遇到没有async和defer的script时,将他们添加到文档中,然后执行行内或外部脚本.这些脚本会同步执行,并且
+                在脚本下载和执行时解析器会暂停.这样就可以用document.write()把文本插入到输入流中.同步脚本经常简单定义函数和
+                注册事件处理程序,他们可以遍历和操作script和他们之前的文档内容.
+            3.当解析器遇到设置了async属性的script时,开始下载脚本并继续解析文档.脚本会在它下载完成后尽快执行,但是解析器不会停
+                下来等它下载.异步脚本禁止使用document.write(),它们可以访问自己script和之前的文档元素
+            4.当文档完成解析,document.readState变成interactive
+            5.所有defer脚本会按照在文档出现的顺序执行,延迟脚本能访问完整文档树,禁止使用document.write()
+            6.浏览器在Document对象上触发DOMContentLoaded事件
+            7.此时文档完全解析完成,浏览器可能还在等待如图片等内容加载,等这些内容完成载入并且所有异步脚本完成载入和执行,
+                document.readState变为complete,window触发load事件
+        23.显示页面(HTML解析过程中会逐步显示页面)
+5.如何进行网站性能优化
+        ·content方面
+            减少HTTP骑牛:合并文件、css精灵、inline Image
+            减少DNS查询:DNS缓存、将资源分布到恰当数量的主机名
+            减少DOM元素数量
+        ·Server方面
+            使用CDN
+            配置ETag
+            对组件使用Gzip压缩
+        ·Cookie方面
+            减小cookie大小
+        ·css方面
+            将样式表放到页面顶部
+            不使用css表达式
+            使用 不使用@import
+        ·Javascript方面
+            将脚本放到页面底部
+            将javascript和css从外部引入
+            压缩javascript和css
+            删除不需要的脚本
+            减少DOM访问
+        ·图片方面
+            优化图片L根据实际颜色需要要选择色深、压缩
+            优化css精灵
+            不要在HTML中拉伸图片
+    你有用过哪些前端性能优化的方法?
+        ·减少http请求次数:CSS Sprites,JS、CSS源码压缩、图片大小控制合适;网页Gzip,CDN托管,data缓存,图片服务器.
+        ·前端模版JS+数据,减少由于HTML标签导致的带宽浪费,前端用变量保存AJAX请求结果,每次操作本地变量,不用请求,减少请求次数
+        ·用innerHTML代替DOM操作,减少DOM操作次数,优化javascript行能
+        ·当需要设置的样式很多时设置className而不是直接操作style
+        ·少用全局变量、缓存DOM节点查找的结果.减少IO读取操作
+        ·避免使用CSS Expression (css表达式)又称Dynamic properties(动态属性)
+        ·图片预加载,将样式表放在顶部,将脚本放在底部 加上时间戳
+        ·避免在页面的主体布局中使用table,table要等其中的内容完全下载之后才会显示出来,显示比div+css布局慢
+    谈谈性能优化问题
+        ·代码层面:避免使用css表达式,避免使用高级选择器,通配选择器
+        ·缓存利用:缓存Ajax,使用CDN,使用外部js和css文件以便缓存,添加Expires头,服务端配置Etag减少DNS查找等
+        ·请求数量:合并样式和脚本,使用css图片精灵,初始首屏之外的图片资源按需加载,静态资源延迟加载
+        ·请求带宽:压缩文件,开启GZIP
+    前端性能优化最佳实践?
+        ·性能评级工具(PageSpeed 或 YSlow)
+        ·合理设置HTTP缓存:Expires 与 Cache-control
+        ·静态资源打包,开Gzip压缩(节省相应流量)
+        ·CSS3模拟图像,图标base64(降低请求数)
+        ·模块延迟(defer)加载/异步(async)加载
+        ·Cookie隔离(节省请求流量)
+        ·localStorage(本地存储)
+        ·使用CDN加速(访问最近服务器)
+        ·启用HTTP/2(多路复用,并行加载)
+        ·前端自动化(gulp/webpack)
+6.HTTP状态码及其含义
+    ·1XX:信息状态码
+        199 Continue 继续,一般在发送post请求时,已发送了http header之后服务端将返回此信息,表示确认,之后发送具体参数信息
+    ·2XX:成功状态码
+        200 ok 正常返回信息
+        201 Created 请求成功并且服务器创建了新的资源
+        202 Accepted 服务器已接收请求,但尚未处理
+    ·3XX:重定向
+        301 Moved Permanently 请求的网页已永久移动到新位置
+        302 Found临时性重定向
+        303 See Other 临时性重定向,且总是使用GET请求新的URI
+        304 Not Modified 自从上次请求后,请求的网页未修改过
+    ·4XX:客户端错误
+        400 Bad Request 服务器无法理解请求的格式,客户端不应当尝试再次使用相同的内容发起请求
+        401 Unauthorized 请求未授权
+        403 Forbidden禁止访问
+        404 Not Found 找不到如何与URI相匹配的资源
+    ·5XX:服务器错误
+        500 Internal Server Error 最常见的服务器端错误
+        503 Service Unavailable 服务器端暂时无法处理请求(可能是过载或维护)
+7.语义化的理解
+    ·用正确的标签做正确的事情
+    ·HTML语义化就是让页面的内容结构化,便于对浏览器、搜索引擎解析
+    ·在没有样式CSS情况下也以一种文档格式显示,并且是容易阅读的
+    ·搜索引擎的爬虫依赖于标记来确定上下文和各个关键字的权重,利于SEO
+    ·使阅读源代码的人对网站更容易将网站分块,便于阅读维护理解
+8.介绍一下你对浏览器内核的理解?
+        ·主要分成两部分:渲染引擎(layout engineer 或 Rendering Engine)和JS引擎
+        ·渲染引擎:负责取得网页的内容(HTML、XML、图像等等)、整理讯息(例如加入CSS等),
+         以及计算网页的显示方式,然后会输出至显示器或打印机.浏览器的内核的不同对于网页的
+         语法解释会有不同,所以渲染的效果也不相同.所有网页浏览器、电子邮件客户端以及其他
+         需要编辑、显示网络内容的应用程序都需要内核
+        ·JS引擎则:解析和执行javascript来实现网页的动态效果
+        ·最开始渲染引擎和JS引擎并没有区分的很明确,后来JS引擎越来越独立,内核就倾向于只指渲染引擎
+    常见的浏览器内核有哪些?
+        ·Trident内核:IE,MaxThon,TT,The World,360,搜狗浏览器等[又称MSHTML]
+        ·Gecko内核:Netscape6及以上版本,FF,MozillaSuite/SeaMonkey等
+        ·Presto内核:Opera7及以上[Opera内核原为:Presto,现为Blink]
+        ·Webkit内核:Safari,Chrome等[Chrome的Blink(Webkit分支)]
+9.html5有哪些新特性、移除了哪些元素?
+        ·HTML5现在已经不是SGML的子集,主要是关于图像,位置,存储,多任务等功能的增加
+            新增选择器 document.querySelector、document.querySelectorALL
+            拖拽释放 (Drag and drop) API
+            媒体播放的 video 和 audio
+            本地存储 localStorage和sessionStorage
+            离线应用 manifest
+            桌面通知 Notifications
+            语义化标签 article、footer、header、nav、section
+            增强表单控件 calendar、date、time、email、url、search
+            地理位置 Geolocation
+            多任务 webworker
+            全双工通信协议 websocket
+            历史管理 history
+            跨域资源共享了(CORS) Access-Control-Allow-Origin
+            页面可见性改变事件 visibilitychange
+            跨窗口通信 PostMessage
+            Form Data 对象
+            绘画 canvas
+        ·移除的元素:
+            纯表现的元素:basefont、big、center、font、s、strike、tt、u
+            对可用性产生负面影响的元素:frame、frameset、noframes
+        ·支持 HTML5 新标签:
+            IE8/IE7/IE6支持通过 document.createElement 方法产生的标签
+            可以利用这一特性让这些浏览器支持 HTML5 新标签
+            浏览器支持新标签后,还需要添加标签默认的样式
+        ·当然也可以直接使用成熟的框架、比如 html5shim
+    ·如何区分 HTML 和 HTML5?
+        ·DOCTYPE 声明、新增的结构元素、功能元素
+10.HTML5 的离线存储怎么使用,工作原理能不能解释一下?
+    ·在用户没有与因特网连接时,可以正常访问站点或应用,在用户与因特网连接时,更新用户机器上的缓存文件
+    ·原理: HTML5 的离线存储是基于一个新建的 .appcache 文件的缓存机制(不是存储技术),通过这个文件上
+     的解析清单离线存储资源,这些资源就会像 cookie 一样被存储了下来.之后当网络在处于离线状态下时,浏览
+     器会通过被离线存储的数据进行页面展示
+    ·如何使用:
+        页面头部像下面一样加入一个 manifest 的属性;
+        在 cache.manifest 文件的编写离线存储的资源
+        在离线状态时,操作 window.applicationCache 进行需求实现
+
+    CACHE MANIFEST
+   #v0.11
+   CACHE:
+   js/app/js
+   css/style.css
+   NETWORK:
+   resourse/logo.png
+   FALLBACK:
+   /offline.html
+11.浏览器是怎么对HTML5的离线存储资源进行管理和加载的呢?
+    ·在线的情况下,浏览器发现html头部有 manifest 属性,它会请求 manifest文件,如果是第一次访问app,
+     那么浏览器就会根据manifest文件的内容下载相应的资源并且进行离线存储.如果已经访问过app并且资源已
+     经离线存储了,那么浏览器就会使用离线的资源加载页面,然后浏览器会对比新的manifest文件与旧的manifest文件
+     ,如果文件没有发生改变,就不做任何操作,如果文件改变了.那么就会重新下载文件中的资源并进行离线存储.
+    ·离线的情况下,浏览器就直接使用离线存储的资源.
+12.请描述一下cookies,sessionStorage和localStorage的区别?
+    · cookie 是网站为了标示用户身份而储存在用户本地终端(Client Side)上的数据(通常经过加密)
+    ·cookie 数据始终在同源的http请求中携带(即使不需要),即会在浏览器和服务器间来回传递
+    ·sessionStorage和localStorage不会自动把数据发给服务器,尽在本地保存
+    ·存储大小:
+        cookie数据大小不能超过4k
+        sessionStorage 和 localStorage 虽然也有存储大小的限制,但比cookie大得多,可以达到5M或更大
+    ·有期时间:
+        localStorage存储持久数据,浏览器关闭后数据不丢失除非主动删除数据
+        sessionStorage数据在当前浏览器窗口关闭后自动删除
+        cookie设置的cookie过期时间之前一直有效,即使窗口或浏览器关闭
+13.iframe有哪些缺点?
+    ·iframe 会阻塞主页面的Onload事件
+    ·搜索引擎的检索程序无法解读这种页面,不利于SEO
+    ·iframe 和主页面共享连接池,而浏览器对相同域的连接有限制,所以会影响页面的并行加载
+    ·使用iframe之前需要考虑这两个缺点.如果需要使用iframe,最好是通过javascript动态给iframe添加src属性值,这样可以绕开以上两个问题
+14.WEB标准以及W3C标准是什么?
+    ·标签闭合、标签小写、不乱嵌套、使用外链css和js、结构行为表现的分离
+15. xhtml和html有什么区别?
+    ·一个是功能上的差别
+        主要是XHTML可兼容各大浏览器、手机以及PDA,并且浏览器也能快速正确地编译网页
+    ·另外是书写习惯的差别
+        XHTML元素必须被正确地嵌套,闭合,区分大小写,文档必须拥有根元素
+16.Doctype作用?严格模式与混杂模式如何区分?它们有何意义?
+    ·页面被加载时,link会同时被加载,而@import页面被加载时,link会同时被加载,而@import引用的CSS会等到页面被加载完再加载import只在
+     IE5以上才能识别,而link是XHTML标签,无兼容问题,link方式的样式的权重高于@import的权重
+    ·声明位于文档中的最前面,处于标签之前.告知浏览器的解析器,用什么文档类型规范来解析这个文档
+    ·严格模式的排版和JS运作模式是以该浏览器支持的最高标准运行
+    ·在混杂模式中,页面以宽松的向后兼容的方式显示.模拟老式浏览器的行为以防止站点无法工作.DOCTYPE不存在或格式不正确会导致文档以混杂模式呈现
+17.行内元素有哪些?块级元素有哪些?空(void)元素有哪些?行内元素和块级元素有什么区别?
+    ·行内元素有:
+        a  b  span  img  input  select  strong
+    ·块级元素有:
+        div  ul  ol  li  dl  dt  dd  h1  h2  h3  h4...  p
+    ·空元素:
+        br
+    ·行内元素不可以设置宽高,不独占一行
+    ·块级元素可以设置宽高,独占一行
+18.HTML全局属性(global attribute)有哪些?
+    ·class:为元素设置类标识
+    ·data-*:为元素增加自定义属性
+    ·draggable:设置元素是否可拖拽
+    ·id:元素id,文档内唯一
+    ·lang:元素内容的语言
+    ·style:行内css样式
+    ·title:元素相关的建议信息
+19.Canvas和SVG有什么区别?
+    · svg绘制出来的每一个图形的元素都是独立的DOM节点,能够方便的绑定事件或用来修改.canvas输出的是一整幅画布
+    · svg输出的图形是矢量图形,后期可以修改参数来自由放大缩小,不会失真和锯齿.而canvas输出标量画布,就像一张图片一样,放大会失真或者锯齿
+20.HTML5为什么只需要写<!DOCTYPE HTML>
+    ·HTML5不基于SGML.因此不需要对DTD进行引用,但是需要doctype来规范浏览器的行为
+    ·而HTML4.01基于SGML,所以需要对DTD进行引用,才能告知浏览器文档所使用的文档类型
+21.如何在页面上实现一个圆形的可点击区域?
+    ·svg
+    ·border-radius
+    ·纯js实现 需要求一个点在不在圆上简单算法、获取鼠标坐标等等
+22.网页验证码是干嘛的,是为了解决什么安全问题?
+    ·区分用户是计算机还是人的公共全自动程序.可以防止恶意破解密码、刷票、论坛灌水
+    ·有效防止黑客对某一个特定注册用户用特定程序暴力破解方式进行不断地登录尝试
+23.viewport
+    <meta name="viewport"
+24.浏览器如何解析CSS
+    倒序
+

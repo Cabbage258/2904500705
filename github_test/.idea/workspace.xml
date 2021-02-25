@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="42762015-5ee1-42bf-97ef-293822b10830" name="默认的" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1lYjNVksQxSFWq5yAuUJIrg1592" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../m_work_test/1/02-首页移动端app界面_02/images" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Work\All item\m_work_test\1\02-首页移动端app界面_02\images" />
+      <recent name="D:\Work\All item\m_work_test\1\02-首页移动端app界面_02\css" />
+      <recent name="D:\Work\All item\m_work_test\1\01-登录注册移动端app界面\css" />
+      <recent name="D:\Work\All item\Test_2_Heima\day_06_2020.12.22\upload" />
+      <recent name="D:\Work\All item\Test_2_Heima\day_06_2020.12.22\css" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Work\All item\test\第十四天" />
+      <recent name="D:\Work\All item\Test_2_Heima\shoping" />
+      <recent name="D:\Work\All item\Test_2_Heima\shoping\home" />
+      <recent name="D:\Work\All item\Test_2_Heima" />
+      <recent name="D:\Work\All item\Test_1_Heima" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="42762015-5ee1-42bf-97ef-293822b10830" name="默认的" comment="" />
+      <created>1607780878805</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1607780878805</updated>
+      <workItem from="1607780879909" duration="62000" />
+      <workItem from="1607780950710" duration="3069000" />
+      <workItem from="1607819897193" duration="12131000" />
+      <workItem from="1607936437661" duration="688000" />
+      <workItem from="1607992923359" duration="37333000" />
+      <workItem from="1608080538208" duration="36343000" />
+      <workItem from="1608165889796" duration="22663000" />
+      <workItem from="1608200750942" duration="48000" />
+      <workItem from="1608200807976" duration="4336000" />
+      <workItem from="1608252639866" duration="33568000" />
+      <workItem from="1608303610789" duration="4081000" />
+      <workItem from="1608338699574" duration="32388000" />
+      <workItem from="1608473237616" duration="6969000" />
+      <workItem from="1608511603730" duration="20646000" />
+      <workItem from="1608544779368" duration="12416000" />
+      <workItem from="1608597790348" duration="4383000" />
+      <workItem from="1608616211614" duration="12621000" />
+      <workItem from="1608634704154" duration="8378000" />
+      <workItem from="1608685684086" duration="8575000" />
+      <workItem from="1608702832226" duration="8359000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

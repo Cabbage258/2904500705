@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        li{
+            list-style-type:none;
+        }
+        .container{
+            width: 1226px;
+            height: 615px;
+            background-color: skyblue;
+            margin:0 auto;
+            overflow: hidden;
+        }
+        .left,.right{
+            float:left;
+        }
+        .left{
+            width: 234px;
+            height: 100%;
+            background-color: red;
+        }
+        .right{
+            height: 615px;
+            width: 992px;
+            background-color: #000000;
+        }
+        .right ul{
+            overflow: hidden;
+        }
+        .right ul li{
+            margin-left:14px;
+            background-color: yellow;
+            width: 234px;
+            height: 300px;
+            float: left;
+        }
+        .right ul .bottom_li{
+            margin-top:14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+
+        </div>
+        <div class="right">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li class="bottom_li"></li>
+                <li class="bottom_li"></li>
+                <li class="bottom_li"></li>
+                <li class="bottom_li"></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

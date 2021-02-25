@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //封装
+    //  data转查询字符串格式
+    function rsvData(data) {
+        let arr = []
+        for (let k in data) {
+            let str = k + '=' + data[k]
+            arr.push(str)
+        }
+        return arr.join('&')
+    }
+
+    //console.log(rsvData({name: "jack", age: 18}))
+
+    //  封装ABC
+    function ABC(options) {
+        let xhr = new XMLHttpRequest()
+        let ctString = rsvData(options.data)
+        xhr.addEventListener('readystatechange', function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                //把服务器返回的json字符串转换成js对象并传参到options.success()中
+                let ct = JSON.parse(xhr.responseText)
+                options.success(ct)
+            }
+        })
+        if (options.type.toUpperCase() == "GET") {
+            xhr.open(options.type, options.url + "?" + ctString)
+            ctString = null
+        } else if (options.type.toUpperCase() == "POST") {
+            xhr.open(options.type, options.url)
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+        }
+        xhr.send(ctString)
+
+    }
+
+    //test
+    //  get
+    ABC({
+        type:'get',
+        url:'http://www.liulongbin.top:3006/api/getbooks',
+        data:{},
+        success: function(res){
+            console.log(res)
+        }
+    })
+    //  post
+    ABC({
+        type: 'post',
+        url: 'http://www.liulongbin.top:3006/api/addbook',
+        data: {
+            bookname: '测试post1',
+            author: '匿名',
+            publisher: 'test'
+        },
+        success: function (res) {
+            console.log(res)
+        }
+    })
+
+</script>

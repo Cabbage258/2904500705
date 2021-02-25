@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>作业2</title>
+    <script src="js/jquery.min.js"></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        li{
+            list-style-type: none;
+        }
+        body{
+            background-color: #000000;
+        }
+        ul{
+            width: 640px;
+            height: 402px;
+            margin: 100px auto;
+            background-color: #000000;
+            border:2px solid #fff;
+        }
+        ul li{
+            float: left;
+            margin: 10px;
+            height: 186px;
+        }
+        ul li:nth-of-type(1),ul li:nth-of-type(2),ul li:nth-of-type(4),ul li:nth-of-type(5){
+            margin-right: 0;
+        }
+        ul li:nth-of-type(4),ul li:nth-of-type(5),ul li:nth-of-type(6){
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li><img src="./upload/01.jpg" alt=""></li>
+    <li><img src="./upload/02.jpg" alt=""></li>
+    <li><img src="./upload/03.jpg" alt=""></li>
+    <li><img src="./upload/04.jpg" alt=""></li>
+    <li><img src="./upload/05.jpg" alt=""></li>
+    <li><img src="./upload/06.jpg" alt=""></li>
+</ul>
+</body>
+</html>
+<script>
+
+    $('ul li').mouseenter(function(){
+        $('ul li').css('opacity','.4')
+        $(this).css('opacity','1')
+    }).css('opacity','.4').mouseleave(function(){
+        $('ul li').css('opacity','.4')
+    })
+</script>

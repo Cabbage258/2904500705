@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义属性</title>
+</head>
+<body>
+<ul>
+    <li>我是第1个li</li>
+    <li>我是第2个li</li>
+    <li>我是第3个li</li>
+    <li>我是第4个li</li>
+    <li>我是第5个li</li>
+    <li>我是第6个li</li>
+    <li>我是第7个li</li>
+    <li>我是第8个li</li>
+    <li>我是第9个li</li>
+    <li>我是第10个li</li>
+</ul>
+
+<script>
+    //1
+    /*var lis = document.querySelectorAll('li')
+    for(var i = 0;i < lis.length;i++){
+        lis[i].a = i
+        lis[i].onclick = function(){
+            console.log(this.a)
+        }
+    }*/
+
+
+    //2
+    var lis = document.querySelectorAll('li')
+
+    for(var i = 0;i < lis.length;i++){
+        lis[i].setAttribute('index',i)
+
+       lis[i].onclick = function(){
+            console.log(this.getAttribute('index'))
+       }
+    }
+</script>
+</body>
+</html>

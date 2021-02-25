@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transition</title>
+    <style>
+        main {
+            width: 300px;
+            height: 300px;
+            margin: 100px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: aqua 2px solid;
+        }
+        
+        .filed {
+            position: relative;
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+            overflow: hidden;
+        }
+        
+        .filed::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, white, red, green, yellow, white);
+            transform: translateX(-100%);
+            transition: all 2s ease;
+        }
+        
+        .filed:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .filed input {
+            border: none;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="filed">
+            <input type="text" placeholder="输入账号">
+        </div>
+        <div class="filed">
+            <input type="text" placeholder="输入密码">
+        </div>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//封装一个函数,返回for循环前后的时间差(默认毫秒)
+
+//拼接创建,innerHTML
+function fn1(){
+    var t1 = +new Date()
+    /*/!*JavaScript中可以在某个元素前使用 ‘+’ 号，这个操作是将该元素转换秤Number类型，如果转换失败，那么将得到 NaN。
+    所以 +new Date 将会调用 Date.prototype 上的 valueOf 方法，而根据 MDN ，Date.prototype.value 方法等同于 Date.prototype.getTime() 。
+
+    所以下列代码效果相同：
+
+    console.log(+new Date);
+
+    console.log(new Date().getTime());
+
+    console.log(new Date().valueOf());
+
+    console.log(new Date() * 1);*!/*/
+    var str = ''
+    for(var i = 0;i <= 1000;i++){
+        document.body.innerHTML += '<div style="width: 100px;height: 20px;border: 1px solid red;"></div>'
+    }
+    var t2 = +new Date()
+    console.log(t2 - t1 + 'ms')
+}
+fn1();
+
+//创建元素再导入body子元素
+function fn2(){
+    var t1 = +new Date()
+    for(var i = 0;i <= 1000;i++){
+        var div = document.createElement('div')
+        div.style.width = '100px'
+        div.style.hight = '20px'
+        div.style.border = '1px solid red'
+        document.body.appendChild(div)
+    }
+    var t2 = +new Date()
+    console.log(t2 - t1)
+}
+fn2()
+
+//innerHTML先添加到数组内,再转为字符串拼接
+    function fn3(){
+        var t1 = +new Date()
+        var arr = []
+        for(var i = 0;i <= 1000;i++){
+            arr.push('<div style="width: 100px;height: 20px;border: 1px solid red;"></div>')
+        }
+        document.body.innerHTML = arr.join('')
+        var t2 = +new Date()
+        console.log(t2 - t1 + "ms")
+    }
+    fn3();
+</script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新浪下拉菜单</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        div {
+            width: 100px;
+            margin:0 auto ;
+        }
+        .yincang{
+            display:none;
+        }
+        li {
+            display: block;
+            height: 30px;
+            width: 100px;
+            box-sizing: border-box;
+            border: 1px solid #f58a1a;
+            border-top: none;
+            text-indent: 1em;
+            line-height: 30px;
+            cursor: pointer;
+
+        }
+
+        li:hover {
+            color: #f58a1a;
+            background-color: rgba(255, 199, 50, 0.5);
+        }
+
+        .xianshi ul {
+            margin-bottom: 0;
+        }
+
+        .xianshi ul li {
+            display: block;
+            border: none;
+            position: relative;
+            background-color: #eee;
+            border-radius: 2px;
+        }
+
+        .xianshi ul li:after {
+            display: block;
+            content: '';
+            height: 8px;
+            width: 8px;
+            box-sizing: border-box;
+            position: absolute;
+            top: 8px;
+            right: 15px;
+            border: 2px solid #000;
+            border-left: none;
+            border-top: none;
+            transform: rotateZ(45deg);
+        }
+
+        .xianshi ul li:hover:after {
+            border-color: #f58a1a;
+        }
+
+        ul:nth-of-type(2) {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="nav">
+    <div class="xianshi">
+        <ul>
+            <li>微博</li>
+        </ul>
+    </div>
+    <div class="yincang">
+        <ul>
+            <li>私信</li>
+            <li>评论</li>
+            <li>@我</li>
+        </ul>
+    </div>
+</div>
+<script>
+    /*var nav = document.querySelector('.nav'),yincang = document.querySelector('.yincang')
+    nav.onmouseover = function () {
+            yincang.style.display = 'block'
+    }
+    nav.onmouseout = function(){
+        yincang.style.display = 'none'
+    }*/
+    var nav = document.querySelector('.nav'),yincang = document.querySelector('.yincang')
+    nav.onmouseover = function (){
+        yincang.style.display = 'block'
+    }
+    nav.onmouseout = function() {
+        yincang.style.display = 'none'
+    }
+</script>
+
+</body>
+</html>

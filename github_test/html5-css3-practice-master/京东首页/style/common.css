@@ -1,0 +1,53 @@
+@font-face {
+  font-family: "iconfont";
+  src: url("../iconfont/iconfont.eot");
+  src: url("../iconfont/iconfont.eot") format("embedded-opentype"),
+       url("../iconfont/iconfont.svg") format("svg"),
+       url("../iconfont/iconfont.woff") format("woff"),
+       url("../iconfont/iconfont.ttf") format("truetype")
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.container {
+  width: 1190px;
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.jcfs {
+  justify-content: flex-start;
+}
+
+.jcfe {
+  justify-content: flex-end;
+}
+
+.jsfb {
+  justify-content: space-between;
+}
+
+.fdc {
+  flex-direction: column;
+}
+
+.aifs {
+  align-items: flex-start;
+}

@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+<div style="margin-bottom: 15px;">
+    <input type="text" title="" id="username" placeholder="请输入姓名">
+    <input type="text" title="" id="age" placeholder="请输入性别">
+    <input type="text" title="" id="sex" placeholder="请输入年龄">
+    <input type="button" value="提交" id="btn" title="提交">
+</div>
+<table border="1" width="540">
+    <thead>
+    <tr>
+        <td>姓名</td>
+        <td>性别</td>
+        <td>年龄</td>
+        <td>操作</td>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+</body>
+
+</html>
+<script>
+    //需求:1点击提交按钮,让用户输入的内容分别加入到表格对应的列表中
+    //    2点击每一行的删除按钮,能删除当前行
+    //    3刷新页面时能保留当前的页面效果(数据状态不会消失)
+    //    4代码规范
+    var text1 = document.querySelector('#username')
+    var text2 = document.querySelector('#age')
+    var text3 = document.querySelector('#sex')
+    var btn = document.querySelector('#btn')
+    var tbd = document.querySelector('tbody')
+    btn.onclick = function(){
+        if(text1.value == '' && text2.value == '' && text3.value == ''){
+            alert('请输入完整数据')
+        }else{
+            //创建
+            sessionStorage.setItem('username',text1.value)
+            sessionStorage.setItem('age',text2.value)
+            sessionStorage.setItem('sex',text3.value)
+
+            var data1 = sessionStorage.getItem('obj'.username)
+            console.log(data1)
+
+            let tr = document.createElement('tr')
+            tr.innerHTML = `
+                <th>${text1.value}</th>
+                <th>${text2.value}</th>
+                <th>${text3.value}</th>
+                <a href="javascript:">删除</a>
+            `
+            //添加到tbody中
+            tbd.insertBefore(tr, tbd.children[0])
+            //删除元素
+            let as = document.querySelectorAll('a')
+            for(let i = 0;i < as.length;i++){
+                as[i].onclick = function(){
+                    tbd.removeChild(this.parentNode)
+                }
+            }
+
+        }
+    }
+
+</script>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 400px;
+            height: 400px;
+            background-color: skyblue;
+            overflow: hidden;
+        }
+        span{
+            display: block;
+            width: 200px;
+            height: 200px;
+            margin:100px auto;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+<div><span></span></div>
+</body>
+<script>
+    var div = document.querySelector('div')
+    var span = document.querySelector('span')
+
+    /*div.addEventListener('mouseenter',function(){
+        console.log('div绑定事件')
+    })
+    span.addEventListener('mouseenter',function(){
+        console.log('span绑定事件')
+    })
+    //mouseenter没有冒泡效果*/
+    /*div.addEventListener('mouseover',function(){
+        console.log('div绑定事件')
+    })
+    span.addEventListener('mouseover',function(){
+        console.log('span绑定事件')
+    })*/
+
+</script>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>访问数组</title>
+</head>
+<body>
+<script>
+    var arr = [1,2,3,'aaa',true];
+    console.log(arr);//直接获取数组中所有元素
+    console.log(arr[2]);//返回arr数组中下标为2的元素的值(数组下标是从0开始编号的)
+    console.log(arr[true + 1]);
+    function num(i){
+        return ++i;
+    }
+    console.log(arr[num(0)]);
+</script>
+</body>
+</html>

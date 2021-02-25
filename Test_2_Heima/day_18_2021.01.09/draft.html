@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>draft</title>
+</head>
+<body>
+<script>
+/*var str = ('asdasfaddgdfasddfsdg'),index = 0,num = 0
+
+for(var i = 0;i < str.length;i++){
+    index = str.indexOf('d',++index)
+    if(index == -1){
+        break;
+    }
+    console.log(index)
+}*/
+
+//需求:统计出现最多的字符和次数
+//遍历,给对象键.无该属性1,有+1.遍历对象
+    var str = ('agdvaartvdtaggfgdarvadgvhvebs'),temp = {}
+    for(var i = 0;i < str.length;i++){
+        var chars = str.charAt(i)       //chars 把单个字符作为键加入临时对象
+        if(temp[chars]){        //temp[chars]   键值          第一次未出现,值为false,条件不成立.第二次及以上为true,值++
+            temp[chars]++
+        }else {
+            temp[chars] = 1
+        }
+    }
+    console.log(temp)
+//遍历对象
+    var max = 0,c
+
+for (var k in temp){
+    if(temp[k] > max){
+        max = temp[k]
+        c = k
+    }
+}
+console.log('出现最多字符为' + c)
+console.log('出现次数为' + max)
+
+//需求:存在多个最大值时输出最大值与出现次数
+
+//concat()
+
+/*
+var arr1 = [1,2,3,4,5,6],arr2 = [7,8,9,10],arr3 = [11,12,13,14]
+console.log(arr1.concat(arr2,arr3))//顺序拼接
+console.log(arr1)
+console.log(arr2)
+console.log(arr3)
+*/
+
+
+
+//replace()
+/*var str = 'asjhajksgfgfhkdahkjsaashd'
+while(str.indexOf('a') !== -1){
+    str = str.replace('a','*')
+}
+console.log(str)*/
+
+//split
+    /*var str = 'username=用户名&password=密码'
+    console.log(str.split('&'))
+    var arr = str.split('&')
+    for (var i = 0;i < arr.length;i++){
+            console.log((arr[i].split('='))[0]);
+            console.log((arr[i].split('='))[1]);
+    }*/
+
+    //
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax发送请求</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+</head>
+<body>
+<table border="1" width="800" class="students">
+    <caption>学生成绩表</caption>
+    <tr>
+        <th>学号</th>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>年龄</th>
+        <th>成绩</th>
+        <th>住址</th>
+    </tr>
+</table>
+</body>
+</html>
+<script>
+    //写法1
+    /*console.dir($)
+    $.ajax({
+        type:'get',
+        url:'./data/data.json',
+        success:function(students){
+            console.log(students)
+            for(var i in students){
+                console.log(students[i])
+                var data = '<tr><td>' + students[i].id + '</td><td>' + students[i].name + '</td><td>' + students[i].sex + '</td><td>' + students[i].age + '</td><td>' + students[i].score.join(' ') + '</td><td>' + students[i].addr + '</td></tr>'
+                $('.students').append(data)
+            }
+        },
+        error:function(err){
+            console.log(err.statusText)
+            if(err.status == 404){
+                location.href = '404.html'
+            }
+        }
+    })*/
+
+    //写法2
+    /*$.ajax({
+        type:'get',
+        url:'./data/data.json',
+
+    }).done(function (students){
+        console.log(students)
+        for(var i in students){
+            console.log(students[i])
+            var data = '<tr><td>' + students[i].id + '</td><td>' + students[i].name + '</td><td>' + students[i].sex + '</td><td>' + students[i].age + '</td><td>' + students[i].score.join(' ') + '</td><td>' + students[i].addr + '</td></tr>'
+            $('.students').append(data)
+        }
+    }).fail(function(err){
+        console.log(err)
+    })*/
+
+    //写法3
+    $.ajax({
+        type:'get',
+        url:'./data/data.json',
+
+    }).then(function (students){
+        console.log(students)
+        for(var i in students){
+            console.log(students[i])
+            var data = '<tr><td>' + students[i].id + '</td><td>' + students[i].name + '</td><td>' + students[i].sex + '</td><td>' + students[i].age + '</td><td>' + students[i].score.join(' ') + '</td><td>' + students[i].addr + '</td></tr>'
+            $('.students').append(data)
+        }
+    }).catch(function(err){
+        console.log(err)
+    })
+</script>

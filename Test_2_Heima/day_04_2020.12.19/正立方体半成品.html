@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>box</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            position: relative;
+            width: 400px;
+            height: 400px;
+            margin: 200px auto;
+        }
+        div:not(.box){
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            box-sizing: border-box;
+            border: 2px solid #000;
+            transform-style: preserve-3d;
+        }
+        .front{
+            background-color: red;
+            transform: rotateY(0deg) translateZ(100px) ;
+            animation:movefront 10s linear infinite;
+
+        }
+        .back{
+            background-color: orange;
+            transform: rotateY(180deg) translateZ(-100px);
+            animation:moveback 10s linear infinite;
+        }
+        .left{
+            background-color: yellow;
+            transform:rotateY(90deg) translateZ(-100px);
+            animation:moveleft 10s linear infinite;
+        }
+        .right{
+            background-color: green;
+            transform:rotateY(90deg) translateZ(100px);
+            animation:moveright 10s linear infinite;
+        }
+        .top{
+            transform:rotateX(90deg) translateZ(100px) ;
+        }
+        .bottom{
+            transform:rotateX(-90deg) translateZ(100px) ;
+        }
+        @keyframes movefront{
+            0%{
+                transform: rotate3d(0,0,0,0deg) translate3d(0,0,100px);
+            }
+            100%{
+                transform: rotate3d(1,1,1,720deg) translate3d(0,0,100px);
+            }
+        }
+        @keyframes moveback{
+            0%{
+                transform: rotate3d(0,0,0,0deg) translateZ(-100px);
+            }
+            100%{
+                transform: rotate3d(1,1,1,720deg) translateZ(-100px);
+            }
+        }
+        @keyframes moveleft{
+            0%{
+                transform:rotate3d(1,1,1,120deg) translate3d(0,0,-100px);
+            }
+            100%{
+                transform:rotate3d(0,0,0,480deg) translate3d(0,0,-100px);
+            }
+        }
+        @keyframes moveright{
+            0%{
+                transform:rotate3d(1,1,1,120deg) translate3d(0,0,100px);
+
+            }
+            100%{
+                transform:rotate3d(0,0,0,480deg) translate3d(0,0,100px);
+
+            }
+        }
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="front">front</div>
+        <div class="back">back</div>
+        <div class="left">left</div>
+        <div class="right">right</div>
+        <div class="top">top</div>
+        <div class="bottom">bottom</div>
+    </div>
+</body>
+</html>

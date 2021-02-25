@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆角边框</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            border:2px solid #999;
+            margin:100px auto;
+            /*-webkit-border-radius: 10px;!*兼容谷歌*!
+            -ms-border-radius: 10px;!*兼容火狐*!
+            border-radius: 10px;
+            */
+
+            /*-webkit-border-radius: 20px 10px;!*第一个参数对应的是左上和右下,第二个参数对应的是右上和左下*!
+            -ms-border-radius: 20px 10px;
+            border-radius: 20px 10px;*/
+
+            /*!*第一个参数对应的是左上,第二个参数对应的是右上和左下,第三个参数对应的是右下*!
+            -webkit-border-radius: 10px 20px 30px;
+            -ms-border-radius: 10px 20px 30px;
+            border-radius: 10px 20px 30px;*/
+
+            /*每个参数分别对应的是左上,右上,右下,左下*/
+            -webkit-border-radius: 10px 20px 30px 40px;
+            -ms-border-radius: 10px 20px 30px 40px;
+            border-radius: 10px 20px 30px 40px;
+
+            /*-webkit-border-radius: 20%;
+            -ms-border-radius: 20%;
+            border-radius: 20%;*/
+
+            /*-webkit-border-top-left-radius: 20%;
+            -ms-border-top-left-radius:20%;
+            border-top-left-radius:20%;*/
+
+            /*-webkit-border-top-right-radius: 20%;
+            -ms-border-top-right-radius:20%;
+            border-top-right-radius:20%;
+
+            -webkit-border-bottom-left-radius: 30%;
+            -ms-border-bottom-left-radius:30%;
+            border-bottom-left-radius:30%;*/
+
+            /*-webkit-border-radius: 100px;!*高宽相同,高宽的一半,圆*!
+            -ms-border-radius: 100px;
+            border-radius: 100px;*/
+        }
+        img{
+            width: 200px;
+            height: 200px;
+            margin:100px auto;
+            display: block;
+            -webkit-border-radius:50%;
+            -ms-border-radius:50%;
+            border-radius:50%;
+        }
+        img:hover{
+            -webkit-border-radius:0;/*取消圆角*/
+            -ms-border-radius:0;
+            border-radius:0;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+
+    <img src="./images/siteBackground.jpg" />
+</body>
+</html>

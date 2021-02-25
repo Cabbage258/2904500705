@@ -1,0 +1,11 @@
+Web APIs
+    1.样式属性操作
+        a.行内样式操作
+            element.style
+
+
+
+        b.类名样式操作
+            element.className
+            直接更改元素的类名,会覆盖原先的类名
+

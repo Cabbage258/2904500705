@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>关系选择器</title>
+    <style>
+        /*后代选择器*/
+        h1 strong{
+            color:#fff;
+            background-color: #000;
+        }
+        /*儿子选择器*/
+        /*h1>strong{
+            color:#fff;
+            background-color: #000;
+        }*/
+
+        /*兄弟选择器*/
+        ul li+li+li{
+            list-style-type: none;
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <h1><strong>关系1 </strong><span><strong>关系2</strong></span></h1>
+
+    <ul>
+        <li>li1</li>
+        <li>li2</li>
+        <li>li3</li>
+        <li>li4</li>
+        <li>li5</li>
+    </ul>
+
+</body>
+</html>

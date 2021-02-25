@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>制作简易模版引擎</title>
+</head>
+<body>
+    <div id="demo1"></div>
+</body>
+</html>
+<script type="text/html" id="demoTPL">
+    <div>姓名:{{name}};年龄:{{age}};爱好:{{hobby}}</div>
+</script>
+<script>
+    var data = {
+        name:'Jack',
+        age:'18',
+        hobby:'sleep'
+    }
+    var htmlStr = template('demoTPL',data)
+    document.querySelector('#demo1').innerHTML = htmlStr
+
+
+    //封装template函数
+    //核心:exec()方法和replace()方法
+    function template(id,data){
+        let str = document.getElementById(id).innerHTML
+        let extract = /{{\s*([a-zA-Z]+)\s*}}/
+
+        let extractEnd = null
+        while(extractEnd = extract.exec(str)){
+            str = str.replace(extractEnd[0],data[extractEnd[1]])
+        }
+        //返回
+        return str
+    }
+</script>

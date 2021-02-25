@@ -1,0 +1,12 @@
+h1 {
+    color: black;
+}
+
+
+/* only 用户对低端浏览器忽略媒体查询 */
+
+@media only screen and (max-width: 768px) {
+    h1 {
+        color: burlywood;
+    }
+}

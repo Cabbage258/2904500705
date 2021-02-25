@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>draft1</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    //------------------------字符串方法trim()--------------------
+    var a = '   s cri p t   '
+    a.trim()
+    console.log(a.trim().length)    //9
+    var b = a.trim()
+    console.log(b.length)   //9
+    console.log(a.length)   //15
+    //返回新字符串,原字符串不变*/
+
+    //----------------------对象方法--------------------------
+    //Object.keys(obj)
+    var obj = {name: 'a',age:1}
+    console.log(Object.keys(obj))           //["name","age"]
+    console.log(Object.keys(Object))        //Object属性不可枚举,所以返回 []
+
+    //Object.defineProperty
+    Object.defineProperty(obj,'number',{
+        value:12
+    })
+    console.log(obj)            //添加
+    Object.defineProperty(obj,'name',{
+        value:'b',
+        writable:false          //禁止重写
+    })
+    console.log(obj)            //修改
+    obj.name = 'd'              //writable为false后无法通过赋值方式修改对象的属性,但仍可以通过Object.defineProperty方法修改属性
+    Object.defineProperty(obj,'name',{
+        value:'c',
+    })
+    console.log(obj)            //writable为false时,仍可以通过Object.defineProperty修改
+
+</script>

@@ -1,0 +1,56 @@
+触屏事件
+    touchstart
+        手指触摸到一个DOM元素时触发
+    touchmove
+        手指在一个DOM元素上滑动时触发
+    touchend
+        手指从一个DOM元素上移开时触发
+
+    触摸事件对象(TouchEvent)
+        touches
+            正在触摸屏幕的所有手指的一个列表
+        targetTouches
+            正在触摸当前DOM元素上的手指的一个列表
+        changedTouches
+            手指状态发生了改变的列表,从无到有,从有到无变化
+
+
+    拖动元素
+        · 触摸元素touchstart    获取手指初始坐标
+        · 移动手指touchmove     计算手指的滑动距离,并且移动盒子
+        · 离开手指touchend
+        Tips:手指移动也会触发滚动屏幕所以这里要阻止默认的屏幕滚动
+            e.preventDefault()
+
+
+
+classList(HTML5,ie10+)
+    可以获取到当前元素对象的所有类名 并且放在一个伪数组里
+
+    element.classList.add()
+        添加类名,不影响原类名存在
+    element.classList.remove()
+        移除类名,不影响原类名存在
+    element.classList.toggle()
+        切换类名,
+
+
+
+本地存储:
+    localStorage
+        20M  除非手动清除,否则一直存在
+        方法:
+            setItem(键,值)
+            getItem(键)
+            removeItem(键)
+
+    sessionStorage
+        5M  关闭浏览器就结束
+        方法:
+            setItem(键,值)
+            getItem(键)
+            removeItem(键)
+
+    cookie
+        4kb  后期用它来保存登录状态的
+

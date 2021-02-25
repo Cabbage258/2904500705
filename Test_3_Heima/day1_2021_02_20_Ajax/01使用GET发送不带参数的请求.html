@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GET</title>
+    <script src="js/jquery.min.js"></script>
+</head>
+<body>
+<button id="btnGET">使用$get不带参数获取数据</button>
+<button id="btnGET1">使用$get带参数获取数据</button>
+<button id="btnGET2">使用$post带参数提交数据</button>
+<button id="btnGET3">使用$ajax发送get获取数据</button>
+<button id="btnGET4">使用$ajax发送post提交数据</button>
+</body>
+</html>
+<script>
+    $(function () {
+        //1.点击btn发送ajax 不携带参数.
+        $('#btnGET').on('click', function () {
+            //$.get(url,[data],[callback])
+            $.get('http://www.liulongbin.top:3006/api/getbooks', function (res) {
+                console.log(res)
+            })
+        })
+        //--------------------------------------------------------------------------
+        //1.点击btn发送ajax 携带参数.
+        $('#btnGET1').on('click', function () {
+            //$.get(url,[data],[callback])
+            $.get('http://www.liulongbin.top:3006/api/getbooks', {id: 1,}, function (res) {
+                console.log(res)
+            })
+        })
+
+        //2.POST
+        $('#btnGET2').on('click', function () {
+            //$.post(url,[data],[callback])
+            $.post('http://www.liulongbin.top:3006/api/addbook', {
+                bookname: '新华字典',
+                author: '拆尼斯',
+                publisher: '新华出版社',
+            }, function (res) {
+                console.log(res)
+            })
+        })
+        //3.AJAX发送GET
+        $('#btnGET3').on('click', function () {
+            $.ajax({
+                type: 'GET',
+                url: 'http://www.liulongbin.top:3006/api/getbooks',
+                data: {},
+                success: function (res) {
+                    console.log(res)
+                }
+            })
+        })
+        //4.AJAX发送POST
+        $('#btnGET4').on('click', function () {
+            $.ajax({
+                type: 'POST',
+                url: 'http://www.liulongbin.top:3006/api/addbook',
+                data: {},
+                success: function (res) {
+                    console.log(res)
+                }
+            })
+        })
+
+    })
+    //GET   多用于获取数据 参数在地址栏      速度快
+    //POST  多用于提交数据  参数在请求体     速度慢
+
+</script>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组对象</title>
+</head>
+<body>
+<script>
+    //需求:去重 ['c','a','z','a','x','a','x','c','b']
+    var arr1 = ['c', 'a', 'z', 'a', 'x', 'a', 'x', 'c', 'b']
+
+    //
+    function unique(arr1) {
+        var arr2 = [];
+        for (var i = 0; i < arr1.length; i++) {
+            if (arr2.indexOf(arr1[i]) === -1) {
+                arr2.push(arr1[i])
+            }
+        }
+        return arr2
+    }
+
+    var demo = unique(arr1)
+    console.log(demo)
+    //for(i = 0;i < arr1.length;)
+</script>
+</body>
+</html>

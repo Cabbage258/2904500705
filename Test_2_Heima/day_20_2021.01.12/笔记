@@ -1,0 +1,52 @@
+自定义属性
+    1
+
+    2
+        setAttribute(要设置的属性名,该属性名对应的值)
+        getAttribute(获取)
+        removeAttribute(删除)
+节点操作
+    1)父节点 parentNode
+        得到的是离元素最近的父级节点,如没有则返回null
+    2)子节点children
+        childrenNodes  获取过来是所有的节点(包含了文本、空格、换行、注释等等)
+        需要条件判断 nodeType == 1 证明是一个元素节点
+
+
+        children[0]                     //首
+        children[    .length - 1]       //尾
+            兄弟节点
+                索引号 +  -
+    3)
+        a.第一个节点,不管是文本节点还是元素节点
+            .firstChild
+            .lastChild
+        b.返回第一个节点
+            .firstElementChild
+            .lastElementChild
+
+
+    4)创建节点
+        语法:
+            document.createElement('要创建的元素名')
+
+    5)添加节点(给父元素添加)
+        appendChild()
+            一次性只能添加一个
+        append()
+            一次性添加多个
+
+            语法结构相同
+                父节点.appendChild()
+                父节点.append()
+
+    6)删除节点
+        removeChild()
+            语法:
+                父元素.removeChild(this.parentNode)
+                移除节点时,移除的节点必须是父元素的亲子代
+
+    7)克隆节点
+        cloneNode()
+            括号为空或者里面是false 浅克隆  只复制标签不复制里面的内容
+            里面是true 深克隆   复制标签复制内容

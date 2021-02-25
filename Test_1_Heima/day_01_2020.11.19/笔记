@@ -1,0 +1,40 @@
+1.HTML是一种超文本标记语言,不属于编程语言.
+
+2.浏览器内核由渲染引擎和JS引擎两部分组成,
+内核:Trident(IE)
+     Gecko(FireFox)
+     Webkit(safari/Chrome)
+     Blink(Chrome/Opera)
+国内大多数浏览器采用的双核驱动(Trident  &  Webkit  或  Trident  &  Blink)
+移动端:iphone/ipad采用的是Webkit内核
+          Aadroid4.4以下版本采用Webkit内核
+          Android4.4以上版本采用的是Blink内核
+3.W3C规范是由结构,表现和行为三部分组成
+
+4.一个网页页面的基本组成
+     <html>
+          <head></head>
+          <body></body>
+     </html>
+5.常用的开发工具有:sublime,HBuilder,VSCode,Atom,Webstorm
+
+6.开发过程中尽量使用语义化标签
+
+7.div,span
+
+8.img:
+     属性:
+          1)href:用于指定链接目标的url地址
+          2)target:用于指定链接页面的打开方式_self默认值_blank新标签页打开
+          3)#:空链接
+          
+9.相对路径,绝对路径
+
+10.外部链接,内部链接,空链接,下载链接,锚点链接
+
+11.添加注释
+
+12.输入特殊字符:
+     空格符    &nbsp;
+     小于号    &lt;
+     大于号    &gt;

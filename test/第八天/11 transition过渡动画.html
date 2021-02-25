@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>transition过渡动画</title>
+    <style>
+        .box{
+            width: 100%;
+            height: 800px;
+            position: relative;
+            border: 1px solid #eee;
+        }
+        .demo{
+            width: 100px;
+            height: 100px;
+            background-color: #f00;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            overflow: hidden;
+            -webkit-transform:rotate(0deg);
+            -moz-transform:rotate(0deg);
+            -ms-transform:rotate(0deg);
+            -o-transform:rotate(0deg);
+            transform:rotate(0deg);
+            /*-webkit-transition:left 2s;
+            -moz-transition:left 2s;
+            -ms-transition:left 2s;
+            -o-transition:left 2s;
+            transition:left 2s;*/
+
+            /*-webkit-transition:all 2s;
+            -moz-transition:all 2s;
+            -ms-transition:all 2s;
+            -o-transition:all 2s;
+            transition:all 2s;*/
+
+            /*-webkit-transition:left 2s ease 500ms, width 5s ease-in-out;
+            -moz-transition:left 2s ease 500ms, width 5s ease-in-out;
+            -ms-transition:left 2s ease 500ms, width 5s ease-in-out;
+            -o-transition:left 2s ease 500ms, width 5s ease-in-out;
+            transition:left 2s ease 500ms, width 5s ease-in-out;*/
+
+            -webkit-transition-property: all;
+            -moz-transition-property: all;
+            -o-transition-property: all;
+            transition-property: all;
+
+            -webkit-transition-duration: .8s;
+            -moz-transition-duration: .8s;
+            -o-transition-duration: .8s;
+            transition-duration: .8s;
+        }
+        .box:hover .demo{
+            left: 500px;
+            width: 300px;
+            -webkit-transform:rotate(45deg);
+            -moz-transform:rotate(45deg);
+            -ms-transform:rotate(45deg);
+            -o-transform:rotate(45deg);
+            transform:rotate(45deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="demo">demo11111111111111111111111</div>
+    </div>
+</body>
+</html>

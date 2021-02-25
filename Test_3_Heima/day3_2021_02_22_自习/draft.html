@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>draft</title>
+    <script src="js/jquery.min.js"></script>
+<!--    <link rel="stylesheet" href="css/bootstrap.css">-->
+    <script src="js/template-web.js"></script>
+<!--    <script src="js/axios.js"></script>-->
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //实例化对象
+    var xhr = new XMLHttpRequest();
+    //设置事件监听通信状态,通信状态改变时
+    xhr.onreadystatechange = function(){
+        // 通信成功时，状态值为4
+        if (xhr.readyState === 4){
+            if (xhr.status === 200){
+                //输出服务器返回的数据(responseText返回的是纯文本)
+                console.log(xhr.responseText);      //纯文本数据
+                console.log(xhr.status)             //200
+                console.log(xhr.statusText)         //OK
+            } else {
+                //statusText请求的响应状态信息,包含一个状态码和消息文本
+                console.error(xhr.statusText);      //OK
+            }
+        }
+    };
+    //设置时间监听通信状态,通信错误时
+    xhr.onerror = function (e) {
+        //返回请求的响应状态信息
+        console.error(xhr.statusText);
+    };
+
+    //xhr.open('GET', '/endpoint', true);
+    //open()方法初始化一个请求,get方式,url为'',异步操作true
+    xhr.open('GET', 'http://www.liulongbin.top:3006/api/getbooks', true);
+    //初始化后进行发送请求,请求内容为null
+    xhr.send(null);
+</script>

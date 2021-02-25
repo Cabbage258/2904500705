@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON表示方式</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <style>
+        td {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h2>员工信息</h2>
+<table border="1" width="400" class="employee">
+    <tr>
+        <th>员工编号</th>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>年龄</th>
+        <th>家庭住址</th>
+    </tr>
+</table>
+<ul class="score"></ul>
+
+
+<table border="1" width="800" class="students">
+    <caption>学生成绩表</caption>
+    <tr>
+        <th>学号</th>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>年龄</th>
+        <th>成绩</th>
+        <th>住址</th>
+    </tr>
+</table>
+
+</body>
+</html>
+<script>
+    //1.对象表示
+    var obj = {
+        id: '996',
+        name: 'Jack',
+        sex: 'male',
+        age: 18,
+        addr: 'ShangHai China'
+    }
+    console.log(obj)    //
+    var str = '<tr><td>' + obj.id + '</td><td>' + obj.name + '</td><td>' + obj.sex + '</td><td>' + obj.age + '</td><td>' + obj.addr + '</td></tr>'
+    $('.employee').append(str)
+
+    //2.数组
+    var score = [56, 95, 86, 76, 39, 49, 82]
+    score.forEach(function (value, index) {
+        console.log(value)
+        $('.score').append('<li>' + value + '</li>')
+    })
+    //3.复杂表示法(对象+数组)
+    var students = [{
+        id: '007',
+        name: 'Jack',
+        sex: 'male',
+        age: 18,
+        score: [56, 95, 86, 76, 39, 49, 82],
+        addr: 'ShangHai China'
+    }, {
+        id: '996',
+        name: 'Tom',
+        sex: 'female',
+        age: 23,
+        score: [56, 95, 86, 44, 39, 49, 82],
+        addr: 'BeiJing China'
+    }, {
+        id: '715',
+        name: 'Jerry',
+        sex: 'male',
+        age: 21,
+        score: [56, 95, 86, 76, 23, 49, 82],
+        addr: 'ChengDu China'
+    }]
+
+    for (var i in students) {
+        console.log(students[i])
+        var data = '<tr><td>' + students[i].id + '</td><td>' + students[i].name + '</td><td>' + students[i].sex + '</td><td>' + students[i].age + '</td><td>' + students[i].score.join(' ') + '</td><td>' + students[i].addr + '</td></tr>'
+        $('.students').append(data)
+    }
+
+</script>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //需求:写一个函数将今天的日期,以YYYY-MM--DD的方式输出
+    //    比如输出:2019-11-11,用短横线"-"分割
+    function today(){
+        var timenow = new Date(),year = timenow.getFullYear(),month = timenow.getMonth() + 1,day = timenow.getDay()
+        month = month < 10 ? '0' + month : month
+        day = day < 10 ? '0' + day : day
+        return year + '-' + month + '-' + day
+    }
+    console.log(today())
+</script>
+</body>
+</html>

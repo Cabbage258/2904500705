@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>算术运算符</title>
+</head>
+<body>
+<script>
+    var x = 10, y = 20;
+    console.log( x + y)// 30
+    console.log( x - y)//-10
+    console.log( x * y)//200
+    console.log( 2 * 2 * 2)//8
+    console.log( x * x * (x - 1))//900
+    console.log( x / y)//.5
+    console.log( 10 / 0)//Infinity
+    console.log( x % y)//10
+    console.log( 13 % 5)//3.6999999999999993
+    console.log( 13.7 % 5)//2.599999999999996
+    console.log( -13.7 % 5)//-3.6999999999999993
+    console.log( -13.7 % -5)//-3.6999999999999993
+    console.log( 13.7 % 5)//3.6999999999999993
+
+    /*var z = ++x;//x= x + 1;z = x;   前增1
+    console.log(x, z);//11 11*/
+
+    /*var z = x++;//x= x + 1;z = x;   后增1
+    console.log(x, z);// 10 11*/
+
+    var z = ++x + (++x) + x++ + x;//11 + 12 + 12 + 13
+    console.log(x, z);//13 48
+
+
+</script>
+</body>
+</html>

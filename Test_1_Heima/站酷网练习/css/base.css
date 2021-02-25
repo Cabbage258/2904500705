@@ -1,0 +1,601 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+li {
+    list-style-type: none;
+}
+
+input {
+    outline: none;
+}
+
+.cleafix:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.h {
+    width: 1380px;
+    margin: 0 auto;
+}
+
+/*body*/
+body {
+    width: 100%;
+    /*overflow-x: hidden;*/
+}
+
+/*header*/
+header {
+    width: 100%;
+    background: #ffd002 url(../images/logo.png) no-repeat 50px center;
+}
+
+header ul {
+    margin-left: 30%;
+    min-width: 1380px;
+}
+
+header ul li {
+    display: inline-block;
+    height: 50px;
+}
+
+header ul li a {
+    display: block;
+    line-height: 50px;
+    width: 100%;
+    font-size: 16px;
+    padding: 0 25px;
+}
+
+header ul li:hover {
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, .5);
+}
+
+header ul li:nth-child(11):hover {
+    background-color: transparent;
+}
+
+header ul li:nth-child(12):hover {
+    background-color: transparent;
+}
+
+header ul li:first-child {
+    font-weight: 700;
+}
+
+header ul li:nth-child(9) {
+    margin-left: 5%;
+}
+
+header ul li:nth-child(9) a, header ul li:nth-child(10) a {
+    padding: 0 5px;
+}
+
+header ul li:nth-child(11) {
+    margin-left: 5%;
+}
+
+header ul li:nth-child(11) a {
+    padding: 0 10px;
+}
+
+header ul li:nth-child(12) a {
+    padding-left: 2px;
+}
+
+/*banner*/
+.banner .bannert {
+    height: 350px;
+}
+
+.banner .bannert a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: url(../images/banner.jpg);
+}
+
+.banner .bannerb {
+    margin-top: 20px;
+    height: 208px;
+}
+
+.banner .bannerb div {
+    float: left;
+    width: 260px;
+    height: 208px;
+    margin-right: 20px;
+}
+
+.banner .bannerb .box5 {
+    margin-right: 0;
+}
+
+.banner .bannerb div a {
+    display: block;
+    width: 260px;
+    height: 208px;
+}
+
+.banner .bannerb .box1 a {
+    background: url(../images/t1.jpg) round;
+}
+
+.banner .bannerb .box2 a {
+    background: url(../images/t2.jpg) round;
+}
+
+.banner .bannerb .box3 a {
+    background: url(../images/t3.jpg) round;
+}
+
+.banner .bannerb .box4 a {
+    background: url(../images/t4.jpg) round;
+}
+
+.banner .bannerb .box5 a {
+    background: url(../images/t5.jpg) round;
+}
+
+.banner ul {
+    position: relative;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.banner ul li {
+    display: inline-block;
+    margin: 0 40px;
+}
+
+.banner ul li:hover a, .banner ul li:first-child a {
+    border-bottom: 3px solid #000;
+}
+
+.banner ul li:last-child {
+    width: 180px;
+    height: 95px;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: url(../images/cube.gif) round;
+}
+
+.banner ul li a {
+    display: block;
+    font-size: 22px;
+    padding: 30px 0;
+    line-height: 22px;
+}
+
+/*content*/
+
+.content {
+    width: 100%;
+    height: 1520px;
+    background-color: #eeeeee;
+}
+
+.wrapper {
+    /*height: 830px;*/
+}
+
+.wrapper div {
+    float: left;
+    width: 260px;
+    margin-right: 20px;
+    background-color: #fff;
+}
+
+.wrapper div[class^=box] {
+    margin-top: 30px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.wrapper div .pic, .wrapper div .pic a {
+    -webkit-border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0 0;
+}
+
+.wrapper div:nth-child(5n) {
+    margin-right: 0;
+}
+
+.wrapper div .pic a {
+    display: block;
+    width: 100%;
+    height: 195px;
+    margin-bottom: 12px;
+}
+
+.wrapper .box01 div a {
+    background: url(../images/b1.jpg);
+}
+
+.wrapper .box02 div a {
+    background: url(../images/b2.jpg);
+}
+
+.wrapper .box03 div a {
+    background: url(../images/b3.jpg);
+}
+
+.wrapper .box04 div a {
+    background: url(../images/b4.jpg);
+}
+
+.wrapper .box05 div a {
+    background: url(../images/b5.jpg);
+}
+
+.wrapper .box06 div a {
+    background: url(../images/b6.jpg);
+}
+
+.wrapper .box07 div a {
+    background: url(../images/b7.jpg);
+}
+
+.wrapper .box08 div a {
+    background: url(../images/b8.jpg);
+}
+
+.wrapper .box09 div a {
+    background: url(../images/b9.jpg);
+}
+
+.wrapper .box10 div a {
+    background: url(../images/t2.jpg) round;
+}
+
+.wrapper div .biaoti {
+    display: block;
+    font-size: 18px;
+    margin-left: 10px;
+    width: 240px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.wrapper div .biaoti:hover {
+    color: #4e4a4a;
+}
+
+.wrapper div p {
+    text-indent: 10px;
+    line-height: 29px;
+    font-size: 15px;
+    color: rgb(182, 179, 176);
+}
+
+.wrapper div span {
+    display: inline-block;
+    margin: 22px 0 20px 10px;
+    color: #adadad;
+}
+
+.wrapper div .user {
+    border-top: 1px solid #adadad;
+    padding: 14px 0;
+    -webkit-border-radius: 0 0 5px 5px;
+    -moz-border-radius: 0 0 5px 5px;
+    border-radius: 0 0 5px 5px;
+}
+
+.wrapper div .user div {
+    float: left;
+}
+
+.wrapper div .user .usrhead {
+    width: 35px;
+    height: 35px;
+    margin: 0 10px;
+    border-radius: 50%;
+    background: url(../images/message-list-2.png) no-repeat center center;
+}
+
+.wrapper div .user .username {
+    width: 130px;
+    margin-right: 0;
+    line-height: 35px;
+    font-size: 14px;
+}
+
+.wrapper div .user .time {
+    width: 75px;
+    margin-right: 0;
+    line-height: 35px;
+    font-size: 14px;
+    color: #adadad;
+}
+
+.wrapper .box10 {
+    height: 382px;
+    position: relative;
+}
+
+.wrapper .box10 .user {
+    width: 230px;
+    margin-top: 12px;
+    padding-left: 30px;
+}
+
+.wrapper .box10 .user .time {
+    padding-left: 25px;
+}
+
+.wrapper .box10 .fufei {
+    float: left;
+    width: 80px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 30px;
+    font-size: 14px;
+    text-align: center;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px 0;
+}
+
+/*pages*/
+.pages {
+
+}
+
+.pages ul {
+    float: left;
+    width: 100%;
+    height: 50px;
+    margin: 70px 0;
+    text-align: center;
+    word-spacing: 10px;
+}
+
+.pages ul li, .pages ul li a {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.pages ul li {
+    display: inline-block;
+    line-height: 50px;
+
+}
+
+.pages ul li a {
+    font-size: 16px;
+    display: block;
+    width: 50px;
+    height: 50px;
+    color: rgb(179, 174, 167);
+    background-color: #ffffff;
+    border: 1px solid #d7d7d7;
+}
+
+.pages ul li:first-child a {
+    color: #000;
+    background-color: #ffd000;
+}
+
+.pages ul li:hover a {
+    background-color: #ffd000;
+}
+
+/*fkbanner*/
+.fkbanner .rowbanner {
+    float: left;
+    width: 100%;
+    height: 167px;
+    background: url(../images/footer.jpeg) round;
+}
+
+.fkbanner .wordl {
+    float: left;
+    width: 80%;
+    line-height: 60px;
+    font-size: 18px;
+    color: #a5a5a5;
+}
+
+.fkbanner .wordr {
+    float: right;
+    height: 60px;
+}
+
+.fkbanner .wordr a {
+    display: block;
+    color: #ea7f38;
+    font-size: 18px;
+    margin: 18px 10px;
+}
+
+.fkbanner .box div {
+    float: left;
+    width: 260px;
+    height: 250px;
+    margin-right: 20px;
+    background-color: #fff;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.fkbanner .box div:last-child {
+    margin-right: 0;
+}
+
+.fkbanner .box div a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.fkbanner .box .box5 {
+    position: relative;
+}
+
+.fkbanner .box div .top {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    right: -85px;
+}
+
+.fkbanner .box div .top > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 50px;
+    text-align: center;
+}
+
+.fkbanner .box div a span {
+    display: inline-block;
+    position: absolute;
+    top: 210px;
+    font-size: 19px;
+}
+
+.fkbanner .box div a span:nth-child(1) {
+    left: 10%;
+}
+
+.fkbanner .box div a span:nth-child(2) {
+    right: 3%;
+}
+
+.fkbanner .box .box1 a {
+    background: url(../images/f1.jpg) no-repeat center top;
+}
+
+.fkbanner .box .box2 a {
+    background: url(../images/f2.jpg) no-repeat center top;
+}
+
+.fkbanner .box .box3 a {
+    background: url(../images/f3.jpg) no-repeat center top;
+}
+
+.fkbanner .box .box4 a {
+    background: url(../images/f4.jpg) no-repeat center top;
+}
+
+.fkbanner .box .box5 a {
+    background: url(../images/f5.jpg) no-repeat center top;
+}
+
+/*footer*/
+footer {
+    width: 100%;
+    background-color: #2b2b2b;
+    height: 350px;
+}
+
+.footerabout, .footerabout a, .footerabout li {
+    color: #65645f;
+}
+
+.footerabout .about li {
+    display: block;
+    float: left;
+    padding: 80px 22px 100px;
+}
+
+.footerabout .about li:first-child {
+    padding-left: 0;
+}
+
+.footerabout .about li a {
+    font-size: 20px;
+}
+
+.footerabout .about li a:hover {
+    color: #ffd000;
+}
+
+.footerabout .wechat, .footerabout .weibo {
+    display: block;
+    float: left;
+    width: 21px;
+    height: 21px;
+    margin: 83px 30px 103px;
+}
+
+.footerabout .wechat {
+    margin-left: 205px;
+    background: url(../images/wechat.png) no-repeat center center;
+}
+
+.footerabout .weibo {
+    background: url(../images/weibo.png) no-repeat center center;
+}
+
+
+.footerabout .beian li {
+    display: inline-block;
+    padding-right: 28px;
+    margin-right: 27px;
+    border-right: 1px solid #65645f;
+    font-size: 15px;
+}
+
+.footerabout .beian li:nth-child(3) {
+    background: url(../images/icon-police.png) no-repeat left center;
+    text-indent: 16px;
+}
+
+.footerabout .beian li:last-child {
+    border: none;
+    padding-right: 0;
+    margin-right: 0;
+}
+
+.footerabout .jubao {
+    margin-top: 30px;
+}
+
+.footerabout .jubao li {
+    display: inline-block;
+    padding-right: 28px;
+    margin-right: 27px;
+    border-right: 1px solid #65645f;
+    font-size: 15px;
+}
+
+.footerabout .jubao li:last-child {
+    border: none;
+    padding-right: 0;
+    margin-right: 0;
+    margin-left: 117px;
+}
+
+

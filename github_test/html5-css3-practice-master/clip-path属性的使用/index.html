@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>clip path 裁剪属性的使用</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #ecf0f1;
+    }
+
+    .clip-path {
+      width: 300px;
+      height: 100px;
+      background-color: #95a5a6;
+      box-shadow: 0 0 40px 0 #bdc3c7;
+      text-transform: uppercase;
+      line-height: 100px;
+      text-align: center;
+      font-size: 20px;
+      transition: all .5s ease-in;
+    }
+
+    .clip-path:nth-of-type(1) {
+      clip-path: polygon(0 50%, 100% 50%, 100% 0, 0 0);
+      margin-bottom: -50px;
+    }
+
+    .clip-path:nth-of-type(3) {
+      clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+      margin-top: -50px;
+    }
+
+    .middle-txt {
+      text-align: center;
+      height: 0;
+      overflow: hidden;
+      transition: all .5s ease-in;
+    }
+
+    .container:hover {
+      cursor: pointer;
+    }
+
+    .container:hover .middle-txt {
+      height: 20px;
+    }
+
+    .container:hover .clip-path:nth-of-type(1) {
+      margin-bottom: -40px;
+    }
+
+    .container:hover .clip-path:nth-of-type(3) {
+      margin-top: -40px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>将鼠标移动到hello world上，有惊喜哦</h1>
+  <div class="container">
+    <div class="clip-path">
+      hello world
+    </div>
+    <div class="middle-txt">PHP 是世界上最好的语言</div>
+    <div class="clip-path">
+      hello world
+    </div>
+  </div>
+</body>
+
+</html>

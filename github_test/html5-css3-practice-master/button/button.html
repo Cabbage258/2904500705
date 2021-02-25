@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>button</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            height: 100vh;
+            background: #bdc3c7;
+            display: flex;
+            justify-content: center;/*弹性项沿着弹性容器的主轴线对齐*/
+            align-items: center;/*子元素在纵轴上的对齐方式,作用于父容器*/
+        }
+        
+        button {
+            width: 200px;
+            padding: 10px 20px;
+            border: 4px solid #2ecc71;
+            position: relative;
+            height: 80px;
+            font-size: 24px;
+            text-transform: uppercase;/*字母大写*/
+            color: #2ecc71;
+        }
+        
+        button::before,
+        button::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 4px;
+            background: #16a085;
+            transition: all .3s ease-in;
+        }
+        
+        button::before {
+            left: 10%;
+            top: -4px;
+        }
+        
+        button::after {
+            right: 10%;
+            bottom: -4px;
+        }
+        
+        button:hover {
+            cursor: pointer;
+        }
+        
+        button:hover:before {
+            left: 80%;
+        }
+        
+        button:hover:after {
+            right: 80%;
+        }
+    </style>
+</head>
+
+<body>
+    <button> hover me </button>
+</body>
+
+</html>

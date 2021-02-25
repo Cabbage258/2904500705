@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //闭包
+    /*function fn1(){
+        var a = 996;            //a作用域fn1
+        function fn2(){         //fn1内创建fn2
+            console.log(a)      //输出a
+            console.log(a++)
+        }
+        return fn2
+        //返回fn2,由于fn2可以访问fn1的内部变量,所以返回fn2内的console.log(a)即相当于在fn1外部获取到了作用域在fn1内的变量a的值
+    }
+    fn1()()                   //
+    //闭包就是函数fn2,即能够读取其他函数内部变量的函数.*/
+
+    //闭包使得内部变量记住上一次调用时的运算结果
+    function a(b){
+        return function(){
+            return b++
+        }
+    }
+    var c = a(1)
+    console.log(c())
+    console.log(c())
+    console.log(c())
+    console.log(c())
+    console.log(c())
+    //b是函数a的内部变量.通过闭包,b的状态被保留了,每次调用都是在上次调用的基础上进行计算.
+    //从输出结果每次+1来看,闭包c使得函数a的内部环境一直存在,所以闭包可以看做是函数内部作用域的一个接口
+    //原因:
+    //闭包c用到了外层变量b,导致外层函数a不能从内存中释放,
+
+</script>

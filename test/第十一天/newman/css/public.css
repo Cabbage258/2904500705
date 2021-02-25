@@ -1,0 +1,155 @@
+/*导航栏样式*/
+header{
+    width: 1200px;
+    height: 80px;
+    line-height: 80px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+header .logo{
+    float: left;
+    width: 140px;
+    height: 40px;
+    margin: 20px 200px 0 0;
+}
+header .nav{
+    overflow: hidden;
+    float: left;
+}
+header .nav li{
+    float: left;
+    font-size: 16px;
+    margin-right: 55px;
+}
+header .nav li:first-child, header .nav li:hover{
+    border-bottom: 4px solid #01a1ff;
+}
+header .nav li a{
+    color: #333;
+}
+.active{
+    color:#01a1ff!important;
+}
+header .nav li:hover a{
+    color:#01a1ff;
+}
+header .language{
+    float: right;
+}
+header .language li{
+    float: left;
+    width: 47px;
+    height: 50px;
+    line-height: 50px;
+    border:1px solid transparent;
+    text-align: center;
+    margin-top: 15px;
+    cursor:pointer;
+}
+header .language li:first-child{
+    border:1px solid #ccc;
+}
+header .language li:last-child:hover{
+    border:1px solid #ccc;
+}
+header .language li:last-child:hover header .language li:first-child:hover{
+    border:none;
+}
+/*banner*/
+.banner{
+    width: 100%;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+.banner .imgs{
+    width: 1000%;
+    position: relative;
+}
+.banner li{
+    float: left;
+}
+.banner img{
+    width: 100%;
+    height: 400px;
+}
+.prev,.next{
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 184px;
+    z-index: 10;
+}
+.prev{
+    background: url(../home/images/index-xb2.png) no-repeat;
+    left: 40px;
+}
+.next{
+    background: url(../home/images/index-xb1.png) no-repeat;
+    right: 40px;
+}
+.prev:hover{
+    background: url(../home/images/index-xb4.png) no-repeat;
+    left: 40px;
+}
+.next:hover{
+    background: url(../home/images/index-xb3.png) no-repeat;
+    right: 40px;
+}
+.banner .count{
+    width: 100%;
+    height: 10px;
+    position: absolute;
+    left: 50%;
+    bottom:10px;
+    margin-left: -22.5px;
+}
+.banner .count li{
+    float: left;
+    width: 10px;
+    height: 10px;
+    background-color: #000;
+    opacity: .2;
+    filter:alpha(opacity=20);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    margin-right: 5px;
+    cursor:pointer;
+}
+.banner .count .on{
+    background-color: #01a1ff;
+    opacity: 1;
+    filter:alpha(opacity=100);
+}
+/*标题公共样式*/
+.title{
+    font:34px "Franklin Gothic Medium";
+    text-transform: uppercase;/*字母全部大写*/
+    text-align: center;
+    position: relative;
+    margin-bottom: 44px;
+}
+.title:after{
+    content:"";
+    display: block;
+    width: 42px;
+    border-bottom: 4px solid #01a1ff;
+    position: absolute;
+    left: 50%;
+    margin-left: -21px;
+    bottom:-3px;
+}
+
+/*首页p标签样式*/
+.index-p{
+    width: 1200px;
+    font: 14px 微软雅黑;
+    color:#666;
+    padding: 0 70px;
+    line-height: 24px;
+    text-align: center;
+    box-sizing: border-box;
+    margin:0 auto;
+}
+

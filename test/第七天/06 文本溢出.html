@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文本溢出</title>
+    <style>
+        p{
+            width: 200px;
+            white-space:nowrap;/*不允许折行*/
+            border: 1px solid #000;
+            overflow: hidden;
+        }
+
+        /*单行文本溢出*/
+
+        .p2{
+            -ms-text-overflow: ellipsis;
+            text-overflow:ellipsis;
+        }
+        .p3{
+            -ms-text-overflow: clip;
+            text-overflow:clip;
+        }
+
+        /*多行文本溢出*/
+        .p4{
+            white-space:normal;
+            width: 200px;
+            display:-webkit-box;
+            -webkit-box-orient:vertical;
+            -webkit-line-clamp:3;/*显示行数*/
+            overflow:hidden;
+        }
+    </style>
+</head>
+<body>
+    <p class="p1">CSS3不是所有浏览器或同一浏览器的不同版本都支持,所以需要做兼容处理</p>
+    <p class="p2">CSS3不是所有浏览器或同一浏览器的不同版本都支持,所以需要做兼容处理</p>
+    <p class="p3">CSS3不是所有浏览器或同一浏览器的不同版本都支持,所以需要做兼容处理</p>
+
+    <p class="p4">CSS3不是所有浏览器或同一浏览器的不同版本都支持,所以需要做兼容处理</p>
+</body>
+</html>

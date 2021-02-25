@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/animate.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style-type: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .box{
+            margin:30px auto;
+            width: 721px;
+            height: 455px;
+            position: relative;
+            overflow: hidden;
+        }
+        .imgs{
+            width: 1000%;
+            position: absolute;
+        }
+        .imgs li{
+            float:left;
+        }
+        span{
+            display: none;
+            position: absolute;
+            width: 30px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            font-weight: 700;
+            top: 50%;
+            margin-top: -30px;
+            cursor:pointer;
+            background-color: red;
+            color: white;
+            opacity:.5;
+        }
+        span:hover{
+            opacity: 1;
+        }
+        span:nth-of-type(1){
+            left: 0;
+        }
+        span:nth-of-type(2){
+            right: 0;
+        }
+        .dot{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        .dot li{
+            display: block;
+            width: 10px;
+            height: 10px;
+            float: left;
+            background-color: transparent;
+            border-radius: 50%;
+            border:1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul class="imgs">
+        <li><a href="javascript:"><img src="./upload/focus.jpg" alt=""></a></li>
+        <li><a href="javascript:"><img src="./upload/focus1.jpg" alt=""></a></li>
+        <li><a href="javascript:"><img src="./upload/focus2.jpg" alt=""></a></li>
+        <li><a href="javascript:"><img src="./upload/focus3.jpg" alt=""></a></li>
+    </ul>
+    <span>&lt;</span><span>&gt;</span>
+    <ul class="dot"></ul>
+</div>
+</body>
+</html>
+<script>
+//抓取DOM
+    var box = document.querySelector('.box')
+    var imgs = document.querySelector('.imgs')
+    var imglis = document.querySelectorAll('.imgs li')
+    var dot = document.querySelector('.dot')
+    var span = document.querySelectorAll('span')
+
+//鼠标移入时显示span,移出时隐藏span
+    box.addEventListener('mouseover',function(){
+        span[0].style.display = 'block'
+        span[1].style.display = 'block'
+        clearInterval(tim)
+    })
+    box.addEventListener('mouseout',function(){
+        span[0].style.display = 'none'
+        span[1].style.display = 'none'
+        tim = setInterval(function(){
+            span[1].click()
+        },2000)
+    })
+//遍历图片,遍历一次,在下面生成一个小圆点
+    for(var a = 0;a < imglis.length;a++){
+        var lili = document.createElement('li')
+        dot.appendChild(lili)
+    }
+    //第一个小圆点白色
+    dot.children[0].style.backgroundColor = '#ccc'
+    //克隆第一张图并添加至imgs
+    imgs.appendChild(imgs.children[0].cloneNode(true))
+    //声明num计图片索引
+    var num = 0
+    //声明节流阀
+    var flag = true
+    //注册右按钮点击事件
+    span[1].addEventListener('click',fn1)
+    function fn1(){
+        //设置节流阀
+        if(flag){
+            flag = false
+            if(num == 5){
+                num = 1
+                imgs.style.left = 0 + 'px'
+            }
+            animate(imgs,-721 * num,function(){
+                flag = true
+            })
+            //dotlis排他
+            for(i = 0;i < dot.children.length;i++){
+                dot.children[i].style.backgroundColor = ''
+            }
+            if(num >= 4){
+                dot.children[0].style.backgroundColor = '#ccc'
+                console.log('3')
+            }else{
+                dot.children[num].style.backgroundColor = '#ccc'
+                console.log('4')
+            }
+            num++
+        }
+    }
+
+    //注册左按钮点击事件
+    span[0].addEventListener('click',fn2)
+    function fn2(){
+        //设置节流阀
+        if(flag){
+            flag = false
+            if(num == 0){
+                num = 4
+                imgs.style.left = -721 * num + 'px'
+            }
+            num--
+            animate(imgs,-721 * num,function(){
+                flag = true
+            })
+        for(i = 0;i < dot.children.length;i++){
+            dot.children[i].style.backgroundColor = ''
+        }
+            if(num >= 0){
+                dot.children[num].style.backgroundColor = '#ccc'
+            }else{
+                dot.children[0].style.backgroundColor = '#ccc;'
+            }
+        }
+    }
+    //遍历dotlis,注册一个点击事件
+    for(var i = 0;i < dot.children.length;i++){
+        dot.children[i].index = i
+        dot.children[i].addEventListener('click',function(){
+            //排他
+            for(var i = 0;i < dot.children.length;i++){
+                dot.children[i].style.backgroundColor = ''
+            }
+            //设置当前样式
+            this.style.backgroundColor = '#ccc'
+            animate(imgs,-721 * this.index)
+            //设置图片索引等于当前odtlis索引
+            num = this.index
+        })
+    }
+    span[1].click()
+    var tim = setInterval(function(){
+        span[1].click()
+    },2000)
+</script>

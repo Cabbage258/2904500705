@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //需求:筛选数组,请将arr数组[1,2,3,4,2,4,2,6,9,2,7,5]中大于等于5的数据筛选出来
+    //    存放到新数组newArr里面,并打印出来
+    var arr = [1,2,3,4,2,4,2,6,9,2,7,5],newArr = []
+    for(var i= 0,a=0;i < arr.length;i++){
+            if(arr[i] >= 5){                //筛选大于等于5的元素
+                newArr[a] = arr[i]          //存放到新数组newArr中
+                a++
+            }
+    }
+    console.log(newArr)                     //打印
+</script>
+</body>
+</html>

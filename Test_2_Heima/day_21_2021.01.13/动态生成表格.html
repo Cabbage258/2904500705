@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态生成表格</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<table border="1" cellspacing="0">
+    <thead>
+    <tr>
+        <th>th1</th>
+        <th>th2</th>
+        <th>th3</th>
+        <th>th4</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+
+
+<script>
+    //1创建数据对象
+    var data = [
+        {
+            name:'张三',
+            age:'12',
+            hobby:'123456'
+        },
+        {
+            name:'张三',
+            age:'12',
+            hobby:'123456'
+        },
+        {
+            name:'张三',
+            age:'12',
+            hobby:'123456'
+        }
+    ]
+    //2
+    var tbd = document.querySelector('tbody')
+    for (var i = 0;i < data.length;i++){
+        var tr = document.createElement('tr')
+        tbd.appendChild(tr)
+        //遍历数组内的对象
+        for(var k in data[i]){
+            //根据遍历次数创建td
+            var td = document.createElement('td')
+            //添加数据
+            td.innerHTML = data[i][k]//
+            tr.appendChild(td)//当前tr
+        }
+        //添加操作行块
+        var td1 = document.createElement('td')
+        td1.innerHTML = '<a href="javascript:">删除</a>'
+        tr.appendChild(td1)
+        var as = document.querySelectorAll('a')
+        //绑定事件
+        for(var j = 0;j < as.length;j++){
+            as[j].onclick = function(){
+                tbd.removeChild(this.parentNode.parentNode)
+            }
+        }
+    }
+</script>
+</body>
+</html>

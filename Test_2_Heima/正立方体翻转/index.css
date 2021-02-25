@@ -1,0 +1,80 @@
+html {
+    background:linear-gradient(#9ed128 0%,#358b98 80%);
+    height:1000px;
+    opacity:0.8;
+    overflow: hidden;
+}
+.wrapper {
+    margin-top:200px;
+    perspective:1000px;
+}
+.cube {
+    height:200px;
+    width:200px;
+    position:relative;
+    margin:auto;
+    transform-style:preserve-3d;
+    -webkit-animation:rotate 15s infinite;
+    -o-animation:rotate 15s infinite;
+    animation:rotate 15s infinite ;
+}
+@keyframes rotate {
+    from {
+        transform:rotateY(0deg) rotateX(0deg);
+    }
+    to {
+        transform:rotateY(360deg) rotateX(360deg);
+    }
+}.cube>div {
+     height:100%;
+     width:100%;
+     opacity:0.9;
+     position:absolute;
+     text-align:center;
+     background:#333;
+     color:#fff;
+     line-height:200px;
+     font-size:30px;
+ }
+.plane-front {
+    transform:translateZ(100px);
+    transition: all .5s;
+}
+.plane-back {
+    transform:rotateY(180deg) translateZ(100px);
+    transition: all .5s;
+}
+.plane-left {
+    transform:rotateY(270deg) translateZ(100px);
+    transition: all .5s;
+}
+.plane-right {
+    transform:rotateY(90deg) translateZ(100px);
+    transition: all .5s;
+}
+.plane-top {
+    transform:rotateX(90deg) translateZ(100px);
+    transition: all .5s;
+}
+.plane-bottom {
+    transform:rotateX(270deg) translateZ(100px);
+    transition: all .5s;
+}
+.cube:hover .plane-front {
+    transform:translateZ(200px);
+}
+.cube:hover .plane-back {
+    transform:rotateY(180deg) translateZ(200px);
+}
+.cube:hover .plane-left {
+    transform:rotateY(270deg) translateZ(200px);
+}
+.cube:hover .plane-right {
+    transform:rotateY(90deg) translateZ(200px);
+}
+.cube:hover .plane-top {
+    transform:rotateX(90deg) translateZ(200px);
+}
+.cube:hover .plane-bottom {
+    transform:rotateX(270deg) translateZ(200px);
+}

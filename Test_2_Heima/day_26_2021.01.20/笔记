@@ -1,0 +1,194 @@
+JQuery
+    库和框架的区别
+    bootstrap 严格来说不是框架  但是可以归类为框架
+
+1、认识JQuery
+    JQ是JS库,是对JavaScript的一个封装,也即是说JQ提供了大量的API,在开发时以最少的代码实现最多的功能.
+    学习JQ本质:调用函数(方法)
+2.使用JQ
+    1)本地引入
+        <script src="./js/jquery-3.3.1.min.js"></script>
+    2)CDN引入
+        <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+
+            JQ必须先引入,然后才能调它的API,可以在head标签中引入,也可以在最后引入
+    3)JQ的入口函数
+        1 $(function(){后期所有JQ代码写在这里})
+        2 $(document.ready(function(){后期所有JQ代码写在这里})
+        不写入口函数 ,由上到下执行,获取不到js后面的元素对象
+    Tips:
+        用jQ获取的元素对象 叫 JQ对象,不能使用DOM对象里的方法和属性;DOM同理
+3.jQuery对象和DOM对象
+    用原生JS获取来的对象是DOM对象
+    jQuery方法获取的元素就是jQuery对象
+    jQuery对象本质是:利用$对DOM对象包装后产生的对象(以伪数组形式存储)
+4.选择器
+    1)基本选择器
+        id: #id
+        class: .class
+        element: element
+        *  :选择所有标签(项目开发时不要用,性能差)
+        ,  :选择多个DOM
+    2)层次选择器
+        选择器1 选择器2           选择选择器1的所有的后代元素(选择器2)
+        选择器1>选择器2           只选择选择器1的子元素
+        选择器1+选择器2           紧挨着选择器1的相邻元素(兄弟元素)
+        选择器1~选择器2           选择选择器1的所有兄弟元素
+    3)过滤选择器
+        a.简单过滤选择器
+            :first或first()      第一个元素
+            :last或last()        最后一个元素
+            :not(selector)      除selector之外的元素
+            :even               偶数元素
+            :odd                奇数元素
+            :eq(index)          第n个元素(n为索引)
+            :gt(index)          大于第n个元素后的元素
+            lt(index)           小于第n个元素后的元素
+            :header             选h1至h6所有标题元素
+        b.内容过滤选择器
+            :contains(text)     获取包含指定文本内容的元素
+            :empty              获取不包含子元素和文本内容的元素
+            :has(selector       获取含有选择器所匹配的元素
+            :parent             获取含有子元素或文本的元素
+        c.可见性过滤选择器
+            :hidden             选择display:none或隐藏文本域
+            :visible            选择display:block的元素
+        d.属性过滤选择器
+            [attr]              获取含有指定属性的元素
+            [attr=value]        获取属性值为value的元素
+            [attr!=value]       获取属性值不为value的元素
+            [attr^=value]       获取属性值以value开头的元素
+            [attr$=value]       获取属性值以value结尾的元素
+            [attr*=value]       获取属性值含有value的元素
+            [attr1][attr2][attr3] 获取含有指定多个属性的元素
+    4)表单选择器
+        :input
+        :button
+        :submit
+        :text
+        :password
+        :checked
+
+    筛选方法
+        语法                           用法                               说明
+        parent()                    $("li").parent();               查找父级
+        children(selector)          $("ul").children("li")          相当于$("ul>li"),最近一级(亲儿子)
+        find(selector)              $("ul").find("li")              相当于$("ul li"),后代选择器
+        siblings(selector)          $(".first").siblings("li")      查找兄弟节点,不包括自己本身
+        nextAll([expr])             $(".first").nextAll()           查找当前元素之后所有的同辈元素
+        prevAll([expr])             $(".last").prevAll()            查找当前元素之前所有的同辈元素
+        hasClass(class)             $('div').hasClass("protected")  检查当前的元素是否含有某个特定的类,如果有,返回true
+        eq(index)                   $("li").eq(2)                   相当于$("li:eq(2)").index从0开始
+
+
+
+5.效果
+    动画事件
+        a)
+            hide()         隐藏
+            show()         显示
+            toggle()       切换显示和隐藏
+
+        b)
+            slideDown()    显示
+            slideUp()      隐藏
+            slideToggle()  切换显示和隐藏
+
+            hover()        两个参数都是函数,第一个类似于mouseenter,第二个参数类似mouseleave
+            stop()         阻止动画来回切换,写在做动画前面即可
+
+        c)
+            fadeOut()      隐藏
+            fadeIn()       显示
+            fadeToggle()   切换
+            fadeTo()       改变透明度,两个参数,时间,透明度
+
+        d)
+            animate
+                四个参数
+                i) 想要利用动画来修改的样式属性  以对象的形式传递过来
+                ii)在执行这个动画开始到结束的一个时间
+                iii)切换状态 --  运动速度
+                iv)回调函数 ---  这个动画执行完毕后执行这个函数
+
+
+
+6.DOM操作
+    1)属性操作
+        a.获取属性值
+            attr(属性名)    //获取自定义属性值
+            prop(属性名)    //获取固有属性
+        b.设置属性
+            attr(属性名,属性值)
+        c.删除属性
+            removeAttr(属性名)
+    2)文本内容操作
+        a.获取文本及表单组件内容
+            html()  可以操作标签               //获取元素内容
+            text()  只能操作文本内容,不操作标签   //获取元素内文本内容
+            val()   只能用于表单组件            //获取表单的value值
+        b.设置(修改) 文本及表单组件内容(覆盖原先的内容)
+            html(内容)
+            text(内容)
+            val(内容)
+        c.删除文本及表单组件内容
+            html('')
+            text('')
+            val('')
+    3)元素样式操作
+        a.设置样式
+            css('属性名','属性值')                            设置一个样式
+            css({'属性名1':'属性值1','属性名2':'属性值2',...})   设置多个样式
+        b.操作类
+            i)添加类
+                addClass('类名')  添加一个类名
+                或
+                addClass('类名1 类名2 ...')添加多个类名
+            ii)删除类
+                removeClass()                  清空类名
+                或
+                removeClass('类名')             清除指定的类名
+                或
+                removeClass('类名1 类名2 ..')    清除指定的多个类名
+
+    4)页面元素操作
+        a.创建DOM节点
+            $(dom节点内容)
+        b.在内部添加DOM节点
+            append()            在内部的最后添加DOM
+            appendTo()          将DOM添加到内部的最后
+            prepend()           在内部的最前面添加DOM
+            prependTo()         将DOM添加到内部的最前面
+        c.在外部添加DOM节点
+            before()            在当前DOM前添加(同级添加)
+            insertBefore()      把DOM添加到当前元素之前(同级添加)
+            after()             在当前DOM之后添加(同级添加)
+            insertAfter()       把DOM添加到当前元素之后(同级添加)
+        d.复制DOM节点
+            clone()             只复制DOM元素
+            clone(true)         复制DOM及绑定在它上面的事件
+        e.删除DOM节点
+            remove()            删除当前DOM及子元素
+            remove(DOM节点)      在同级DOM中删除指定的DOM
+            empty()             删除当前DOM下的子元素,保留当前DOM
+            html('')            空值覆盖内容=>清除内容
+
+        f.获取位置
+            offset()            到文档的距离,返回的是一个对象,对象里面两个属性    top left
+            position()          找有定位的最近的父元素  对象里面有两个属性      top left
+            scroll()            获取被卷去的长度
+
+        g.获取尺寸
+            width()/height()                        取得匹配元素宽度和高度值 只算width/height
+            innerWidth()/innerHeight()              取得匹配元素宽度和高度值 包含padding
+            outerWidth()/outerHeight()              取得匹配元素宽度和高度值 包含padding、border
+            outerWidth(true)/outerHeight(true)      取得匹配元素宽度和高度值 包含padding、border、margin
+            Tips:
+                参数为空,则返回数字型的相应值
+                如果参数为数字,则是修改相应值(可以不必写单位)
+
+    5)遍历
+        a) $('div').each(function(index,domEle){})
+            index索引号,domEle是DOM对象
+        b)$.each(要遍历的元素,function(index,domEle){})
+            index索引号/属性名      domEleDOM对象/属性值

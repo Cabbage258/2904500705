@@ -1,0 +1,30 @@
+.container .left .lfttop {
+    width: 100%;
+    height: 60px;
+    background: #429ad9 url(../images/logo.png) no-repeat round center;
+    background-size: 95px;
+}
+.container .left .lftbtm {
+    width: 100%;
+    background-color: #ccc;
+}
+.container .left .lftbtm li {
+    cursor: pointer;
+    list-style-type: none;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    text-indent: -20px;
+}
+.container .left .lftbtm li:hover {
+    opacity: 0.3;
+    filter: alpha(opacity=30);
+}
+.mid .midtop>div img{
+    width: 100%;
+    height: 300px;
+}
+.mid .midtop>div .row img{
+    height: 150px;
+    width: 150px;
+}

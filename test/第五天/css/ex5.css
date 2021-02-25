@@ -1,0 +1,144 @@
+/*初始化样式*/
+*{
+    margin-right: 0;
+    padding:0
+}
+li{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    color:#000;
+}
+/*设置页面样式*/
+body{
+    font-size: 12px;
+    background: url(../image/bg.gif) no-repeat center top;
+}
+/*页面总样式*/
+.container{
+    width: 980px;/*设置版型宽度*/
+    margin: 0 auto;
+    height: 2000px;
+}
+/*页首*/
+.header{
+    padding-bottom:15px;
+    background: url(../image/bottom_bg.gif)repeat-x left bottom;
+}
+.mainnav{
+    background: url(../image/2.jpeg) repeat-x;
+
+}
+.mainnav ul{
+    font-size: 15px;
+    font-weight: bold;
+    padding: 9px 0 8px 0;
+    margin-left: 30px;
+
+}
+.mainnav ul li{
+    display: inline-block;
+    padding: 0 20px 0 18px;
+    border-right: 1px solid #88180f;
+
+}
+.mainnav ul li:last-child{
+    border: none;
+}
+.mainnav ul li a{
+    color:#fff;
+}
+.mainnav ul li a:hover{
+    color:#ff0;
+}
+.subnav ul{
+    text-align: center;
+    font-size: 12px;
+    padding: 10px 0;
+
+}
+.subnav ul li{
+    display: inline-block;
+    border-right: 1px solid #999;
+    padding-right: 10px;
+    margin-right: 7px;
+}
+.subnav ul li:last-child{
+    border: none;
+}
+.subnav ul li a{
+    color:#888;
+}
+.subnav ul li a:hover{
+    color:#000;
+}
+/*主体*/
+.content{
+    overflow: hidden;
+}
+/*侧栏*/
+.leftsider{
+    float: left;
+    width: 210px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+.leftsider ul{
+    background: url(../image/main_menu_bg.gif);
+    padding-left: 50px;
+}
+.leftsider ul li{
+    padding: 9px 0 7px;
+}
+.leftsider ul li a:hover{
+    color:#ff4f46;
+}
+/*内容区*/
+.main{
+    float:right;
+    width: 723px;
+    padding:0 0 10px 20px;
+    border:1px solid #CCC;
+}
+.main .title{
+    margin-left: -20px;
+    background:url(../image/3.jpeg);
+}
+.main .title h1{
+    font-size: 14px;
+    padding:8px 0 7px 45px;
+}
+.main h2{
+    font-size: 12px;
+    margin:25px 0 10px;
+}
+.main p{
+    line-height:1.5em;
+}
+.main li{
+    list-style-type:decimal;
+    list-style-position: inside;
+    line-height: 2em;
+}
+.footer{
+    background:url(../image/2.jpeg) repeat-x;
+    margin-top:15px;
+}
+.footer ul{
+    text-align: center;
+    padding:10px 0;
+    margin:0 0 5px 10px ;
+}
+.footer ul li{
+    display: inline-block;
+    padding-right:10px;
+    border-right:1px solid #999;
+    margin-right:7px;
+}
+.footer ul li a{
+    color:#fff;
+}
+.footer ul li a:hover{
+    color:rgb(244,255,87);
+}

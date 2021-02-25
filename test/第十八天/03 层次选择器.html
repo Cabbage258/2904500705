@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <span>span1</span>
+    <div class="box">
+        <span>span2</span>
+    </div>
+</div>
+<p>ppppppppppppppp</p>
+<p>ppppppppppppppp</p>
+<p>ppppppppppppppp</p>
+<div class="test">test</div>
+</body>
+<script>
+    $(function(){
+        //选择所有的后代元素span
+        //$('.wrapper span').html('这是wrapper的所有的后代span元素')
+
+        //选择子元素
+        //$('.wrapper>span').html('这是wrapper的子元素')
+
+        //选择兄弟元素
+        $('.wrapper+p').css('color','red').html('这是离wrapper最近的一个兄弟元素')
+        $('.wrapper+.test').css('color','red').html('这是离wrapper最近的一个兄弟元素')
+    })
+</script>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>作业</title>
+</head>
+<body>
+<script>
+    //1.判断一个年份是闰年还是平年,闰年,能被4整除,但不能被100整除的年份或者能被400整除的年份
+    //判断是否能被4整除;是则输出闰年,否输出平年
+    //如果能被4整除,if能被100整除,输出闰年且能被100整除;if能被400整除,输出闰年且能被400整除
+    //if能被100整除 && 能被400整除 ,输出闰年且能同时被100和400整除
+
+    var year = window.prompt('请输入年份:');
+    var rs = '';
+    if(year % 4 == 0 && year % 100 != 0){
+        rs = '闰年';
+    }else if(year % 4 == 0 && year % 400 ==0){
+        rs = '闰年';
+    }else{
+        rs = '平年';
+    }
+    document.write('您输入的年份是' + rs)
+
+    document.write('<br />');
+    //2.计算1-100之间所有数的和
+    var sum=0;
+    for(var i = 1;i <= 100;i ++){
+        sum = sum + i;
+    }
+    document.write('1+2+3+...+100=' + sum)
+
+    document.write('<br />');
+    //3.编写一个程序,计算增加后ode工资.要求工龄满5,增加20%工资;若2-4,则增加15%;若小于2,则增加10%工资
+    var sny = window.prompt('请输入您的工龄(年):');
+    var ode = window.prompt('请输入您的工资(￥):');
+    if(sny >= 5){
+        ode = ode * 1.2;
+    }else if(sny < 4 && sny >= 2){
+        ode = ode * 1.15;
+    }else if(sny < 2){
+        ode = ode * 1.1;
+    }else{
+        ode = '请输入正确的工龄(年)';
+    }
+    document.write('您的应得工资为:' + ode)
+
+    document.write('<br />');
+    //4.求1-100之间不能被7整除的整数的和(用continue)
+    var he = 0;
+    for(var q =  1;q <= 100;q ++){
+        if(q % 7 != 0){
+            he = he + q;
+            continue;
+        }
+    }
+    document.write('1-100之间不能被7整除的数和为:' + he)
+
+    document.write('<br />');
+    //5.求200-300之间第一个能被7整除的数(break)
+    var ha = '';
+    for(var u = 200;u <= 300; u ++){
+        if(u % 7 == 0){
+            ha = u;
+            break;
+        }
+    }
+    document.write('200-300之间第一个能被7整除的数' + ha)
+
+
+
+
+</script>
+</body>
+</html>

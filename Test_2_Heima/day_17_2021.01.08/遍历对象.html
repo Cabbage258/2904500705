@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>遍历对象</title>
+</head>
+<body>
+<script>
+    //能遍历对象的循环 for in 基本语法结构
+    //for(var k in 对象名){}
+    //k指对象里面所有的属性名
+    //console.log(对象名[k])
+    var obj = new Object({
+        name: '张三',
+        age: 13,
+        hobby: '音乐',
+        fn: function (){
+            console.log('123')
+        }
+    })
+    for(var k in obj){
+        console.log(obj[k])
+    }
+    obj.fn()
+</script>
+</body>
+</html>

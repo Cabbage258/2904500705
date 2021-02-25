@@ -1,0 +1,30 @@
+1.CSS:层叠样式表,用来美化网页,做到结构(HTML)和表现(CSS)分离.
+2.基本语法:
+    选择器{
+        属性:属性值;
+    }
+3.CSS字体
+    1)font-size:字号(px,%)
+    2)font-family:字体(首选字体,备用字体,.....)
+    3)font-style:文字样式(normal/italic/oblique)
+    4)font-weight:文字加粗(normal/bold/bolder/lighter/100-900)
+    5)line-height:行高(px/em/数字等)
+    6)color:文字颜色(颜色单词/rgb()->0-255,g:0-255b0-255/16进制(以#开头,后跟6位(#rrggbb)或3位(#rgb)16进制数))
+    7)text-decoration:文字修饰(none/underline/overline/line-through)
+    7)text-align:文本对齐方式(left/right/center)
+    7)text-transform:字母大小写(capitalize/uppercase/lowercase/none)
+    7)text-indent:文本缩进(px/em/%/pt)
+
+    Tip:
+        font复合属性:
+            font:font-style font-variant font-weight font-size/line-height font-family;
+            注意:
+                1)属性值的位置顺序;
+                2)除了font-size和font-family之外,其他任何一个属性值都可以省略;
+                3)font-variant:normal/small-caps(让大写字母变得小一些)
+
+4.CSS引用方式:
+    内部样式表
+
+
+

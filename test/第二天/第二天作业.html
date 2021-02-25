@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>作业</title>
+</head>
+<body>
+<!--第一个表格-->
+    <table border="1" align="center" cellspacing="3" cellpadding="12">
+        <tr>
+            <td width="100"></td>
+            <td width="100"></td>
+            <td width="100"></td>
+        </tr>
+        <tr>
+            <td width="100"></td>
+            <td width="100"></td>
+            <td width="100"></td>
+        </tr>
+        <tr>
+            <td width="100"></td>
+            <td width="100"></td>
+            <td width="100"></td>
+        </tr>
+    </table><br />
+
+<!--第二个表格-->
+    <!--table[border=1 cellspacing=3 cellpadding=12 width=500]>tr*4>td*3-->
+    <table border="1" width="500" align="center">
+        <tr>
+            <td colspan="3" align="center" height="100">网站名称</td>
+        </tr>
+        <tr>
+            <td align=left >网站标题</td>
+            <td colspan="2" align="right">搜索框</td>
+        </tr>
+        <tr align="left">
+            <td height="100">左边</td>
+            <td height="100">中间</td>
+            <td height="100">右边</td>
+        </tr>
+        <tr>
+            <td colspan="3" align="center" height="100">网站底部信息</td>
+        </tr>
+    </table><br />
+
+<!--第三个表格-->
+    <table border="5" width="800" align="center">
+        <tr>
+            <td rowspan="8" width="200"><img src="../123456.jpg" width="200" height="300" title="图片"></td>
+            <td rowspan="4" align="center">11</td>
+            <td rowspan="2">12</td>
+            <td>13</td>
+        </tr>
+        <tr>
+            <td>13</td>
+        </tr>
+        <tr>
+            <td rowspan="2">12</td>
+            <td>13</td>
+        </tr>
+        <tr>
+            <td>13</td>
+        </tr>
+        <tr>
+            <td rowspan="4" align="center">11</td>
+            <td rowspan="2">12</td>
+            <td>13</td>
+        </tr>
+        <tr>
+            <td>13</td>
+        </tr>
+        <tr>
+            <td rowspan="2">12</td>
+            <td>13</td>
+        </tr>
+        <tr>
+            <td>13</td>
+        </tr>
+    </table><br />
+
+<!--input表单-->
+    <div>
+        <div align="left">表单信息</div><br />
+        <div align="left">
+            帐号:&nbsp;<input type="text" name="test" placeholder="请输入账号">
+        </div><br />
+        <div align="left">
+            邮箱:&nbsp;<input type="text" name="test" placeholder="请输入邮箱">
+        </div><br />
+        <div align="left">
+            密码:&nbsp;<input type="text" name="test" placeholder="请输入密码">
+        </div><br />
+        <div align="left">
+            性别:&nbsp;<input type="radio" name="sex" checked>男<input type="radio" name="sex">女
+        </div><br />
+        <div>
+            技能:&nbsp;
+            <input type="checkbox" name="hobby">html+css
+            <input type="checkbox" name="hobby">javascript
+            <input type="checkbox" name="hobby">php
+            <input type="checkbox" name="hobby">java
+        </div><br />
+        <div>
+            头像:&nbsp;
+            <input type="file">
+        </div><br />
+        <div>
+            <form action="">
+                <label>现居地:&nbsp;</label>
+                <select>
+                    <option value="">广东省</option>
+                </select>
+                <select>
+                    <option value="">广州市</option>
+                </select>
+                <select>
+                    <option value="">天河区</option>
+                </select>
+            </form>
+        </div><br />
+        <div>
+            <form action="">
+                留言:&nbsp;
+                <textarea name="text" cols="30" rows="10" placeholder="请输入留言内容" style="vertical-align:top"></textarea>
+            </form>
+        </div><br />
+        <div align="left">
+        验证码:&nbsp;
+            <input type="text" name="test" placeholder="请输入验证码">
+            <input type="image" src="../123456.jpg" height="20" width="150">
+        </div><br />
+        <div>
+            <input type="submit">
+            <input type="reset">
+        </div>
+    </div>
+</body>
+</html>

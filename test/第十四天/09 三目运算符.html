@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>三目运算符</title>
+</head>
+<body>
+<script>
+    var rs = 3>2 ? 'abc' : '124';
+    console.log(rs);//abc
+    document.write(rs)
+
+    var rs = [] ? 'abc' : '124';
+    console.log(rs);//abc
+
+    var str='';
+    var rs = str.length ? 'abc' : '124';
+    console.log(rs);//124
+
+    var str = '';
+    var rs = str.length ? 'abc' : 2 > 3 ? 2 : 3;
+    console.log(rs) //3
+
+</script>
+</body>
+</html>

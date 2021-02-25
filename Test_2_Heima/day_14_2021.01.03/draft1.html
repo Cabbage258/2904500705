@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*for (var i = 1; i <= 100;i++){
+        alert(i)
+   }*/
+    //需求:1+2+3+...+100=¿
+    /*var sum = 0;
+    for (var i = 1;i<=100;i++){
+        document.write('1-' + i + '的和为:' + (sum = sum + i) + '<br />')
+    }*/
+
+    //需求: 班级所有学生成绩之和以及平均值
+    /*var student = prompt('学生人数为:'),i = 1,sum = 0;
+    for (;;){
+        if(i <= student){
+            var score = parseFloat(prompt('请输入第' + i + '个学生的成绩'));//拿到的数据类型为字符串,先转为数字
+            sum = sum + score;
+            score = 0;
+            i++;
+        }else{
+            break;
+        }
+    }
+    document.write('班级所有学生的成绩之和为:' + sum + '<br />');
+    document.write('班级所有学生的平均成绩为:' + sum / student)*/
+
+
+    /*for (var i = 1;i <= 10;i++){
+        document.write(('外部第' + i + '次') + '<br />')
+        for(var j = 1;j <= 5;j++){
+            document.write('内部第' + j + '次')
+            if(j == 5){
+                document.write('<br />')
+            }
+        }
+    }*/
+
+    //需求:☆☆☆☆☆
+    //    ☆☆☆☆☆
+    //    ☆☆☆☆☆
+    //    ☆☆☆☆☆
+    //    ☆☆☆☆☆
+
+    /*var row = prompt('请输入行数:'),li = prompt('请输入列数:')
+    for(var i =1;i <= row;i++){
+        document.write('<br />')
+        for(var j = 1;j <= li;j++){
+            document.write('☆')
+        }
+    }*/
+
+    //需求:
+    //☆
+    //☆☆
+    //☆☆☆
+    //☆☆☆☆
+    //☆☆☆☆☆
+    //☆☆☆☆☆☆
+    //☆☆☆☆☆☆☆
+    //☆☆☆☆☆☆☆☆
+    //☆☆☆☆☆☆☆☆☆
+    //☆☆☆☆☆☆☆☆☆☆
+    var row = prompt('请输入行数:'),li = prompt('请输入列数:')
+    for(var i =1;i <= row;i++){
+        document.write('<br />')
+        for(var j = 1;j <= i;j++){
+            document.write('☆')
+        }
+    }
+
+    //9*9乘法表
+    /*var row = prompt('请输入行数:'),li = prompt('请输入列数:')
+    for(var i =1;i <= row;i++){
+        document.write('<br />')
+        for(var j = 1;j <= i;j++){
+            document.write(j +'x' + i + '=' + j * i + '\t')
+        }
+    }*/
+
+    //需求:
+    //              ☆
+    //            ☆☆
+    //           ☆☆☆
+    //         ☆☆☆☆
+    //        ☆☆☆☆☆
+    //      ☆☆☆☆☆☆
+    //     ☆☆☆☆☆☆☆
+    //   ☆☆☆☆☆☆☆☆
+    //  ☆☆☆☆☆☆☆☆☆
+    //☆☆☆☆☆☆☆☆☆☆
+
+
+
+
+
+    /*var i = 1,sum = 0
+    for (;;){
+        if(i <= 100){
+            sum = sum + i;
+            i++;
+        }else{
+            break;
+        }
+    }*/
+    //alert(sum)
+    //document.write(sum)
+    //需求:这个人1-100岁
+    /*var i = 1;
+    while (i <= 100){
+        document.write('这个人今年' + i + '岁了' + '<br />');
+        i++;
+    }*/
+
+    //需求:弹出一个提示框,你爱我吗? 如果输入我爱你,结束 否则一直询问
+    /*var message = prompt('你爱我吗?')
+    while( message !== '爱'){
+        message = prompt('你爱我吗?')
+    }
+    alert('cnm');*/
+
+
+    /*var sum = 0;
+    for (i = 1; i <= 3; i++) {        //
+        for (j = 1; j <= 5; j++) {
+            sum = i + j               //3+5
+        }
+    }
+
+    console.log(sum);*/
+    /*var i = 0 ;
+    var j = 0;
+    for (;i<10,j<6;i++,j++){
+        k = i + j                       //5+5
+    }
+    console.log(k)*/
+
+
+</script>
+</body>
+</html>

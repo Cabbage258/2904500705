@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>遍历数组</title>
+</head>
+<body>
+<script>
+    /*//一维数组遍历
+    var arr1 = [1,2,3,4,5];
+    //for
+    for(var i = 0;i<arr1.length;i++){
+        console.log(arr1[i]);
+    }
+    //for...in
+    for(var i in arr1){
+        console.log(arr1[i]);
+    }
+    //forEach
+    arr1.forEach(function(value,index){
+        console.log(index,value)
+    })
+*/
+
+    //二维数组遍历
+    var arr2 = [[1,2,3],[4,5,6],[7,8,9]];
+    /*//for
+    for(var i = 0;i<arr2.length;i++){//先遍历行
+        //console.log(arr2[i]);
+        for(var j=0;j<arr2[i].length;j++){
+            for(var j in arr2[i])
+            console.log(arr2[i][j])
+        }
+    }
+    //for...in
+    for(var i in arr2){
+        for(var j in arr2[i]){
+            console.log(arr2[i][j]);
+        }
+    }*/
+    //forEach
+    arr2.forEach(function(v){
+        //console.log(v)
+        v.forEach(function(v1){
+            console.log(v1)
+        })
+    })
+</script>
+</body>
+</html>

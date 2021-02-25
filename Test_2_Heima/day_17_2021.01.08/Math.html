@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function getRandom(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min)
+    }
+
+    var b = getRandom(1, 50)
+
+
+    for (var i = 1; ;i++) {
+        var a = prompt('请输入1-50之间的数')
+        if (a > b) {
+            alert('大了')
+        } else if (a < b) {
+            alert('小了')
+        } else {
+            alert('对了')
+            break;
+        }
+        if(i == 10){
+            break;
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小米logo</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 49px;
+            height: 49px;
+            overflow: hidden;
+            position: relative;
+        }
+        .box div{
+            float:left;
+            position: absolute;
+            top: 0;
+            width: 49px;
+            height: 49px;
+            transition: all 1s;
+        }
+        .logo1{
+            left: 0;
+            background:#ff6700 url(./images/mi-logo.png) no-repeat;
+        }
+        .logo2{
+            left: -49px;
+            background:#ff6700 url(./images/mi-home.png) no-repeat;
+        }
+        .box:hover .logo1{
+            left: 49px;
+        }
+        .box:hover .logo2{
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="logo1"></div>
+        <div class="logo2"></div>
+    </div>
+</body>
+</html>

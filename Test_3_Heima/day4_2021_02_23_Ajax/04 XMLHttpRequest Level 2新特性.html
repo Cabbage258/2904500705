@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Level2 新特性</title>
+</head>
+<body>
+<form action="" id="bd1"><input type="text" title="" name="user">
+    <input type="password" title="" name="psw">
+    <button type="submit">提交</button>
+</form>
+</body>
+</html>
+<script>
+//1.设置HTTP请求的超时时间
+        /*
+        //设置最长等待时间为3000毫秒,超过将自动停止HTTP请求
+        let xhr = new XMLHttpRequest()
+        xhr.timeout = 3000
+        //同时有一个timeout事件可以用从来指定回调函数
+        xhr.addEventListener('timeout',function(){
+            alert('请求超时')
+        })
+        */
+//2.使用FormData对象管理表单数据
+    /*
+    //提交表单数据
+    // 实例化一个FormData()
+    let formData = new FormData()
+    //  添加表单数据
+    formData.append('name','Jack')
+    formData.append('age','18')
+    //  实例化一个XMLHttpRequest()
+    let xhr = new XMLHttpRequest()
+    //  初始化一个请求
+    xhr.open('post','http://www.liulongbin.top:3006/api/formdata')
+    //  绑定请求状态变化事件
+    xhr.addEventListener('readystatechange',function(){
+        console.log(xhr.responseText)
+    })
+    //  发送请求
+    xhr.send(formData)
+    //获取表单数据
+    //  获取DOM元素
+    let form = document.querySelector('#bd1')
+    //  表单绑定提交按钮事件
+    form.addEventListener('submit',function(e){
+        //  取消submit默认行为
+        e.preventDefault()
+        //  实例化FormData并传参表单数据
+        let formData = new FormData(form)
+        //  实例化XMLHttpRequest()
+        let xhr = new XMLHttpRequest()
+        //  初始化一个请求
+        xhr.open('post','http://www.liulongbin.top:3006/api/formdata')
+        //  绑定请求状态变化事件
+        xhr.addEventListener('readystatechange',function(){
+            console.log(xhr.responseText)
+        })
+        //  发送请求
+        xhr.send(formData)
+    })
+    */
+//3.上传文件
+    //
+</script>

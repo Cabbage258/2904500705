@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>径向渐变</title>
+    <style>
+        body{
+            background-color: #000;
+        }
+        /*.box{
+            width: 400px;
+            height: 200px;
+            !*background: radial-gradient(red,green,blue);*!
+            !*background: radial-gradient(circle,red,green,blue);*!
+            !*background: radial-gradient(circle closest-corner at 25% 75%,red,green,blue);*!
+            !*background-image: -webkit-radial-gradient(circle closest-corner at 25% 75%,red,green,blue);
+            background-image: radial-gradient(circle closest-corner at 25% 75%,red,green,blue);*!
+
+            background-image: -webkit-radial-gradient(circle farthest-side at 25% 75%,red,green,blue);
+            background-image: radial-gradient(circle farthest-side at 25% 75%,red,green,blue);
+        }*/
+        .box1{
+            width: 200px;
+            height: 200px;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            border: 1px solid transparent;
+            margin:0 auto;
+            background: -webkit-radial-gradient(at 35px 35px,#fff, #a7a2a2 ,#fff);
+            background: radial-gradient(at 35px 35px,#fff,#a7a2a2 ,#fff);
+            -webkit-animation: move 2s linear infinite;
+            -o-animation: move 2s linear infinite;
+            animation: move 2s linear infinite;
+            /*background: -webkit-radial-gradient(at 55px 65px,#fff, #a7a2a2 30%,#fff);
+            background: radial-gradient(at 55px 65px,#fff,#a7a2a2 30%,#fff);*/
+        }
+        @keyframes move{
+            0%{
+                background: radial-gradient(at 35px 35px,#fff,#a7a2a2 ,#fff);
+                transform: rotateZ(0);
+            }
+            20%{
+                background: radial-gradient(at 35px 35px,#fff,#a7a2a2 ,#fff);
+                transform: rotateZ(72deg);
+            }
+            40%{
+                background: radial-gradient(at 35px 35px,#fff,#a7a2a2 ,#fff);
+                transform: rotateZ(144deg);
+            }
+            60%{
+                background: radial-gradient(at 35px 35px,#fff,#a7a2a2 ,#fff);
+                transform: rotateZ(216deg);
+            }
+            80%{
+                background: radial-gradient(at 35px 35px,#fff,#a7a2a2 ,#fff);
+                transform: rotateZ(288deg);
+            }
+            100%{
+                transform: rotateZ(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box1"></div>
+</body>
+</html>

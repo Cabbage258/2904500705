@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.clearfix:after {
+    display: block;
+    content: "";
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+/*主体*/
+
+.wrapper {
+    width: 600px;
+    height: 380px;
+    background-color: #ccc;
+}
+
+.wrapper div {
+    float: left;
+    position: relative;
+    width: 100px;
+    height: 75px;
+    padding: 5px;
+    margin: 5px;
+    background-color: white;
+}
+
+.wrapper div a {
+    display: block;
+    width: 100px;
+    height: 75px;
+}
+
+.wrapper div a:hover {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 130px;
+    height: 105px;
+    z-index: 1;
+}
+
+.box01 a {
+    background: url(../images/photo01.png) round;
+}
+
+.box02 a {
+    background: url(../images/photo02.png) round;
+}
+
+.box03 a {
+    background: url(../images/photo03.png) round;
+}
+
+.box04 a {
+    background: url(../images/photo04.png) round;
+}
+
+.box05 a {
+    background: url(../images/photo05.png) round;
+}
+
+.box06 a {
+    background: url(../images/photo06.png) round;
+}
+
+.box07 a {
+    background: url(../images/photo07.png) round;
+}
+
+.box08 a {
+    background: url(../images/photo08.png) round;
+}
+
+.box09 a {
+    background: url(../images/photo09.png) round;
+}
+
+.box10 a {
+    background: url(../images/photo10.png) round;
+}
+
+.box11 a {
+    background: url(../images/photo11.png) round;
+}
+
+.box12 a {
+    background: url(../images/photo12.png) round;
+}
+
+.box13 a {
+    background: url(../images/photo13.png) round;
+}
+
+.box14 a {
+    background: url(../images/photo14.png) round;
+}
+
+.box15 a {
+    background: url(../images/photo15.png) round;
+}
+
+.box16 a {
+    background: url(../images/photo16.png) round;
+}
+
+.box17 a {
+    background: url(../images/photo17.png) round;
+}
+
+.box18 a {
+    background: url(../images/photo18.png) round;
+}
+
+.box19 a {
+    background: url(../images/photo19.png) round;
+}
+
+.box20 a {
+    background: url(../images/photo20.png) round;
+}
+
+.box1:hover {
+    width: 200px;
+    height: 150px;
+}

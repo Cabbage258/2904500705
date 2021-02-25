@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS3选择器</title>
+    <style>
+        /*1.属性选择器*/
+        /*p[class]{
+            color:#f00;
+        }*/
+        /*p[class=content]{
+            color:#f00;
+        }*/
+        /*p[class^=content]{!*  ^  class属性值以content开头*!
+            color:#f00;
+        }*/
+        /*p[class$=content]{!*  $  class属性值以content结尾*!
+            color:#f00;
+        }*/
+        /*p[class*=p]{!*  *  class属性值中间包含有p的*!
+            color:#f00;
+        }*/
+
+        /*2.结构性伪类*/
+        /*1) :root 匹配html标签.body选择器效果一样*/
+        /*:root{
+            background-color: #fde7ff;
+        }*/
+        /*body{
+            background-color: #fde7ff;
+        }*/
+        /*2)子元素选择:匹配父元素中连续的子元素
+            :first-child:第一个子元素
+            :last-child:最后一个子元素
+            :nth-last-child(n):倒数第n个子元素
+            :nth-child(n):第n个子元素
+        */
+        /*p:first-child{
+            color:greenyellow;
+        }
+        p:last-child{
+            color:red;
+        }
+        p:nth-last-child(4){
+            color: #ffc6c6;
+        }
+        p:nth-child(2n){ !*2n表示2的倍数:2,4,6......*!
+            color: #6a00ff;
+        }
+        p:nth-child(3n+1){ !*3n的倍数+1:4,7.....*!
+            color: #6a00ff;
+        }*/
+
+        /*3.
+            nth-of-type类:用于匹配父元素中兄弟子元素,可以用于子元素非连续的情况.
+            :nth-of-type(n)
+            :nth-last-of-type(n)
+        */
+        p:nth-of-type(3){/*我的是p标签中的第三个兄弟p标签,如果第3个不是p标签,将跳过,继续向下查找,直到找到为止*/
+            color:red;
+        }
+        p:nth-child(3){/*找第3子元素,如果是p标签,就找到了,如果不是,就没找到,且不再继续查找*/
+            color:green;
+        }
+        p:nth-last-of-type(4){/*找的是p标签中倒数第4个兄弟p标签,如果第4个不是p标签,将跳过,继续向前查找,直到找到为止*/
+            color:blue;
+        }
+
+        /*
+         4.其他
+         1):only-child          父元素中仅有一个子元素
+         2):only-of-type        父元素中仅有一个兄弟元素
+         3):empty               没有任何子元素(包括text节点)的元素
+        */
+        /*p:only-child{!*查找父元素中只有的一个标签为p标签.不允许有其他标签存在,但在p标签中可以有子标签*!
+            width: 200px;
+            border:1px solid #00ffff;
+            background-color: #c6ff50;
+        }*/
+        p:only-of-type{/*选择父元素中p标签是唯一的子元素,可以有其他标签存在*/
+            width: 200px;
+            border:1px solid #00ffff;
+            background-color: #c6ff50;
+        }
+
+        div:empty{
+            width: 200px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p class="content p1" >段落1</p>
+        <p class="p2 content">段落2</p>
+        <div class="box">div.box</div>
+        <p class="content">段落3</p>
+        <p class="content">段落4</p>
+        <p class="content p5">段落5</p>
+
+
+        <div><p>pppppp</p></div>
+        <div><div><p>pppp<span>span</span>pppp</p></div></div>
+        <div><p>ppppp</p><div>div</div></div>
+        <div><p>ppppp</p><p>div</p></div>
+
+        <div class="test"></div>
+    </div>
+</body>
+</html>

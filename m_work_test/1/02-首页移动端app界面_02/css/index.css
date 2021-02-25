@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+li {
+    list-style-type: none;
+}
+
+input {
+    outline: none;
+}
+
+
+body{
+    width: 100%;
+    max-width: 750px;
+    min-width: 375px;
+    box-sizing: border-box;
+    background-size: 375px 275.5px;
+    background: url(../images/tbnr.png) no-repeat top ;
+}

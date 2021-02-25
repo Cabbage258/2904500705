@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #cccccc;
+        }
+        /*1.*/
+        .running1{
+            width: 200px;
+            height: 100px;
+            background: url(images/bear.png) no-repeat;
+            animation:move2 .6s steps(8) infinite,move1 5s ease-in-out forwards;
+        }
+        @keyframes move1 {
+            0%{}
+            100%{
+                transform: translate(700px);
+            }
+        }
+        @keyframes move2 {
+            0%{
+
+            }
+            100%{
+                background-position: -1600px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="running1"></div>
+    <div class="running2"></div>
+</body>
+</html>

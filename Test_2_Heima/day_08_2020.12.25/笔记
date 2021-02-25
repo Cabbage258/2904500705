@@ -1,0 +1,64 @@
+1.rem布局
+
+
+2.媒体查询
+    步骤:
+        1)设置meta标签
+                <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,usr-scalable=no">
+
+                说明:
+                    以上标签的内容只能被移动设备识别
+                    viewport:视口(移动端)
+                    width-device-width:宽度等于当前设备的宽度.
+                    initial-scale=1.0:初始缩放比例(默认为1)
+                    minimum-scale=1.0:允许用户缩放到的最小比例(默认为1.0)
+                    maximum-scale=1.0:允许用户缩放到的最大比例(默认为1.0)
+                    user-scalable=no:用户是否可以手动缩放(默认为no)
+        2)设置IE渲染方式默认为最高版本
+                <meta http-equiv="x-ua-compatible" content="IE=Edge,chrome=1">
+                说明:
+                    以上代码表示如果浏览器有chrome插件,将以chrome提供的v8引擎渲染页面;
+                    如果没有,将以IE的最高版本渲染页面.
+        3)引入兼容的JS文件
+        <!--[if It IE 9]>
+            <script src="https://maxcdn.cm/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://maxcdn.cm/libs/responed.js//responed.min.js"></script>
+        <![endif]-->
+
+        说明:
+            因为IE8及IE8以下版本既不支持html5,也不支持css3 media,所以我们需要加载JS文件来处理这个兼容.
+            上面的代码是一个注释语句,也就是说,IE9及以上的版本不会编译这几行代码.
+        4)进入CSS3提供的媒体查询
+            a)引入外部CSS文件时使用 
+                 <link rel="stylesheet" href="css/screen480.css" media="screen and (max-width:480px)">
+                    如果屏宽为480px及以下,将加载screen480.css文件.
+                <link rel="stylesheet" href="css/screen800.css" media="screen and (min-width:480px) and (max-width:800px)">
+                    如果屏宽为480px以上且在800px以下,将加载screen800.css文件.
+                <link rel="stylesheet" href="css/screengt800.css" media="screen and (min-width:800px)">
+                    如果屏宽为800px以上,将加载screengt800.css文件.
+
+                设备:
+                    all:所有设备
+                    screen:PC端显示器
+                    print:打印机或打印预览图
+                    handheld:便携设备
+                    tv:电视
+                    speech:音频合成器
+                    braille:盲人点触设备
+                    embossed:盲人打印机
+                    projection:投影设备
+                    tty:固定密度字母栅格设备
+
+                    only:用来排除不支持媒体查询的浏览器
+
+            b)在style标签中用@media定义
+                如：
+                    @media screen and (max-width: 480px){
+                       .menu{
+                           display: none;
+                       }
+                    }
+
+3.rem布局
+    em:代表一个字体的大小 从本身开始找 font-size 的值 ,否则依次向外层寻找,如果全都没有,是默认16px
+    rem:代表一个字体的大小 默认是16px 是html的 font-size 值

@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+    padding:0;
+}
+body{
+    padding-top:10px;
+}
+.wrapper{/*内容区一般不给出高度,高度由内容自行撑开*/
+    width: 700px;
+    border: 1px solid #000;
+    margin:0 auto;
+}
+h1{
+    font-size: 20px;
+    font-family: 黑体;
+    font-weight: normal;
+    background-color: #eee;
+    text-align: center;
+    padding:18px 0;
+}
+.content{
+    overflow:hidden;
+}
+.aside{
+    background: #ebebeb url(img/grey-shadow-top.gif)repeat-x;
+    width:150px;
+    height: 400px;
+    float:left;
+}
+h4{
+    padding:20px 0 15px 10px;
+}
+ul{
+    padding-left:30px;
+}
+li{
+    line-height:1.5em;
+    font-size: 14px;
+}
+a{
+    text-decoration: none;
+    color:#000;
+}
+a:hover{
+    text-decoration: underline;
+    color:#2aff4a;
+}
+.main{
+    background: #fff url(img/white-shadow-top.gif)repeat-x;
+    width:400px;
+    height: 400px;
+    float:left;
+}
+.main p{
+    text-indent:2em;
+    line-height:1.5em;
+    padding:10px 20px 10px 10px;
+    font-size: 14px;
+}
+.footer{
+    background: #ccc url(img/navbg.png);
+    padding:10px 0 5px 10px;
+    font-size: 14px;
+}

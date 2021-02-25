@@ -1,0 +1,22 @@
+*{
+    margin:0;
+    padding: 0;
+}
+h2{
+    margin:20px 0 20px 8px;
+}
+.wrapper{
+    margin:8px;
+}
+.image_index{
+    margin:45px 0 0 8px;
+}
+.image_list{
+
+}
+.image_detail{
+
+}
+.text{
+    margin:45px 8px
+}

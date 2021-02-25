@@ -1,0 +1,212 @@
+.registerhd {
+    width: 100%;
+}
+
+.registerhd .registerlogo {
+    width: 100%;
+    height: 84px;
+    position: relative;
+    border-bottom: 2px solid #b31610;
+    box-sizing: border-box;
+}
+
+.registerhd .registerlogo a {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -27px;
+    display: block;
+    width: 171px;
+    height: 54px;
+    background: url(../images/logo.png) round;
+}
+
+.cntrow1 {
+    height: 41px;
+    margin-top: 21px;
+    position: relative;
+}
+
+.cntrow1 h3 {
+    background-color: #ececec;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 41px;
+}
+
+.cntrow1 span {
+    position: absolute;
+    top: 50%;
+    margin-top: -20.5px;
+    right: 11px;
+    line-height: 41px;
+    font-size: 14px;
+}
+
+.cntrow1 a {
+    color: red;
+}
+
+table {
+    margin: 0 auto;
+}
+
+table input {
+    outline: none;
+    width: 240px;
+    height: 36px;
+}
+
+table {
+    margin-top: 34px;
+}
+
+table tr {
+    display: block;
+    margin-top: 20px;
+}
+
+table tr td {
+    text-align: right;
+}
+
+table tr:nth-last-of-type(6) { /*倒数第6个tr标签*/
+    position: relative;
+    left: -32px;
+}
+
+table tr:nth-last-of-type(5), table tr:nth-last-of-type(3) { /*倒数第5、3个tr标签*/
+    position: relative;
+    left: -16px;
+}
+
+table tr:nth-last-of-type(4) td:first-child { /*倒数第4个tr标签*/
+    font-size: 12px;
+    text-indent: 12em;
+    color: #b3b3b3;
+}
+
+table tr:nth-last-of-type(2) td input { /*倒数第2个tr标签内的td>input*/
+    width: 15px;
+    height: 15px;
+}
+
+table tr:nth-last-of-type(4) td:nth-last-of-type(-n+3) { /*倒数第4个tr内倒数前3个td*/
+    color: #fff;
+    font-size: 12px;
+    width: 33px;
+    height: 12px;
+    text-align: center;
+    border-right: 1px solid #fff;
+}
+
+table tr:nth-last-of-type(4) td:nth-last-of-type(1) {
+    background-color: #f99100;
+
+}
+
+table tr:nth-last-of-type(4) td:nth-last-of-type(2) {
+    background-color: #39b936;
+}
+
+table tr:nth-last-of-type(4) td:nth-last-of-type(3) {
+    background-color: #e00900;
+}
+
+table tr:nth-last-of-type(3) td:nth-last-of-type(1),
+table tr:nth-last-of-type(5) td:nth-last-of-type(1),
+table tr:nth-last-of-type(7) td:nth-last-of-type(1) {
+    text-indent: 2.5em;
+    color: #e12d2c;
+}
+
+table tr:nth-last-of-type(3) td:nth-last-of-type(1):after,
+table tr:nth-last-of-type(5) td:nth-last-of-type(1):after,
+table tr:nth-last-of-type(7) td:nth-last-of-type(1):after {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: -17px;
+    right: -12px;
+    background: url(../images/x.png) no-repeat;
+}
+
+table tr:nth-last-of-type(2) td {
+    text-indent: 5.5em;
+    font-size: 12px;
+}
+
+table tr:nth-last-of-type(2) td a {
+    color: #019fe9;
+}
+
+table tr:nth-last-of-type(2) td input {
+    position: relative;
+    top: 2px;
+    left: -7px;
+}
+
+table tr:nth-last-of-type(1) td {
+    border-top: 30px solid #fff;
+}
+
+table tr:nth-last-of-type(1) td input {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    top: 0;
+    left: 73px;
+    width: 200px;
+    height: 34px;
+    background-color: #ca111a;
+    color: #fff;
+}
+
+.registerft div ul {
+    margin-top: 24px;
+    border-top: 1px solid #b1191a;
+}
+
+.registerft div ul li {
+    display: inline-block;
+}
+
+.registerft div ul {
+    padding-left: 117px;
+}
+
+.registerft div ul li {
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.registerft div ul li a {
+    font-size: 12px;
+    color: #a1a0a0;
+}
+
+.registerft div ul li:nth-of-type(2n) {
+    display: inline-block;
+    width: 1px;
+    height: 9px;
+    background-color: #a1a0a0;
+    margin: 0 10px;
+}
+
+.registerft div p {
+    text-align: center;
+    font-size: 12px;
+    color: #a1a0a0;
+}
+
+.registerft div p:nth-of-type(1) {
+    margin-top: 15px;
+}
+
+.registerft div p:last-child {
+    margin-top: 8px;
+}

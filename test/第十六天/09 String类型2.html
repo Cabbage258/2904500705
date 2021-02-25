@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>String类型2</title>
+</head>
+<body>
+<script>
+    var str = 'How are you??'
+    //str.toLowerCase() 将字符串全部转换为小写
+    console.log(str.toLowerCase())
+
+    //str.toUpperCase() 将字符串全部转换为大写
+    console.log(str.toUpperCase())
+
+
+
+    //match(pattern) 返回pattren 中的子串或null
+    console.log(str.match('are'));//返回匹配的内容(是一个数组)
+    console.log(str.match('are')[0]);//返回匹配的内容()
+    console.log(str.match('are').index);//返回匹配的内容开始的下标
+    console.log(str.match('aa'));//如果没有匹配的内容,返回null
+    console.log(str.match(/y/));//正则匹配
+
+
+    //replace(pattern, replacement) 用replacement 替换pattern
+    console.log(str.replace('?','...'))//将字符串中的?替换为...
+    console.log(str.replace(/\?/ig,'...'))//g为全局替换,i为忽略字母大小写
+    console.log(str.replace('','...'))//在前面添加...
+    console.log(str.replace('are',''))//如果第二个参数为空字符串,执行的是删除操作
+    console.log(str.replace(/are/ig,''))//如果第二个参数为空字符串,执行的是删除操作
+
+
+    //search(pattern) 返回字符串中pattern 开始位置
+    console.log(str.search('are'))//4 表示从字符串下标为4的位置开始匹配
+    console.log(str.search(/\?/))//11
+
+
+    //split(pattern) 返回字符串按指定pattern 拆分的数组
+    var arr = str.split();
+    console.log(arr) //["How are you??"]
+
+    var arr = str.split(' ');//以空格作为切割符
+    console.log(arr) //["How are you??"]
+
+    var arr = str.split('');//把字符串中的每个字符切割成一个数组元素,包括空格
+    console.log(arr) //["H", "o", "w", " ", "a", "r", "e", " ", "y", "o", "u", "?", "?"]
+
+
+    //fromCharCode(ascii) 惊天方法,输出Ascii码对应值
+    console.log(String.fromCharCode(65))//输出ASCII码值65所对应的字符
+    console.log(String.fromCharCode(97))//输出ASCII码值97所对应的字符
+
+
+
+
+    //localeCompare(str1,str2) 比较两个字符串,并返回相应的值
+    var s1 ='aaa',s2 = 'bbb';
+    console.log(s1.localeCompare(s2))//不相同的两个字符串比较时,如果第一个字符串的ascii码大于第二个,返回-1;
+    console.log(s2.localeCompare(s1))//不相同的两个字符串比较时,如果第一个字符串的ascii码小于第二个,返回1;
+    console.log(s1.localeCompare('aaa'))//0 两个字符串一样时,返回0
+
+
+</script>
+</body>
+</html>

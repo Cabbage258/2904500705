@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            top: 2px;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<!------------------------------------------------答题区----------------------------------------------->
+<script>
+    //需求
+    //结合mousedown、mousemove、mouseup事件让div可以被拖动起来
+    //注意:所谓拖动指的是,在div上按下鼠标左键不松开,然后移动鼠标,div会随着鼠标移动,一旦松开鼠标,div就不再跟随鼠标移动了
+
+    //抓取DOM
+    var div = document.querySelector('div')
+    //绑定事件:按下鼠标触发mousedown
+    div.addEventListener('mousedown',function(e){
+        var x = e.pageX - div.offsetLeft,y = e.pageY - div.offsetTop
+        console.log('123')
+        //绑定DOM事件:鼠标移动
+        document.addEventListener('mousemove',movems)
+        function movems(e){
+            //获取坐标 = 鼠标在网页中坐标 - 鼠标在盒子中偏移位置
+            var X = e.pageX - x,Y = e.pageY - y
+            div.style.top = Y + 'px'
+            div.style.left = X + 'px'
+        }
+        //绑定DOM事件:鼠标弹起
+        document.addEventListener('mouseup',function(){
+            //绑定DOM事件:结束事件movems
+            document.removeEventListener('mousemove',movems)
+        })
+    })
+</script>
+</body>
+</html>

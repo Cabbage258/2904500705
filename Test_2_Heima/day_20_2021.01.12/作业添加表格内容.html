@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加表格内容</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        input {
+            display: block;
+            margin: 10px auto;
+            outline: none;
+            border: 1px solid #000;
+            color: #ccc;
+        }
+
+        table {
+            margin: 100px auto 0;
+            width: 1200px;
+            text-align: center;
+        }
+
+
+
+        table thead tr th:nth-of-type(2) {
+            width: 888px;
+        }
+        table thead tr th:nth-of-type(3) {
+            width: 100px;
+        }
+        table tbody tr td:nth-of-type(3){
+            cursor: pointer;
+        }
+        table tbody tr td:nth-of-type(3):hover{
+            color:red;
+        }
+        button {
+            display: block;
+            margin: 10px auto 0;
+            outline: none;
+            width: 40px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+<input type="text" title="" value="请输入姓名">
+<input type="text" title="" value="请输入邮箱">
+<button>添加</button>
+<table border="1">
+    <thead>
+    <tr>
+        <th>姓名</th>
+        <th>邮箱</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>小黑</td>
+        <td>xiaohei@126.com</td>
+        <td class="temp">删除</td>
+    </tr>
+    <tr>
+        <td>小白</td>
+        <td>xiaobai@itcast.cn</td>
+        <td class="temp">删除</td>
+    </tr>
+    </tbody>
+</table>
+
+
+<script>
+    //输入框内容显示和隐藏
+    var input = document.querySelectorAll('input')
+    for (var i = 0; i < input.length; i++) {
+        input[i].onfocus = function () {
+            this.style.border = '1px solid skyblue'
+            this.style.color = '#000'
+            if (this.value === '请输入姓名') {
+                this.value = ''
+            } else if (this.value === '请输入邮箱') {
+                this.value = ''
+            }
+        }
+        input[i].setAttribute('a', i)
+        input[i].onblur = function () {
+            var a = this.getAttribute('a')
+            this.style.border = '1px solid #000'
+            if (this.value == '' && a == 0) {
+                this.value = '请输入姓名'
+                this.style.color = '#ccc'
+            } else if (this.value == '' && a == 1) {
+                this.value = '请输入邮箱'
+                this.style.color = '#ccc'
+            } else {
+                this.style.color = '#000'
+            }
+        }
+    }
+    //按钮绑定事件(判断和创建节点)
+    var btn = document.querySelector('button')
+    var tbd = document.querySelector('tbody')
+    btn.onclick = function () {
+        if (input[0].value == '' || input[1].value == '') {
+            alert('请将数据填入完全')
+        } else if (input[0].value == '请输入姓名' || input[1].value == '请输入邮箱') {
+            alert('请将数据填入完全')
+        } else {
+            var newtr = document.createElement('tr')
+            var newtd1 = document.createElement('td')
+            var newtd2 = document.createElement('td')
+            var newtd3 = document.createElement('td')
+            newtd1.innerHTML = input[0].value
+            newtd2.innerHTML = input[1].value
+            newtd3.innerHTML = '删除'
+            newtd3.className = 'temp'
+            tbd.appendChild(newtr)
+            newtr.appendChild(newtd1)
+            newtr.appendChild(newtd2)
+            newtr.appendChild(newtd3)
+            alert('提交成功!')
+            input[0].value = '请输入姓名'
+            input[0].style.color = '#ccc'
+            input[1].value = '请输入邮箱'
+            input[1].style.color = '#ccc'
+            //绑定点击删除事件
+            var remove = document.querySelectorAll('.temp')
+            var tr = document.querySelectorAll('tbody tr')
+            for(var j = 0;j < remove.length;j++){
+                remove[j].onclick = function(){
+                    tbd.removeChild(this.parentNode)
+                }
+            }
+        }
+    }
+    //绑定点击删除事件
+    var remove = document.querySelectorAll('.temp')
+    var tr = document.querySelectorAll('tbody tr')
+    for(var j = 0;j < remove.length;j++){
+        remove[j].onclick = function(){
+            tbd.removeChild(this.parentNode)
+        }
+    }
+
+    //js动态添加的元素获取不到
+</script>
+</body>
+</html>

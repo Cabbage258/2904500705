@@ -1,0 +1,67 @@
+body {
+    background-color: #009688;
+}
+
+
+.wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    margin-top: -100px;
+    margin-left: -100px;
+    transform-style: preserve-3d;
+    animation: wrapper 12s cubic-bezier(1,.01,.50,.90) infinite;
+    perspective: 250px;
+}
+
+@keyframes wrapper {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
+.square {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 1px dashed #1e3f57;
+    transform: rotateX(0) translateZ(0);
+    animation: dotted 3s cubic-bezier(1,.05,.4,.9) infinite;
+}
+
+.square:nth-child(2) { width: 40px; height: 40px; margin: -20px 0 0 -20px; animation-delay: 100ms; }
+.square:nth-child(3) { width: 60px; height: 60px; margin: -30px 0 0 -30px; animation-delay: 200ms; }
+.square:nth-child(4) { width: 80px; height: 80px; margin: -40px 0 0 -40px; animation-delay: 300ms; }
+.square:nth-child(5) { width: 100px; height: 100px; margin: -50px 0 0 -50px; animation-delay: 400ms; }
+.square:nth-child(6) { width: 120px; height: 120px; margin: -60px 0 0 -60px; animation-delay: 500ms; }
+.square:nth-child(7) { width: 140px; height: 140px; margin: -70px 0 0 -70px; animation-delay: 600ms; }
+.square:nth-child(8) { width: 160px; height: 160px; margin: -80px 0 0 -80px; animation-delay: 700ms; }
+.square:nth-child(9) { width: 180px; height: 180px; margin: -90px 0 0 -90px; animation-delay: 800ms; }
+.square:nth-child(10) { width: 200px; height: 200px; margin: -100px 0 0 -100px; animation-delay: 900ms; }
+.square:nth-child(11) { width: 220px; height: 220px; margin: -110px 0 0 -110px; animation-delay: 1000ms; }
+
+@keyframes dotted {
+    0% {
+        transform: rotateX(0) translateZ(90px);
+        border: 1px dotted #A7FFEB;
+
+    }
+    50% {
+        transform: rotateX(10deg) translateZ(0px) translateY(60px);
+        border: 1.5px dotted #004D40;
+        /* border-radius: 50%; */
+    }
+
+    100% {
+        transform: rotateX(360deg) translateZ(90px);
+        border: 1px dotted #A7FFEB;
+
+    }
+}

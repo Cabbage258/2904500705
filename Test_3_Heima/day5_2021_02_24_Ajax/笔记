@@ -1,0 +1,22 @@
+...
+        III)上传文件
+            前提:选中一个文件,一个type为file的input标签
+            原生js:
+                · 选择文件按钮绑定点击事件,触发时使用files属性的length判断是否选择文件
+                · 用FormData()实例对象追加文件
+                · 监听请求状态事件,JSON.parse()将返回的url(实例对象.responseText)解析为对象
+                · 绑定监听事件,计算上传进度
+                    e.lengthComputable为一个布尔值,true时可计算当前上传资源长度
+                    e.loaded    已传输字节
+                    e.total     需传输总量
+                · 绑定监听事件,上传完成时(load事件)进行某操作.
+            JQuery:
+                ·
+        IV)跨域请求
+            JSONP(同步请求)
+                利用script标签的src属性向服务器请求一个脚本,这不受同源政策限制,可以跨域请求
+                但只能发送SET请求.
+                使用JQuery发起JSONP数据请求时需要制定dataType为jsonp
+            CORS
+                CORS是一个W3C标准,全称是跨域资源共享.允许浏览器向跨域的服务器发出XMLHttpRequest请求.
+

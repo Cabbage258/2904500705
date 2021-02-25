@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>splice</title>
+</head>
+<body>
+<script>
+    //splice()
+    //删除、修改或向数组中添加数据
+    var arr1 = [1,2,3,4]
+    console.log(arr1);
+    //1.删除元素
+    /*var arr2 = arr1.splice(1,2);
+    console.log(arr1);//从下标为1的地方开始,删除2个.返回 [1,4]
+    console.log(arr2);//返回被删除的元素 返回[2,3]*/
+
+    //2.修改数据
+    /*var arr2 = arr1.splice(1,2,'aa');//从下标为1的位置开始,替换2个  用'aa'替换
+    console.log(arr1);//所以返回 [1,"aa",4]*/
+
+    /*var arr2 = arr1.splice(1,2,'aa','bb','cc');//从下标为1的位置开始,替换2个  用'aa','bb','cc'替换
+    console.log(arr1);//所以返回 [1,"aa","bb","cc",4]*/
+
+    //3.添加数据
+    /*var arr2 = arr1.splice(1,0,'aa');//从下标为1的位置开始,插入数据(0相当于替换0个) 用'aa'插入
+    console.log(arr1);//所以返回 [1,"aa",2,3,4]
+*/
+    /*var arr2 = arr1.splice(1,0,'aa','bb','cc');//从下表为1的位置开始,插入数据 'aa','bb','cc'
+    console.log(arr1);//所以返回[1,"aa","bb","cc",2,3,4]
+*/
+    /* var arr2 = arr1.splice(0,0,'aa','bb','cc');//头部添加
+     console.log(arr1);//返回["aa","bb","cc",1,2,3,4]*/
+
+    var arr2 = arr1.splice(arr2.length,0,'aa','bb','cc');//尾部添加
+    //添加到arr2的长度(数据个数)(相当于最后一个)
+    console.log(arr1);//返回[1,2,3,4,"aa","bb","cc"]
+</script>
+</body>
+</html>

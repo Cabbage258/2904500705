@@ -1,0 +1,124 @@
+    1.制作简易模版引擎
+        使用exec()方法和replace()方法
+    2.XMLHttpRequest对象
+        XMLHttpRequest是AJAX的主要接口,用于浏览器与服务器之间的通信(可以使用多种协议,发送任何格式的数据)
+        AJAX请求步骤:
+            · 创建XMLHttpRequest实例
+            · 发出HTTP请求
+            · 接收服务器传回的数据
+            · 更新网页数据
+
+        XMLHttpRequest本身是一个构造函数
+            let xhr = XMLHttpRequest()
+            console.log(xhr.__proto__ === XMLHttpRequest.prototype)
+
+        使用XMLHttpRequest
+            · 实例化XMLHttpRequest
+                var xhr = new XMLHttpRequest()
+            · 使用open()方法初始化一个请求
+                xhr.open('请求方式','请求地址',是否异步(true/false))
+            · 绑定监听事件
+                //请求状态变化时
+                xhr.onreadystatechange = function(){...}
+            · 设置HTTP请求头信息(前提是已经调用open()方法打开了一个url)('Content-Type', 'application/x-www-form-urlencoded')
+                xhr.setRequestHeader('请求头名称','请求头的值')
+            · 使用send()方法发送请求.(所有相关的事件绑定必须在调用该方法之前进行)
+                xhr.send()
+        注意
+            当请求方式为get时,open方法中的url末尾写好查询字符串.,send方法中不传参
+            当请求方式为post时,open方法中不带查询字符串,需要提交的数据传参到send方法
+        PS: GET和POST请求的区别?
+            对于GET请求,浏览器会把HTTP headers和data一并发送出去,服务器响应200
+            对于POST请求,浏览器会先发送HTTP headers,服务器响应 100 continue,浏览器再发送data,服务器响应200
+
+        readyState属性
+            表示AJAX的状态,参数
+                值       状态              描述
+                0       UNSENT            XMLHttpRequest对象已被创建,但尚未调用open方法
+                1       OPENED            open()方法已经被调用
+                2   HEADERS RECEIVED      send()已经被调用,响应头也已经被接收
+                3       LOADING           数据接收中,此时response属性中已经包含部分数据
+                4        DONE             AJAX请求完成.(数据传输已经彻底完成或失败)
+
+        查询字符串
+            定义: 查询字符串是指在URL的末尾加上用于向服务器发送信息的字符串(变量)
+            格式
+                将英文的?放在URL末尾,再加上 键=值,想加上多个键的话,使用&符号进行分隔
+        GET请求携带参数的本质就是将参数以查询字符串的形式,追加到URL地址的后面,发送到服务器.
+
+    3.JSON
+        JSON(JavaScript Object Notation JS对象表示法)是一种轻量级的数据交换格式
+        JSON是ECMA指定的一个数据表示规范,是ECMAScript的一个子集,采用独立于编程语言的文本格式来存储和表示数据
+            表示数据结构清晰、简介、易于阅读和理解
+        JSON是一个序列化的对象或数组,或对象中含有数组、或数组中含有对象
+        作用
+            在计算机与网络之间存储和传输数据
+        本质
+            JSON是JS对象的字符串表示法,它使用文本表示一个JS对象的信息,本质是一个字符串.
+        表示方式:
+            i)对象表示
+                {
+                    "键": "值"
+                    "键": "值"
+                    "键": "值"
+                }
+            ii)数组
+                [
+                    数组元素,
+                    数组元素,
+                    数组元素
+                ]
+            iii)复杂表示法(数组+对象)
+                [{
+                    "键": "值"
+                    "键": "值"
+                    "键": "值"
+                },{
+                    "键": "值"
+                    "键": "值"
+                    "键": "值"
+                },{
+                    "键": "值"
+                    "键": "值"
+                    "键": "值"
+                }]
+        注意事项
+            · JSON是一种纯数据格式,它只包含属性,没有方法
+            · JSON要求在字符串和属性名称周围使用双引号,单引号无效
+            · JSON中只有带引号的字符串可以用作属性
+            · JSON中不能写注释
+            · JSON的最外层必须是对象或数组格式
+            · 不能使用undefined或函数作为JSON的值
+
+        JSON和JS对象互相转换
+            parse()方法
+                JSON字符串转换为JS对象(反序列化)
+            stringify()方法
+                JS对象转换为JSON字符串(序列化)
+
+        XMLHttpRequest Level 1 缺点
+            · 只支持文本数据的传送,无法用来读取和上传二进制文件
+            · 传送和接收数据是,没有进度信息,只能提示有没有完成
+            · 收到"同域限制",只能向同一域名的服务器请求数据
+        XMLHttpRequest Level 2 改进
+            · 可以设置HTTP请求的超时时间
+            · 可以使用FormData对象管理表单数据
+            · 可以上传文件
+            · 可以请求不同域名下的数据(跨域请求)
+            · 可以获取服务器端的二进制数据
+            · 可以获得数据传输的进度信息
+        I)设置HTTP请求的超时时间
+            timeout属性
+                XMLHttpRequest.timeout代表一个请求在被自动终止前所消耗的毫秒数.默认值为0(没有超时),
+        II)使用FormData对象管理表单数据
+            构造函数FormData()
+                语法:
+                     var formData = new ForData(form)
+            使用:
+                new一个FormData对象
+                使用append方法为其添加表单项('键','值')
+                直接传送这个FormData对象,效果等价于提交网页表单
+        III)上传文件
+            前提:选中一个文件、一个type为file的input输入框
+
+

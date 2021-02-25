@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            background-color: #cccccc;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+        span{
+            display: block;
+            width: 100px;
+            height: 100px;
+            background-color: yellowgreen;
+        }
+
+    </style>
+</head>
+<body>
+<div>我是div
+    <span>我是span</span>
+</div>
+
+
+<script>
+
+    //事件冒泡 由内向外;事件捕获 由外向内
+    var div = document.querySelector('div'),span = div.children[0]
+    /*div.onclick = function(){
+        console.log('我是div的点击事件')
+    }
+    span.onclick = function(){
+        console.log('我是span的点击事件')  //点击span,输出三行,由内向外
+    }
+    document.body.onclick = function(){
+        console.log('我是body的点击事件')
+    }*/
+
+    //事件捕获 由外向内
+    /*div.addEventListener('click',function(){
+        console.log('我是div的点击事件')
+    },true)
+    span.addEventListener('click',function(){
+        console.log('我是span的点击事件')      //点击span,输出三行,由外向内
+    },true)
+    document.body.addEventListener('click',function(){
+        console.log('我是body的点击事件')
+    },true)*/
+
+</script>
+</body>
+</html>

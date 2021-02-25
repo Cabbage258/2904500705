@@ -1,0 +1,72 @@
+...
+    元素偏移量offset系列
+        offset(偏移量)
+        1.element.offsetParent
+            返回元素距离带有定位的父元素的位置(如果父级都无定位返回body)(返回值不带单位)
+
+        2. element.offsetWidth/element.offsetHeight
+            返回元素自身的大小(包括padding、边框、内容区)(返回值不带单位)
+
+        3.element.offsetTop/element.offsetLeft
+            返回元素相对带有定位的父元素 上方/左边框 的偏移
+
+        offset与style的区别:
+            offset可以得到任意样式表中的样式值
+            offset系列获得的数值是没有单位的
+            offsetWidth/offsetHeight等属性是只读属性,只能获取不能赋值
+            style只能得到行内样式表中的样式值(因为行内样式表作为标签的属性写在标签内)
+            style.width获得的是带有单位的字符串
+            style.width获得不包含padding和border的值
+            style.width是可读写属性
+
+    元素可视区client系列
+        client(客户端)
+        1.element.clientTop/element.clientLeft
+            返回元素 上/左 边框的大小
+        2.element.clientWidth/element.clientHeight
+            返回自身包括padding、内容区的 宽/高 度,不含边框,返回数值不带单位
+
+    元素滚动scroll系列
+        scroll(滚动的)
+        页面被卷去的头部:
+            浏览器宽高度不足以显示整个页面时,会自动出现滚动条,滚动条项下滚动时,页面上面被隐藏掉的高度
+            滚动条在滚动时会触发onscroll事件
+        1.element.scrollTop/element.scrollLeft
+            返回被卷去的 上侧/左侧 距离,返回数值不带单位
+        2.element.scrollWidth/element.scrollHeight
+            返回自身实际的(未超出盒子返回盒子 高度/宽度 ,超出盒子返回实际内容 高度/宽度 ) 宽度/高度 ,不含边框,返回数值不带单位
+
+    mouseover与mouseenter的区别
+        mouseenter没有冒泡
+
+    js动画
+        原理:
+            通过定时器setInterval()不断移动盒子位置
+        步骤:
+            获得盒子当前位置
+            让盒子在当前位置+1个单位的移动距离
+            定时器重复
+            (条件)结束定时器
+
+
+动画函数封装
+    缓动效果原理
+        核心算法:
+            (目标值-现在的位置) - 10 作为每次移动的距离步长
+                注意步长值需要取整
+
+    动画函数多个目标值之间移动
+
+    动画函数添加回调函数
+        将这个函数作为参数传到另一个函数里面,当那个函数执行完之后,再执行传进去的这个函数
+        位置:定时器结束的位置
+
+    节流阀
+        防止轮播图按钮连续点击造成播放过快
+        目的
+            当上一个函数动画执行完毕,再去执行下一个函数动画.让事件无法连续触发
+        实现
+            利用回调函数,添加一个变量来控制,锁住函数和解锁函数
+            设置一个变量 var flag = true
+            if(flag)(flag = false;do something)         //关阀门
+            利用回调函数动画执行完毕    flag = true          //开阀门

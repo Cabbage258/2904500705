@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>结算页面</title>
+    <script src="js/jquery.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style-type: none;
+        }
+        a{
+            text-decoration: none;
+            color:#000;
+            font-weight: 500;
+        }
+        .nav{
+            display: flex;
+
+        }
+        .nav span,.item div,.item a:nth-of-type(3),.btm p:nth-of-type(3){
+            text-indent: 150px;
+        }
+        .btm a{
+            margin-left: 50px;
+        }
+        .jia,.jian{
+            line-height: 16px;
+        }
+        .item a:nth-of-type(1){
+            text-indent: 120px;
+        }
+        .item .item_num{
+            width: 50px;
+            text-align: center;
+        }
+        .nav span:nth-of-type(2),.item .item_price,.btm p:nth-of-type(1){
+            text-indent: 300px;
+        }
+        .item{
+            display: flex;
+            border-top: 2px solid #000;
+            height: 50px;
+        }
+        .btm{
+            display: flex;
+        }
+
+    </style>
+</head>
+<body>
+    <h3>全部商品</h3><br/>
+    <div class="nav">
+        <input type="checkbox" title="" class="checkAll">全选<span>商品</span><span>单价</span><span>数量</span><span>小计</span><span>操作</span>
+    </div>
+    <div class="item">
+        <input type="checkbox" title="" class="item_check">
+        <div>商品</div>
+        <div class="item_price">￥12.00</div>
+        <a href="javascript:" class="jian">-</a><input type="text" title="" value="1" class="item_num"><a href="javascript:" class="jia">+</a>
+        <div class="item_rowPrice">￥12.00</div>
+        <a href="javascript:" class="clear_item">删除</a>
+    </div>
+    <div class="item">
+        <input type="checkbox" title="" class="item_check">
+        <div>商品</div>
+        <div class="item_price">￥10.00</div>
+        <a href="javascript:" class="jian">-</a><input type="text" title="" value="1" class="item_num"><a href="javascript:" class="jia">+</a>
+        <div class="item_rowPrice">￥10.00</div>
+        <a href="javascript:" class="clear_item">删除</a>
+    </div>
+    <div class="item">
+        <input type="checkbox" title="" class="item_check">
+        <div>商品</div>
+        <div class="item_price">￥30.00</div>
+        <a href="javascript:" class="jian">-</a><input type="text" title="" value="1" class="item_num"><a href="javascript:" class="jia">+</a>
+        <div class="item_rowPrice">￥30.00</div>
+        <a href="javascript:" class="clear_item">删除</a>
+    </div>
+
+    <div class="btm">
+        <input type="checkbox" title="" class="checkAll">全选<a href="javascript:" class="clear_choose_items">删除选中的商品</a><a href="javascript:" class="clearAll">清理购物车</a>
+        <p>已经选</p>
+        <span class="item_numAll">0</span>
+        <p>件商品</p>
+        <p>总价:</p>
+        <span class="priceAll">￥0.00</span>
+        <button>去结算</button>
+    </div>
+</body>
+</html>
+<script>
+    $(function(){
+        //全选
+        //把全选按钮.checks状态赋给三个小按钮.item_check
+        $('.checkAll').change(function(){
+            $('.checkAll,.item_check').prop('checked',$(this).prop('checked'))
+            getSum()
+        })
+        //判断item内的checked是否全为true,改变checkAll内checked值(表单选择器:checked)
+        $('.item_check').change(function(){
+            if($('.item_check:checked').length === $('.item_check').length){
+                $('.checkAll').prop('checked',true)
+                console.log('1')
+            }else{
+                $('.checkAll').prop('checked',false)
+                console.log('2')
+            }
+            getSum()
+        })
+        //声明一个局部变量,每次点击.jia,变量++(this)
+        $('.jia').click(function(){
+            var n = $(this).siblings('.item_num').val()
+            n++
+            $(this).siblings('.item_num').val(n)
+            //点击时加个跟随变化
+            //加个:当前.item_num的value值 * 当前.item_price(单价)
+            //获取.item_price  算式
+            var p =$(this).siblings('.item_price').html()
+            p = p.substr(1)
+            $(this).siblings('.item_rowPrice').html('￥' + (p * n).toFixed(2))
+            getSum()
+        })
+        $('.jian').click(function(){
+            var n = $(this).siblings('.item_num').val()
+            if(n == 1){
+                return false
+            }
+            n--
+            $(this).siblings('.item_num').val(n)
+            var p =$(this).siblings('.item_price').html()
+            p = p.substr(1)
+            $(this).siblings('.item_rowPrice').html('￥' + (p * n).toFixed(2))
+            getSum()
+        })
+        //用户修改文本框值 计算 小计
+        $('.item_num').change(function(){
+            var n = $(this).val()
+            var p = $(this).siblings('.item_price').html()
+            p = p.substr(1)
+            $(this).siblings('.item_rowPrice').html('￥' + (p * n).toFixed(2))
+            getSum()
+        })
+        //总件数和总金额
+
+        function getSum(){
+            var nums = 0
+            var prices = 0
+            $('.item_num').each(function(i,ele){
+                nums += parseInt($(ele).val())
+            })
+            $('.item_numAll').text(nums)
+            $('.item_rowPrice').each(function(i,ele){
+                prices += parseFloat($(ele).text().substr(1))
+            })
+            $('.priceAll').text('￥' + prices.toFixed(2))
+        }
+        //删除商品模块
+        //item后面的clear_item删除按钮
+        $('.clear_item').click(function(){
+            $(this).parents('.item').remove()
+            getSum()
+        })
+        //删除选中的按钮
+        $('.clear_choose_items').click(function(){
+            $('.item_check:checked').parents('.item').remove()
+            getSum()
+        })
+        //清空购物车
+        $('.clearAll').click(function(){
+            $('.item').remove()
+            getSum()
+        })
+    })
+
+</script>

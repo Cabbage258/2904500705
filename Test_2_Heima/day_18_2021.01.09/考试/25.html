@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //需求:完成冒泡排序 数组为:[4,1,2,3,5]
+    //遍历,每次循环比较索引和++索引大小,大于互换
+    arr = [4,1,2,3,5]
+    function arrmintomax(arr1){
+        for(i = 0;i <= arr1.length;i++){
+            for(j = 0;j <= arr1.length;j++){
+                var temp;
+                if(arr1[j] > arr1[j + 1]){
+                    temp = arr1[j];
+                    arr1[j] = arr1[j + 1];
+                    arr1[j + 1] = temp;
+                }
+            }
+        }
+        return arr1
+    }
+    console.log(arrmintomax(arr))
+</script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Math对象</title>
+</head>
+<body>
+<script>
+    //属性
+    console.log(Math.E)
+    console.log(Math.PI)
+
+    //方法
+    console.log('最小值',Math.min(12,34,56,816,4134354,1))
+    console.log('最大值',Math.max(12,34,56,816,4134354,1))
+    console.log('四舍五入',Math.round(1234.45678956135498))
+    console.log('四舍五入',1234.56789123.toFixed(2))//四舍五入可以保留小数位,但结果为字符型数据
+    console.log('向上取整',Math.ceil(1234.45678956135498))//1235
+    console.log('四舍五入',Math.ceil(-1234.65678956135498))//-1234
+    console.log('四舍五入',Math.ceil(-1234.75678956135498))//-1234
+    console.log('四舍五入',Math.ceil(-1234.95678956135498))//-1234
+    console.log('四舍五入',Math.ceil(-1234))//-1234
+    console.log('四舍五入',Math.ceil(1234))//1235
+    console.log('四舍五入',Math.ceil(1234.45678956135498))//1235
+
+
+    console.log('向下取整',Math.floor(-1234.65678956135498))//-1235
+    console.log('向下取整',Math.floor(-1234.75678956135498))//-1235
+    console.log('向下取整',Math.floor(-1234.95678956135498))//-1235
+    console.log('向下取整',Math.floor(-1234))//-1234
+    console.log('向下取整',Math.floor(1234))//1234
+    console.log('向下取整',Math.floor(1234.45678956135498))//1234
+
+    console.log('随机函数',Math.random())
+    console.log('随机函数',Math.random(2))//random中的参数为随机种子
+
+    //需求:输出[30,88]之间的数
+    console.log('[30,88]之间的随机数',Math.ceil(Math.random() * 58 + 30))
+    console.log('[30,88]之间的随机数',Math.floor((Math.random() * 58 + 1) + 30))
+
+    console.log(Math.sin(30 * Math.PI / 180))//在JS运算中必须先将角度转换为弧度再算
+
+
+
+    //var a = 1 > 2;//false
+    //var b = 2 > 1;//true
+    //var c = a++
+    //var a = 1,b = 2;
+    //var c = a++ - b-- > --b - ++a *3;
+    //var d = a + 0;
+    //a = 1+1
+    //b = 1
+    //c = 1 - 2 > 0 - 3 * 3
+    //c = -1 > -9 //true
+    //console.log(a)
+
+    var a = 1 > 2;//false
+    var b = 2 > 1;//true
+    var c = a++ - b-- > --b - ++a * 3;
+    console.log(a)
+    //左侧)a++ - b--
+    //a后面给运算符号,a的值由false隐式转换为0;b前面有运算符号,b的值由true隐式转换为1.此时a++ - b相当于0 - 1.运算之后a的值为0+1=1,b的值为0
+    //右侧)--b - ++a * 3
+    //相当于-1 - 2 * 3.此时b的值为-1,a的值为2,c的值为-1 > -7为true
+
+
+</script>
+</body>
+</html>

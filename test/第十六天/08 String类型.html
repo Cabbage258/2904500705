@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    console.dir(String)//以目录结构的形式输出
+    var str1= 'How are you?';
+    var str2 = new String('Hello world')
+    console.log(str1,str2)
+    console.log(str1,str2.length)
+
+    //charAt(n) 返回指定索引位置的字符
+    console.log(str1.charAt(2))
+
+    //charCodeAt(n) 以Unicode编码形式返回指定索引位置的字符
+    console.log(str1.charCodeAt(2))
+
+    // concat(str1...str2) 将字符串参数串联到调用该方法的字符串
+    console.log(str1.concat('a','b','1111'))//
+
+    // slice(n,m) 返回字符串n到m之间位置的字符串
+    var str = 'How are you?'
+    console.log(str.slice(2,5))//截取从下标2的位置开始,到下标为5之前(不包括5)所有的字符
+
+
+    // substring(n,m) 同上
+    console.log(str.substring(2,5))//截取从下标2的位置开始,到下标5之前的所有字符
+
+
+    // substr(n,m) 返回字符串n开始的m个字符串
+    console.log(str.substr(2,3))//从下标2开始,截取3个字符
+    console.log(str.substr(2,1111))//从下标2开始,截取1111个字符,超出长度,截取至最后一位字符
+    console.log(str.substr(2))//如果只带一个参数,表示从指定下标截取到最后
+    console.log(str.substr(-2))//u?      如果第一个参数为负数,表示反向截取
+
+    //indexOf(str , n) 从n开始搜索的第一个str,并将搜索的索引值返回
+    var str = 'How are you?'
+    console.log(str.indexOf('o'))//1    返回第一个"o"出现的下标
+    console.log(str.indexOf('sadasd'))//-1   如果不存在,将返回-1
+    console.log(str.indexOf('o',3))//9   从指定的下标位置开始搜索
+
+
+
+    //lastIndexOf(str , n) 从n开始搜索的最后一个str,并将搜索的索引值返回
+    console.log(str.lastIndexOf('o'))//9  从后向前搜索
+    console.log
+
+
+
+</script>
+</body>
+</html>

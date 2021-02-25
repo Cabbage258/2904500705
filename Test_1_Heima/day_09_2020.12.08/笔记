@@ -1,0 +1,86 @@
+1.精灵图(sprites,雪碧图)(减少服务器接收和发送请求的次数,提高页面加载速度.用于稍复杂的小图片)
+    background-position: x轴 y轴;
+
+2.字体图标(灵活性高,兼容性好,减少服务器请求.用于比较简单的小图标)
+    字体文件格式:
+        1).TureType(.ttf)格式.ttf字体是windows和Mac的最常见的字体,支持这种字体的浏览器有IE9+、Firefox3.5、Chrome4+、Safari3+、Opera10+、iOS Mobile、Safari4.2+;
+        2).Web Open Font Format(.woff)格式woff字体,支持这种字体的浏览器有IE9+、Firefox3.5、Chrome6+、Safari3.6+、Opera11.1+;
+        3).Embedded Open Type(.eot)格式.eot字体是IE专用字体,支持这种字体的浏览器有IE4+;
+        4).SVG(.svg)格式.svg字体是基于SVG字体渲染的一种格式,支持这种字体的浏览器有Chrome4+、Safari3.1+、Opera10.0+,iOS Mobile、Safari3.2+;
+
+    语法:
+        @font-face{
+            font-family:自定义字体名;
+            src:url("字体文件.ttf") format("字体文件格式以处理浏览器兼容"),url(字体文件.woff) format(...),...;
+        }
+
+        说明:
+            可以同时引入多个字体文件,字体一样,文件的扩展名不一样,目的是为了处理浏览器兼容.
+
+            eg: 
+                @font-face {font-family: "iconfont";
+                            src: url('iconfont.eot?t=1585647107785'); /* IE9 */
+                            src: url('iconfont.eot?t=1585647107785#iefix') format('embedded-opentype'), /* IE6-IE8 */
+                            url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAScAAsAAAAACTAAAAROAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDMgqFUIRIATYCJAMUCwwABCAFhG0HSBvUByMRNntQMpL9c4HDS8ZfIO5Y1qSPewjh3vAB27QtWuSZ/vo2fXsLTLhNHImbHhWRS+uQekS1pkLN/4wAWN79HjSSRpTtFiWRkDQt6GKw35w/YDthItSILHpUeG1zVEhfmm770vwGCJAh/ce9qpkTbD77Frc5FiaUC2BoAsWCe3Tawoq1gNhh7OIyngYIoK3ZQrdDbCooiGnrEIDuTlIECjGzuISN5Lo052gs+EBTHr6pywB2uH+P/rAUoCQRbWsiE1YKgXKePAmz/1m42yiQ9OcEAOYUwIAtAA7okeueBdhP28JKaTbHCQBouVDY1zQD+VGe9P8/oXxF2lJ3A6qXf7wYlNLUihAfmOEg55kIoJAbIAAjj0AAQp4kvTFqLjpCA3zgDUA5jWbqk7gCgfCglsLnjxoEvf7vpje0oLt3F5OHdZtux5oKq7tpOrySajri1iEiO6STVnUnjMhcxDXiBu2eEesDm0U1Izot2jUNYlR+cl5lJU1LqxEuryFEViWkFlb1mtJSUlnJVhGniHQ1CSoHExQkFTGZ2l6armQK6moFgspO2HT2rijdXNot6iApFt+7l97P27vuGLGNurI7wq46wbzOXrZPNlDebyitLq+RVbGVEklNrFkqKK3UqhWWVWW/T1QkFXU360iY+pZDU1pldaygtLcIE4pgwpQ673cL1tw4h0pBTiJdFBFX+gIOAt9y1q8h1d4B5Xg4BM3m58aLPffM0x5PV5q3PWjMwsMnOTtO6MdoxBxU9wr8ODiopKFlUnKLfkriyRfSDL4znjylm5OX0F7frBRRIkMYHiKWY99sVcq+OygDjyESnsvz9XNdVltal/yMZdDWQFNBdoxge2GqkmGRKI2yVGL4zbuDMsxDt0AI/Uwx0TnU1GbHpwNpnA3uvbw9npBmpKt+dHQVWUqWQMjaa3sPG281uvTp5lWErtrbLhltNT4Maf6CPwa+3x2K0dU/fPxPvkjYdN3yWcJmCtrjIw5GvJusuP4B7KyYfAfLwAEA4P8H3IwtXS6LjTDLPU49xcHZUXwDJ/0yy9icsS5Q8f2tQK5V38M+B4xC/1kOtBO/d43akh9EUrODI8s0CzcWW02x6OX63lo1JfWVwG/hV/e0H62wdjUAkluEQMmsAMtt0Bz8Drgqe+DJHYG2FXGamCwALIgLwNpGAIHeCIRaP4j0rqBj/BNILH2GVB+G0hnp9a8kzHO9LaMSjCD4AxdSpg2b9LzaE5oyURyVuZwbcuFiMLZ3TOaOmCH3saP4mImIBs2UwgE8D5OEIGfyGMrAiuSboQOT902DkNJKTwiGFIEiIPAHOCGS0XZv0Uv9/gkySgmFS9pKwjeIFdzkYGxgVAN9VGe12s5lduHDmBBC41UaIylwgE6U6GkC8vxFHgqJAdsimdsYom66rnowvja9xmMA0LSruAGFMOIgLuIBfqqs/XPK2e8Wbe9UJlQ2LKVYqQAAAA==') format('woff2'),
+                            url('iconfont.woff?t=1585647107785') format('woff'),
+                            url('iconfont.ttf?t=1585647107785') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+                            url('iconfont.svg?t=1585647107785#iconfont') format('svg'); /* iOS 4.1- */
+                         }
+    iconfont图标字体
+        由阿里巴巴提供的一种图标字体.
+        步骤:
+            1)进入官网http://iconfont.cn
+            2)创建一个项目
+            3)添加图标到购物车
+            4)将购物车中的图标添加到项目中
+            5)下载iconfont文件,解压后,将部分文件复制到我的网页项目中
+            6)使用字体图标,先引入iconfont.css文件
+            7)使用图标方法:
+                a)用类名
+
+3.CSS三角
+    内容0 设线宽为△高 四条边线就是四个△
+        Tips:兼容处理,加font-size:0;line-height:0;
+
+4.CSS用户界面样式
+    cursor 鼠标样式(设置或检索在对象上移动的鼠标指针采用何种系统预定义的光标形状)
+        属性:
+            default    :   小白(默认)
+            pointer    :   小手
+            move       :   移动
+            text       :   文本
+            not-allowed:   禁止
+
+    outline 轮廓线
+        属性:
+            none:去掉默认的蓝色边框
+    
+    resize 防止拖拽文本域(实际开发中,文本域右下角是不可以拖拽的)
+        属性:
+            none:禁止拖拽文本域
+
+5.vertical-align 设置一个元素的垂直对齐方式(仅针对行内元素或行内块元素)
+        属性:
+            baseline:默认,元素放置在父元素的基线上
+            top:把元素的顶端与行中最高元素的顶端对齐
+            middle:把此元素放置在父元素的中部
+            bottom:把元素顶端与行中最低的元素的顶端对齐
+
+6.文本溢出
+    a)单行文本溢出(重要)
+        text-overflow:clip|ellipsis|string;
+
+        处理文字溢出样式:
+            width:px/%/em/rem/...;
+            white-space:nowrap./*不允许折行*/
+            -ms-text-overflow:ellipsis;
+            text-overflow:ellipsis;]
+            overflow:hidden;
+
+    b)多行文本溢出(IE9以下的版本不支持,主要是谷歌支持)
+        display:-webkit-box;
+        -webkit-box-orient:vertical;
+        -webkit-line-clamp:行数;
+        overflow:hidden;
+
+7.

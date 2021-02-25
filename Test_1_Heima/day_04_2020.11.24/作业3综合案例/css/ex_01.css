@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    background: #ffbec8;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+}
+
+a:hover {
+    color: #000;
+    background: #ffa102;
+}
+
+.wrapper ul li {
+    display: inline-block;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var obj2 = {
+        aa:'bb',
+        cc: true,
+        dd:123,
+        fnl: function(a,b){
+            console.log(a+ ' ' + b);
+        },
+        fn2: function(){
+            console.log()
+        }
+    };
+    console.log(obj2.aa)
+    obj2.fnl('Hellow','world')
+
+    console.log(obj2['aa']);//这里的aa上的引号不能省略
+    obj2["fnl('Hellow','world')"];
+
+    var str = 'aa'
+    console.log(obj2[str]);//当属姓名为一个变量时,只能用[]去取值,且不能加引号,因为它是变量
+</script>
+</body>
+</html>

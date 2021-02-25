@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //需求:6!=?
+    /*function fact(n){
+        if(n === 1){
+            return 1;
+        }else{
+            return n * fact(n - 1)
+        }
+    }
+    console.log(fact(3))
+*/
+    function fact(n){
+        if(n === 1){
+            return 1;
+        }else{
+            return n * arguments.callee(n - 1)//6*fact(n-1=5)*fact(n-1=4)...*1
+        }
+    }
+    console.log(fact(5))
+
+
+
+
+
+
+
+    //需求:求1! + 2! + 3! + ...6!=?
+    var sum = 0;
+    for(var i=1;i<=6;i++){
+        sum += fact(i)
+    }
+    console.log(sum);
+</script>
+</body>
+</html>

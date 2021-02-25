@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数</title>
+</head>
+<body>
+<script>
+    /*var a = prompt('请输入一个数字'), b = prompt('请输入一个数字');
+    var sum = 0
+    {
+        if (a > b) {
+            for (var i = b; i <= a; i++) {
+                sum += i;
+            }
+        } else {
+            for (var i = a; i <= b; i++) {
+                sum += i;
+            }
+        }
+    }
+    console.log(parseInt(sum))*/
+
+
+    /*function sum (a, b) {
+        var sum = 0
+            if (a > b) {
+                for (var i = b; i <= a; i++) {
+                    sum += i;
+                }
+            } else {
+                for (var i = a; i <= b; i++) {
+                    sum += i;
+                }
+            }
+            console.log(sum)
+    }
+    sum(1,100)*/
+
+
+    //需求:求和
+    function getSum (a,b){
+            return a + b;
+    }
+    console.log(getSum(10,2));
+
+
+    //需求:求任意两个数的最大值
+    function max(a,b){
+        if(a > b){
+            return a;
+        }else if(a < b){
+            return b;
+        }else{
+            return a;
+        }
+    }
+    console.log(max(-100.2,5))
+
+    //需求:求任意数组中的最大值
+    function Max(arr){
+        var max = 0
+        for(var i = 0;i <arr.length;i++){
+            if(arr[i] > max){
+                max = arr[i]
+            }
+        }
+        return max;
+    }
+    console.log(Max([99,1,2,100,4]))
+</script>
+</body>
+</html>

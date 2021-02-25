@@ -1,0 +1,135 @@
+*{
+    margin:0;
+    padding:0;
+}
+li{
+    list-style-type: none;/*清除li标签前缀*/
+}
+a{
+    text-decoration:none;/*取消a标签下划线*/
+    color:#000;/*a颜色*/
+}
+body{
+    background: url(../image/bg.gif);/*页面背景图*/
+    font-size: 12px;/*页面默认字体12px*/
+}
+.container{
+    width: 980px;/*宽度980像素*/
+    margin:0 auto;/*外边距上下0左右自动*/
+}
+.header{
+    background: url(../image/main_line.jpg )repeat-x left bottom;/*背景图*/
+    padding-bottom:15px;/*底部内边距15px*/
+}
+/*导航栏*/
+.mainnav{
+    background: url(../image/main_menu_bg.gif) repeat-x;/*背景图 平铺*/
+}
+.mainnav ul{
+    font-size: 15px;/*字体大小*/
+    font-weight:bold;/*加粗*/
+    margin-left:30px;/*左外边距*/
+    padding:9px 0 8px;/*内边距上 左右 下*/
+}
+.mainnav ul li{
+    display:inline-block;/*行内块元素*/
+    padding:0 20px 0 18px;/*内边距上右下左*/
+    border-right:1px solid #000000;/*右边框 1像素 solid边框实心*/
+}
+.mainnav ul li:last-child{/*li标签倒数第一个*/
+    border-right:none;/*右边框取消*/
+}
+.mainnav ul li a{/*a颜色*/
+    color:white;
+}
+.mainnav ul li a:hover{/*用户体验*/
+    color:#ffff00;
+}
+.subnav ul{
+    margin-left:30px;/*左外边距*/
+    padding:10px 0;/*内边距 上下 左右*/
+}
+.subnav ul li{
+    display: inline-block;/*行内块元素*/
+    padding:0 6px 0 2px;/*内边距 上右下左*/
+    border-right:1px solid #d2cbcb;/*右边框 1像素 实线 颜色*/
+}
+.subnav ul li:last-child{/*li倒数第一个*/
+     border-right:none;/*取消右边框*/
+ }
+.subnav ul li a{
+    color: #a39292;
+}
+.subnav ul li a:hover{
+    color:#000;
+}
+.content{
+    overflow: hidden;/*取消浮动*/
+}
+.leftsider{
+    float:left;/*左浮动*/
+    border:1px solid #ccc;
+    border-top:none;/*取消上边框*/
+    width: 210px;/*宽*/
+}
+.leftsider ul {
+    background: url(../image/directory_bg_big.gif);
+    padding-left:50px;/*左内边距*/
+}
+.leftsider ul li{
+    padding:9px 0 7px;/*内边距*/
+}
+.leftsider ul li a:hover {
+    color: red;
+}
+.main{
+    float:right;/*右浮动*/
+    width:738px;/*盒子宽*/
+    padding:0 0 10px 20px;/*内边距*/
+    border:1px solid #ccc;/*边框*/
+}
+.tittle {
+    background: url(../image/content_bg.jpg) repeat-x;
+    margin-left: -20px;/*左外边距*/
+    padding:0;/*内边距*/
+}
+.tittle h1{
+    margin-left:40px;/*左外边距*/
+    font-size:20px;/*字体大小*/
+}
+.tittle h2{
+    font-size: 12px;/*字体大小*/
+    margin:10px 0;/*外边距*/
+}
+.tittle p{
+    line-height:1.5em;/*行高*/
+    margin:10px 0;/*外边距*/
+}
+.tittle li{
+    list-style-type: decimal;/*数字前缀*/
+    list-style-position: inside;/*显示在内部*/
+    line-height: 2em;/*行高*/
+}
+.footer{
+    background: url(../image/bottom_bg.gif);
+}
+.footer ul{
+    text-align: center;/*字体*/
+    padding:10px 0;/*内边距*/
+    margin:0 0 5px 10px;/*外边距*/
+}
+.footer ul li{
+    display: inline-block;/*行内块元素*/
+    border-right: 1px solid #000;
+    padding-right: 10px;/*右内边距*/
+    margin-right: 7px;/*右边框*/
+}
+.footer ul li:last-child{/*倒一*/
+    border-right: none;/*取消右边框*/
+}
+.footer ul li a{
+    color:white;
+}
+.footer ul li a:hover{
+    color:yellow;;
+}

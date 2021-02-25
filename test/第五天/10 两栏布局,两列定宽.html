@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>两栏布局,左右固定</title>
+    <style>
+        body{
+            font-size: 18px;
+            min-width: 600px;
+        }
+        .container{
+            width: 1000px;
+            overflow: hidden;
+        }
+        .left{
+            width: 200px;
+            height: 200px;
+            float:left;
+            background-color: #f00;
+            color: #fff;
+        }
+        .right{
+            width: 780px;
+            height: 200px;
+            float:right;
+            background-color: #0ff;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="left">左侧固定</div>
+    <div class="right">右侧固定</div>
+</div>
+</body>
+</html>

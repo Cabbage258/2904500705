@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>作业1</title>
+    <script src="js/jquery.min.js"></script>
+</head>
+<body>
+<ul>
+    <li>我是第01个li</li>
+    <li>我是第02个li</li>
+    <li>我是第03个li</li>
+    <li>我是第04个li</li>
+    <li>我是第05个li</li>
+    <li>我是第06个li</li>
+    <li>我是第07个li</li>
+    <li>我是第08个li</li>
+    <li>我是第09个li</li>
+    <li>我是第10个li</li>
+</ul>
+</body>
+</html>
+<script>
+    $('ul li:odd').css('backgroundColor', 'skyblue')
+    $('ul li:even').css('backgroundColor', 'greenyellow')
+    $('ul li').mouseover(function () {
+        $(this).css('backgroundColor', 'red')
+    }).mouseout(function () {
+        $('ul li:odd').css('backgroundColor', 'skyblue')
+        $('ul li:even').css('backgroundColor', 'greenyellow')
+    })
+
+
+</script>

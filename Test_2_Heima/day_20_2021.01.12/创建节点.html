@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建节点</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        li{
+            list-style-type: none;
+        }
+        ul{
+            width: 237px;
+
+        }
+        ul li{
+            overflow: hidden;
+        }
+        ul li span {
+            float:right;
+            cursor:pointer;
+        }
+        ul li span:hover{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+
+<textarea name="" id="" cols="30" rows="10" title=""></textarea>
+<button>发表</button>
+<ul>
+    <li>默认好评 <span>删除</span></li>
+</ul>
+
+<script>
+    var submit = document.querySelector('button'),text = document.querySelector('textarea'),ul = document.querySelector('ul')
+    submit.onclick = function(){
+        if(text.value.length == 0){
+            alert('¿')
+        }else{
+            var newli = document.createElement('li')
+            newli.innerHTML = text.value + '<span>删除</span>'
+            ul.appendChild(newli)
+            text.value = ''
+        }
+        /*var remove = document.querySelectorAll('span')
+        console.log(remove)
+        for(var i = 0;i < remove.length;i++){
+            remove[i].onclick = function(){
+                ul.removeChild(this.parentNode)
+            }
+        }*/
+    }
+    //删除
+    var remove = document.querySelectorAll('span')
+    console.log(remove)
+    for(var i = 0;i < remove.length;i++){
+        remove[i].onclick = function(){
+            console.log('123')
+            ul.removeChild(this.parentNode)
+        }
+    }
+
+</script>
+</body>
+</html>

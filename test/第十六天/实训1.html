@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实训1</title>
+    <style>
+        .box {
+            width: 400px;
+            border: 2px solid deeppink;
+            margin: 0 auto;
+            height: 400px;
+            text-align: center;
+        }
+
+        .gift {
+            height: 40px;
+            line-height: 40px;
+            font-size: 18px;
+            background-color: deeppink;
+            color: #fff;
+        }
+
+        button {
+            width: 70px;
+            height: 30px;
+            background-color: skyblue;
+            color: white;
+            outline: none;
+            border: none;
+            margin: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="gift">开始抽奖啦!</div>
+    <button id="start">开始</button>
+    <button id="stop">停止</button>
+</div>
+<script>
+    //需求:用js写一个抽奖程序,奖品自定,点击开始按钮开始随机,电机停止按钮停止随机出现奖品
+    var gifts = [   //创建一个数组放入奖品
+        '希望您下次中奖',
+        '希望您下次中奖',
+        '希望您下次中奖',
+        '抽纸一包',
+        '希望您下次中奖',
+        '希望您下次中奖',
+        '矿泉水一瓶',
+        '希望您下次中奖',
+        '希望您下次中奖',
+        '希望您下次中奖',
+        '矿泉水一瓶',
+        '希望您下次中奖',
+        '矿泉水一瓶',
+        '希望您下次中奖',
+        '抽纸一包',
+        '抽纸一包',
+        '希望您下次中奖',
+        '希望您下次中奖',
+        '希望您下次中奖',
+        '希望您下次中奖',
+        '抽纸一包',
+        '抽纸一包',
+        '希望您下次中奖',
+        '希望您下次中奖',
+        '希望您下次中奖',
+        '希望您下次中奖',
+        '笔记本电脑',
+        '希望您下次中奖',
+        '希望您下次中奖',
+        '希望您下次中奖',
+        '矿泉水一瓶'
+    ];
+    var gift = document.querySelector('.gift')
+    var start = document.querySelector('#start')
+    var stop = document.querySelector('#stop')
+    var timer = null;
+    //抽奖
+    start.onclick = function () {
+        timer = setInterval(function () {
+            for (var i = 0; i < gifts.length; i++) {
+                gift.innerHTML = gifts[Math.floor(Math.random() * gifts.length)]
+            }
+        }, 40)
+    };
+    //停止抽奖
+    stop.onclick = function(){
+        clearInterval(timer);
+    };
+</script>
+</script>
+</body>
+</html>

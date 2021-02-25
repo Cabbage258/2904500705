@@ -1,0 +1,57 @@
+body {
+    background: #05010E;
+}
+
+.switchboxCont {
+    position: relative;
+    width: 10%;
+    margin: 10% auto;
+}
+
+.switch {
+    visibility: hidden;
+    margin-left: -9999px;
+    position: absolute;
+}
+.switch + label {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    padding: 2px 5px;
+    width: 140px;
+    height: 70px;
+    border-radius: 80px;
+    box-shadow: 1px 1px 1px 1px rgba(10, 13, 31, 0.95);
+    user-select: none;
+}
+.switch + label:before {
+    right: 1px;
+    background: #4252E7;
+    border-radius: 75px;
+    transition: 0.4s;
+}
+.switch + label:after {
+    width: 70px;
+    height: 70px;
+    background-color: #fff;
+    border-radius: 100%;
+    transition: 0.4s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+input.switch + label:before, input.switch + label:after {
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    bottom: 2px;
+    content: "";
+}
+
+.switch:checked + label:before {
+    background-color: #3B3A40;
+}
+.switch:checked + label:after {
+    margin-left: 77px;
+}

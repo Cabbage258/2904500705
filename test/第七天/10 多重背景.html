@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>多重背景</title>
+    <style>
+        div{
+            width: 500px;
+            height: 500px;
+            margin:100px auto;
+            /*background: url(./images/ufo.png) no-repeat 50% 100%,url(./images/stars.png) no-repeat,url(./images/sky.png) no-repeat;*/
+            background-image: url(./images/ufo.png),url(./images/stars.png),url(./images/sky.png);
+            background-position: 50% 100%,0,0,0 0;
+            background-repeat:no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

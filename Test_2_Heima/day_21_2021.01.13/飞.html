@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        img{
+            position: fixed;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<img src="./images/angel.gif" alt="">
+
+
+<script>
+    //获取img
+    //鼠标移入文档流的时候再显示图片
+    var img = document.querySelector('img')
+    document.addEventListener('mouseover',function(){
+        img.style.display = 'block'
+    })
+    //给document注册一个mousemove事件,获取鼠标在文档中位置,xy给图片的top,left
+    document.addEventListener('mousemove',function(e){
+        X = e.clientX
+        Y = e.clientY
+        img.style.top = (Y - 59) + 'px'
+        img.style.left = (X - 24) + 'px'
+
+    })
+</script>
+</body>
+</html>

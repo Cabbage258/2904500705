@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>作业3</title>
+    <script src="js/jquery.min.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        button {
+            width: 50px;
+            height: 30px;
+        }
+
+        div {
+            margin-top: 20px;
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+
+        .box {
+            background-color: greenyellow;
+        }
+    </style>
+</head>
+<body>
+<button>切换</button>
+<div>我是一个div</div>
+</body>
+</html>
+<script>
+    //1.css操作
+    /*
+    var num = 1
+    $('button').click(function () {
+        if (num == 1) {
+            $('div').css('backgroundColor', 'greenyellow')
+            num--
+        } else {
+            $('div').css('backgroundColor', 'skyblue')
+            num++
+        }
+    })
+    */
+    //2.操作类名
+    var num = 1
+    $('button').click(function(){
+        if(num == 1){
+            $('div').addClass('box')
+            num--
+        }else{
+            $('div').removeClass('box')
+            num++
+        }
+    })
+</script>

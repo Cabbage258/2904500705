@@ -1,0 +1,50 @@
+[
+  {
+    "id": "007",
+    "name": "张三",
+    "sex": "male",
+    "age": 18,
+    "score": [
+      56,
+      95,
+      86,
+      76,
+      39,
+      49,
+      82
+    ],
+    "addr": "ShangHai China"
+  },
+  {
+    "id": "996",
+    "name": "Tom",
+    "sex": "female",
+    "age": 23,
+    "score": [
+      56,
+      95,
+      86,
+      44,
+      39,
+      49,
+      82
+    ],
+    "addr": "BeiJing China"
+  },
+  {
+    "id": "715",
+    "name": "Jerry",
+    "sex": "male",
+    "age": 21,
+    "score": [
+      56,
+      95,
+      86,
+      76,
+      23,
+      49,
+      82
+    ],
+    "addr": "ChengDu China"
+  }
+]

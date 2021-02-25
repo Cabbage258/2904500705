@@ -1,0 +1,29 @@
+*{
+    margin:0;
+    padding:0;
+}
+a{
+    text-decoration:none;
+}
+li{
+    list-style-type: none;
+}
+.wrapper{
+    overflow: hidden;
+}
+.box1{
+    float: right;
+    background-color:deepskyblue;
+}
+.box2{
+    float:left;
+    background-color:orangered;
+}
+.box3{
+    border:1px solid black;
+}
+.box1,.box2{
+
+    width:100px;
+    height:100px;
+}

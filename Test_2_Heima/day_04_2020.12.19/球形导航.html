@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>球形导航</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #312e2e;
+        }
+        div{
+            background-color: #000000;
+            width: 100px;
+            height: 100px;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            -webkit-box-shadow: 0 0 20px #f99100;
+            -moz-box-shadow: 0 0 20px #f99100;
+            box-shadow: 0 0 20px #f99100;
+            line-height: 100px;
+            text-align: center;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 700;
+            word-spacing: 4em;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            position: relative;
+            margin:35vh auto;
+            background-color: #f99100;
+            cursor:pointer;
+        }
+        div:not(.box){
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -50px;
+            margin-left: -50px;
+            z-index: -1;
+            transform:scale(0) rotate(1800deg) translate(0,0);
+            transition: all 2s ;
+        }
+        span{
+            display: block;
+            transition: all 4s ease-out;
+        }
+        .box:hover .box1{transform:scale(1) rotate(0deg) translate(210px,0);}
+        .box:hover .box1 span{ transform:rotate(2160deg);}
+        .box:hover .box2{transform:scale(1) rotate(30deg) translate(210px,0);}
+        .box:hover .box2 span{ transform:rotate(2130deg);}
+        .box:hover .box3{transform:scale(1) rotate(60deg) translate(210px,0);}
+        .box:hover .box3 span{ transform:rotate(2100deg);}
+        .box:hover .box4{transform:scale(1) rotate(90deg) translate(210px,0);}
+        .box:hover .box4 span{ transform:rotate(2070deg);}
+        .box:hover .box5{transform:scale(1) rotate(120deg) translate(210px,0);}
+        .box:hover .box5 span{ transform:rotate(2040deg);}
+        .box:hover .box6{transform:scale(1) rotate(150deg) translate(210px,0);}
+        .box:hover .box6 span{ transform:rotate(2010deg);}
+        .box:hover .box7{transform:scale(1) rotate(180deg) translate(210px,0);}
+        .box:hover .box7 span{ transform:rotate(1980deg);}
+        .box:hover .box8{transform:scale(1) rotate(210deg) translate(210px,0);}
+        .box:hover .box8 span{ transform:rotate(1950deg);}
+        .box:hover .box9{transform:scale(1) rotate(240deg) translate(210px,0);}
+        .box:hover .box9 span{ transform:rotate(1920deg);}
+        .box:hover .box10{transform:scale(1) rotate(270deg) translate(210px,0);}
+        .box:hover .box10 span{ transform:rotate(1890deg);}
+        .box:hover .box11{transform:scale(1) rotate(300deg) translate(210px,0);}
+        .box:hover .box11 span{ transform:rotate(1860deg);}
+        .box:hover .box12{transform:scale(1) rotate(330deg) translate(210px,0);}
+        .box:hover .box12 span{ transform:rotate(1830deg);}
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="box1"><span>01</span></div>
+        <div class="box2"><span>02</span></div>
+        <div class="box3"><span>03</span></div>
+        <div class="box4"><span>04</span></div>
+        <div class="box5"><span>05</span></div>
+        <div class="box6"><span>06</span></div>
+        <div class="box7"><span>07</span></div>
+        <div class="box8"><span>08</span></div>
+        <div class="box9"><span>09</span></div>
+        <div class="box10"><span>10</span></div>
+        <div class="box11"><span>11</span></div>
+        <div class="box12"><span>12</span></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+*{
+    margin:0;
+    padding:0;
+}
+a{
+    text-decoration:none;
+}
+li{
+    list-style-type: none;
+}
+.wrapper{
+    background-color: black;
+    width:230px;
+}
+.wrapper ul li{
+    width: 230px;
+}
+.wrapper ul li a{
+    display:block;
+    height: 40px;
+    color:#fff;
+    font-size: 14px;
+    background-color: #000;
+    padding-left:80px;
+    line-height:40px;
+}
+.wrapper ul li a:hover{
+    background-color: #e8db8a;
+    color:red;
+}

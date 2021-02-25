@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS3背景属性</title>
+    <style>
+        p{
+            width: 500px;
+            height: 300px;
+            margin: 100px auto 0;
+            padding: 20px;
+            border:10px solid rgba(55,255,63,.46);
+            background: url(./images/border.png);
+            /*1.background-size: 固定长度:百分比值|cover|contain;*/
+            /*-webkit-background-size: 50% 30%;
+            background-size:50% 30% ;*/
+
+            /*-webkit-background-size: 50px 100px;
+            background-size:50px 100px ;*/
+
+            /*-webkit-background-size:cover;
+            background-size:cover;*/
+
+
+
+            /*2.background-origin: padding-box|border-box|content-box;*/
+            background-image: url(./images/bg.png);
+            background-repeat: no-repeat;
+            -webkit-background-size: cover;
+            background-size: cover;
+
+            /*-webkit-background-origin:padding-box;
+            background-origin:padding-box;*/
+
+            /*-webkit-background-origin:border-box;
+            background-origin:border-box;*/
+
+            /*-webkit-background-origin:content-box;
+            background-origin:content-box;*/
+
+
+            /*3.background-clip: border-box|padding-box|content-box;*/
+            /*-webkit-background-clip: padding-box;
+            background-clip: padding-box;*/
+
+            /*-webkit-background-clip: border-box;
+            background-clip: border-box;*/
+
+            -webkit-background-clip: content-box;
+            background-clip: content-box;
+        }
+
+
+    </style>
+</head>
+<body>
+    <p>Home About Features Portfolio Pricing Blog Contact
+
+        HTML5
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+
+        READ MORE
+
+        Latest Works
+
+        Mobile App
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+
+
+        Mobile App
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+
+
+        Mobile App
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+
+        Why graVis?
+        Fully responsive so your content will always look good on any screen size
+        Awesome sliders give you the opportunity to showcase important content
+        </p>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>box-sizing</title>
+    <style>
+        .container{
+            width: 400px;
+            height: 200px;
+            border: 1px solid #000;
+        }
+        .box{
+            /*width: 198px;
+            height: 200px;
+            float:left;
+            border: 1px solid red;*/
+
+            width: 200px;
+            height: 200px;
+            float:left;
+            border: 1px solid red;
+            padding: 20px;
+            /*盒子的实际宽度为200px(包含文本宽度158px+边框2px+内边距40px)*/
+            -webkit-box-sizing:border-box;
+            -moz-box-sizing:border-box;
+            box-sizing:border-box;
+
+            /*盒子的实际宽度为242px(包含文本宽度200px+边框2px+内边距40px)*/
+            /*-webkit-box-sizing:content-box;
+            -moz-box-sizing:content-box;
+            box-sizing:content-box;*/
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+</body>
+</html>

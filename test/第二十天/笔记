@@ -1,0 +1,187 @@
+1.JSON
+    JSON(JavaScript Object Notation JS对象简谱) 是一种轻量级的数据交换格式.
+    JSON是ECMA指定的一个数据表示规范,是ECMAScript的一个子集.采用独立于编程语言的文本格式来存储和表示数据.
+    表示数据结构清晰、简洁、易于阅读和解析.
+    逐渐取代了XML数据格式.
+    JSON是一个序列化的对象或数组,或对象中含有数组,或数组中含有对象.
+2.JSON的表示方式
+    1)对象表示
+        var obj = {
+            id: '996',
+            name: 'Jack',
+            sex: 'male',
+            age: 18,
+            addr: 'ShangHai China'
+            }
+
+    2)数组
+            var score = [56,95,86,76,39,49,82]
+    3)复杂表示法(对象+数组)
+        var students = [{
+                id: '007',
+                name: 'Jack',
+                sex: 'male',
+                age: 18,
+                score:[56,95,86,76,39,49,82],
+                addr: 'ShangHai China'
+            },{
+                id: '996',
+                name: 'Tom',
+                sex: 'female',
+                age: 23,
+                score:[56,95,86,44,39,49,82],
+                addr: 'BeiJing China'
+            },{
+                id: '715',
+                name: 'Jerry',
+                sex: 'male',
+                age: 21,
+                score:[56,95,86,76,23,49,82],
+                addr: 'ChengDu China'
+            }]
+
+3.JSON文件
+    1)不需要将数据赋给一个变量
+    2)键和字符型值(除数值型、布尔型、null、undefined(一般没有)之外)必须用双引号引起来,不能用单引号或者不用.
+    3)不允许出现分号和多余的逗号
+    4)不能出现注释语句
+    5)文件的扩展名必须是.json
+
+    例如:
+        [
+          {
+            "id": "007",
+            "name": "Jack",
+            "sex": "male",
+            "age": 18,
+            "score": [
+              56,
+              95,
+              86,
+              76,
+              39,
+              49,
+              82
+            ],
+            "addr": "ShangHai China"
+          },
+          {
+            "id": "996",
+            "name": "Tom",
+            "sex": "female",
+            "age": 23,
+            "score": [
+              56,
+              95,
+              86,
+              44,
+              39,
+              49,
+              82
+            ],
+            "addr": "BeiJing China"
+          },
+          {
+            "id": "715",
+            "name": "Jerry",
+            "sex": "male",
+            "age": 21,
+            "score": [
+              56,
+              95,
+              86,
+              76,
+              23,
+              49,
+              82
+            ],
+            "addr": "ChengDu China"
+          }
+        ]
+        ------------------------------------------------------------------------------
+4.Ajax
+    1)简介
+        Ajax(Asynchronous Javascript And XML: 异步的JavaScript和XML),目的是让JavaScript发送http请求.
+    与后台通信,获取数据和信息.
+        Ajax技术原理是实例化xmlhttp对象,使用此对象与后台通信.在通信过程中不会影响后续的JS的执行,从而实现异步操作.
+    2)同步和异步
+        同步:发送方发出数据后,等接收方发回响应以后才发下一个数据包(会影响到后面任务的执行时间)
+        异步:发送方发出数据后,不等接收方发回响应,接着发送下一个数据包(可以同时执行多个任务)
+    3)局部刷新和无刷新
+        Ajax可以实现局部刷新,也叫无刷新,就是整个页面不刷新,只是局部刷新而已.
+        Ajax可以自己发送请求,不用通过浏览器地址栏,所以页面不会刷新.
+5.用Ajax发送请求
+  写法1:
+    $.ajax([
+        type:'get/post',                            //请求方式,默认为get
+        url:'请求的文件名或后台接口地址',                //请求的地址
+        async:true/false,                           //异步或同步
+        data:{                                      //上传到服务器端的数据
+            //数据
+        },
+        dataType:'json/jsonp/xml/text/javascript',  //返回的数据类型或解决跨域(jsonp)
+        success:function(res){                      //成功回调的处理
+                //成功回调的处理代码
+        },
+        error:function(err){                        //失败回调的处理
+                //失败回调的处理代码
+        },
+        timeout:时间(毫秒),                           //请求超时时间
+        ...
+    ])
+
+  写法2:
+    $.ajax([
+        type:'get/post',                            //请求方式,默认为get
+        url:'请求的文件名或后台接口地址',                //请求的地址
+        async:true/false,                           //异步或同步
+        data:{                                      //上传到服务器端的数据
+            //数据
+        },
+        dataType:'json/jsonp/xml/text/javascript',  //返回的数据类型或解决跨域(jsonp)
+
+        timeout:时间(毫秒),                           //请求超时时间
+        ...
+    ]).done(function(){                             //成功回调
+        ...
+    }).fail(function(){                             //失败回调
+        ...
+    })
+
+  写法3(推荐写法):
+    $.ajax([
+        type:'get/post',                            //请求方式,默认为get
+        url:'请求的文件名或后台接口地址',                //请求的地址
+        async:true/false,                           //异步或同步
+        data:{                                      //上传到服务器端的数据
+            //数据
+        },
+        dataType:'json/jsonp/xml/text/javascript',  //返回的数据类型或解决跨域(jsonp)
+
+        timeout:时间(毫秒),                           //请求超时时间
+        ...
+    ]).then(function(){                             //成功回调
+        ...
+    }).catch(function(){                             //失败回调
+        ...
+    })
+
+6.JSONP
+    1)同源策略
+        所谓的同源,指的是协议、域名、端口相同.浏览器出于安全方面的考虑,只允许本域名下的接口交互,不同源的客户端脚本,在没有明确授权的情况下,不能读写对方的资源.
+        http://127.0.0.1:8080       http为协议,127.0.0.1为域名,8080为端口
+
+        只要协议、域名和端口中任意一个不相同,就会出现跨域情况.
+    2)在JQ中解决跨域
+        $.ajax({
+            ...
+            dataType:'jsonp',
+            ...
+        }).then(function(){
+            ...
+        })
+
+
+
+
+

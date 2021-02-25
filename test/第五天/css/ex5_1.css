@@ -1,0 +1,147 @@
+/*初始化*/
+*{
+    margin:0;
+    padding:0;
+}
+li{
+    list-style-type: none;/*取消黑点*/
+}
+a{
+    text-decoration: none;/*取消下划线*/
+    color:#000;/*颜色*/
+}
+/*设置页面样式*/
+body{
+    font-size: 12px;/*字号*/
+    background: url("../image/bg.gif") no-repeat center top; /*no-repeat 禁止重复*//*背景图*/
+}
+/*页面总样式*/
+.container{
+    width: 980px;/*设置版型宽度 不要设置高度,高度由内容撑开*/
+    margin: 0 auto;/*外边距*/
+    height: 1200px;/*高度*/
+}
+/*页首*/
+.header{
+    padding-bottom: 15px;/*下内边距*/
+    background: url("../image/main_line.jpg") repeat-x left bottom;/*repeat-x横向平铺*/
+}
+.mainnav{
+    background: url(../image/main_menu_bg.gif) repeat-x;/*横向平铺*/
+}
+.mainnav ul{
+    font-size: 15px;/*字号*/
+    font-weight: bold;/*加粗*/
+    padding:9px 0 8px 0;/*内边距*/
+    margin-left: 30px;/*左侧外边距*/
+}
+.mainnav ul li{
+    display:inline-block;/*将块级标签或行级标签转换为行内块标签*/
+    padding:0 20px 0 18px;/*内边距*/
+    border-right:1px solid #020202;/*左边框*/
+}
+.mainnav ul li:last-child{/*li标签内最后一个*/
+    border-right:none;/*右边框:无*/
+}
+.mainnav ul li a{
+    color: #ffffff;/*a标签颜色*/
+}
+.mainnav ul li a:hover{/*伪类选择器,hover鼠标放上时颜色增加用户体验*/
+    color: #84ff57;/*鼠标放上时颜色*/
+}
+.subnav ul{
+    padding:10px 0;/*内边距*/
+    text-align: center;/*文本对齐方式*/
+    font-size: 12px;/*字体*/
+}
+.subnav ul li{
+    display:inline-block;/*设置为行内块标签*/
+    border-right:1px solid #CCCCCC;/*右边框1像素 solid 颜色*/
+    padding-right: 10px;/*右侧内边距*/
+    margin-right:7px;/*右侧外边距*/
+}
+.subnav ul li:last-child{/*li标签内最靠后的第一个*/
+    border-right: none;/*右侧边框:无*/
+}
+.subnav ul li a{
+    color: #938b8b;/*a标签颜色*/
+}
+.subnav ul li a:hover{/*鼠标放上时,增加用户体验*/
+    color: #000000;/*鼠标放上时颜色*/
+}
+/*主体*/
+.content{
+    overflow:hidden;/*清除浮动*/
+}
+/*侧栏*/
+.leftsider{
+    float:left;/*左浮动*/
+    width: 210px;/*宽度210像素*/
+    border: 1px solid #CCCCCC;/*上下左右四个1像素边框线 */
+    border-top: none;/*取消上部边框线*/
+}
+.leftsider ul{
+    background: url(../image/directory_bg_big.gif);
+    padding-left:50px;/*内边距50px*/
+}
+.leftsider ul li{
+    padding:9px 0 7px;/*li标签上 左右 下内边距*/
+}
+.leftsider ul li a:hover{/*增加用户体验*/
+    color:red;
+}
+/*内容区*/
+.main{
+    float:right;/*右浮动*/
+    width: 738px;/*宽度*/
+    padding:0 0 10px 20px;/*左侧内边距*/
+    border:1px  solid #ccc;
+
+}
+.tittle{
+    margin-left: -20px;/*外边距-20像素*/
+    background: url(../image/content_bg.jpg );/*背景图*/
+    padding:0;/*内边距0*/
+}
+.tittle h1{
+    font-size: 17px;/*字号*/
+    padding:8px 0 7px 45px;/*内边距*/
+}
+.main h2{
+    font-size:12px;/*字号*/
+    margin:2px 0 10px;/*外边距*/
+}
+.main p{
+    line-height: 1.5em;/*行高*/
+    margin:10px 0;/*外边距*/
+}
+.main li{
+    list-style-type: decimal;/*设置有序标签前缀数字*/
+    list-style-position: inside;/*显示在内测inside*/
+    line-height: 2em;/*行高*/
+}
+/*页尾*/
+.footer{
+    margin-top: 15px;/*上外边距*/
+    background: url(../image/bottom_bg.gif);/*背景图*/
+}
+.footer ul{
+    text-align: center;/*文本居中*/
+    padding:10px 0;/*内边距*/
+    margin: 0 0 5px 10px;
+}
+.footer ul li{
+    display:inline-block;/*转换为行内块元素*/
+    border-right:1px solid #000;/*右边框*/
+    padding-right:10px;/*右侧内边框*/
+    margin-right:7px;/*右侧外边框*/
+}
+.footer ul li:last-child{
+    border-right:none/*取消倒数第一个元素的右边框*/
+}
+.footer ul li a{
+    color: #fffcfc;/*a标签颜色*/
+}
+.footer ul li a:hover{/*增加用户体验*/
+    color: #ffff6c;
+}

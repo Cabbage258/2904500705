@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上传文件</title>
+    <link rel="stylesheet" href="lib/bootstrap.css">
+    <script src="lib/jquery.js"></script>
+</head>
+<body>
+    <input type="file" id="choose">
+    <button id="btn">上传</button>
+    <!-----------------------------------bootstrap进度条--------------------------->
+    <!--<div class="progress" style="width: 500px; margin: 10px 0;">
+        <div class="progress-bar progress-bar-info progress-barstriped active" id="jdt" style="width: 0">
+            0
+        </div>
+    </div>-->
+    <!------------------------------------------------------------------------>
+    <br />
+    <img src="" alt="" id="img" width="800">
+    <img src="images/loading.gif" alt="" style="display:none" id="loading">
+</body>
+</html>
+<script>
+
+    //原生js 上传文件
+    /*
+    let btnUpload = document.querySelector('#btn')
+    let img = document.querySelector('#img')
+    btnUpload.addEventListener('click',function(){
+        let fs = document.querySelector('#choose').files
+        if(fs.length <= 0){
+            alert('请选择文件!')
+        }
+        //用FormData()实例对象追加文件
+        let formData = new FormData()
+        formData.append('avatar',fs[0])
+        //xhr请求
+        let xhr = new XMLHttpRequest()
+        //  初始化一个请求
+        xhr.open('POST','http://www.liulongbin.top:3006/api/upload/avatar')
+        //  绑定监听事件
+        xhr.addEventListener('readystatechange',function(){
+            if(xhr.status === 200 && xhr.readyState === 4){
+                let data = JSON.parse(xhr.responseText)
+                //返回的是图片在服务器的地址,赋值到img的src
+                if(data.status === 200){
+                    alert('文件上传成功!')
+                    img.src = 'http://www.liulongbin.top:3006' + data.url
+                }else {
+                    alert('文件上传失败!' + data.message)
+                }
+            }
+        })
+        //绑定监听事件  计算上传进度
+        xhr.upload.addEventListener('progress',function(e){
+            //e.lengthComputable为一个布尔值,true时可计算当前上传资源长度
+            //e.loaded  已传输字节
+            //e.total   需传输总量
+            if(e.lengthComputable){
+                let pb = Math.ceil((e.loaded / e.total) * 100)
+                console.log(pb)
+                //let jdt = document.querySelector('#jdt')
+                $('#jdt').attr('style','width:' + pb + '%').html(pb + '%')
+            }
+        })
+        //绑定监听事件 上传完成
+        xhr.upload.addEventListener('load',function(){
+            //removeClass()移除原样式,addClass()添加长传完成的样式
+            $('#jdt').removeClass().addClass('progress-bar progress-bar-success')
+        })
+        xhr.send(formData)
+    })
+    */
+    //-----------------------------------------------------------------------------
+    //JQuery 文件上传
+    $(function(){
+        $('#btn').on('click',function(){
+            //JQ对象转换为原生DOM对象
+            let fs = $('#choose')[0].files
+            if(fs.length <= 0){
+                alert('请选择文件!')
+            }
+            //FormData()追加文件
+            let formData = new FormData()
+            formData.append('avatar',fs[0])
+            $.ajax({
+                type:'post',
+                url:'http://www.liulongbin.top:3006/api/upload/avatar',
+                data:formData,
+                processData:false,
+                contentType:false,
+                success:function(res){
+                    console.log(res)
+                    alert('上传成功!')
+                },
+                error:function(){
+                    alert('上传失败!')
+                },
+                timeout: 5000
+            })
+        })
+        //ajax请求开始时显示loading图
+        $(document).ajaxStart(function(){
+            $('#loading').show()
+        })
+        //ajax请求结束时隐藏loading图
+        $(document).ajaxStop(function(){
+            $('#loading').hide()
+        })
+    })
+
+
+
+</script>

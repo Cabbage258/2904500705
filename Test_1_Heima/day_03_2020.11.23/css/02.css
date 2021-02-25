@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.wrapper{
+    width: 200px;
+    height:100px;
+    background-color: pink;
+    font: italic 900 16px 黑体;
+    text-align: center;
+}
+div{
+    padding-top:21px;
+    color:blue;
+}

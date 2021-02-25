@@ -1,0 +1,172 @@
+*{
+    margin:0;
+    padding:0;
+}
+li{
+    list-style-type:none;
+}
+a{
+    text-decoration:none;
+}
+.container{
+    width:1366px;
+}
+.header{
+    width: 100%;
+}
+.logo{
+    width: 100%;
+    height: 101px;
+    background: url(../images/nav.jpg) repeat;
+    overflow: hidden;
+}
+.logo_left{
+    width: 184px;
+    height: 45px;
+    position: relative;
+    top:25%;
+    margin-left:67px;
+    background: url(../images/index.png);
+    float:left;
+}
+.logo_nav{
+    float:left;
+    margin-left:162px;
+    margin-top:40px;
+}
+.logo_nav ul{
+    overflow: hidden;
+}
+.logo_nav ul li{
+    float:left;
+    margin-right:25px;
+}
+.logo_nav ul li a{
+    color:#fff;
+}
+.row_02{
+     background-color: #dcdcdc;
+ }
+.row_02 h2{
+    font-size: 16px;
+    font-weight:500;
+    line-height: 40px;
+    text-indent:7em;
+    color: #727272;
+}
+        /*主体*/
+        /*第一部分*/
+.content{
+
+}
+.first{
+    width: 1257px;
+    margin:0 auto;
+    overflow: hidden;
+}
+.left_sidebar{
+    float: left;
+}
+.left_sidebar .nav{
+    width: 290px;
+    height: 564px;
+    padding:7px 0 10px;
+}
+.left_sidebar .nav h4{
+    color: #565f80;
+    margin-top:8px;
+}
+.left_sidebar .nav h4:first-child{
+    margin-top:0;
+}
+.left_sidebar .nav ul{
+    overflow: hidden;
+    padding:10px 0;
+    border-bottom:1px solid #ccc;
+}
+.left_sidebar .nav ul li{
+    float:left;
+    margin-right:15px;
+}
+.left_sidebar .nav ul li a{
+    color: #6c6c6c;
+}
+.first_right{
+    overflow: hidden;
+}
+.first_right .banner{
+    width: 965px;
+    height: 413px;
+    background: url(../images/003.jpg);
+    border-left:1px solid #ccc;
+    float:left;
+}
+.first_box{
+    float:left;
+    overflow: hidden;
+}
+.box1,.box2,.box3{
+    width: 321px;
+    height: 150px;
+    float:left;
+    border-left:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+}
+.box1{
+    background: url(../images/head01.png);
+}
+.box2{
+    background: url(../images/head02.png);
+}
+.box3{
+    background: url(../images/003.png);
+    border-right:1px solid #ccc;
+}
+            /*第二部分*/
+.second{
+    overflow: hidden;
+}
+.second h2{
+
+}
+.solid_01{
+    overflow: hidden;
+}
+.column{
+    width: 926px;
+    height: 934px;
+    float: left;
+    border:1px solid red;
+}
+.box2_1{
+    width: 617px;
+    height: 313px;
+    border:1px solid red;
+}
+.box2_1_1{
+    float:left
+}
+.box2_1_1 h3{
+    margin-left:45px;
+    margin-top:62px;
+    font-size: 30px;
+    font-weight: 500;
+}
+.box2_1_1 p{
+    margin-left:44px;
+    line-height: 46px;
+    font-size: 12px;
+    color: #9c9c9c;
+}
+.box2_1_1 span{
+    font-size: 30px;
+    margin-left:45px;
+    color: #5e5e5e;
+}
+.box2_1_2{
+    width: 301px;
+    height: 301px;
+    background: url(../images/2000000279.jpg);
+    float:right;
+}
+

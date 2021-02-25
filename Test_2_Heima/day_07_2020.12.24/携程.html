@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>携程网</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    a{
+        text-decoration: none;
+    }
+    li{
+        list-style-type: none;
+    }
+    html{
+        background-color: #eee;
+    }
+    body{
+        width: 100%;
+        max-width: 540px;
+        min-width: 320px;
+        margin: 0 auto;
+    }
+    .topnav{
+        position: fixed;
+        top: 0;
+        width: 100%;
+        max-width: 540px;
+        display: flex;
+        overflow: hidden;
+        background-color: #fff;
+        border-bottom: 2px solid #ccc;
+    }
+    .topnav:before{
+        content:"";
+        height: 12.5px;
+        width: 12.5px;
+        position: absolute;
+        top: 14px;
+        left: 17px;
+        background: url(./images/sprite.png) no-repeat -60px -280px;
+        background-size: 104px 327.5px;
+    }
+    .topnav input{
+        margin:7px 10px;
+        outline: none;
+        border: 1px solid #eee;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+        width: calc(100% * (476 / 540));
+        height: 24px;
+        text-indent: 25px;
+    }
+    .topnav div{
+        height: 44px;
+        position: relative;
+    }
+    .topnav div a{
+        width: calc(100% * (44 / 540));
+        height: 44px;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 5;
+        color: #099fde;
+        text-align: center;
+    }
+    .topnav div a:before{
+        content:"";
+        width: 23px;
+        height: 23px;
+        position: absolute;
+        top: -1px;
+        right: 2px;
+        background: url(./images/sprite.png) no-repeat -59px -193px;
+        background-size: 104px 327.5px;
+    }
+    .tbnr{
+        margin-top: 44px;
+        width: 100%;
+        height: 108px;
+        background: url(./upload/focus.jpg);
+        background-size: 100% 108px;
+    }
+    .row1{
+        display: flex;
+        height: 57.6px;
+        padding-top: 8px;
+        margin:3px 4px;
+        border-radius: 8px;
+        background-color: #fff;
+        font-size: 12px;
+    }
+    .row1 div{
+        flex: 1;
+        cursor:pointer;
+        text-align: center;
+    }
+    .row1 div:before{
+        content:"";
+        margin: 0 auto;
+        display: block;
+        width: 32px;
+        height: 32px;
+        background:url(./images/localnav_bg.png) no-repeat 0 0;
+        background-size: 32px 160px;
+    }
+    .row1 div:nth-child(2):before{background-position: 0 -32px;}
+    .row1 div:nth-child(3):before{background-position: 0 -64px;}
+    .row1 div:nth-child(4):before{background-position: 0 -96px;}
+    .row1 div:nth-child(5):before{background-position: 0 -128px;}
+    .row1 div span{
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    .row2,.row3,.row4{
+        display: flex;
+        height: 88px;
+        text-align: center;
+        margin:3px 4px;
+        color: #fff;
+        line-height: 1.7;
+    }
+    .row2{
+        border-radius: 10px 10px 0 0;
+        background: linear-gradient(to right,#fa625c,#fa994d);
+    }
+    .row3{
+        background: linear-gradient(to right,#4b90ed,#53bced);
+    }
+    .row4{
+        border-radius: 0 0 10px 10px;
+        background: linear-gradient(to right,#34c2a9,#6cd559);
+    }
+    .row2 .col1{
+        border-radius: 10px 0 0 0;
+    }
+    .row3 .col1{
+    }
+    .row4 .col1{
+        border-radius: 0 0 0 10px;
+    }
+
+    .col1{
+        /*flex: 1;*/
+        cursor:pointer;
+        width: 34%;
+        background: url(./images/hotel.png) no-repeat center bottom;
+        background-size: 181.5px 69.5px;
+        /*box-sizing: border-box;*/
+        border-right: 1px solid #fff;
+    }
+
+
+    .col2{
+        /*flex: 2;*/
+        width: 66%;
+        height: 88px;
+        display: flex;
+        align-items: center;
+        align-content:space-between;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+    .col2 div{
+        cursor:pointer;
+        width: 49.7%;
+        height: 43.7px;
+        line-height: 43px;
+        border-right: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+    }
+    .col2 div:nth-child(2n){
+        border-right: none;
+    }
+    .row3 .col2 div{
+    }
+    .row4 .col2 div{
+    }
+    .row2 .col2 div:nth-child(2){
+        border-radius: 0 10px 0 0 ;
+    }
+    .row4 .col2 div:nth-child(4){
+        border-radius: 0 0 10px 0;
+    }
+    .row5{
+        display: flex;
+        height: 106px;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        border-radius: 10px;
+        background-color: #fff;
+        padding:5px 0;
+        margin:0 4px;
+    }
+    .row5 li{
+        width: 20%;
+        text-align: center;
+        cursor:pointer;
+    }
+    .row5 li:before{
+        content:"";
+        display: block;
+        height: 24px;
+        width: 24px;
+        margin: 0 auto;
+        background: url(./images/subnav-bg.png) no-repeat 0 0;
+        background-size: 24px 300px;
+    }
+    .row6{
+        display: flex;
+        justify-content:space-between;
+        align-items: center;
+        padding:17px 0;
+        margin:4px 4px 0;
+        background-color: #fff;
+        border-top: 2px solid #c2c2c2;
+        border-bottom: 1px solid #ccc;
+    }
+    .row6 div:nth-child(1){
+        width: 72.5px;
+        height: 15px;
+        margin-left: 8px;
+        background: url(./images/hot.png)no-repeat 0 -19.5px;
+        background-size: 79px 57.5px;
+    }
+    .row6 div:nth-child(2){
+        cursor:pointer;
+        width: 114px;
+        height: 26px;
+        margin-right: 5px;
+        color:#fff;
+        font-size: 16px;
+        line-height: 26px;
+        border-radius: 15px;
+        text-align: center;
+        padding:3px 20px 3px 20px;
+        background:linear-gradient(to right,#ff516d,#ff6cc6);
+    }
+    .btm{
+        display: flex;
+        flex-wrap:wrap;
+        justify-content: space-around;
+        align-items: center;
+        margin:0 4px;
+    }
+    .btm div{
+        cursor:pointer;
+        width: 50%;
+        box-sizing: border-box;
+        border-right: 1px dotted #ccc;
+        border-bottom: 1px dotted #ccc;
+    }
+    .btm div:nth-child(2n){
+        border-right: none;
+    }
+    .btm div:nth-last-of-type(-n+6){
+        height: 184px;
+    }
+    .btm div:nth-last-of-type(-n+4){
+        height: 113px;
+    }
+    .btm div{background: url(./upload/pic1.jpg) round;}
+    .btm div:nth-child(2){background: url(./upload/pic2.jpg) round;}
+    .btm div:nth-child(3){background: url(./upload/pic3.jpg) round;}
+    .btm div:nth-child(4){background: url(./upload/pic4.jpg) round;}
+    .btm div:nth-child(5){background: url(./upload/pic5.jpg) round;}
+    .btm div:nth-child(6){background: url(./upload/pic6.jpg) round;}
+    </style>
+</head>
+<body>
+    <div class="topnav">
+        <input type="text" placeholder="搜索:目的地/酒店/景点/航班号"/>
+        <div>
+            <a href="javascript:">我&nbsp;的</a>
+        </div>
+    </div>
+    <div class="tbnr"></div>
+    <div class="row1">
+        <div>景点·玩乐</div>
+        <div>景点·玩乐</div>
+        <div>景点·玩乐</div>
+        <div>景点·玩乐</div>
+        <div>景点·玩乐</div>
+    </div>
+    <div class="row2">
+        <div class="col1">海外酒店</div>
+        <div class="col2">
+            <div>海外酒店</div>
+            <div>海外酒店</div>
+            <div>特价酒店</div>
+            <div>特价酒店</div>
+        </div>
+    </div>
+    <div class="row3">
+        <div class="col1">海外酒店</div>
+        <div class="col2">
+            <div>海外酒店</div>
+            <div>海外酒店</div>
+            <div>特价酒店</div>
+            <div>特价酒店</div>
+        </div>
+    </div>
+    <div class="row4">
+        <div class="col1">海外酒店</div>
+        <div class="col2">
+            <div>海外酒店</div>
+            <div>海外酒店</div>
+            <div>特价酒店</div>
+            <div>特价酒店</div>
+        </div>
+    </div>
+    <ul class="row5">
+        <li>电话费</li>
+        <li>电话费</li>
+        <li>电话费</li>
+        <li>电话费</li>
+        <li>电话费</li>
+        <li>电话费</li>
+        <li>电话费</li>
+        <li>电话费</li>
+        <li>电话费</li>
+        <li>电话费</li>
+    </ul>
+    <div class="row6">
+        <div></div>
+        <div>获取更多福利&gt;</div>
+    </div>
+    <div class="btm">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+</html>

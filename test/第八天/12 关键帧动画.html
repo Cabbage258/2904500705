@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>关键帧动画</title>
+    <style>
+        .box{
+            width: 100%;
+            height: 800px;
+            position:relative;
+        }
+        .demo{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            position:absolute;
+            /*animation:move 5s ease-in-out infinite alternate;*/
+            -webkit-animation:move 5s ease-in-out 2 500ms;
+            -moz-animation:move 5s ease-in-out 2 500ms;
+            -o-animation:move 5s ease-in-out 2 500ms;
+            animation:move 5s ease-in-out 2 500ms;
+        }
+        /*定义关键帧*/
+        /*@-webkit-keyframes move {
+            0%{
+                left:100px;
+            }
+            100%{
+                left: 500px;
+            }
+        }
+        @-moz-keyframes move {
+            0%{
+                left:100px;
+            }
+            100%{
+                left: 500px;
+            }
+        }
+        @-ms-keyframes move {
+            0%{
+                left:100px;
+            }
+            100%{
+                left: 500px;
+            }
+        }
+        @-o-keyframes move {
+            0%{
+                left:100px;
+            }
+            100%{
+                left: 500px;
+            }
+        }*/
+        /*@keyframes move {
+            from{
+                left:100px;
+            }
+            to{
+                left: 500px;
+                background-color: #00f;
+            }
+        }*/
+        @keyframes move {
+            0%{
+                left:100px;
+            }
+            40%{
+                left: 200px;
+                top: 100px;
+                background-color: #00f;
+            }
+            75%{
+                left: 400px;
+                top: 300px;
+                background-color: #64ff77;
+            }
+            100%{
+                left: 500px;
+                top: 500px;
+                background-color: #ff4975;
+            }
+        }
+        .running:hover+.box .demo{
+            animation-play-state:running;
+        }
+        .stop:hover+.box .demo{
+            animation-play-state:paused;
+        }
+    </style>
+</head>
+<body>
+<button class="running">running</button>
+<button class="stop">stop</button>
+    <div class="box">
+        <div class="demo"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+@import "https://cdn.staticfile.org/ionicons/2.0.1/css/ionicons.min.css";
+* {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    font-family: sans-serif;
+}
+
+.sidebar {
+    float: left;
+    width: 100px;
+    height: 100%;
+    overflow: hidden;
+    background: #34495e;
+    margin-left: -100px;
+    transition: all .5s;
+}
+
+.side {
+    margin-left: 0;
+}
+
+.sidebar ul li a {
+    display: block;
+    color: wheat;
+    width: 100%;
+    height: 80px;
+    font-size: 40px;
+    line-height: 80px;
+    text-align: center;
+    transition: all .6s;
+}
+
+.sidebar ul li a:hover {
+    background: #27ae60;
+}
+
+.btn {
+    float: left;
+    padding: 0 10px;
+    font-size: 40px;
+    color: #34495e;
+    font-family: Ionicons;
+    cursor: pointer;
+}
+
+.btn::before {
+    content: '\f20d';
+}
+
+.btnc::before {
+    content: '\f12a';
+}

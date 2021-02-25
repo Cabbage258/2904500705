@@ -1,0 +1,130 @@
+
+.miaosha{
+    width: 100px;
+    height: 40px;
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 40px;
+    color: #b1191a;
+    position: absolute;
+    top: -156px;
+    left: 174px;
+}
+iframe:first-child{
+    position: relative;
+}
+.
+.qianggou {
+    float: left;
+    width: 100%;
+    height: 120px;
+    margin-top: -2px;
+}
+
+.qianggou a {
+    display: block;
+    width: 100%;
+    height: 120px;
+    background: url(../images/qianggou.png) no-repeat;
+}
+
+
+.box {
+    margin-top: 10px;
+    margin-right: 13px;
+    width: 290px;
+    float: left;
+}
+
+.box:nth-of-type(4n+1) {
+    margin-right: 0;
+}
+
+.box:hover:not(.qianggou) {
+    -webkit-box-shadow: 0 0 2px #b1191a ;
+    -moz-box-shadow: 0 0 2px #b1191a ;
+    box-shadow: 0 0 2px #b1191a ;
+}
+
+/*.box:nth-of-type(2){
+    width: 290px;
+    height: 440px;
+    box-sizing: border-box;
+    border:1px solid red;
+}*/
+.box .pic {
+    width: 100%;
+    height: 290px;
+    background: url(../images/mobile.jpg) no-repeat top;
+}
+
+.box p:nth-of-type(1) {
+    margin: 10px 10px;
+}
+
+.box span:nth-child(3) {
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #e6001a;
+}
+
+.box span:nth-child(4) {
+    margin-left: 5px;
+    margin-right: calc(100% - 126px);
+    font-weight: 700;
+    color: #a4a4a6;
+    text-decoration: line-through;
+}
+
+.box p:nth-last-of-type(2) {
+    margin-left: 10px;
+}
+
+.box p:nth-last-of-type(-n+2), .jindu {
+    display: inline-block;
+}
+
+.jindu {
+    width: 90px;
+    height: 10px;
+    border: 1px solid red;
+    border-radius: 7px;
+
+}
+
+.jindu div {
+    width: 87%;
+    height: 11px;
+    border-radius: 5px 0 0 5px;
+    background-color: red;
+}
+
+.box p:nth-last-of-type(2) span {
+    font-style: italic;
+    color: red;
+}
+
+.box p:nth-last-of-type(1) span {
+    color: red;
+}
+
+.box a {
+    margin-top: 2px;
+    display: block;
+    width: 100%;
+    line-height: 60px;
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+    color: #fff;
+    background-color: #b1191a;
+}
+
+/*页尾留白部分*/
+.footvoid {
+    float: left;
+    height: 282px;
+    width: 100%;
+}

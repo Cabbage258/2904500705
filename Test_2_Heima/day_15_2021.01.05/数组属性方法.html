@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var arr = [1,2,3,4]
+    //访问数组
+    console.log(arr[0])//1   读取下标为0的数组元素
+    console.log(arr[1])
+    console.log(arr[2])
+    console.log(arr[3])
+    console.log(arr[4])//undefined    没有下标为4的数组元素
+    //打印所有数组元素
+    for(var i = 0;i <= 3;i++){
+        console.log(arr[i])
+    }
+    //
+    arr[10] = 10
+    console.log(arr)
+    arr.pop()//删除后空元素还在
+    arr.pop()
+    arr.pop()
+    arr.pop()
+    arr.pop()
+    arr.pop()
+    arr.pop()
+
+    //push() 向数组中添加数据到数组最后
+    arr.push(1,2)
+    console.log(arr)
+
+    //pop()  删除数组最后一个元素
+    arr.pop()//每次只能删除一个
+    arr.pop()
+    console.log(arr)
+
+    //unshift()  向数组头部添加数据
+    arr.unshift(-2,-1,0)
+    console.log(arr)
+
+    //shift()  删除数组第一个元素
+    arr.shift()
+    arr.shift()
+    arr.shift()
+    console.log(arr)
+
+
+    //concat()  将两个或多个数组组合成一个数组
+    var arr1 = [5,6,7,8]
+    var arr2 = ['a','b','c','d']
+    var arr3 = arr.concat(arr1,arr2)//从左到右顺序缝合
+    console.log(arr3)
+
+
+    //reverse()  对数组进行倒序处理
+    arr3.reverse()
+    console.log(arr3)
+
+
+
+    //join()  将数组转换为字符串
+    arr3.reverse()
+    console.log(arr3)
+    console.log(typeof arr3)
+    var str = arr3.join()
+    console.log(str)
+    console.log(typeof str)
+
+    //splice()  删除、修改或向数组中添加数据
+    arr = [1,2,3,4]
+    console.log(arr)
+    //1.删除元素
+    var arr5 = arr.splice(1,2)
+    console.log(arr)//1,4  删除从下标为1开始的两个元素
+    console.log(arr5)//2,3  返回被删除的元素2,3
+
+    //2.修改数据
+    arr=[1,2,3,4]
+    var arr6 = arr.splice(1,2,'aa');//从下标为1的位置开始,替换2个,用'aa'替换
+    console.log(arr)//[1,"aa",4]
+
+    //3.添加数据
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

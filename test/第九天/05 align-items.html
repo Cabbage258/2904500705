@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>align-items</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 100%;
+            height: 1000px;
+            display: flex;
+            /*align-items: flex-start;*/
+            /*align-items: flex-start;
+            align-items: flex-end;*/
+            /*align-items: center;*/
+            /*align-items: baseline;*/
+            align-items: stretch;
+
+        }
+
+        .box1{
+            /*height: 200px;*/
+            background-color: #f00;
+        }
+        .box2{
+            /*height: 500px;*/
+            background-color: #58ff96;
+            font-size: 32px;
+        }
+        .box3{
+            /*height: 300px;*/
+            background-color: #c289ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="box1">第一个盒子</div>
+        <div class="box2">第二个盒子</div>
+        <div class="box3">第三个盒子</div>
+    </div>
+</body>
+</html>

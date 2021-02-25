@@ -1,0 +1,4 @@
+@import url(print.css) only screen and (max-width: 768px);
+@import url(screen.css) only screen and (min-width: 768px) and (max-width: 1024px);
+@import url(print.css) print;
+@import url(navbar.css) screen;

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>作业</title>
+</head>
+<body>
+<script>
+    //需求:求1-100之间所有数的总和与平均值
+    /*var num = 0
+    for (i = 1;i <= 100;i++){
+        num = num + i;
+    }
+    document.write('总和为:' + num)
+    document.write('平均值为:' + (num / (i - 1)))*/
+
+
+    //需求:求1-100之间所有偶数的和
+    /*var num = 0,i = 2
+    for(;i <= 100;i += 2){
+        num = num +=i;
+    }
+    document.write('1-100之间所有偶数的和为:' + num)*/
+
+
+    //需求:求100以内7的倍数的总和
+    /*var num = 0
+    for( i = 0;i <= 100;i += 7){
+        num = num += i;
+    }
+    document.write('100以内7的倍数的总和为:' + num)*/
+
+    //需求:使用for循环打印矩形,要求每次只能输出一个★
+    /*var row = prompt('请输入行数:'),li= prompt('请输入列数:')
+    for(i = 1;i <= row;i++){
+        document.write('<br />')
+        for(j = 1;j <= li;j++){
+            document.write('★');
+        }
+    }*/
+
+
+    //需求:使用for循环打印坡度★
+    /*var row = prompt('请输入行数:'),li = prompt('请输入列数:')
+    for(i = 1;i <= row;i++){
+        document.write('<br />')
+        for(j = 1;j <= i;j++){
+            document.write('★')
+        }
+    }*/
+
+
+
+    //需求:使用for循环打印99乘法表
+    /*var row = 9,li = 9
+    for(i = 1;i <= 9;i++){
+        document.write('<br />')
+        for(j = 1;j <= i;j++){
+            document.write(j + 'x' + i + '=' + j * i + '\t')
+        }
+    }*/
+
+    //需求:用户登录验证
+    //while
+    /*var username = prompt('请输入用户名:'),password = prompt('请输入密码:')
+    while(username !== 'admin' || password !== '123456'){
+        username = prompt('请输入用户名')
+        password = prompt('请输入密码:')
+    }
+    alert('登录成功');*/
+
+    //for
+    /*for (;;){
+        var username = prompt('请输入用户名:');
+        var password = prompt('请输入密码:');
+        if(username == 'admin' && password == '123456'){
+            alert('登陆成功')
+            break;
+        }
+    }*/
+    //需求:求累加和
+    var num = 1,sum = 0
+    for(;num <= 100;num++){
+        if(num % 10 !== 3){
+            sum = sum + num;
+        }
+    }
+    document.write(sum)
+
+    //ATM
+    /*var money = 100
+    for (; ;) {
+        var operation = prompt('请输入序号表示您的操作\n1.存钱\n2.取钱\n3.显示余额\n4.退出')
+        if (operation == 1) {
+            var moneyin = parseInt(prompt('存入钱数:'));
+            if (moneyin % 100 == 0) {
+                money = money + moneyin
+                alert('存入成功,您的余额为:' + money)
+            } else {
+                alert('nt?往ATM里扔零钱是吧?')
+            }
+        } else if (operation == 2) {
+            var moneyout = parseInt(prompt('取出钱数:'));
+            if (moneyout <= money) {
+                money = money - moneyout;
+                alert('取出成功,您的余额为:' + money)
+            } else {
+                alert('余额就' + money + '元,你想取' + moneyout + '是吧崽种¿')
+            }
+        } else if (operation == 3) {
+            alert('您的余额为:' + money)
+        } else if (operation == 4) {
+            alert('爬')
+            break;
+        } else {
+            alert('让你输入操作,看不懂中文是吧?')
+        }
+    }*/
+
+
+</script>
+</body>
+</html>

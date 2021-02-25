@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>下拉菜单</title>
+    <style>
+        ul li ul{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<ul class="nav">
+    <li><a href="javascript:">第1个</a>
+        <ul>
+            <li><a href="javascript:">第1个下拉</a></li>
+            <li><a href="javascript:">第2个下拉</a></li>
+            <li><a href="javascript:">第3个下拉</a></li>
+        </ul>
+    </li>
+    <li><a href="javascript:">第2个</a>
+        <ul>
+            <li><a href="javascript:">第1个下拉</a></li>
+            <li><a href="javascript:">第2个下拉</a></li>
+            <li><a href="javascript:">第3个下拉</a></li>
+        </ul>
+    </li>
+    <li><a href="javascript:">第3个</a>
+        <ul>
+            <li><a href="javascript:">第1个下拉</a></li>
+            <li><a href="javascript:">第2个下拉</a></li>
+            <li><a href="javascript:">第3个下拉</a></li>
+        </ul>
+    </li>
+    <li><a href="javascript:">第4个</a>
+        <ul>
+            <li><a href="javascript:">第1个下拉</a></li>
+            <li><a href="javascript:">第2个下拉</a></li>
+            <li><a href="javascript:">第3个下拉</a></li>
+        </ul>
+    </li>
+</ul>
+<script>
+    var nav = document.querySelector('.nav')
+
+    for(var i = 0;i < nav.children.length;i++){
+        nav.children[i].onmouseover = function(){
+            this.children[1].style.display = 'block'
+        }
+        nav.children[i].onmouseout = function(){
+            this.children[1].style.display = 'none'
+        }
+    }
+</script>
+</body>
+</html>

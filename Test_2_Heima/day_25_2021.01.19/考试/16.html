@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .tab_con {
+            width: 500px;
+            height: 350px;
+            margin: 50px auto 0;
+        }
+
+        .tab_btns {
+            height: 50px;
+        }
+
+        .tab_btns input {
+            width: 100px;
+            height: 50px;
+            background: #ddd;
+            border: 0;
+            outline: none;
+        }
+
+        .tab_btns .active {
+            background: gold;
+        }
+
+        .tab_cons {
+            height: 300px;
+            background: gold;
+        }
+
+        .tab_cons div {
+            height: 300px;
+            line-height: 300px;
+            text-align: center;
+            display: none;
+            font-size: 30px;
+        }
+
+        .tab_cons .current {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="tab_con">
+    <div class="tab_btns">
+        <input type="button" value="按钮一" class="active">
+        <input type="button" value="按钮二">
+        <input type="button" value="按钮三">
+    </div>
+    <div class="tab_cons">
+        <div class="current">按钮一对应的内容</div>
+        <div>按钮二对应的内容</div>
+        <div>按钮三对应的内容</div>
+    </div>
+</div>
+</body>
+<!----------------------------------答题区-------------------------------------------------------->
+<script>
+    //需求
+    //点击界面中按钮,将当前被点击的按钮的背景颜色变为gold色,其他的按钮恢复默认.
+    //当点击按钮的时候,需要将这个按钮对应位置的div显示出来
+    //提示:
+    //让按钮背景颜色变为gold色只需要给按钮的class增加active即可
+    //让div显示出来,只需要将div的class增加current即可
+    //抓取DOM
+    var con = document.querySelector('.tab_con')//大盒子
+    var btns = document.querySelector('.tab_btns')//按钮大盒子
+    var cons = document.querySelector('.tab_cons')//内容大盒子
+    var active = document.querySelector('.active')//当前按钮
+    var current = document.querySelector('.current')//当前内容
+    //注册点击事件,排他,设置自定义属性
+    for (var i = 0; i < btns.children.length; i++) {
+        btns.children[i].setAttribute('a', i)
+        btns.children[i].addEventListener('click', function () {
+            //排他,事件触发时清除两个盒子下所有子元素的类名
+            for (var i = 0; i < btns.children.length; i++) {
+                btns.children[i].classList.remove('active')
+                cons.children[i].classList.remove('current')
+            }
+            //给触发点击事件的当前子元素添加类名,分别添加按钮和内容:active,current
+            this.classList.add('active')
+            var a = this.getAttribute('a')
+            cons.children[a].classList.add('current')
+        })
+    }
+</script>
+</html>

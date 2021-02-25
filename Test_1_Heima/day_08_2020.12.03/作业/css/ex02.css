@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration:none;
+}
+.clearfix:after{
+    content:"";
+    display: block;
+    height: 0;
+    clear:both;
+    visibility: hidden;
+}
+.clearfix{
+    *zoom:1;
+}
+/*主体*/
+.box{
+    margin:10px auto;
+    width: 600px;
+    height: 500px;
+}
+.box div{
+    width: 100px;
+    height: 75px;
+    float: left;
+    margin: 5px;
+    padding:5px;
+}
+.box div img{
+    display: block;
+    width: 100px;
+    height: 75px;
+}
+
+.box div img:hover{
+    position: relative;
+    top: -20px;
+    left:-20px;
+    width: 140px;
+    height: 115px;
+}

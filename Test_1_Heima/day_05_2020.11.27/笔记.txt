@@ -1,0 +1,37 @@
+1.CSS三大特性:层叠性,继承(inherited)性,优先级.
+    权重:
+        选择器精度越高权重越高.!important权重最高
+        计算时不能进位
+
+2.盒子模型:
+    Tips:网页布局的核心本质,就是利用CSS摆盒子
+    1)盒子模型组成
+        每个元素都是一个盒子,一个盒子由margin(外边距),border(边框线),padding(内边距)和content(内容)组成.
+        区别外边距和内边距是以边框为参照.
+        系统默认外边距为8px.
+        a)margin(外边距):指元素边框线之外的距离.
+            margin-left:左边距
+            margin-right:右边距
+            margin-top:上边距
+            margin-bottom:下边距
+            margin:用来设置任意一个边的边距,可以带1至4个参数.
+                1个(apx):表示上下左右都有这个外边距apx
+                2个(apx)(bpx):表示上下为apx,左右外边距为bpx.
+                3个(apx)(bpx)(cpx):上外边距为apx,左右外边距为bpx,下外边距为cpx.
+                4个(apx)(bpx)(cpx)(dpx):顺时针依次对应上右下左.
+        b)内边距(padding):指元素的文本内容与边框之间的距离,它的用法与margin完全一样.
+        c)边框(border)
+            border-width:边框线宽度
+            border-style:边框线样式
+                none:无
+                solid:单实线
+                dashed:虚线------
+                dotted:点线······
+            border-color:边框线颜色
+                
+                复合写法(简写):
+                    border:宽度 样式 颜色;
+                    注意:这三个参数没有位置顺序之分.
+    2)盒子的真实尺寸
+        盒子宽度=width+padding左右+border左右
+        盒子高度=height+padding上下+border上下

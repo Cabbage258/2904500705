@@ -1,0 +1,395 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>draft</title>
+    &lt;!&ndash;<style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+    </style>&ndash;&gt;
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+            margin: 200px;
+        }
+    </style>
+</head>
+<body>
+&lt;!&ndash;<div class="tab_con">
+    <div class="tab_btns">
+        <input type="button" value="按钮一" style='background-color:yellow'>
+        <input type="button" value="按钮二">
+        <input type="button" value="按钮三">
+    </div>
+</div>&ndash;&gt;
+&lt;!&ndash;<div id="btn"></div>&ndash;&gt;
+&lt;!&ndash;<body>
+<ul>
+    <li>我是第1个li标签</li>
+    <li>我是第2个li标签</li>
+    &lt;!&ndash; 假装有很多个li标签 &ndash;&gt;
+    <li>我是第1000个li标签</li>
+</ul>
+</body>&ndash;&gt;
+<div class="box"></div>
+<script>
+    var box = document.querySelector('.box');
+    box.addEventListener('mousedown', function (e) {
+
+
+
+
+
+
+
+        var x = e.pageX - this.offsetLeft;
+        var y = e.pageY - this.offsetTop;
+        console.log('x坐标是' + x + ' y坐标是' + y);
+
+
+
+    })
+</script>
+
+</body>
+</html>-->
+<!--<script>
+    /*var btns = document.querySelectorAll('input');
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].onclick = function () {
+            for (var i = 0; i < btns.length; i++) {
+                btns[i].style.backgroundColor = '';
+            }
+            this.style.backgroundColor = 'yellow';
+        };
+    }*/
+    /*var btn = document.querySelector("#btn");
+    btn.onclick = function(){
+        console.log('我被点击了1...');
+    } ;
+    btn.onclick = function(){
+        console.log('我被点击了2...');
+    };*/
+
+    /*var btn = document.querySelector("#btn");
+    btn.addEventListener('click',function(){
+        console.log('我被点击了1...');
+    });
+    btn.addEventListener('click',function(){
+        console.log('我被点击了2...');
+    });*/
+
+    /*var ul = document.querySelector('ul');
+    ul.onclick = function(e){
+        e.target.style.backgroundColor = 'green';
+
+    };*/
+    /*var timer = setInterval(function(){
+        alert('How Are You!!!');
+    }, 1000);*/
+    //clearInterval(timer);
+
+</script>-->
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        div {
+            position: absolute;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<script>
+    var div = document.querySelector('div');
+    var timer = setInterval(function () {
+        if (div.offsetLeft >= 400) {
+            clearInterval(timer);
+        }
+        div.offsetLeft = div.offsetLeft + 1 + 'px';
+    }, 30);
+</script>
+</body>
+</html>-->
+
+
+<!--
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<p style="height:3000px;"></p>
+<button>点我试试</button>
+</body>
+<script>
+    window.addEventListener('scroll', function () {
+        var btn = document.querySelector('button');
+        btn.addEventListener('click', function () {
+            console.log('我被点击了...')
+        });
+    });
+</script>
+</html>
+-->
+
+
+<!--
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+
+<div></div>
+&lt;!&ndash;<script>
+    var i = 1;
+    var timer = setInterval(function () {
+        if (i == 5) {
+            clearInterval(timer);
+        }
+        i++;
+        console.log(i)
+    }, 1000);
+</script>&ndash;&gt;
+</body>
+</html>
+<script>
+    var div = document.querySelector('div');
+    div.onmouseup = function () {
+        console.log('div.mouseup...')
+    };
+    div.onclick = function () {
+        console.log('div.click...')
+    };
+    div.onmousedown = function () {
+        console.log('div.mousedown...')
+    };
+</script>
+
+
+
+-->
+
+
+<!--
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+<body>
+<div id="div1" class="parent">
+    <button id="btn">点我试试</button>
+</div>
+<div id="div2" class="parent">
+    <span>我是span标签</span>
+</div>
+</body>
+
+<script>
+
+
+
+var div1 = document.querySelectorAll('div')[0];
+    var btn = div1.children[0];
+    btn.onclick = function () {
+        console.log('我被点击了...');
+    };
+
+</script>
+</html>
+
+
+-->
+
+
+<!--
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<button>增加li元素</button>
+<ul>
+</ul>
+</body>
+
+
+
+
+
+<script>
+    var btn = document.querySelector('button');
+    var ul = document.querySelector('ul');
+    var newLi = document.createElement('li');
+    newLi.innerHTML = '我是li标签';
+    btn.onclick = function (e) {
+        ul.appendChild(newLi);
+    };
+</script>
+
+</html>
+-->
+
+
+<!--
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<button>点击跳转</button>
+<a href="#">我是a标签</a>
+</body>
+
+<script>
+
+
+    var btn = document.querySelector("button");
+    btn.onclick = function(){
+        location.reload ('http://www.baidu.com');
+    };
+
+
+    /*var btn = document.querySelector("button");
+    var mya= document.querySelector("a");
+    btn.onclick = function(){
+        mya.href = 'http://www.baidu.com';
+    };*/
+
+</script>
+</html>-->
+
+
+<!--
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<input type="text" id="username">
+<button id="btn">存储</button>
+</body>
+<script>
+    var btn = document.querySelector('button');
+    var username = document.querySelector('#username');
+    btn.onclick = function (e) {
+    //①
+
+
+
+        localStorage.setItem('uname', username.value);
+
+        /*localStorage.setItem('uname', username.value);*/
+    };
+</script>
+</html>-->
+
+
+<!--
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html lang="en">
+<body>
+
+<form action="test.html">
+    用户名:
+    <input type="text" name="username" id="username">
+    <br>
+    <input type="submit" value="提交" id="submit">
+</form>
+</body>
+</html>
+<script>
+    var submit= document.querySelector('#submit');
+    var username = document.querySelector('#username');
+    submit.onclick = function (e) {
+    //①
+
+
+
+
+
+
+
+        if(username.value == ''){
+            alert('用户名不能为空');
+            e.preventDefault();
+        }
+
+
+    };
+</script>-->
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            var btn = document.querySelector('button');
+            btn.onclick = function (e) {
+                console.log('我被点击了...');
+
+            };
+        };
+    </script>
+</head>
+<body>
+<button>123456</button>
+</body>
+
+</html>

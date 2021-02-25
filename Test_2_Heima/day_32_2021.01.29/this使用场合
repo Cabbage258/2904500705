@@ -1,0 +1,86 @@
+this主要由以下几个使用场合
+    1)全局环境
+        全局环境使用this,它指的就是顶层对象window
+            this === window                 //true
+                function f(){
+                    console.log(this === window);
+                }
+            f()                             //true
+        上面代码说明,不管是不是在函数内部,只要是在全局环境下运行,this就是指顶层对象window.
+
+    2)构造函数
+        构造函数中的this指的是实例对象.
+            var Obj = function(p){
+                this.p = p
+            }
+        上面代码定义了一个构造函数Obj.由于this指向实例对象,所以在构造函数内部定义this.p,
+        就相当于定义实例对象有一个p属性.
+            var o = new Obj('Hello');
+            console.(o.p)               //'Hello'
+
+    3)对象的方法
+        如果对象的方法里面包含this,this的指向就是方法运行时所在的对象.该方法赋值给另一个对象,
+        就会改变this的指向.
+            var obj ={
+                foo: function(){
+                    console.log(this)
+                }
+            };
+            obj.foo()                       //obj
+        上面代码中,obj.foo方法执行时,它内部的this指向obj.
+        但是下面几种用法都会改变this的指向.
+        i)
+            (obj.foo = obj.foo)()           //window
+        ii)
+            (false || obj.foo)()            //window
+        iii)
+            (1, obj.foo)()                  //window
+        上面代码中,obj.foo就是一个值.这个值真正调用的时候,运行环境已经不是obj了,而是全局环境.
+        所以this不再指向obj.
+
+        实际上可以理解为:
+            JavaScript引擎内部,obj和obj.foo储存在两个内存地址,成为地址一和地址二.
+            obj.foo()这样调用时,是从地址一调用地址二,因此地址二的运行环境是地址一,所以this指向obj.
+            但是上面三种都是直接取出地址二进行调用,这样运行环境就是全局环境,因此this指向全局环境.
+        上面三种情况等同于下面的代码
+        i)
+            (obj.foo = function(){
+                console.log(this);
+            })()
+            等同于
+            (function(){
+                console.log(this);
+            })()
+        ii)
+            (false || function(){
+                console.log(this);
+            })()
+        iii)
+            (1, function(){
+                console.log(this)
+            })()
+
+        如果this所在的方法不再对象的第一层,这是this只是指向当前一层的对象,而不会继承更上面的层.
+
+        var a = {
+            p:'Hello',
+            b:{
+                m: function(){
+                    console.log(this.p);
+                }
+            }
+        };
+        a.b.m()                     //undefined
+        上面代码中,a.b.m方法在a对象的第二层,该方法内部的this不是指向a,而是指向a.b,因为实际执行的是下面的代码:
+
+        var b = {
+            m:function(){
+                console.log(this.p);
+            }
+        };
+
+        var a = {
+            p:'Hello',
+            b:b
+        }
+        (a.b).m()               //等同于b.m()

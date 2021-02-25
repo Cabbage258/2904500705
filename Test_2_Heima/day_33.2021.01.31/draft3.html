@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>draft3</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //函数实例的call方法,可以指定函数内部this的指向(即函数执行时所在的作用域),
+    //然后在指定的作用于中,调用该函数
+    var obj = {}
+    var f = function(){
+        return this
+    }
+    f() === window      //true
+    //console.log(f() === window)
+    f.call(obj) == obj    //true
+    //console.log(f.call(obj) == obj)
+    //上面代码中,全局环境运行函数f时,this指向全局环境(浏览器为window对象);
+    //call方法可以改变this的指向,执行this指向对象obj,然后在对象obj的作用于中运行函数f.
+    //call方法的参数,应该是一个对象.如果参数为空,null和undefined,则默认传入全局对象.
+
+</script>

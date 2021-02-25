@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>draft1</title>
+</head>
+<body>
+<button>123</button>
+</body>
+</html>
+<script>
+    /*class People{
+        constructor(uname,age){
+            this.a = uname
+            this.b = age
+            this.fn = function(){
+                console.log('ppl.fn()方法')
+            }
+        }
+        s(){
+            console.log('ppl.s()方法')
+        }
+    }
+    class Son extends People{
+
+    }
+    var ppl = new People()
+    //console.log(ppl)    //obj
+    console.log(ppl)
+    ppl.fn()
+    ppl.s()
+    var son = new Son()
+    console.log(son)*/
+
+    /*class F {
+        constructor(x,y) {
+            this.x = x
+            this.y = y
+        }
+        sum(){
+            console.log(this.x + this.y)
+        }
+    }
+    class S extends F{
+        constructor(x,y) {
+        //如果子类里面有constructor这个构造器,并且里面有属于自己的this属性,必须在访问到this之前调用super()方法
+            super(x,y)  //相当于调用父类的constructor构造器,需要传参
+    //在constructor中必须调用super方法.
+    //因为子类没有自己的this对象,而是继承父类的this对象.
+    //super就代表了父类的构造函数.
+    //super虽然代表了父类Parent的构造函数,但返回的是子类Child的实例,即super内部的this是指向Child,相当于Parent.prototype.constructor.call(this.proto
+    //通过super调用父类的方法时,super会绑定子类的this
+        }
+    }
+    //super.函数名() 调用父类中函数名.()方法
+    //调用子类方法时,优先调用子类的方法,再查找父类
+    var son = new S(1,2)
+    son.sum()*/
+
+    /*class F{
+        say1(){
+            console.log('父类say1()')
+        }
+        say(){
+            console.log('父类say()')
+        }
+    }
+    class S extends F{
+        say(){
+            console.log('子类say()')
+        }
+
+    }
+
+    var son = new S()
+    son.say()   //子类say()
+    son.say1()  //父类say1()*/
+
+    /*class F{
+        constructor(name,age){
+            this.name = name
+            this.age = age
+        }
+        sum(){
+            console.log('父类' + this.name + this.age)
+        }
+
+    }
+    class S extends F{
+        constructor(name,age) {
+            super();
+            this.name = name
+            this.age = age
+        }
+        sum(){
+            console.log('子类'+ this.name + this.age)
+        }
+    }
+    var son = new S()
+    console.log(son)
+    son.sum('张三',18)*/
+    var that
+    class F{
+        constructor(x,y) {
+            console.log(this)
+            that = this
+            that.a = x
+            that.b = y
+            that.btn = document.querySelector('button')
+            that.btn.onclick = this.say
+        }
+
+        say(){
+            console.log(that.a)
+        }
+    }
+
+    console.log(that)
+    var fff = new F()
+    fff.say(1,2)
+</script>

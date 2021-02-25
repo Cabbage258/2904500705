@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>input属性</title>
+</head>
+<body>
+    <!--1)autocomplete:自动完成-->
+    <form action="#">
+        <input type="text" name="username" autocomplete="off">
+        <input type="submit">
+    </form>
+
+    <!--2)autofocus:自动获焦-->
+    <form action="#">
+        <input type="text" name="username" autocomplete="off">
+        <input type="submit" autofocus>
+    </form>
+
+    <!--3)placeholder:输入提示-->
+    <form action="#">
+        <input type="text" name="username" placeholder="请输入用户名" autocomplete="off"> <br>
+        密码:<input type="password" name="userpwd"> <br>
+        <label>联系方式:</label><input type="tel"> <br>
+        <input type="submit" autofocus>
+    </form>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+</head>
+<body>
+    <canvas width="400" height="200" style="background:yellow"></canvas>
+</body>
+<script>/* script用来包裹脚本代码 */
+    var canvas = document.getElementsByTagName('canvas')[0];//DOM操作,用来获取canvas这个标签元素
+    var ctx = canvas.getContext('2d');//绘制2D图
+    ctx.fillStyle = '#ff0000';//设置填充色
+    ctx.fillRect(50,70,200,100);//绘制一个矩形
+</script>
+</html>

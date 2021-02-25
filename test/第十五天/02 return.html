@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>return</title>
+</head>
+<body>
+<script>
+    /*function max(a, b) {
+        var result = a > b ? a : b;
+        return result;
+
+    }
+
+    console.info(max(10, 20));*/
+
+    /*function max(a, b) {
+        var result = a > b ? a : b;
+        console.info(result);
+        return;
+        console.log('aaaaa')
+    }
+*/
+
+    //IIFE
+
+    var rs = (function max(a, b) {
+        var result = a > b ? a : b;
+        return result;
+    })(10,20)
+    console.log(rs)
+
+
+</script>
+</body>
+</html>

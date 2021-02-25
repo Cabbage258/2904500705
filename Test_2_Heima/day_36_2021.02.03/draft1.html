@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>draft</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //递归求1-n阶乘
+    function fn1(num){
+         if(num == 1){
+             return 1
+         }
+         return num * fn1(num - 1)
+         //每次调用传入实参比前次调用小1
+         //当调用至实参为1时,开始返回值
+         //从实参最小为1的最里层返回至最外层最终返回结果且退出递归
+     }
+
+
+    //-----------------------------------------------------
+
+    //递归求斐波那契数列(前两项之和为第三项)
+    function fn2(num){
+        if(num == 1 || num == 2){
+            return 1
+        }
+        return (num - 2) + (num - 1)
+    }
+
+
+    //-----------------------------------------------------
+
+    //递归  根据id返回对应的对象
+    var data = [{
+        id: 1,
+        name: '家电',
+        goods: [{
+            id: 11,
+            gname: '冰箱'
+        }, {
+            id: 12,
+            gname: '洗衣机'
+        }]
+    },{
+        id: 2,
+        name: '服饰'
+    }]
+
+    function fn3(json,id){
+        json.forEach(function(item){
+            if(item.id == id){
+                a= item
+            }else if(item.goods && item.goods.length > 0){
+                a = fn3(item.goods,id)
+            }
+        })
+        return a
+    }
+
+    console.log(fn3(data,1))
+    console.log(fn3(data,2))
+    console.log(fn3(data,11))
+    console.log(fn3(data,12))
+</script>

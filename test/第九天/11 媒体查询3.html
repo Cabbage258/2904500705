@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>媒体查询</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            padding: 0 10px;
+        }
+        section{
+            overflow: hidden;
+        }
+        .row1 div,.row2 div,.row3 div,.row4 div{
+            float: left;
+        }
+        .row1 div{
+            width: 48%;
+            height: 100px;
+            background-color: #666;
+        }
+        .row1 div:first-child{
+            margin-right: 4%;
+        }
+        .row2 div{
+            margin-top: 10px;
+            width: 100%;
+            height: 200px;
+            background-color: #999;
+        }
+        .row3,.row4{
+            margin-top: 10px;
+        }
+        .row3 div{
+            width: 30%;
+            height: 100px;
+            background-color: #ff9381;
+            margin-left: 5%;
+        }
+        .row3 div:first-child{
+            margin-left: 0;
+        }
+        .row4{
+            /*display: flex;*/
+        }
+        .row4 div{
+            /*height: 150px;
+            background-color: #4174ff;
+            flex: 1;
+            margin-right: 10px;*/
+            width: 22%;
+            height: 150px;
+            background-color: #4174ff;
+            margin-right: 4%;
+        }
+        .row4 div:last-child{
+            margin-right: 0;
+        }
+        @media screen and (max-width:600px){
+            .row1 div,.row3 div{
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            .row3 div+div{
+                margin-left: 0;
+            }
+            .row4 div{
+                width: 48%;
+                margin-right: 0;
+                margin-top: 10px;
+            }
+            .row4 div:nth-child(2n+1){
+                margin-right: 4%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="row1">
+        <div>1</div>
+        <div>2</div>
+    </section>
+    <section class="row2">
+        <div>3</div>
+    </section>
+    <section class="row3">
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+    </section>
+    <section class="row4">
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+    </section>
+</body>
+</html>

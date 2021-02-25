@@ -1,0 +1,237 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+/*引入外部字体*/
+@font-face {
+    font-family: 'lnav';
+    src: url('../fonts/Economica-BoldItalic-OTF.otf') format("truetype");
+}
+
+@font-face {
+    font-family: 'row1r';
+    src: url('../fonts/KaushanScript-Regular.otf') format("truetype");
+}
+
+/*flex*/
+.header, .headerl, .headerr, .headerr ul, .contentrow1, .row1l, .contentrow2, .contentrow2 div {
+    display: flex;
+}
+
+/*主页*/
+.container, .header, .headerr, .conten, .contentrow1, .row1l, .contentrow2, .footer {
+    width: 100%;
+}
+
+/*1导航*/
+.header {
+    justify-content: space-around;
+    position: relative;
+    background: url(../images/ambitios_header_bg.gif) no-repeat;
+    min-width: 985px;
+}
+
+.headerl {
+    flex: 2;
+    min-width: 395px;
+}
+
+.headerl h2 {
+    font-family: lnav;
+    color: #eee;
+    font-size: 60px;
+    font-weight: 600;
+    text-indent: 1em;
+    line-height: 60px;
+    text-shadow: 3px 3px #000;
+}
+
+.headerr {
+    justify-content: space-around;
+    flex: 3;
+    min-width: 590px;
+}
+
+.headerr ul {
+    position: absolute;
+    top: 50%;
+    margin-top: -20px;
+}
+
+.headerr ul li {
+    width: 20%;
+}
+
+.headerr ul li a {
+    display: block;
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    text-align: center;
+}
+
+.headerr ul li a:hover {
+    border-radius: 10px;
+    background-color: #fff;
+    color: #000;
+}
+
+/*版心*/
+
+
+/*第一行*/
+.contentrow1 {
+    justify-content: space-around;
+    height: 415px;
+    background: url(../images/ambitios_first_row_bg.gif) no-repeat;
+    min-width: 1050px;
+}
+
+.row1l {
+    position: relative;
+    flex: 4;
+}
+
+.row1l .flower {
+    position: absolute;
+    left: 1%;
+    top: 10%;
+    width: 553px;
+    height: 324px;
+    background: url(../images/ambitios_pic1.png) no-repeat;
+    border-radius: 15px;
+    z-index: 2;
+}
+
+.row1l .shadow1 {
+    position: absolute;
+    left: 1%;
+    bottom: 5%;
+    width: 553px;
+    height: 40px;
+    border-radius: 200px;
+    /*background: linear-gradient(to right,rgba(255,255,255,.5),rgba(204,204,204,.8),rgba(204,204,204,.8),rgba(204,204,204,.8),rgba(204,204,204,.8),rgba(204,204,204,.8),rgba(204,204,204,.8),rgba(255,255,255,.5) );*/
+    background: radial-gradient(at center, #5a5a5a 10%, #ccc, #eeeeee, rgb(235, 235, 235));
+    z-index: 1;
+}
+
+.row1r {
+    /*float: left;*/
+    position: relative;
+    color: #fff;
+    flex: 3;
+}
+
+.row1r h2 {
+    font-size: 50px;
+    font-weight: 100;
+    font-family: row1r;
+}
+
+.row1r p {
+    font-size: 13px;
+}
+
+.row1r input {
+    position: absolute;
+    bottom: 15%;
+    left: 0;
+    width: 199px;
+    height: 62px;
+    background: url(../images/ambitios_footer_button.png) no-repeat;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.row1r .shadow2 {
+    position: absolute;
+    left: 0;
+    bottom: 10%;
+    width: 199px;
+    height: 30px;
+    border-radius: 200px;
+    /*background: linear-gradient(to right,rgba(255,255,255,.5),rgba(204,204,204,.8),rgba(204,204,204,.8),rgba(204,204,204,.8),rgba(204,204,204,.8),rgba(204,204,204,.8),rgba(204,204,204,.8),rgba(255,255,255,.5) );*/
+    background: radial-gradient(at center, #9a9a9a 15%, #ccc, #eeeeee, rgb(235, 235, 235));
+    z-index: 0;
+}
+
+.contentrow2 {
+    justify-content: space-around;
+    margin-top: 1%;
+}
+
+.contentrow2 div {
+    margin-left: 2%;
+    width: 20%;
+    min-width: 226px;
+    max-width: 226px;
+    flex: 1 auto;
+    flex-direction: column; /*子弹性盒子纵向排列*/
+    -webkit-border-radius: 20px 20px 5px 5px;
+    -moz-border-radius: 20px 20px 5px 5px;
+    border-radius: 20px 20px 5px 5px;
+    box-shadow: #cccccc 3px 3px 1px 0;
+}
+
+.contentrow2 div:last-child {
+    margin-right: 2%;
+}
+
+.contentrow2 div h4 {
+    font-size: 20px;
+    font-weight: 500;
+    height: 80px;
+    line-height: 25px;
+    text-align: center;
+    color: #fff;
+    -webkit-border-radius: 20px 20px 0 0;
+    -moz-border-radius: 20px 20px 0 0;
+    border-radius: 20px 20px 0 0;
+    background: -webkit-linear-gradient(to bottom,#70b0e0 0,#115fa3 100%);
+    background: -moz-linear-gradient(to bottom,#70b0e0 0,#115fa3 100%);
+    background: -ms-linear-gradient(to bottom,#70b0e0 0,#115fa3 100%);
+    background: -o-linear-gradient(to bottom,#70b0e0 0,#115fa3 100%);
+    background: linear-gradient(to bottom,#70b0e0 0,#115fa3 100%);
+}
+
+.contentrow2 div:nth-child(3n+1) h4 {
+    line-height: 40px;
+}
+
+.contentrow2 div p {
+    padding: 0 10px;
+    height: 260px;
+    text-indent: 2em;
+    font-size: 8px;
+    background-color: #eee;
+    -webkit-border-radius: 0 0 5px 5px;
+    -moz-border-radius: 0 0 5px 5px;
+    border-radius: 0 0 5px 5px;
+}
+
+.footer {
+    margin-top: 2%;
+    height: 49px;
+    background: url(../images/ambitios_footer_bg.gif) no-repeat;
+}
+
+.copyright {
+    height: 100%;
+}
+
+.copyright p {
+    text-indent: 2em;
+    line-height: 40px;
+    color: #fff;
+}

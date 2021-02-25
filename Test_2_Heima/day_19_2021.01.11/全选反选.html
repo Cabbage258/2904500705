@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全选反选</title>
+</head>
+<style>
+    div {
+
+    }
+</style>
+<body>
+<div class="bigbox">
+    <input type="checkbox" id="all" title=""><b>全选</b><br/>
+    <div>
+        <input type="checkbox" title="">1<br/>
+        <input type="checkbox" title="">1<br/>
+        <input type="checkbox" title="">1<br/>
+        <input type="checkbox" title="">1<br/>
+        <input type="checkbox" title="">1<br/>
+        <input type="checkbox" title="">1<br/>
+    </div>
+</div>
+<script>
+    //1.
+    var all = document.querySelector('#all'), inputs = document.querySelectorAll('.bigbox div input')
+    //全选
+    all.onclick = function () {
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].checked = all.checked
+        }
+        //通过input的checked值 确定当前框是否为选中状态
+    }
+    //每个选项注册点击事件
+    for (var i = 0; i < inputs.length; i++) {
+        inputs[i].onclick = function () {
+            var num = 0
+            for (var j = 0; j < inputs.length; j++) {
+                if (inputs[j].checked == true) {
+                    num++
+                }
+            }
+            if (num == inputs.length) {
+                all.checked = true
+            } else {
+                all.checked = false
+            }
+            //all.checked = num == inputs.length;
+        }
+    }
+
+
+
+
+
+
+</script>
+</body>
+</html>

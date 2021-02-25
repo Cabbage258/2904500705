@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>网页轮播图</title>
+    <script src="js/animate.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style-type: none;
+        }
+        a{
+            text-decoration:none;
+        }
+        .banner{
+            width: 721px;
+            height: 455px;
+            overflow: hidden;
+            margin: 30px auto;
+            position: relative;
+        }
+        .images{
+            width: 700%;
+            position: absolute;
+        }
+        .images li{
+            float:left;
+        }
+
+        .lft,.rht{
+            display: none;
+            position: absolute;
+            width: 20px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-weight: 900;
+            color:white;
+            background-color: #000;
+            opacity:.3;
+            top: 50%;
+            margin-top: -25px;
+            cursor:pointer;
+        }
+        .lft{
+            left: 0;
+        }
+        .rht{
+            right: 0;
+        }
+        .lft:hover,.rht:hover{
+            opacity: 1;
+        }
+        .dot{
+            position: absolute;
+            bottom: 10px;
+            left: 20%;
+        }
+        .dot li{
+            margin:0 5px;
+            float: left;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background-color: white;
+            cursor:pointer;
+         }
+
+    </style>
+</head>
+<body>
+<div class="banner">
+    <!--图-->
+    <ul class="images">
+        <li><a href="javascript:"><img src="upload/focus.jpg" alt="" ></a></li>
+        <li><a href="javascript:"><img src="upload/focus1.jpg" alt=""></a></li>
+        <li><a href="javascript:"><img src="upload/focus2.jpg" alt=""></a></li>
+        <li><a href="javascript:"><img src="upload/focus3.jpg" alt=""></a></li>
+    </ul>
+    <!--圆点-->
+    <ul class="dot"></ul>
+    <!--箭头-->
+    <div class="lft">&lt;</div>
+    <div class="rht">&gt;</div>
+</div>
+
+</body>
+<script>
+    //需求
+    //鼠标经过轮播图模块,左右按钮显示,离开隐藏左右按钮
+    //点击右侧按钮一次,图片往左播放一张,以此类推,左侧按钮同理
+    //图片播放的同时,下面小圆圈模块跟随一起变化
+    //点击小圆圈,可以播放相应图片
+    //鼠标不经过轮播图,轮播图也会自动播放图片
+    //鼠标经过轮播图模块,自动播放停止.
+
+    //抓取DOM
+    var bnr = document.querySelector('.banner')
+    var images = document.querySelector('.images')
+    var dot = document.querySelector('.dot')
+
+    var lft = document.querySelector('.lft')
+    var rht = document.querySelector('.rht')
+    var img1 = document.querySelector('.images li:nth-of-type(1)')
+    var img2 = document.querySelector('.images li:nth-of-type(2)')
+    var img3 = document.querySelector('.images li:nth-of-type(3)')
+    var img4 = document.querySelector('.images li:nth-of-type(4)')
+
+    //绑定事件
+        //鼠标移入移出箭头
+        bnr.addEventListener('mouseover',function(){
+            lft.style.display = 'block'
+            rht.style.display = 'block'
+            clearInterval(tim)
+        })
+        bnr.addEventListener('mouseout',function(){
+            lft.style.display = 'none'
+            rht.style.display = 'none'
+            var tim = setInterval(function(){
+                rht.click()
+            },2000)
+        })
+
+        //根据图片数量,动态添加下方小圆点
+        var lis = document.querySelectorAll('.images li')
+            //遍历,每次为下方dot生成一个li
+            for(var i = 0;i < lis.length;i++){
+                var lili = document.createElement('li')
+                dot.appendChild(lili)
+            }
+            //打开页面时第一张图默认小圆点为黑色
+        dot.children[0].style.backgroundColor = '#000'
+
+
+
+        //左右移动
+        //声明一个变量计第几次点击
+        var num = 0
+        rht.addEventListener('click',function(){
+            num++
+            //点击第五次时跳回第一张图且计数回调至第一次点击
+            if(num == 5){
+                num = 1
+                images.style.left = 0 + 'px'
+            }
+            animate(images,-721 * num)
+            for(var j = 0;j < dotlis.length;j++){
+                dotlis[j].style.backgroundColor = ''
+            }
+            if(num >= 4){
+                dotlis[0].style.backgroundColor = '#000'
+            }else{
+                dotlis[num].style.backgroundColor = '#000'
+            }
+        })
+
+
+
+    //克隆第一张图
+    var fstimg = images.children[0].cloneNode(true)
+    images.appendChild(fstimg)
+
+
+        //获取dot
+    var dotlis = document.querySelectorAll('.dot li')
+        //遍历
+    for(j = 0;j < dotlis.length;j++){
+
+        dotlis[j].index = j
+        dotlis[j].addEventListener('click',function(){
+            for(var a = 0;a < dotlis.length;a++){
+                dotlis[a].style.backgroundColor = ''
+            }
+            animate(images,-721 * this.index)
+            dotlis[this.index].style.backgroundColor = '#000'
+            num = this.index
+        })
+
+    }
+
+</script>
+</html>

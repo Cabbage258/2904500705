@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>draft</title>
+</head>
+<style>
+    span{
+        cursor:pointer;
+    }
+</style>
+<body>
+<!--<input type="password" title="">
+<img src="./images/close.png" alt="">-->
+<span>x</span>
+<img src="./images/tao.png" alt="">
+<script>
+    /*var img = document.querySelector('img'),input = document.querySelector('input')
+
+    var i = 1
+    img.onclick = function(){
+        if( i == 0){
+            img.src = './images/close.png'
+            input.type = 'password'
+            i = 1
+        }else{
+            img.src = './images/open.png'
+            input.type = 'text'
+            i = 0
+        }
+
+    }*/
+
+    //需求:点击X二维码隐藏
+
+    var img = document.querySelector('img'),span = document.querySelector('span')
+    span.onclick = function(){
+        img.style.display = 'none';span.style.display = 'none'
+    }
+
+</script>
+</body>
+</html>

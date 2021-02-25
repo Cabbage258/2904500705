@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style-type: none;
+        }
+        a{
+            text-decoration: none;
+            color: skyblue;
+        }
+        input{
+            outline: none;
+            width: 180px;
+            height: 30px;
+        }
+        div{
+            width: 300px;
+            margin:20px auto;       /*所有盒子上下外边距20px,左右自动在页面内居中*/
+        }
+        .row1{
+            padding-left: 32px;/*左内边距32px对齐上下输入框*/
+        }
+        .row2{
+            padding-right: 32px;/*右内边距32px使上下输入框对齐*/
+        }
+        .row5 input{
+            position: relative; /*相对于自身原位定位*/
+            top: 2px;           /*离原位高度向下2px*/
+            width: 15px;        /*选择小方框宽高*/
+            height: 15px;
+        }
+        .row6 input{
+            cursor:pointer;        /*鼠标放入时手型*/
+            height: 30px;           /*按钮高30px*/
+            background-color: red;
+            color: #fff;
+            text-align: center;     /*"完成注册"在按钮内居中*/
+            border: none;           /*取消按钮自带边框*/
+            margin-left: 60px;      /*左外边距60px使按钮居中*/
+                                    /* 60px=(300px-180px)/2 */
+                                    /*盒子宽度减去按钮自身宽度再除以二*/
+        }
+    </style>
+</head>
+<body>
+    <div class="row1">
+        手机号: <input type="text">
+    </div>
+    <div class="row2">
+        短信验证码: <input type="text">
+    </div>
+    <div class="row3">
+        登录密码: <input type="text">
+    </div>
+    <div class="row4">
+        确认密码: <input type="text">
+    </div>
+    <div class="row5">
+        <input type="checkbox">同意协议并注册 <a href="javascript:">《用户协议》</a>
+    </div>
+    <div class="row6">
+        <input type="button" value="完成注册">
+    </div>
+</body>
+</html>

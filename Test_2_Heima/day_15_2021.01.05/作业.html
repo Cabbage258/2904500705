@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>作业</title>
+</head>
+<body>
+<script>
+    //需求:写一个函数,用户输入任意两个数字的任意算术运算(简单的计算器小功能),并能弹出运算后的结果.
+    /*var num1 = prompt('第一个数:'),sym = prompt('运算符号:'),num2 = prompt('第二个数:')
+    function calc(num1,sym,num2){
+        var sum;
+        if(sym == '+'){
+            sum = num1 + num2;
+        }else if(sym == '-'){
+            sum = num1 - num2;
+        }else if(sym == '*'){
+            sum = num1 * num2;
+        }else if(sym == '/'){
+            sum = num1 / num2;
+        }else{
+            sum = '你在输什么¿'
+        }
+        return sum;
+    }
+    alert(calc(parseInt(num1),sym,parseInt(num2)));*/
+
+
+
+    //需求:写一个函数,用户输入任意两个数字的最大值,并能弹出运算后的结果
+    /*var num1 = parseInt(prompt('第一个数')),num2 = parseInt(prompt('第二个数'));
+    function max(num1, num2) {
+        if (num1 > num2) {
+            return num1;
+        } else if (num2 > num1) {
+            return num2;
+        } else {
+            return '¿'
+        }
+    }
+    alert(max(num1,num2))*/
+
+
+
+    //需求:写一个函数,用户输入任意三个不同数字的最大值,并能弹出运算后的结果.  1  2  3
+    /*var num1 = parseInt(prompt('第一个数:')), num2 = parseInt(prompt('第二个数:')), num3 = parseInt(prompt('第三个数:'))
+
+    function max(num1, num2, num3) {
+        if (num1 > num2) {
+            if (num1 > num3) {
+                return num1;
+            } else if (num1 < num3) {
+                return num3
+            } else {
+                return '输俩一样的比大小是吧¿'
+            }
+        } else if (num1 > num3) {
+            if (num1 > num2) {
+                return num1
+            } else if (num1 < num2) {
+                return num2
+            } else {
+                return '输俩一样的比大小是吧¿'
+            }
+        } else if (num2 > num3) {
+            if (num2 > num1) {
+                return num2;
+            } else if (num2 < num1) {
+                return num1
+            } else {
+                return '输俩一样的比大小是吧¿'
+            }
+        } else if (num3 > num1) {
+            if (num3 > num2) {
+                return num3
+            } else if (num3 < num2) {
+                return num2
+            } else {
+                return '输俩一样的比大小是吧¿'
+            }
+        }else{}
+
+    }
+
+    alert(max(num1, num2, num3))*/
+
+
+    //需求:写一个函数,用户输入一个数判断是否是素数,并弹出返回值(又叫质数,只能被1和自身整除的数)
+    //如果可以被整除,终值循环,返回不是素数
+    //1.依次取余有无余数判断
+    /*var num = parseInt(prompt('请输入一个数:'))
+
+    function prime(num) {
+        var temp;
+        if (num == 1) {
+            return '不是素数'
+        } else if (num == 2) {
+            return '是素数'
+        } else {
+            for (var i = 2; i < num; i++) {
+                temp = num % i;
+                if (temp == 0) {
+                    return '不是素数'
+                }
+            }
+            return '是素数'
+        }
+    }
+
+    alert(prime(num))*/
+
+    //2.根据循环次数判断
+    /*var a = prompt('请输入数字')
+    function fn(a){
+    var num = 0;
+    for (var i = 1;i <= a;i++){
+        if(a % 1 == 0){
+            num++
+        }
+        if(num == 3){
+            alert('非质数')
+            return;
+        }
+    }
+    alert('质数')
+    }
+    fn(a);*/
+
+
+    //需求:写一个函数,实现反转任意数组 等价于reverse()
+    /*var arr = [1,2,3,4,5]
+    function newreverse(arr){
+        for(i = 0;i < arr.length;i++){
+            var temp = 0;
+            temp = arr[i];
+            arr[i] = arr[arr.length - i - 1];
+            arr[arr.length - i - 1] = temp;
+            if(temp >= (arr.length / 2)){
+                return arr
+            }
+        }
+    }
+    console.log(newreverse(arr))*/
+
+
+    //需求:写一个函数,实现对数字数组的排序
+    //分为数组长度轮循环,每一次循环比较索引和索引++的大小,大于互换,小于不变
+    //从小到大排序
+    /*var arr1 = [4,2,3,1,5,9,8,6,7]
+    function arraymintomax(arr){
+        for(i = 0;i <= arr.length;i++){
+            for(j = 0;j <= arr.length;j++){
+                var temp;
+                if(arr[j] > arr[j + 1]){
+                    temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+        return arr
+    }
+    console.log(arraymintomax(arr1))*/
+
+    //从大到小排序
+    /*var arr2 = [4,2,3,1,5,9,8,6,7]
+    function arraymaxtomin(arr){
+        for(i = 0;i <= arr.length;i++){
+            for(j = 0;j <= arr.length;j++){
+                var temp;
+                if(arr[j] < arr[j + 1]){
+                    temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+        return arr
+    }
+    console.log(arraymaxtomin(arr2))*/
+
+
+    //需求:用户在弹出的输入框中选择要做的运算
+    //    用户选择后弹出两个输入框,让用户输入数据
+    //    根据用户选择的操作和输入的数据,计算出最后结果并弹出提示框显示结果
+    //    提示:在用户选择需要的计算后再弹出另外两个输入框,使用分支语句做判断
+
+    /*for(;;){var userchoose = prompt('欢迎使用简易计算器:\n1.加法运算;\n2.减法运算;\n3.乘法运算;\n4.除法运算;\n5.退出;\n请输入您的选项:')
+    var sym;
+    if(userchoose == 1){
+        sym = '+';
+        var num1 = prompt('请输入第一个数:'),num2 = prompt('请输入第二个数:');
+    }else if(userchoose == 2){
+        sym = '-';
+        var num1 = prompt('请输入第一个数:'),num2 = prompt('请输入第二个数:');
+    }else if(userchoose == 3){
+        sym = '*';
+        var num1 = prompt('请输入第一个数:'),num2 = prompt('请输入第二个数:');
+    }else if(userchoose == 4){
+        sym = '/';
+        var num1 = prompt('请输入第一个数:'),num2 = prompt('请输入第二个数:');
+    }else if(userchoose == 5){
+        alert('爪巴')
+        break;
+    }
+    //console.log(num1,sym,num2)
+    function calc(num1,sym,num2){
+        var sum;
+        if(sym == '+'){
+            sum = num1 + num2;
+        }else if(sym == '-'){
+            sum = num1 - num2;
+        }else if(sym == '*'){
+            sum = num1 * num2;
+        }else if(sym == '/'){
+            sum = num1 / num2;
+        }else{
+            sum = '¿'
+        }
+        return sum;
+    }
+    alert(calc(parseInt(num1),sym,parseInt(num2)));}*/
+
+
+
+
+</script>
+</body>
+</html>

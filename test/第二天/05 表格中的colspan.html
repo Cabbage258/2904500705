@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格中的colspan</title>
+</head>
+<body>
+    <table border="1" width="500" align="center">
+        <tr>
+            <td>内容01</td>
+            <td colspan="2" align="center">内容02</td>
+        </tr>
+        <tr>
+            <td>内容01</td>
+            <td>内容02</td>
+            <td>内容03</td>
+        </tr>
+        <tr>
+            <td colspan="3" align="right">内容01&nbsp;&nbsp;</td>
+        </tr>
+    </table>
+
+    <table border="1" width="500" align="center">
+        <tr>
+            <td rowspan="2">内容01</td>
+            <td colspan="2" align="center">内容02</td>
+        </tr>
+        <tr>
+            <td>内容02</td>
+            <td>内容03</td>
+        </tr>
+        <tr>
+            <td colspan="3" align="right">内容01&nbsp;&nbsp;</td>
+        </tr>
+    </table>
+</body>
+</html>

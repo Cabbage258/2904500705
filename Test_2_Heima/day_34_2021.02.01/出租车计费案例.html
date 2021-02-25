@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>出租车计费案例</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //
+    /*var car = (function(){
+        var start = 13,total = 0
+        return{
+            price:function(n){
+                if(n <= 3){
+                    total = start
+                }else{
+                    total = start + (n-3) * 5
+                }
+                return total
+            },
+            yd:function(f){
+                return f ? total + 10 : total
+            }
+        }
+    })()
+    console.log(car.price(1))
+    console.log(car.yd(true))
+    console.log(car.price(2))
+    console.log(car.yd(false))*/
+    var car = (function () {                        //匿名函数赋给car
+        var start = 13, total = 0                   //声明局部变量start.total
+        return {                                    //返回一个对象
+            price: function (n, f) {                //对象中创建price函数形参为n,f对应公里数和是否堵车
+                if (n <= 3) {                       //判断公里数是否小于4,是起步价start赋值给total
+                    total = start
+                } else {
+                    total = start + (n - 3) * 5     //否则将 起步价start + (公里数n - 起步3公里) * 5元(公里)
+                }
+                return f ? total + 10 : total       //执行完判断后返回前进行三目运算
+            }                                       //参数f判断是否堵车,为真返回total + 10元,否则返回total
+        }
+    })()                                            //立即执行函数执行后,return出来内部的局部变量total,存在闭包
+    console.log(car.price(1, true))
+    console.log(car.price(3, true))
+    console.log(car.price(5, true))
+</script>

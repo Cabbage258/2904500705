@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单词拆分</title>
+    <style>
+        p{
+            width: 200px;
+            border:1px solid #000;
+        }
+        .test1{
+            -ms-word-break:break-all;
+            word-break:normal;
+        }
+        .test2{
+            -ms-word-break:break-all;
+            word-break: break-all;
+        }
+        .test3,.test4{
+            -ms-word-break:break-all;
+            word-break:keep-all;
+        }
+    </style>
+</head>
+<body>
+    <p>gfjsfgsfhfghfk ghf hgf jjhghfoooooooooooooooooooooghfjhjhdfgdjg ty fhfh</p>
+    <p class="test1">gfjsfgsfhfghfk ghf hgf jjhghfoooooooooooooooooooooghfjhjhdfgdjg ty fhfh</p>
+    <p class="test2">gfjsfgsfhfghfk ghf hgf jjhghfoooooooooooooooooooooghfjhjhdfgdjg ty fhfh</p>
+    <p class="test3">gfjsfgsfhfghfk ghf hgf jjhghfoooooooooooooooooooooghfjhjhdfgdjg ty fhfh</p>
+    <p class="test4">gfjsfgsfhfghfk ghf hgf jjhghfooooooooooo ooooooooooghfjhjhdfgdjg ty fhfh</p>
+</body>
+</html>

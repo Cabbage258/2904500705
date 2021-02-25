@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>draft2</title>
+    <style>
+
+    </style>
+</head>
+<body>
+
+<!--<input type="text" title=""><span>请输入6-16位密码</span>-->
+<button>按钮1</button>
+<button>按钮2</button>
+<button>按钮3</button>
+<button>按钮4</button>
+<button>按钮5</button>
+<button>按钮6</button>
+<script>
+/*    var input = document.querySelector('input'),span = document.querySelector('span')
+    //失去焦点事件
+    input.onblur = function(){
+        if(input.value.length < 6 || input.value.length > 16){
+            span.innerHTML = '请输入正确位数'
+            span.style.color= 'red'
+        }else{
+            span.innerHTML = '输入位数正确'
+            span.style.color= 'green'
+        }
+    }*/
+    var buttons = document.getElementsByTagName('button')
+    for(var i = 0;i < buttons.length;i++){
+        buttons[i].onclick = function(){
+            //1.清除全部样式
+            for(var j = 0;j < buttons.length;j++){
+                buttons[j].style.backgroundColor = ''
+            }
+            //2.设置当前样式
+            this.style.backgroundColor = 'skyblue'
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>draft</title>
+    <style>
+        .box{
+            margin-top: 50px;
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: #cccccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <button>开始</button>
+</body>
+<script>
+    var box = document.querySelector('.box')
+    var btn = document.querySelector('button')
+
+    btn.addEventListener('click',function(){
+        //定时器
+        /*var timer = setInterval(function (){
+            if(box.offsetLeft >= 600){
+                clearInterval(timer)
+            }else if(box.offsetLeft == 600){
+                box.style.left = 600 + 'px'
+            }
+            box.style.left = box.offsetLeft + Math.ceil((600 - box.offsetLeft) / 10) + 'px'
+        },30)*/
+        animate(box,500)
+    })
+
+    //封装
+        function animate(obj,target,fn){
+        clearInterval(obj.timer)
+            obj.timer = setInterval(function(){
+                if(obj.offsetLeft == target){
+                    clearInterval(obj.timer)
+
+                    fn && fn(obj)//
+                }
+                var step = (target - obj.offsetLeft) / 10
+                step = step > 0 ? Math.floor(step) : Math.ceil(step)
+                obj.style.left = obj.offsetLeft + step + 'px'
+
+            },30)
+        }
+        function fn(obj){
+            obj.style.backgroundColor = 'skyblue'
+        }
+
+</script>
+</html>

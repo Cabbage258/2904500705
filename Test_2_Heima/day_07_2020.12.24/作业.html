@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>作业</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .row1{
+            display: flex;
+            height: 40px;
+            color: #fff;
+            text-align: center;
+            line-height: 40px;
+        }
+        .row1 div:nth-child(1),.row1 div:nth-child(3){
+            width: 100px;
+            background-color: #ffbfcd;
+        }
+        .row1 div:nth-child(2){
+            flex: 1;
+            background-color: #0000fe;
+        }
+
+
+        .row2{
+            width: 400px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content:center;
+            background-color: #ccc;
+        }
+        .row2 div{
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+
+        .row3{
+            width: 500px;
+            height: 400px;
+            justify-content: space-around;
+            align-items:center;
+            flex-wrap: wrap;
+            display: flex;
+            background-color: #ccc;
+        }
+        .row3 div{
+            width: 150px;
+            height: 150px;
+            background-color: greenyellow;
+        }
+    </style>
+</head>
+<body>
+    <!--1.-->
+    <div class="row1">
+        <div>左侧</div>
+        <div>中间</div>
+        <div>右侧</div>
+    </div>
+
+    <!--2.-->
+    <div class="row2">
+        <div></div>
+    </div>
+
+    <!--3.-->
+    <div class="row3">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <!--4.-->
+
+</body>
+</html>

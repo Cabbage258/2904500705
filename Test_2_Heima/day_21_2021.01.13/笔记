@@ -1,0 +1,71 @@
+案例:动态生成表格
+
+事件注册方式
+    1.传统事件onclick来注册   兼容所有情况
+        .onclick = function(){}
+        传统方式注册只能注册一次,后解析覆盖
+
+    2.监听事件  addEventListener()      有兼容问题(IE8及以下不支持)
+        注册一个点击事件, 事件不能带on
+            .addEvenListener('click',function(){})
+                事件冒泡和事件捕获的过程
+        可以注册多次相同类型的事件
+
+        如果不写第三个参数,或者写为false的时候,那么这个事件只有冒泡过程
+        如果想要他有捕获过程,那么第三个参数必须为true
+    3.针对IE低版本的事件注册
+        attachEvent('onclick',function(){})     必须带on
+        能兼容 IE10 及以下版本
+
+移除事件方式
+    1.移除传统的事件
+        .onclick = function(){}
+        .onclick = null
+
+
+    2.清除addEventListener注册的事件
+    .addEventListener('',fn)
+    .removeEventListener('',fn)
+    function fn(){}
+
+
+事件对象
+    属性
+        e.target          返回触发事件的对象
+        e.srcElement      返回触发事件的对象        (ie6 - 8使用)
+        e.type            返回事件的类型(事件不带on)
+        e.cancelBubble    阻止冒泡                (ie6 - 8使用)
+        e.returnValue     阻止默认事件(默认行为)    (ie6 - 8使用)
+    方法
+        e.preventDefault()    阻止默认事件(默认行为)
+        e.stopPropagation()   阻止冒泡
+
+    使用
+        清除默认行为
+            1)用事件对象属性    e.returnValue     仅ie低版本使用
+            2)用事件对象方法    e.preventDefault()    有兼容问题
+            3)用return false                      后面的代码不执行
+
+        阻止冒泡效果
+            1)用事件对象方法     e.stopPropagation() 有兼容问题
+            2)用事件对象属性     e.cancelBubble
+
+        禁止选中文字
+            selectstart    开始选中
+            e.preventDefault
+
+        禁止右键菜单
+            contextmenu  主要控制应该何时显示上下文菜单
+            e.preventDefault
+    鼠标事件对象
+        event对象代表事件的状态,跟事件相关的一系列信息的集合.
+        对象
+            e.clientX           返回鼠标相对于浏览器窗口可视区的X坐标
+            e.clientY           返回鼠标相对于浏览器窗口可视区的Y坐标
+            e.pageX             返回鼠标相对于文档页面的X坐标 (IE9以上支持)
+            e.pageY             返回鼠标相对于文档页面的Y坐标 (IE9以上支持)
+            e.screenX           返回鼠标相对于电脑屏幕的X坐标
+            e.screenY           返回鼠标相对于电脑屏幕的Y坐标
+
+
+

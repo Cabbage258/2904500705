@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Test_1_Heima.iml" filepath="$PROJECT_DIR$/.idea/Test_1_Heima.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Test_2_Heima/.idea/Test_2_Heima.iml" filepath="$PROJECT_DIR$/../Test_2_Heima/.idea/Test_2_Heima.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Test_3_Heima/.idea/Test_3_Heima.iml" filepath="$PROJECT_DIR$/../Test_3_Heima/.idea/Test_3_Heima.iml" />
+      <module fileurl="file://E:/Courseware/就业班新/数据可视化项目配套资料(双元)/数据可视化-DAY02/charts-project-93/.idea/charts-project-93.iml" filepath="E:/Courseware/就业班新/数据可视化项目配套资料(双元)/数据可视化-DAY02/charts-project-93/.idea/charts-project-93.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../github_test/.idea/github_test.iml" filepath="$PROJECT_DIR$/../github_test/.idea/github_test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../m_work_test/.idea/m_work_test.iml" filepath="$PROJECT_DIR$/../m_work_test/.idea/m_work_test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../on_line_draft/.idea/on_line_draft.iml" filepath="$PROJECT_DIR$/../on_line_draft/.idea/on_line_draft.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../test/.idea/test.iml" filepath="$PROJECT_DIR$/../test/.idea/test.iml" />
+      <module fileurl="file://$USER_HOME$/Desktop/新建文件夹/.idea/新建文件夹.iml" filepath="$USER_HOME$/Desktop/新建文件夹/.idea/新建文件夹.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    console.log(!true)// false
+    console.log(!false)// true
+    console.log(!123)// false  非零的数将自动转换为true
+    console.log(!0)// true  零的数将自动转换为false
+    console.log(!'abc')//false  非空字符串将自动转换为true
+    console.log(!'')// true     非空字符串将自动转换为false
+    /*对象或数组不管有没有值,都转换为true*/
+    console.log(!{})// false
+    console.log(![])// false
+    console.log(!{key:'abc'})// false
+    console.log(![1,2,3])// false
+    if(123){} //这里的123将自动转换为true,也即是该条件是成立的
+
+    //&&
+    console.log(true && false)// false
+    console.log(false && true)// false
+    console.log(false && false)// false
+    console.log(true && true)// true
+    console.log(123 && 0)// 0
+    console.log(123 && 10 + 20)// 30
+    console.log(123 && 'abc')// abc
+    console.log(false && [])// false
+    console.log(0 && 'aaa')// 0
+
+    // ||
+
+    console.log(true || false)// true
+    console.log(false || true)// true
+    console.log(false || false)// false
+    console.log(true || true)// true
+    console.log(123 || 0)// 123
+    console.log(123 || 10 + 20)// 123
+    console.log(123 || 'abc')// 123
+    console.log(false || [])// []
+    console.log(0 || 'aaa')// aaa
+
+    /*短路运算:
+            a.&&运算时,如果第一个操作数为false,不需要计算第二个操作数,结果返回false
+            b.||运算时,如果第一个操作数为false,不需要计算第二个操作数,结果返回true*/
+
+    /*var x = 100;
+    var y =false && ++x; //短路 这里的++x执行不到
+    console.log(x,y);//101 false*/
+
+    /*var x = 100;
+    var y =false || ++x; //这里的++x执行不到
+    console.log(x,y);//101 101*/
+
+    var x = 100;
+    var y =true || ++x; //短路 这里的++x执行不到
+    console.log(x,y);//100 true
+
+</script>
+</body>
+</html>

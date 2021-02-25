@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>验证码短信</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<input type="text" title="">
+<button id="btn">发送验证码</button>
+</body>
+<script>
+    //需求:
+    var btn = document.querySelector('#btn')
+    var a = 3
+    btn.addEventListener('click',function(){
+        //点击后变为禁用
+        this.disabled = true
+        fn()
+        var tim = setInterval(fn,1000)
+        function fn(){
+            if(a == 0){
+                clearInterval(tim)
+                btn.disabled = false
+                btn.innerHTML = '发送验证码'
+                a = 3
+            }else{
+                btn.innerHTML = a + '秒后重新发送'
+                a--
+            }
+        }
+    })
+
+</script>
+</html>

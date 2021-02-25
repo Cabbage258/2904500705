@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>导入模版引擎</title>
+    <script src="js/template-web.js"></script>
+    <script src="js/jquery.min.js"></script>
+</head>
+<body>
+    <div id="container"></div>
+</body>
+</html>
+<!--模版-->
+<script type="text/html" id="demo">
+    <h1>{{name}}</h1>
+    <div>
+        {{if a == 0}}
+        a值为0
+        {{else if a == 1}}
+        a值为1
+        {{/if}}
+    </div>
+    <h3>{{regTime | Date1}}</h3>
+</script>
+<!--js-->
+<script>
+    /*定义过滤器*/
+
+    template.defaults.imports.Date1 = function(date){
+        var year = date.getFullYear(),month = date.getMonth() + 1,day = date.getDate()
+        return year + '-' + month + '-' + day
+    }
+
+    var data = {
+        name:'张三',
+        age:22,
+        hobby:'睡觉',
+        a:0,
+        regTime: new Date(),
+
+    }
+    //template('demo',data),('模版id',数据对象名)返回值为渲染好的html结构的字符串
+    var b = template('demo',data)
+    $('#container').html(b)
+
+</script>

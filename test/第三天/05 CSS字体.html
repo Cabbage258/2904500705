@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS字体</title>
+    <style>
+        p{
+            font-size:30px;
+            font-family: 微软雅黑;
+            /*font-style: italic;*/
+            line-height:2em;
+            /*text-align: right;*/
+            /*text-indent: 30px;*/
+            text-indent: 2em;
+        }
+        p span{
+            font-weight:200;
+            /*color:red;*/
+            /*color:rgb(255,0,0);*/
+            /*color:#f00;*/
+            color:#ff1299;/*color:#f129;不能这样简写*/
+        }
+        em {
+            text-decoration:line-through;
+        }
+        div{
+            /*text-transform: capitalize;*/
+            text-transform: uppercase;
+        }
+        .news{
+            /*font:italic small-caps bolder 18px/1.5 宋体;*/
+            font:18px 宋体;
+        }
+    </style>
+</head>
+<body>
+    <p><span>超文本标记语言</span>.它是一种标识性的语言,非编程语言,不能使用逻辑运算.通过标签将网络上的
+        文档格式进行统一,使分散网络资源链接为一个逻辑整体.
+        超文本,是一种<em>组织信息</em>的方法,,通过超级链接将多种媒介关联起来.</p>
+    <div>How are u?</div>
+
+    <p class="news">How are u?它是一种标识性的语言,非编程语言,不能使用逻辑运算.通过标签将网络上的
+        文档格式进行统一,使分散网络资源链接为一个逻辑整体.
+        超文本,是一种<em>组织信息</em>的方法,,通过超级链接将多种媒介关联起来.</p>
+</body>
+</html>

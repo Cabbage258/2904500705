@@ -1,0 +1,24 @@
+echarts
+    官网: https://echarts.apache.org/
+    社区: https://www.makeapie.com/
+1.使用方法
+    · 导入js文件
+    · 设置容器宽高
+    · 基于准备好的容器,利用echarts.init(容器)初始化一个实例对象
+    · CV 调试好的option数据
+    · 利用实例对象调用setOption方法,小括号里传参option
+
+2.数据图标部分属性
+    title       用来设置表格标题
+    legend      图例组件,展示不同系列的标记(symbol)、颜色、名字.点击图例控制显示与否
+    toolbox     工具栏  可以点击将当前表格信息保存为png图片
+    tooltip     提示框组件(鼠标放上时显示出当前信息)
+    grid        操作表格大小及互相间距
+    xAxis       操作X轴信息
+    yAxis       操作Y轴信息
+    color       [数组]  设置表格里面每条线的颜色
+    series      [对象(数据)组成的数组]   用来显示图表信息
+        type    显示类型   line bar pie等
+        name    对应legend值,用于tooltip显示
+        stack   用来统计显示  --- 数据累加
+        data

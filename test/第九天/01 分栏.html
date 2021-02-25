@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>分栏</title>
+    <style>
+        p{
+            /*!*分栏*!
+            -webkit-column-count: 2;
+            -moz-column-count: 2;
+            column-count: 2;
+            !*栏间距*!
+            -webkit-column-gap: 50px;
+            -moz-column-gap: 50px;
+            column-gap: 50px;
+            !*栏间分隔线*!
+            -webkit-column-rule-style: dashed;
+            -moz-column-rule-style: dashed;
+            column-rule-style: dashed;
+
+            !*设置线宽分隔线*!
+            -webkit-column-rule-width: 1px;
+            -moz-column-rule-width: 1px;
+            column-rule-width: 1px;
+
+            !*设置分割线颜色*!
+            -webkit-column-rule-color: red;
+            -moz-column-rule-color: red;
+            column-rule-color: red;
+
+            !*简洁(复合)写法*!
+            -webkit-column-rule: 2px solid olive;
+            -moz-column-rule: 2px solid olive;
+            column-rule: 2px solid olive;
+
+            !*设置栏宽*!
+            -webkit-column-width: 50px;
+            -moz-column-width: 50px;
+            column-width: 50px;*/
+
+            /*分栏的简洁写法*/
+            -webkit-columns: 600px 2;
+            -moz-columns: 600px 2;
+            columns: 600px 2;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            border:20px outset #999;
+        }
+    </style>
+</head>
+<body>
+    <p>       1.在浏览器地址栏输入URL.
+        2.浏览器查看缓存,如果请求资源在缓存中并且新鲜,跳转到转码步骤
+        a)如果资源未缓存,发起新请求
+        b)如果已缓存,检验是否足够新鲜,足够新鲜直接提供给客户端,否则与服务器进行验证
+        c)检验新鲜通常有两个HTTP头进行控制
+        Expires和Cache-Control:
+        ·HTTP1.0提供Expires,值为一个绝对时间表示缓存新鲜日期
+        ·HTTP1.1zengjiale Cache-Control:max-age=,值为以秒为单位的最大新鲜时间
+        3.浏览器解析URL获取协议,主机,端口,path
+        4.浏览器组装一个HTTP(GET)请求报文
+        5.浏览器获取主机ip地址,过程如下:
+        a)浏览器缓存
+        b)本机缓存
+        c)hosts文件
+        d)路由器缓存
+        e)ISP DNS缓存
+        f)DNS递归查询(可能存在负载均衡导致每次IP不一样)
+        6.打开一个socket与目标IP地址,端口建立TCP链接,三次握手如下:
+        a)客户端发送一个TCP的SYN=1,SeqX的包到服务器端口
+        b)服务器发回SYN=1,ACK=X+1,Seq=Y的响应包
+        c)客户端发送ACK=Y+1,Seq=Z
+        7.TCP链接建立后发送HTTP请求
+        8.服务器接受请求并解析,将请求转发到服务程序,如虚拟主机使用HTTP Host头部判断请求的服务程序
+        9.服务器检查HTTP请求头是否包含缓存验证信息,如果验证缓存新鲜,返回304等对应状态码
+        10.处理程序读取完整请求并准备HTTP响应,可能需要查询数据库等操作
+        11.服务器将响应报文通过TCP链接发送回浏览器
+        12.浏览器接受HTTP响应,然后根据情况选择关闭TCP链接或者保留重用,关闭TC</p>
+<div class="box"></div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //需求:统计字符串'abcoefoxyozzopp'中每个字符出现的次数
+    var str = 'abcoefoxyozzopp',temp = {}
+    for (var i = 0;i < str.length;i++){
+        var chars = str.charAt(i)       //临时对象   键
+        if(temp[chars]){                //         值
+            temp[chars]++
+        }else{
+            temp[chars] = 1
+        }
+    }
+    console.log(temp)
+</script>
+</body>
+</html>

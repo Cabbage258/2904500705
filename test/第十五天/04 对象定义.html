@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建对象</title>
+</head>
+<body>
+<script>
+    //new
+    /*var obj1 = new Object();//创建一个空的对象
+    obj1.name = '张三';
+    obj1.age = 16;
+    obj1.fn = function () {
+        console.log(11121)
+    }
+    console.log(obj1)
+    console.log(obj1.name)
+    obj1.fn();
+
+    var obj2 = new Object({aa: 'bb', cc: true, dd: 123});//创建对象的同时对该对象进行初始化处理
+    console.log(obj2)*/
+
+    //字面量定义
+    var obj3 = {};//创建一个空对象
+    obj3.name = '张三';
+    obj3.age = 16;
+    obj3.fn = function(){
+        console.log(111111);
+    }
+    console.log(obj3);
+    console.log(obj3.name);
+    obj3.fn();
+
+    var obj2 = {
+        aa:'bb',
+        cc: true,
+        dd:123,
+        fn: function(){
+            console.log(111111);
+        }
+    };
+        console.log(obj2.aa)
+        console.log(obj2.fn)
+</script>
+</body>
+</html>

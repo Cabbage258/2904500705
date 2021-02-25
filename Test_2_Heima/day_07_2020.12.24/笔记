@@ -1,0 +1,115 @@
+flex弹性布局
+    CSS3 弹性盒(Flexible & flexbox),是一种当页面需要适应不同的屏幕大小
+    以及设备类型时确保元素拥有恰当的行为的布局方式;
+    引入弹性盒布局模型的墓地是提供一种更加有效的方式来
+    对一个容器中的子元素进行排列、对齐和分配空白空间.
+
+    子元素的float、clear、vertical-align失效.
+
+    常用的属性:
+        1)flex-direction(应用于父元素)
+            flex-direction 设定主轴方向(默认主轴:x轴).指定子元素在父容器中的位置.
+                            主轴设定后剩下的就是侧轴
+            语法:
+            flex-direction: row | row-reverse | column | column-reverse
+            参数:
+                row:沿x轴从左到右排列(左对齐),默认值    (主轴为x轴)
+                row-reverse:反转横向排列(右对齐,倒序排列.)
+                column:沿y轴纵向排列                   (主轴为y轴)
+                column-reverse:倒序纵向排列
+        
+        2)justify-content(应用于父元素)
+            把弹性项沿着弹性容器的主轴线对齐
+
+            语法:
+                justify-content: flex-start | flex-end | center | space-between |  space-around;
+
+            参数:
+                flex-start:紧凑方式左对齐(默认值)
+                flex-end:紧凑方式右对齐
+                center:紧凑方式居中对齐
+          (重要)space-between:除了第一个和最后一个子元素外,其他子元素等分空白区域
+          (重要)space-around:所有子元素等分空白区域
+        
+        3)子元素在侧轴方向上的对齐方式,此属性作用于父容器
+            a) align-items(应用于父元素)(单行)
+
+            语法:
+                align-items:flex-start | flex-end | center | baseline | stretch;
+
+            参数:
+                flex-start:沿侧轴顶端对齐(默认值)
+                flex-end:沿侧轴底端对齐
+                center:沿侧轴垂直居中对齐
+                baseline:沿侧轴基线对齐
+                stretch:侧轴方向拉伸对齐(子盒子不要给侧轴方向的长度)
+
+            b) align-content(应用于父元素)(多行)
+                只能出现于子元素换行时,单行下没有效果.
+            语法:
+                align-content:flex-start | flex-end | center | space-around | space-between | stretch;
+            
+            参数:
+                flex-start:靠上边显示
+                flex-end:靠底边显示
+                center:靠中间显示
+                space-around:均分空间(和资本身宽度除外的空间)
+                space-between:左右两边靠边显示,其余均分剩余空间
+                stretch:
+
+
+        
+        5)flex-wrap(应用于父元素)
+            该属性控制flex容器是单行或者多行，堆叠方向是侧轴方向 
+
+            语法:
+                flex-wrap: nowrap | wrap | wrap-reverse;
+
+            参数:
+                nowrap:不换行(默认值)
+                wrap:换行
+                wrap-reverse:反转wrap排列
+            
+        5)flex-grow(应用于子元素)
+            子元素的放大比例,默认为0,即如果存在剩余空间,也不放大,此属性作用于子元素.
+            语法:
+                flex-grow:number;
+        
+        6)align-self(应用于子元素)
+            定义flex子项单独在侧轴（纵轴）方向上的对齐方式。
+
+            语法:align-self: auto | flex-start | flex-end | center | baseline | stretch;
+
+            参数:
+                auto:默认为其父元素的 align-items的值
+                flex-start:从侧轴起始位置边界紧靠住该行的侧轴起始边界
+                flex-end:弹性盒子元素的侧轴起始位置紧靠住该行的侧轴结束边界
+                center:在该行侧轴哦上居中.(如果该行尺寸小于弹性盒子元素的尺寸,向两个方向溢出相同的长度)
+
+        7)flex
+            用于指定弹性子元素空间分配.
+            语法:
+                flex:auto | initial | none | inherit | [flex-grow] | [flex-shrink] | [flex-basis];
+            参数:
+                auto:等价于 1 1 auto
+                initial:等价于 0 1 auto
+                none:等价于 0 0 auto
+                inherit:从父元素继承
+
+            Tips:
+                flex可以带1-3个参数.
+                    1)带1个参数
+                        a)无单位,这个数值会被当做flex-grow(放大)的值
+                        b)带单位,这个数值会被当做flex-basis(基本宽度)的值
+                        c)auto(自动宽度) | initial(初始宽度) | none(无)
+                    2)带2个参数
+                        第1个参数必须是一个无单位的数值,它会被当作flex-grow的值.
+                        第2个参数:
+                            a)无单位,这个谁会被当做flex-shrink(收缩比率)的值
+                            b)带单位,这个数值会被当作flex-basis(基本宽度)的值
+                    3)带3个参数
+                        第1个参数必须是一个无单位的值,它会被当作flex-grow的值
+                        第2个参数也必须是一个无单位的数值,它会被当作flex-shrink(收缩比率)的值
+                        第3个参数必须是一个有效的宽度值(带单位),它会被当作flex-basis(默认基准宽度值)的值
+
+        

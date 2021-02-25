@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>global对象</title>
+</head>
+<body>
+<script>
+    var x = 'aaa';//x为全局变量,它的作用范围为当前文件   相当于window.x = 'aaa';
+    function fn(){
+        var y = 123;//局部变量,作用的范围只能在该函数中
+        console.log(x)
+    }
+
+    //console.log(y)   //报错,在函数外面不能访问函数内部定义的变量
+    var obj = {
+        name: x,
+        price: 199
+    }
+    window.fn()
+    console.log(obj)
+</script>
+</body>
+</html>

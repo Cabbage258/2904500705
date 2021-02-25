@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实训2</title>
+</head>
+<body>
+<script>
+    //需求:把稀疏数组变为不稀疏数组
+    //var arr = new Array();
+    var arr = [], newArr = [];
+    arr[2] = 1153;
+    arr[10] = 'hello';
+    arr[23] = true;
+    console.log(arr)
+    for(var i=0;i<arr.length;i++){
+        if(arr[i]){
+            newArr.push(arr[i])
+        }
+    }
+    console.log(newArr);
+</script>
+</body>
+</html>

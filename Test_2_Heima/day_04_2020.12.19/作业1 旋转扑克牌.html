@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 154px;
+            background: url(./images/0.jpg) round;
+        }
+        .box{
+            margin:300px auto;
+            position: relative;
+        }
+        div:not(.box){
+            transform: rotate(0) translate(0,0);
+            position: absolute;
+            transition: all 1s;
+            transform-origin: 100px 154px;
+        }
+        .box:hover div{
+            transform: scale(1);
+        }
+        .box:hover .box1{
+            transform: rotate(30deg) translate(0,0);
+        }
+        .box:hover .box2{
+            transform: rotate(60deg) translate(0,0);
+        }
+        .box:hover .box3{
+            transform: rotate(90deg) translate(0,0);
+        }
+        .box:hover .box4{
+            transform: rotate(120deg) translate(0,0);
+        }
+        .box:hover .box5{
+            transform: rotate(150deg) translate(0,0);
+        }
+        .box:hover .box6{
+            transform: rotate(180deg) translate(0,0);
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <div class="box4"></div>
+    <div class="box5"></div>
+    <div class="box6"></div>
+</div>
+</body>
+</html>

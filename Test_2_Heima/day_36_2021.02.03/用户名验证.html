@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户名验证</title>
+    <style>
+        .wrong{
+            color: red;
+        }
+        .right{
+            color: greenyellow;
+        }
+    </style>
+</head>
+<body>
+<input type="text" title="" class="uname"><span>请输入用户名</span>
+</body>
+</html>
+<script>
+    var uname = document.querySelector('.uname'),
+        reg = /^[a-zA-Z0-9_-]{6,16}$/
+    uname.onblur = function(){
+        if(reg.test(this.value)){
+            console.log('right')
+        }else{
+            console.log('wrong')
+        }
+    }
+
+</script>

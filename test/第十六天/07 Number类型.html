@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Number类型</title>
+</head>
+<body>
+<script>
+    //1.属性
+    // MAX_VALUE           表示最大值
+    console.log(Number.MAX_VALUE);
+    // MIN_VALUE           表示最小值
+    console.log(Number.MIN_VALUE);
+    // NaN                 非数值
+    console.log(Number('abc'))//NaN 将字符串转换为数值型数据,如果字符不是数值组成的,结果转换为NaN
+    console.log(Number('23456.123456'))//23456.123456
+    console.log(Number('21356468%^&*$^^&65.1531'))//NaN
+    console.log(isNaN(123))//isNaN用来判断是不是不是一个数,不是数值返回true,襄樊返回false
+    console.log(isNaN('abc'))//true
+
+    // NEGATIVE_INFINITY   负无穷大,溢出返回该值
+    console.log(Number.NEGATIVE_INFINITY);
+    console.log()
+    // POSITIVE_INFINITY   无穷大,溢出返回该值
+    // prototype            原型,用于增加新属性和方法
+
+    //2.方法
+    var box = 1000.789;
+    console.log(box.toString()) //将数值转化为字符串,并且可以转换进制
+    console.log(box.toString(16))//16进制
+    console.log(box.toString(8))//8进制
+    console.log(box.toString(10))//10进制
+    console.log(box.toString(2))//2进制
+
+    console.log(box.toLocaleString()) //本地格式: 1,000.789
+
+
+
+
+    console.log(box.toFixed(2)) //将数字保留小数点后指定位数并转化为字符串
+    console.log(box.toExponential()) //将数字以指数形式表示,保留小数点后指定位数并转化为字符串
+    console.log(box.toPrecision(3)) //指数形式或点形式表示数,保留小数点后面指定位数并转化为字符串
+</script>
+</body>
+</html>

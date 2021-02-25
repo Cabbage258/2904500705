@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>评论列表</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/jquery.min.js"></script>
+</head>
+<body style="padding:15px;">
+<!-- 评论面板 -->
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">发表评论</h3>
+    </div>
+    <form class="panel-body" id="formAddCmt">
+        <div>评论人：</div>
+        <input type="text" class="form-control" name="username" autocomplete="off" title="" />
+        <div>评论内容：</div>
+        <textarea class="form-control" name="content" title=""></textarea>
+
+        <button type="submit" class="btn btn-primary">发表评论</button>
+    </form>
+</div>
+
+
+<!-- 评论列表 -->
+<ul class="list-group" id="cmt-list">
+    <li class="list-group-item">
+        <span class="badge" style="background-color: #F0AD4E;">评论时间：</span>
+        <span class="badge" style="background-color: #5BC0DE;">评论人：</span>
+        Item 1
+    </li>
+</ul>
+</body>
+</html>
+<script>
+    $(function(){
+        //获取数据
+        getCMTData()
+        function getCMTData(){
+            $.ajax({
+                //type:'get',
+                url:'http://www.liulongbin.top:3006/api/cmtlist',
+                //data:{},
+                success:function(ret){
+                    const rows = []
+                    //遍历获取到的数据
+                    ret.data.forEach(function(item){
+                        //每次创建标签,添加给数组li,再添加到#cmt-list
+                        let li =`<li class="list-group-item">
+                                    <span class="badge" style="background-color: #F0AD4E;">评论时间：${item.time}</span>
+                                    <span class="badge" style="background-color: #5BC0DE;">评论人：${item.username}</span>
+                                    ${item.content}
+                                 </li>`
+                        rows.push(li)
+                        //empty()移除被选元素所有内容
+                        $('#cmt-list').empty().append(rows.join(''))
+                    })
+                },
+                error:function(){
+                    alert('获取数据失败')
+                }
+            })
+        }
+        //提交数据,实现评论功能
+
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*$(function(){
+        getCmtData()
+        function getCmtData(){
+            $.ajax({
+                //type:'get',
+                url:'http://www.liulongbin.top:3006/api/cmtlist',
+                //data:{},
+                success:function(ret){
+                    //console.log(ret)
+                    const rows = []
+                    ret.data.forEach(function(item){
+                        let li = `<li class="list-group-item">
+                                    <span class="badge" style="background-color: #F0AD4E;">评论时间：${item.time}</span>
+                                    <span class="badge" style="background-color: #5BC0DE;">评论人：${item.username}</span>
+                                    ${item.content}
+                                  </li>`
+                        rows.push(li)
+                        $('#cmt-list').empty().append(rows.join(''))
+                    })
+                },
+                error:function(err){
+                    alert('数据获取失败')
+                }
+            })
+        }
+        //实现评论功能
+        $('#formAddCmt').on('submit',function(e){
+            e.preventDefault()
+            const CMTdata = $(this).serialize();
+            $.ajax({
+                type:'post',
+                url:'http://www.liulongbin.top:3006/api/addcmt',
+                data:CMTdata,
+                success:function(ret){
+                    //重新读取数据
+                    getCmtData()
+                    //重置表单数据     $('')[0]原生DOM
+                    $('#formAddCmt')[0].reset()
+                },
+                error:function(){
+                    alert('获取数据失败')
+                }
+            })
+        })
+    })*/
+</script>

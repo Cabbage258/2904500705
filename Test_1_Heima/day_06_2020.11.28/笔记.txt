@@ -1,0 +1,35 @@
+1.其他样式
+    1)圆角边框 
+        border-radius:参数可以设置为数值或百分比
+    2)盒子阴影 (IE9以上支持)
+        box-shadow:水平偏移距离 垂直偏移距离[模糊距离][阴影的尺寸][颜色][inset];
+    3)文本阴影(主流浏览器都支持)
+        word-shadow:水平偏移 垂直偏移 模糊度 阴影颜色;
+2.浮动
+    普通流(标准流)     (纵向)
+    浮动               (横向)
+    定位
+3.清除浮动
+    目的:让后面的元素自动掉到下一行.
+    方法:
+        1)添加空标签,并设置样式:clear:both;
+            clear:left;         清除左浮动
+            clear:right;         清除右浮动
+            clear:both;         清除左右浮动
+            clear:none;         左右浮动都不清除
+        2)在要清除浮动的父级添加样式:overflow:hidden;
+            overflow:hidden;  超出部分隐藏,也可以用来实现清除浮动
+        3)父级添加after伪元素
+            .clearfix:after{
+                content:"";
+                display:block;
+                height:0;
+                clear:both;
+                visibility:hidden;
+            }
+            .clearfix{
+                *zoom:1;
+            }
+
+
+        

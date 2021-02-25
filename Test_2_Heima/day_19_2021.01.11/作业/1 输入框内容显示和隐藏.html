@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>输入框内容显示和隐藏</title>
+</head>
+<style>
+    input {
+        outline: none;
+        border: 1px solid #000;
+        color: #cccccc;
+    }
+</style>
+<body>
+<!--需求:输入框获得焦点,提示内容消失,边框变色-->
+<!--    输入框失去焦点,如果内容为空,提示内容恢复,边框变色;如果内容不为空,只有边框变色-->
+<input type="text" title="" value="邮箱/ID/手机号">
+
+
+<script>
+    var input = document.querySelector('input')
+    input.onfocus = function () {
+        input.style.border = '1px solid skyblue'
+        input.style.color = '#000'
+        if (input.value === '邮箱/ID/手机号') {
+            input.value = ''
+        }
+    }
+    input.onblur = function () {
+        input.style.border = '1px solid #000'
+        if (input.value == '') {
+            input.value = '邮箱/ID/手机号'
+            input.style.color = '#ccc'
+        } else {
+            input.style.color = '#000'
+        }
+    }
+</script>
+</body>
+</html>

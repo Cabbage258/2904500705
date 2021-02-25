@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <!-- 导入页面的基本样式 -->
+    <link rel="stylesheet" href="./css/search.css" />
+    <!-- 导入 jQuery -->
+    <script src="./lib/jquery.js"></script>
+    <script src="lib/template-web.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Logo -->
+      <img src="./images/taobao_logo.png" alt="" class="logo" />
+
+      <div class="box">
+        <!-- tab 栏 -->
+        <div class="tabs">
+          <div class="tab-active">宝贝</div>
+          <div>店铺</div>
+        </div>
+        <!-- 搜索区域（搜索框和搜索按钮） -->
+        <div class="search-box">
+          <input title="" type="text" id="ipt" class="ipt" placeholder="请输入要搜索的内容" /><button class="btnSearch">
+            搜索
+          </button>
+        </div>
+        <div id="searchUl"></div>
+      </div>
+    </div>
+  </body>
+
+</html>
+<script type="text/html" id="searchLi">
+  {{each result}}
+  <div class="searchLis">{{$value[0]}}</div>
+  {{/each}}
+</script>
+<script>
+  $(function(){
+  //缓存
+    let cacheObj = {}
+  //设置延时器
+      //定义延时器id
+      let timer = null
+    //封装防抖函数
+    function fangDou(kw){
+      timer = setTimeout(function(){
+        getSearchLi(kw)
+      },500)
+    }
+  //封装函数,获取服务器搜索建议列表
+  function getSearchLi(kw){
+    $.ajax({
+      url:'https://suggest.taobao.com/sug?q=' + kw,
+      dataType:'jsonp',
+      success:function(res){
+        tplLis(res)
+      }
+    })
+  }
+  //渲染建议列表
+    function tplLis(res){
+      if(res.result.length <= 0){
+        return $('#searchUl').empty().hide()
+      }
+        let htmlStr = template('searchLi',res)
+        $('#searchUl').html(htmlStr).show()
+      //获取用户输入与获取到的数据以键值存入缓存对象
+      let k = $('.ipt').val().trim()
+      cacheObj[k] = res
+    }
+    //获取用户输入内容监听keyup事件
+    $('#ipt').on('keyup',function(){
+      //获取输入内容(获取内容,删除首尾空白)
+        let kw = $(this).val().trim()
+      //判断输入是否为空
+      if(kw.length <= 0){
+        return $('#searchUl').empty().hide()
+      }
+      if(cacheObj[kw]){
+        return tplLis(cacheObj[kw])
+      }
+      fangDou(kw)
+
+    })
+  })
+</script>

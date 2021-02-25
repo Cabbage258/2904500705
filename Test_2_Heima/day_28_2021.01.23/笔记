@@ -1,0 +1,40 @@
+...
+    jQuery注册事件
+
+    jQuery事件处理
+        i) on绑定多个事件
+            $('选择器').on({
+                键(事件名):值(function(){}),
+                键:值,
+                键:值,
+            })
+
+            给同一个元素注册事件时,如果执行的函数一样,可以简写为
+                $('选择器').on('事件1 事件2 事件3 ...',function(){})
+
+            事件委托
+                $('选择器').on('事件1','触发对象',function(){})
+                    为动态添加的触发对象绑定事件,仅该元素可以触发事件1
+
+        ii) off解绑事件
+                $('选择器').off()                   //解绑该元素上所有事件
+                $('选择器').off('事件1')             //解绑该元素上的事件1
+                $('选择器').off('事件1','触发对象')    //解绑事件委托
+
+        iii) one绑定一次性事件
+                $('选择器').one('事件1',function(){})    //只能触发事件1一次
+
+        iv) 自动触发事件trigger
+                a)元素.事件()
+                    $('选择器').事件()
+
+                b)元素.trigger('事件')
+                    $('选择器').trigger('事件')
+
+                c)元素.triggerHandler('事件')
+                    $('选择器').triggerHandler('事件')   //触发事件时不会触发元素的默认行为
+
+        v) 事件对象
+            element.on(events,[selector],function(){})
+                阻止默认行为:event.preventDefault() 或者 return false
+                阻止冒泡: event.stopPropagation()

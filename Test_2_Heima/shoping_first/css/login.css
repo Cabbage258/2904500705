@@ -1,0 +1,223 @@
+/*页首页尾*/
+.registerhd {
+    width: 100%;
+}
+
+.registerhd .registerlogo {
+    width: 100%;
+    height: 84px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.registerhd .registerlogo a {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -27px;
+    display: block;
+    width: 171px;
+    height: 54px;
+    background: url(../images/logo.png) round;
+}
+
+.registerft div ul {
+    margin-top: 24px;
+}
+
+.registerft div ul li {
+    display: inline-block;
+}
+
+.registerft div ul {
+    padding-left: 117px;
+}
+
+.registerft div ul li {
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.registerft div ul li a {
+    font-size: 12px;
+    color: #a1a0a0;
+}
+
+.registerft div ul li:nth-of-type(2n) {
+    display: inline-block;
+    width: 1px;
+    height: 9px;
+    background-color: #a1a0a0;
+    margin: 0 10px;
+}
+
+.registerft div p {
+    text-align: center;
+    font-size: 12px;
+    color: #a1a0a0;
+}
+
+.registerft div p:nth-of-type(1) {
+    margin-top: 15px;
+}
+
+.registerft div p:last-child {
+    margin-top: 8px;
+}
+
+/*content*/
+
+.content {
+    background-color: #7f00ff;
+}
+
+.loginbg {
+    width: 100%;
+    height: 486px;
+    background: url(../images/loginbg.png) round;
+}
+
+table {
+    position: absolute;
+    top: 62px;
+    right: 114px;
+    width: 380px;
+    height: 362px;
+    background-color: #fff;
+}
+
+table tr:nth-last-of-type(7) {
+    width: 100%;
+    height: 40px;
+    font-size: 18px;
+}
+
+table tr:nth-last-of-type(7) td:nth-last-of-type(3) {
+    color: #666666;
+    width: 45%;
+    padding-top: 10px;
+    line-height: 40px;
+    text-align: center;
+}
+
+table tr:nth-last-of-type(7) td:nth-last-of-type(2) {
+    width: 5%;
+    color: #ededed;
+    text-align: center;
+}
+
+table tr:nth-last-of-type(7) td:nth-last-of-type(1) {
+    color: #ca111a;
+    width: 45%;
+    line-height: 40px;
+    text-align: center;
+}
+
+table tr td {
+    text-align: center;
+}
+
+table tr:nth-last-of-type(6) td {
+    position: relative;
+    bottom: -10px;
+}
+
+table tr:nth-last-of-type(6) td input {
+    text-align: left;
+    outline: none;
+    border: 1px solid #f5eecd;
+    width: 303px;
+    height: 26px;
+    background-color: #fffded;
+    font-size: 12px;
+}
+
+table tr:nth-last-of-type(5) td input, table tr:nth-last-of-type(4) td input {
+    width: 303px;
+    height: 36px;
+    outline: none;
+    font-size: 14px;
+    text-indent: 48px;
+    box-sizing: border-box;
+    border: 1px solid #bbbaba;
+}
+
+table tr:nth-last-of-type(5) td input:focus, table tr:nth-last-of-type(4) td input:focus {
+    border: 1px solid #32a0e6;
+    -webkit-box-shadow: 2px 2px 3px #eee;
+    -moz-box-shadow: 2px 2px 3px #eee;
+    box-shadow: 2px 2px 3px #eee;
+}
+
+table tr:nth-last-of-type(5) td input {
+    background: url(../images/userhd.png) no-repeat left center;
+}
+
+table tr:nth-last-of-type(4) td input {
+    background: url(../images/ltlock.png) no-repeat left center;
+}
+
+table tr:nth-last-of-type(3) {
+    margin-top: -10px;
+}
+
+table tr:nth-last-of-type(3) td:nth-last-of-type(2) input, table tr:nth-last-of-type(3) td:nth-last-of-type(2) {
+    outline: none;
+    font-size: 12px;
+    color: #aaa;
+}
+
+table tr:nth-last-of-type(3) td:nth-last-of-type(2) input {
+    position: relative;
+    top: 2px;
+    left: 0;
+}
+
+table tr:nth-last-of-type(3) td:nth-last-of-type(2), table tr:nth-last-of-type(3) td:nth-last-of-type(1) {
+    position: relative;
+    top: -10px;
+    left: 4px;
+}
+
+table tr:nth-last-of-type(3) td:nth-last-of-type(2) {
+    text-indent: -44px;
+}
+
+table tr:nth-last-of-type(3) td:nth-last-of-type(1) a {
+    margin-left: 62px;
+    font-size: 12px;
+    color: #333;
+    font-weight: 500;
+}
+
+table tr:nth-last-of-type(2) input {
+    position: relative;
+    top: -10px;
+    width: 303px;
+    height: 41px;
+    line-height: 41px;
+    outline: none;
+    background-color: #ca111a;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+
+}
+
+table tr:nth-last-of-type(1) td:nth-last-of-type(2) {
+    width: 70%;
+    height: 50px;
+    background: url(../images/regetype.png) round;
+    position: relative;
+    top: -14px;
+    left: 20px;
+}
+
+table tr:nth-last-of-type(1) td a {
+    margin-left: -5px;
+    font-size: 14px;
+    color: #1474af;
+    font-weight: 500;
+}

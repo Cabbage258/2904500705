@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js基本类型和基本包装类型的区别</title>
+</head>
+<body>
+<script>
+    //基本类型:Undefined,Null,Boolean,Number,String
+    //基本包装类型:Boolean,Number,String
+    /*
+    var str = 'hello'  //string     基本类型
+    var s2 = str.charAt(0)  //返回索引为0位置的字符
+    alert(s2)   //h
+    */
+    //上面的string是一个基本类型,但是它却能召唤出一个charAt()方法,主要是因为
+    //在基本类型中,有三个比较特殊的存在就是String,Number,Boolean.这三个基本类型
+    //都有自己对应的包装对象.
+    //包装对象,其实就是对象,有相应的属性和方法.调用方法的过程,是在后台偷偷发生的
+
+    //平时写程序的过程:
+        /*
+        var str = 'hello'//string   基本类型
+        var s2 = str.charAt(0)  //在执行到这一句的时候,后台会自动完成以下动作
+        */
+    /*
+        var str = new String('hello')       //找到对应的包装对象类型,然后通过包装对象创建出一个和基本类型值相同的对象
+        var s2 = _str.charAt(0)             //然后这个对象就可以调用包装对象下的方法,并且返回给s2
+        _str = null                         //之后这个临时创建的对象就被销毁了
+     */
+    /*
+    alert(s2)   //h
+    alert(str)  //hello
+    */
+
+    /*
+    注意:
+        这是一瞬间的动作,实际上我们没有改变字符串本身的值,就是做了下面的动作
+        这也是为什么每个字符串具有的方法并没有改变字符串本身的原因
+        由此我们可以知道,引用类型和基本包装对象的区别在于:生存期
+        引用类型所创建的对象,在执行的期间一直在内存中,而基本包装对象只是存在了一瞬间
+        所以我们无法直接给基本类型添加方法.
+     */
+    /*
+        var str = 'hello'
+        str.number = 10                      //假设我们想给字符串添加一个属性number,后台会有如下步骤
+        {
+        var _str = new String('hello')      //找到对应的包装对象类型,然后通过包装对象创建出一个和基本类型值相同的对象
+        _str.number = 10                    //通过这个对象调用包装对象下的方法,但结果并没有被任何东西保存
+        _str = null                         //这个对象又被销毁
+        }
+
+        alert(str.number)                   //undefined 当执行到这一句的时候,因为基本类型本来没有属性,后台又会重新重复上面的步骤
+
+        {
+        var str = new String('hello')       //找到基本包装对象,然后又新开辟一个内存,创建一个值为hello的对象
+        str.number = undefined              //因为包装对象下面没有number这个属性,所有又会重新添加,因为没有值,所以值是未定义,然后弹出结果
+        str = null                          //这个对象又被销毁
+        }
+     */
+
+    //怎样给基本类型添加方法或者属性
+    //在基本包装对象的原型下面添加,每个对象都有原型
+
+    //给字符串添加方法,要写到对应的包装对象的原型下才行
+    var str = 'hello'
+    String.prototype.last = function(){
+        return this.charAt(this.length)
+    }
+
+    console.dir(str.last()) //执行到这一句,后台依然会执行以下语句
+    /*
+    var _str = new String('hello')      //找到基本包装对象,new一个和字符串值相同的对象
+    _str.last()                         //通过这个对象找到了包装对象下的方法并调用
+    _str = null                         //这个对象又被销毁
+     */
+
+
+</script>
+</body>
+</html>

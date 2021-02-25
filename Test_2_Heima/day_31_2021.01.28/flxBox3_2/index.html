@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <link rel="stylesheet" href="fonts/icomoon.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/flexible.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        .box {
+            width: 400px;
+            height: 400px;
+        }
+
+        ul {
+            overflow: hidden;
+        }
+
+        ul li {
+            float: left;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            background-color: pink;
+            text-align: center;
+            color: #fff;
+            margin: 20px;
+            line-height: 30px;
+        }
+
+        .temp {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li class="temp">年</li>
+    <li>季</li>
+    <li>月</li>
+    <li>周</li>
+</ul>
+<div class="box">
+
+</div>
+</body>
+</html>
+<script src="js/echarts.min.js"></script>
+<script>
+
+    $('ul').on('click', 'li', function () {                     //委托ul下的li事件click
+        $(this).addClass('temp').siblings().removeClass();      //当前触发click的li添加类名temp,其他同级兄弟元素li的类名取消
+        option.dataset.source = data[$(this).index()];          //给option.dataset.source原始数据属性赋值当前触发点击事件的li的索引
+                                                                //点击时当前索引赋值给计时器计数器a
+        a = $(this).index();                                    //再将当前触发点击事件的li的索引赋值给定时器的计数器全局变量a
+                                                                //索引改变后调用
+        myChart.setOption(option)                               //完成索引对接后再次调用函数,使canvas内图表数据变为对应索引号的数据
+    })
+    //自动轮播定时器
+    //创建一个定时器自动变换索引号轮播
+    var a = 0                                                   //声明一个全局计数器a
+    timer = setInterval(function () {                           //声明计时器timer
+        if (a == 3) {                                           //因为一共四组数据,最大索引号为3,所以先判断索引号是否等于3
+            a = 0                                               //满足条件,a切换为0
+        } else {                                                //否则
+            a++                                                 //运算结束后自增
+        }
+        $('li').eq(a).click()                                   //选取当前索引a的li调用点击事件函数,实现轮播效果
+    }, 2000)                                                    //计时1000毫秒调用一次函数
+    /*-----------------------------------------------------------鼠标移入移出清除重启计时器---------------------------------*/
+    /*//鼠标移入清除计时器
+    $('li').mouseover(function(){
+        clearInterval(timer)
+    })
+    //鼠标移出重启计时器
+    $('li').mouseout(function(){
+        timer = setInterval(function(){
+            if(a == 3){
+                a = 0
+            }else{
+                a++
+            }
+            $('li').eq(a).click()
+        },2000)
+    })*/
+    /*--------------------------------------------------简写鼠标移入移出清除重启计时器-------------------------------------------------------*/
+    //鼠标移入清除计时器,鼠标移出重启计时器
+    //一次性绑定两个事件
+    $('li').on('mouseover', function () {                       //给每个li绑定鼠标移入事件
+        clearInterval(timer)                                    //清除计时器timer
+    }).mouseout(function () {                                   //给每个li绑定鼠标移出事件
+        timer = setInterval(function () {                       //启动计时器timer
+            if (a == 3) {
+                a = 0
+            } else {
+                a++
+            }
+            $('li').eq(a).click()
+        }, 2000)
+    })
+
+
+    /*---------------------------------------echarts偷来的图表-------------------------------------------------*/
+    var data = [
+        [['product', '1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+            ['预期销售额', 90, 130, 125, 100, 151, 105, 80, 90, 82, 88, 58, 140],
+            ['实际销售额', 30, 89, 30, 80, 90, 12, 32, 78, 50, 45, 39, 44]],
+        [['product', '1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+            ['预期销售额', 23, 75, 12, 97, 21, 67, 98, 21, 43, 64, 76, 38],
+            ['实际销售额', 43, 31, 65, 23, 78, 21, 82, 64, 43, 60, 19, 34]],
+        [['product', '1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+            ['预期销售额', 34, 87, 32, 76, 98, 12, 32, 87, 39, 36, 29, 36],
+            ['实际销售额', 56, 43, 98, 21, 56, 87, 43, 12, 43, 54, 12, 98]],
+        [['product', '1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+            ['预期销售额', 43, 73, 62, 54, 91, 54, 84, 43, 86, 43, 54, 53],
+            ['实际销售额', 32, 54, 34, 87, 32, 45, 62, 68, 93, 54, 54, 24]]
+    ]
+
+    var myChart = echarts.init(document.querySelector('.box'));
+    var option = {
+        color: ['red', '#22d7db'],
+        legend: {},
+        tooltip: {
+            trigger: 'axis',
+            showContent: true
+        },
+        dataset: {
+            source: data[0]
+        },
+        xAxis: {
+            type: 'category',
+            asixTick: {
+                show: true,
+            },
+            boundaryGap: false,
+            axisLabel: {
+                interval: 1,
+            },
+        },
+        yAxis: {gridIndex: 0},
+        grid: {top: '10%'},
+        series: [
+            {
+                type: 'line',
+                smooth: true,
+                seriesLayoutBy: 'row',
+                emphasis: {focus: 'series'},
+                symbolSize: 8,
+            },
+            {
+                type: 'line',
+                smooth: true,
+                seriesLayoutBy: 'row',
+                emphasis: {focus: 'series'},
+                symbolSize: 8,
+            },
+        ]
+    };
+    myChart.setOption(option)
+</script>

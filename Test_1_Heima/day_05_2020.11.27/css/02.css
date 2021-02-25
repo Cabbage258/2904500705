@@ -1,0 +1,47 @@
+*{
+    margin:0;
+    padding:0;
+}
+a{
+    text-decoration: none;
+}
+li{
+    list-style-type: none;
+}
+em{
+    font-style:normal;
+}
+.box1{
+    width: 298px;
+    height: 415px;
+    margin: 100px auto;
+    background-color: #fff;
+}
+.box1 img{
+    width: 100%;
+}
+.review{
+    height: 70px;
+    font-size: 14px;
+    margin-top: 30px;
+    padding:0 28px;
+}
+.appraise{
+    font-size: 12px;
+    color: #b0b0b0;
+    padding: 0 28px;
+    margin-top: 20px;
+}
+.info{
+    font-size: 14px;
+    margin-top: 15px;
+    padding: 0 28px;
+}
+.info h4{
+    font-weight: 400;
+    width: 180px;
+    display: inline-block;
+}
+.info span{
+    color: #ff9383;
+}

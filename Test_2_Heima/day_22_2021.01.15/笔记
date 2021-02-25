@@ -1,0 +1,39 @@
+...
+事件对象
+    键盘事件
+        onkeyup         按键弹起(不识别大小写)
+        onkeydown       按键按下(不识别大小写)
+        onkeypress      按键按下(不能识别功能键,如ctrl,shift,↑↓←→等)(识别大小写)
+
+        Tips:
+            三个事件执行顺序 keydown > keypress > keyup
+        e.keyCode   返回按下按键的ASCII码值.
+
+BOM操作
+    事件
+        window.onload               等页面内容全部加载完
+        window.DOMContentLoaded     DOM加载完毕后(不包括图片,flash,css样式等)
+
+        load等页面内容全部加载完毕
+        DOMContentLoadedDOM加载完毕不包括图片,flash,css等
+
+        window.resize               调整窗口大小
+        window.innerWidth           当前屏幕的宽度
+
+        定时器
+            setTimeout              一次性定时器
+            clearTimeout            停止定时器
+
+            setInterval             重复调用定时器
+                Tips:可以在开启之前先调用一次,防止刚开始显示空白
+            clearInterval           停止定时器
+
+
+    location对象
+        href:    用来获取和设置地址栏的地址的,在js里面可以操作按钮进行页面的跳转
+        search: 获取传递过来的参数的     格式为:  ?abc=123&a=456&b=789
+
+            1.先用字符串截取    str.substr(1)//
+            2.把截取过后的字符串 以&符号为分隔符(split('&'))// 转化为数组[abc=123][a=456][b=789]
+            3.遍历,得到每一项元素值为abc=123   a=456   b=789
+            4.对每一项的元素值进行转换 以等号为分隔符  转换为数组 [abc,123][a,456][b,789]

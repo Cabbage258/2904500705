@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小说文章分页</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .wrapper {
+            height: 100vh;
+            overflow: hidden;
+            margin: 10px 16px;
+        }
+        article {
+            columns: calc(100vw - 32px) 1;
+            column-gap: 16px;
+            height: 100%;
+            transition: 0.4s;
+        }
+        h3 {
+            text-align: center;
+        }
+        p {
+            text-indent: 2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <article>
+            <h3>第一章：的味道违法</h3>
+            <p class="text">凡符合健康就好缝纫机佛教让我父亲节我发军容风纪噢惹急佛我热剧广佛二结构IE无人机给女神烦得很女款绿色金融会高分耳机盒GV离开家符合规范V领是金融股</p>
+        </article>
+    </div>
+    <script>
+        let text = document.querySelector('.text')
+        let node = document.querySelector('article')
+        let htmlStr = ''
+        for (let i = 0; i < 100; i++) {
+            htmlStr += text.outerHTML
+        }
+        node.innerHTML += htmlStr
+        let j = 0
+        let bodyWidth = document.body.offsetWidth
+        setInterval(() => {
+            j > 3 && (j = 0)
+            j++
+            node.style.transform = `translateX(-${(bodyWidth - 16) * j}px)`
+        }, 3000)
+    </script>
+</body>
+</html>

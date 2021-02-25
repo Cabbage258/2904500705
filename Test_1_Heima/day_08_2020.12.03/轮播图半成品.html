@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图半成品</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style-type: none;
+        }
+        body{
+            background-color: #cccccc;
+        }
+        .wrapper{
+            position: relative;
+            width: 500px;
+        }
+        .box{
+            width: 500px;
+            height:350px;
+            background-color: #00f7ff;
+        }
+        .box li a{
+            display: block;
+            width: 500px;
+            height:350px;
+        }
+        .prev a{
+            position: absolute;
+            top: 50%;
+            left: 5px;
+            width: 32px;
+            height: 32px;
+            margin-top: -25px;
+            background: rgba(68, 51, 51, 0.5) url(./images/prev.png) no-repeat;
+            -moz-opacity: .5;
+            opacity: .5;
+            filter:alpha(opacity=50);/*兼容IE*/
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+        }
+        .next a{
+            position: absolute;
+            top: 50%;
+            right: 5px;
+            width: 32px;
+            height: 32px;
+            margin-top: -25px;
+            background: rgba(68, 51, 51, 0.5) url(./images/next.png) no-repeat;
+            -moz-opacity: .5;
+            opacity: .5;
+            filter:alpha(opacity=50);/*兼容IE*/
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+        }
+        .wrapper .circle{
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            margin-left: -50px;
+        }
+        .wrapper .circle ul li{
+            display: inline-block;
+        }
+        .wrapper .circle ul li a{
+            display:block;
+            width: 10px;
+            height: 10px;
+            background-color: rgba(0,0,0,.5);
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+        }
+        .wrapper .circle ul li a:hover{
+            background-color: rgba(0,0,0,1);
+        }
+
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <!--1.轮播组图-->
+    <ul class="box">
+        <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
+    </ul>
+    <!--2.控制器-->
+    <div class="prev"><a href="#"></a></div>
+    <div class="next"><a href="#"></a></div>
+    <!--3.计数器-->
+    <div class="circle">
+        <ul>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

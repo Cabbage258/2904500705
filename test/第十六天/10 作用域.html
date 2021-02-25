@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>作用域</title>
+</head>
+<body>
+<script>
+    console.log(x)// var定义的变量存在变量位置提升,该变量默认值为undefined
+    var x = 123;    //这里的x是一个全局作用域
+    function fn1(n) { //在外部定义的函数也是全局变量,函数的形参为局部变量
+        var y = 'abc';// 在函数内部定义的y为局部变量,作用范围只能在当前函数体内有效.
+        console.log(x, y)
+    }
+
+    function fn2() {
+        console.log(x + 10)
+    }
+
+    fn1(100);
+    fn2();
+    console.log(x)
+    //console.log(y)// 报错 这里的y是在函数中定义的,外部是不能获取到该变量的
+</script>
+</body>
+</html>

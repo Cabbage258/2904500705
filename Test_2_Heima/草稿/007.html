@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>button</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            height: 100vh;
+            display: flex;
+            background-color: #eeeeee;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        button{
+            outline: none;
+            padding:10px 20px;
+            font-size: 24px;
+            border: none;
+            height: 80px;
+            position: relative;
+            color: skyblue;
+        }
+        button:hover{
+            cursor:pointer;
+            background-color: #000;
+        }
+        button:before,button:after{
+            content:'';
+            position: absolute;
+            width: 88px;
+            height: 4px;
+            background-color: #000;
+        }
+        button:before{
+            top: -4px;
+            right: 0;
+            transition:movefirst .5s ease-in;
+        }
+        button:after{
+            top: 80px;
+            left: 0;
+
+        }
+        button:hover:after{
+            transition:movesecound .5s;
+        }
+        @keyframes movefirst{
+            0%{
+                top: -24px;
+            }
+            50%{
+                top: -44px;
+            }
+            100%{
+                top: -64px;
+            }
+        }
+        @keyframes movesecound{
+            0%{
+                top: 24px;
+            }
+            50%{
+                top: 44px;
+            }
+            100%{
+                top: 64px;
+            }
+        }
+    </style>
+</head>
+<body>
+<button>按钮</button>
+</body>
+</html>

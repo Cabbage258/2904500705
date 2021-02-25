@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        dialog{
+            Position:relative;
+        }
+        dialog span{
+            position: absolute;
+            right:0;
+            top:0;
+            cursor:pointer;
+            padding:10px;
+        }
+        figure{
+            width: 400px;
+            text-align: center;
+        }
+        figure img{
+            width: 100%;
+        }
+        figure p{
+            margin-top:-4px;
+        }
+    </style>
+</head>
+<body>
+    <!--1)mark:高亮显示-->
+    <p>嗷大家花开富贵卡级还是官方大家快上发哈肯德基发噶科技师范噶数据库就爱<mark>上分卡计</mark>看划书电饭锅哈萨克</p>
+    <!--2)details(描述)与summary(摘要):一般用于名词解释或用于封装一个区块等-->
+    <details>
+        <summary>大前端开发</summary>
+        <h2>大前端开发包括:</h2>
+        <ul>
+            <li>组件化开发</li>
+            <li>模块化开发</li>
+            <li>自动化开发</li>
+            <li>后台开发</li>
+        </ul>
+    </details>
+
+    <!--3)meter:定义度量衡-->
+    <meter value="110" min="80" max="120"></meter>公里/小时
+
+    <!--4)progress:进度条-->
+    <p>任务已完成:</p><progress value="70" min="0" max="100"></progress>70%
+
+    <!--5)dialog:对话框或窗口-->
+    <dialog open>
+        <span>&times;</span>
+        <h2>大前端开发包括:</h2>
+        <ul>
+            <li>组件化开发</li>
+            <li>模块化开发</li>
+            <li>自动化开发</li>
+            <li>后台开发</li>
+        </ul>
+    </dialog>
+
+    <!--6)figure:用于对元素进行组合,(一般用来组合一张图的标题、图片和图片描述等)-->
+    <figure>
+        <h4>夏日风情</h4>
+        <img src="img/1.jpeg" alt="夏日风情" />
+        <p>花儿朵朵开,心情无限好!</p>
+    </figure>
+</body>
+</html>

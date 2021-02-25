@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>scroll</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            margin:20px auto;
+            width: 1200px;
+        }
+        .ctn1{
+            background-color: darkred;
+            height: 300px;
+        }
+        .ctn2{
+            background-color: darkorange;
+            height: 500px;
+        }
+        .ctn3{
+            background-color: greenyellow;
+            height: 700px;
+        }
+        .ctn4{
+            background-color: aqua;
+            height: 1000px;
+        }
+        .temp{
+            position: absolute;
+            top: 600px;
+            left: 50%;
+            margin-left: 600px;
+            text-align: center;
+            width: 30px;
+            height: 90px;
+            background-color: mediumpurple;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="ctn1">ctn1</div>
+<div class="ctn2">ctn2</div>
+<div class="ctn3">ctn3</div>
+<div class="ctn4">ctn4</div>
+<div class="temp">
+    <span>返回顶部</span>
+</div>
+</body>
+<script>
+    //抓取DOM
+    var ctn2 = document.querySelector('.ctn2')
+    var temp = document.querySelector('.temp')
+    //距离页面顶部的距离
+    var ctn2top = ctn2.offsetTop
+    var temptop = temp.offsetTop
+    console.log(ctn2top,temptop)
+    //绑定事件  给文档流
+    document.addEventListener('scroll',function(){
+        //如果被卷去的高度 大于等于 ctn2被卷去的距离,此时定位fixed
+        if(document.documentElement.scrollTop >= ctn2top){
+            temp.style.position = 'fixed'
+            temp.style.top = temptop - ctn2top + 'px'
+        }else{
+            temp.style.position = 'absolute'
+            temp.style.top = temptop + 'px'
+        }
+    })
+
+
+
+
+
+
+
+
+
+
+
+    /*//抓取DOM
+    var ctn2 = document.querySelector('.ctn2')
+    var temp = document.querySelector('.temp')
+    console.log(ctn2)
+    console.log(temp)
+    //ctn2距离页面顶部距离
+    var ctn2Top = ctn2.offsetTop
+    var tempTop = temp.offsetTop
+
+    console.log(tempTop)
+    //给document注册一个滚动事件
+    document.addEventListener('scroll',function(){
+        //获取被卷曲的头部的高
+        //
+        console.log(document.documentElement.scrollTop)
+        //判断被卷曲的头部的高是否大于依附标签距离页面顶的高
+        //如果大于等于,说明此时top在页面顶,设置fixed定位
+        if(document.documentElement.scrollTop >= ctn2Top){
+            temp.style.position = 'fixed'
+            temp.style.top = tempTop - ctn2Top + 'px'
+            console.log(tempTop)
+        }else{
+            temp.style.position = 'absolute'
+            temp.style.top = tempTop + 'px'
+        }
+    })*/
+
+
+
+</script>
+</html>

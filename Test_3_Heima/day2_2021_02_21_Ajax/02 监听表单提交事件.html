@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>监听表单提交事件</title>
+    <script src="js/jquery.min.js"></script>
+</head>
+<body>
+    <form action="/login" target="_blank" method="post">
+        用户名:<input type="text" title="用户名" name="username">
+        密码:<input type="password" title="密码" name="psd">
+        <button type="submit">提交</button>
+    </form>
+</body>
+</html>
+<script>
+    $(function(){
+        $('form').on('submit',function(e){
+            //阻止表单的提交和页面的跳转
+            e.preventDefault()
+            let formData = $(this).serialize()
+            $.ajax({
+                type:'post',
+                url:'',
+                data:{}
+            })
+        })
+    })
+</script>

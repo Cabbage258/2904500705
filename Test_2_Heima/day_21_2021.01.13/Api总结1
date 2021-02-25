@@ -1,0 +1,203 @@
+Web API
+    API(Application Programming Interface,应用程序编程接口)
+    是一些预先定义好的函数,封装好的黑盒,呈现给用户的是借口
+    Web API是浏览器提供的一套操作浏览器功能和页面元素的API(BOM 和 DOM)
+    一般都有输入和输出(函数的传参和返回值),大部分是方法
+
+    DOM
+        文档对象模型(Document Object Model)
+        W3C已经定义了一系列的DOM接口,通过这些DOM接口可以改变网页的内容、结构和样式
+
+        DOM树(文档模型)(面向对象)
+            将文档映射为树形结构,通过节点对象对其进行处理,处理结果加入到当前页面
+            · 文档:      一个页面就是一个文档,DOM中使用document表示
+            · 节点:      网页中的所有内容(标签、属性、文本、注释等),使用node表示
+            · 标签节点:   网页中的所有标签,通常称为元素节点(元素),使用element表示
+
+        1)获取元素
+            i)根据id获取
+                语法:
+                    document.getElementById(id)
+                返回值:
+                    元素对象 或 null
+
+            ii)根据标签名获取元素
+                语法:
+                    document.getElementsByTagName('标签名')
+                    或
+                    element.getElementsByTagName('标签名')
+                返回值:
+                    元素对象集合(伪数组,数组元素是元素对象)
+                注意:
+                    得到的是一个对象的集合,操作里面元素需要遍历
+                    得到的元素对象是动态的(getElementsByTagName()获取到的是动态集合),即:当页面增加了标签,这个集合中也就增加了元素
+
+            iii)H5新增获取元素方式
+                a.  document.getElementsByClassName('类名');  //根据类名返回元素对象集合
+                    IE8及以下不兼容
+                b.  document.querySelector('选择器');         //根据指定CSS选择器返回第一个元素对象(里面的选择器需要加符号(#,.等))
+                    IE7及以下不兼容    返回的是静态
+                c.  document.querySelectorAll('选择器');      //根据指定选择器返回
+                    IE7及以下不兼容    返回的是静态
+
+            iv)获取特殊元素(body,html)
+                五种基本获取方式可以直接获取
+                a.获取body元素
+                    document.body                           //返回body元素对象
+                b.获取html元素
+                    document.documentElement                //返回html元素对象
+
+        2)事件基础
+            JS使我们有能力创建动态页面,而事件是可以被JS侦测到的行为(触发--响应机制)
+
+            i)事件三要素
+                · 事件源(谁)          : 触发事件的元素
+                · 事件类型(什么事件)    : 例如click点击事件
+                · 事件处理程序(做什么)  : 事件触发后要执行的代码(函数形式),事件处理函数
+
+            ii)执行事件步骤
+                1 获取事件源
+                2 注册事件(绑定事件)
+                3 添加事件处理程序(采取函数赋值形式)
+
+            iii)常见的鼠标事件
+                onclick                 鼠标点击左键触发
+                onmouseover             鼠标经过触发
+                onmouseout              鼠标离开触发
+                onfocus                 获得鼠标焦点触发
+                onblur                  失去鼠标焦点触发
+                onmousemove             鼠标移动触发
+                onmouseup               鼠标弹起触发
+                onmousedown             鼠标按下触发
+
+        3)操作元素
+            JS的DOM操作可以改变网页的内容、结构和样式.(通过元素对象的属性实现)
+
+            i)改变元素内容(获取或设置)
+                element.innerText
+                    从起始位置到终止位置的内容,但它去除html标签,同时空格和换行也会去掉
+                element.innerHTML
+                    起始位置到终止位置的全部内容,包括html标签,同时保留空格和换行
+
+                innerText和innerHTML的区别
+                    这两个元素是可读写的,可以获取元素里面的内容
+                        · 获取内容时的区别
+                            innerText会去除注释、空格和换行,而innerHTML会保留注释、空格和换行
+                        · 设置内容时的区别
+                            innerText不会识别字符串中的html标签,而innerHTML会识别
+
+        4)样式属性操作
+            a.行内样式操作
+                element.style
+
+            b.类名样式操作
+                element.className
+                    直接更改元素的类名,会覆盖原先的类名
+
+        5)自定义属性
+            setAttribute(要设置的属性名,该属性名对应的值)
+            getAttribute(获取)
+            removeAttribute(删除)
+
+        6)节点操作
+            i)父节点  parentNode
+                得到的是离元素最近的父级节点,如没有则返回null
+            ii)子节点  children
+                childrenNodes     获取过来时所有的节点(包含了文本、空格、换行、注释等等)
+                需要条件判断 nodeType == 1 证明是一个元素节点
+
+                children[0]                             //首
+                children[array.length - 1]              //尾
+
+            iii)兄弟节点
+                children  索引号 + -
+
+            iv)
+                a.返回第一个节点,不管是文本节点还是元素节点
+                    .firstChild
+                    .lastChild
+                b.返回第一个元素节点
+                    .firstElementChild
+                    .lastElementChild
+
+            v)创建节点
+                document.createElement('要创建的元素名')
+
+            vi)添加节点(给父元素添加)
+                appendChild()
+                    一次性只能添加一个
+                append()
+                    一次性可以添加多个
+
+                    语法结构相同:
+                        父节点.appendChild()
+                        父节点.append()
+
+            vii)删除节点
+                removeChild()
+                    语法:
+                        父元素.removeChild(this.parentNode)
+                        移除节点时,移除的节点必须是父元素的亲子代
+
+            viii)克隆节点
+                cloneNode()
+                    括号为空或者里面是false    浅克隆   只复制标签不复制里面的内容
+                    括号内为true             深克隆   复制标签复制内容
+
+        7)事件注册方式
+            1.传统事件onclick注册     兼容所有情况
+                .onclick = function(){}
+                传统方式注册只能注册一次
+
+            2.监听事件注册   addEventListener()       IE8及以下不支持
+                注册一个点击事件,事件不能带on
+                    .addEventListener('click',function(){})
+                        可以注册多次相同类型的时间
+                        事件冒泡和捕获的过程
+                        如果不写第三个参数,或者写为false的时候,那么这个事件只有冒泡过程
+                        如果想要他有捕获过程,那么第三个参数必须为true
+
+            3.针对IE低版本的事件注册
+                attachEvent('onclick',function(){})         //必须带on , 兼容IE10及以下版本
+
+        8)移除事件方式
+            1.移除传统的事件
+                .onclick = function(){}
+                .onclick = null
+
+            2.清除addEventListener注册的事件
+                .addEventListener('',fn)
+                .removeEventListener('',fn)
+                function fn(){}
+
+        9)事件对象
+            属性
+                e.target                    返回触发事件的对象
+                e.srcElement                返回触发事件的对象       (IE6-8使用)
+                e.type                      返回事件的类型(事件不带on)
+                e.cancelBubble              阻止冒泡               (IE6-8使用)
+                e.returnValue               阻止默认事件(默认行为)   (IE6-8使用)
+
+            方法
+                e.preventDefault()          阻止默认事件(默认行为)
+                e.stopPropagation()         阻止冒泡
+
+            使用
+                清除默认行为
+                    1)用事件对象属性         e.returnValue         仅限IE低版本使用
+                    2)用事件对象方法         e.preventDefault()     需考虑兼容问题
+                    3)用return false                             此行后面的代码不执行
+
+                阻止冒泡效果
+                    1)用事件对象方法         e.stopPropagation()     需考虑兼容问题
+                    2)用事件对象属性         e.cancelBubble
+
+            鼠标事件对象
+                event对象代表事件的状态,跟事件相关的一系列信息的集合
+                对象
+                    e.clientX           返回鼠标相对于浏览器窗口可视区的X坐标
+                    e.clientY           返回鼠标相对于浏览器窗口可视区的Y坐标
+                    e.pageX             返回鼠标相对于文档页面的X坐标  (IE9以上支持)
+                    e.pageY             返回鼠标相对于文档页面的Y坐标  (IE9以上支持)
+                    e.screenX           返回鼠标相对于电脑屏幕的X坐标
+                    e.screenY           返回鼠标相对于电脑屏幕的Y坐标

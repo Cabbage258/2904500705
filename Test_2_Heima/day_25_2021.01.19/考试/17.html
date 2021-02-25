@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+<div>
+        <span style="color:red">
+            抱歉，你访问的网页不存在或者已经被删除。
+        </span>
+    <br>
+    <span>
+            该界面将在<span id="remain">5</span> s后自动跳转到首页,或者您点击
+            <a href="http://www.itheima.com">立即跳转</a>
+        </span>
+</div>
+</body>
+<!-----------------------------------------------答题区----------------------------------------------------->
+<script>
+//需求
+//5s之后自动跳转到http://www.itheima.com
+//页面中的时间要动态变化
+//抓取DOM
+var remain = document.querySelector('#remain')
+//由于标签中原有数字5,所以这里var一个4秒,当定时器第一个1000ms过去之后,span标签内的数字跳为4
+var timer = 4
+//创建一个定时器
+
+setInterval(function(){
+    //判断timer当前的值,不为0时#remain标签内为timer,timer自减;timer为0时,跳转到指定网址
+    if(timer == 0){
+        remain.innerHTML = timer
+        location.href = 'http://www.itheima.com'
+    }else{
+        remain.innerHTML = timer
+        timer--
+    }
+},1000)
+</script>
+</html>

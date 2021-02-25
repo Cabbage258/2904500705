@@ -1,0 +1,144 @@
+*, *:after, *:before {
+    box-sizing: border-box;
+}
+
+body {
+    background: #F5F3F4;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+}
+
+h1 {
+    color: #4c4c4c;/*字体颜色*/
+    font-weight: 600;/*字体粗细*/
+    border-bottom: 1px solid #ccc;/*下边框*/
+}
+
+h2, h4 {
+    font-weight: 400;/*下边框*/
+    color: #4d4d4d;/*字体颜色*/
+}
+
+.card {
+    display: inline-block;/*行内块*/
+    margin: 10px;/*外边距10px*/
+    background: #fff;/*背景色*/
+    padding: 15px;/*内边距*/
+    min-width: 200px;/*最小宽度*/
+    box-shadow: 0 3px 5px #ddd;/*盒子阴影 y偏移3px 拖影5px*/
+    color: #555;/*字体颜色*/
+}
+.card .box {
+    width: 100px;/*宽度*/
+    height: 100px;/*高度*/
+    margin: auto;/*外边距自动*/
+    background: #ddd;/*背景色*/
+    cursor: pointer;/*鼠标移入时手型*/
+    box-shadow: 0 0 5px #ccc inset;/*盒子阴影 拖影5px 内阴影*/
+}
+.card .box .fill {
+    width: 100px;/*宽度*/
+    height: 100px;/*高度*/
+    position: relative;/*自身定位*/
+    background: #03A9F4;/*背景色*/
+    opacity: .5;/*透明度*/
+    filter:alpha(opacity=50);/*透明度兼容*/
+    box-shadow: 0 0 5px #ccc;/*盒子阴影*/
+    -webkit-transition: 0.3s;/*过渡动画0.3s*/
+    transition: 0.3s;
+}
+.card p {
+    margin-top: 25px;/*上外边25px*/
+}
+
+.rotate:hover .fill {
+    -webkit-transform: rotate(45deg);/*顺时针45度*/
+    transform: rotate(45deg);
+}
+
+.rotateX:hover .fill {
+    -webkit-transform: rotateX(45deg);
+    transform: rotateX(45deg);/*x轴顺时针45度*/
+}
+
+.rotateY:hover .fill {
+    -webkit-transform: rotateY(45deg);
+    transform: rotateY(45deg);/*y轴顺时针45度*/
+}
+
+.rotateZ:hover .fill {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);/*顺时针45度*/
+}
+
+.scale:hover .fill {
+    -webkit-transform: scale(2, 2);
+    transform: scale(2, 2);/*缩放宽高为2倍*/
+}
+
+.scaleX:hover .fill {
+    -webkit-transform: scaleX(2);
+    transform: scaleX(2);/*缩放宽度为2倍*/
+}
+
+.scaleY:hover .fill {
+    -webkit-transform: scaleY(2);
+    transform: scaleY(2);/*缩放高度为2倍*/
+}
+
+.skew:hover .fill {
+    -webkit-transform: skew(45deg, 45deg);
+    transform: skew(45deg, 45deg);/*x,y轴倾斜旋转45度*/
+}
+
+.skewX:hover .fill {
+    -webkit-transform: skewX(45deg);
+    transform: skewX(45deg);/*x轴倾斜旋转45度*/
+}
+
+.skewY:hover .fill {
+    -webkit-transform: skewY(45deg);
+    transform: skewY(45deg);/*y轴倾斜旋转45度*/
+}
+
+.translate:hover .fill {
+    -webkit-transform: translate(45px, 1em);
+    transform: translate(45px, 1em);/*x轴正向位移45px,y轴向下位移1字符*/
+}
+
+.translateX:hover .fill {
+    -webkit-transform: translateX(45px);
+    transform: translateX(45px);/*x轴正向位移45px*/
+}
+
+.translateY:hover .fill {
+    -webkit-transform: translateY(45px);
+    transform: translateY(45px);/*y轴正向便宜45px*/
+}
+
+.matrix:hover .fill {
+    -webkit-transform: matrix(2, 2, 0, 2, 45, 0);
+    transform: matrix(2, 2, 0, 2, 45, 0);/*矩阵^^*/
+}
+
+.perspective-100 .box {
+    -webkit-perspective: 100px;
+    perspective: 100px;/*元素透视效果100px*/
+}
+
+
+.perspective-200 .box {
+    -webkit-perspective: 200px;
+    perspective: 200px;/*元素透视效果200px*/
+}
+
+.to-100-0-0 {
+    -webkit-transform-origin: 100% 0 0;
+    transform-origin: 100% 0 0;/*元素基点x轴正向移动自身宽度100%*/
+}
+
+.to-0-100-0 {
+    -webkit-transform-origin: 0 100% 0;
+    transform-origin: 0 100% 0;/*元素基点y轴正向(向下)移动自身高度100%*/
+}

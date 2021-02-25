@@ -1,0 +1,42 @@
+echarts
+    官网:https://echarts.apache.org/
+    社区:https://www.makeapie.com/
+
+1.使用方法
+    · 先导入echarts的js文件
+    · 给一个容器,用来存储后期的表格数据,id名宽高
+    · 利用echarts.init(获取的是第二步的DOM对象)初始化一个 实例对象
+    · CV  option数据
+    · 利用实例对象调用setOption方法,小括号里传参option
+
+2.数据图标部分属性
+    title   用来设置表格的标题的
+    legend  是用来表示每一条线的颜色 做了一个说明 可以选中一个或多个
+    toolbox 工具栏  可以用来把表格信息保存为png图片
+    tooltip 当鼠标放在图标上时,显示出当前的信息
+    grid    来操作表格的大小以及上下左右间距
+    xAxis   用来操作X轴信息
+    yAxis   用来操作Y轴信息
+    color   [数组] 设置表格里面每条线的颜色
+    series  [对象(数据)组成的数组]   用来显示图表信息的
+        type    显示类型  line bar pie 等
+        name    对应legend值
+        stack   用来统计显示  ---  数据累加
+        date    存储当前数据
+
+3.边框图片(IE11.0以后的版本支持)
+    border-image-source:
+        url()   图片路径
+    border-image-slice:
+        切割图片(不带单位)   上右下左
+    border-image-width:
+        设置图片边框宽度
+    border-image-repeat:
+        拉伸切割剩下的部分
+
+    简写:
+        border-image:图片路径  向内偏移距离  宽度  图像区域超出边框的距离  重复效果;
+        重复效果:round/stretch/repeat
+            Tips:
+                设置border后显示
+

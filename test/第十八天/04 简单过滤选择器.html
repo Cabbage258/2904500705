@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简单过滤选择器</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+
+</head>
+<body>
+<ul>
+    <li>li01</li>
+    <li>li02</li>
+    <li class="li3">li03</li>
+    <li>li04</li>
+    <li>li05</li>
+</ul>
+<h1>h1</h1>
+<h3>h3</h3>
+<h6>h6</h6>
+</body>
+<script>
+    /*//:first或first() 第一个元素
+    //$('ul li:first').css('color','red')
+    $('ul li').first().css('color','red')*/
+
+    /*//:last或last()  最后一个元素
+    $('ul li:last').css('color','blue')*/
+
+    /*//:not(selector) 除了selector之外
+    $('ul li:not(.li3)').css('color','red')*/
+
+    /*//:even   偶数元素
+    $('ul>li:even').mouseover(function(){
+        $(this).css('color','blue')
+    })*/
+
+    /*//:odd     奇数元素
+    $('ul>li:odd').css('color','blue')*/
+
+    /*//:eq(index)        第n个元素
+    $('ul>li:eq(2)').css('color','blue')*/
+
+    /*//:gt(index)         大于第n个元素后的元素
+    $('ul>li:gt(2)').css('color','blue')*/
+
+    /*//:header            选择h1-h6所有标题元素
+    $(':header').css('color','red')*/
+</script>
+</html>

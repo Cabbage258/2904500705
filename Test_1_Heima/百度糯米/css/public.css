@@ -1,0 +1,133 @@
+body{
+    width: 100%;
+}
+header{
+    width: 1266px;
+    background-color: #f2f2f2;
+    overflow: hidden;
+    position: relative;
+}
+.navl{
+    width: 315px;
+    padding-left: 30px;
+    box-sizing: border-box;
+    float: left;
+}
+.navl span{
+    color: #666;
+    font-size: 12px;
+    flex: 4;
+    line-height: 39px;
+}
+.navl a{
+    font-size: 12px;
+    flex: 2;
+    line-height: 39px;
+}
+.navl a:nth-of-type(1){
+    color: #b08c4a;
+}
+.navl a:nth-of-type(2){
+    color: #666;
+}
+.navr{
+    width: 557px;
+    float: right;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -10px;
+}
+.navr li{
+    display: inline-block;
+    width: 56px;
+    padding:0 14px;
+}
+.navr li a{
+    display: block;
+    height: 100%;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    color: #666;
+}
+.navr li:nth-child(2),.navr li:nth-child(4){
+    border-right: 1px solid #dbdbdb;
+    padding-right: 17px;
+    margin-right: 3px;
+}
+
+.search{
+    position: relative;
+    margin-top: 40px;
+    width: 100%;
+    height: 50px;
+    background: url(../images/logo.png) no-repeat round 29px 0;
+}
+.search input{
+    height: 40px;
+    outline: none;
+    position: absolute;
+    box-sizing: border-box;
+}
+.search input:first-child{
+    left: 338px;
+    top: 0;
+    width: 577px;
+    border:2px solid #cda45a;
+    border-right: none;
+    text-indent: 1em;
+}
+.search input:last-child{
+    left: 913px;
+    top: 0;
+    border: none;
+    width: 110px;
+    cursor:pointer;
+    background: url(../images/search.png) no-repeat;
+}
+
+
+.banner{
+    margin-top: 51px;
+    width: 1266px;
+    padding-left: 29px;
+}
+.banner span:first-child{
+    font-size: 22px;
+    font-weight: 500;
+}
+.banner .box{
+    margin-top: 21px;
+    overflow: hidden;
+}
+.banner .box div{
+    float: left;
+    width: 180px;
+    height: 265px;
+    padding-right: 25px;
+    position: relative;
+}
+
+.banner .box .box1{background: url(../images/dy1.jpg) no-repeat;}
+.banner .box .box2{background: url(../images/dy2.jpg) no-repeat;}
+.banner .box .box3{background: url(../images/dy3.png) no-repeat;}
+.banner .box .box4{background: url(../images/dy4.png) no-repeat;}
+.banner .box .box5{background: url(../images/dy5.png) no-repeat;}
+.banner .box .box6{background: url(../images/dy6.png) no-repeat;}
+
+.banner .box div span{
+    position: absolute;
+    bottom: 0;
+    right: 25px;
+    border-radius: 5px 0 0 0 ;
+    background-color: #f5aa5f;
+    width: 37px;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+
+}

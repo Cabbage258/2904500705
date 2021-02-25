@@ -1,0 +1,205 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #eee;
+}
+
+li {
+    list-style-type: none;
+}
+
+input {
+    outline: none;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+@font-face {
+    font-family: 'google';
+    src: url(../fonts/google_logo.svg) format("SVG");
+}
+
+/*主页*/
+body {
+    width: 100%;
+    background-color: #37383c;
+}
+
+.header {
+    width: 272px;
+    height: 92px;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    margin-left: -136px;
+    background: url(../images/google_logo.png);
+}
+
+/*.header h1{
+    width: 500px;
+    font-family: google;
+    font-size: 100px;
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+}*/
+/*搜索框*/
+.search {
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    margin-left: -275px;
+}
+.search::before{
+    content:"";
+    width: 24px;
+    height: 24px;
+    position: absolute;/*添加定位将该伪元素变为块级*/
+    top: 50%;
+    left: 16px;
+    margin-top: -12px;
+    background: url(../images/search.png);
+}
+
+/*.search img {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    margin-top: -12px;
+}*/
+
+.search input {
+    width: 550px;
+    height: 45px;
+    border: none;
+    border-radius: 40px;
+    font-size: 16px;
+    text-indent: 3em;
+}
+
+.search input:last-child {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    margin-top: -12px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    border-radius: 0;
+    background: url(../images/googlemic_clr_24px.png);
+}
+
+@media screen and (max-width: 500px) {
+    .search {
+        margin-left: -200px;
+    }
+
+    .search input {
+        width: 400px;
+    }
+}
+
+@media screen and (min-width: 500px) and (max-width: 750px) {
+    .search {
+        margin-left: -250px;
+    }
+
+    .search input {
+        width: 500px;
+    }
+}
+
+/*小图标*/
+.content ul {
+    width: 480px;
+    position: absolute;
+    top: 53%;
+    left: 50%;
+    margin-left: -240px;
+}
+
+.content ul li {
+    display: block;
+    float: left;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+}
+
+.content ul li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+}
+
+.itcast {
+    background: url(../images/itcast.png) no-repeat center 20%;
+}
+
+.tlias {
+    background: url(../images/tlias.png) no-repeat center 20%;
+}
+
+.fanyi {
+    background: url(../images/fanyi.png) no-repeat center 20%;
+}
+
+.amazon {
+    background: url(../images/amazon.png) no-repeat center 20%;
+}
+
+.jd {
+    background: url(../images/jd.png) no-repeat center 20%;
+}
+
+.mi {
+    background: url(../images/mi.png) no-repeat center 20%;
+}
+
+.map {
+    background: url(../images/map.png) no-repeat center 20%;
+}
+
+.content ul li a span {
+    width: 100%;
+    position: absolute;
+    top: 80%;
+    font-size: 12px;
+    text-align: center;
+}
+.content ul li a p{
+    position: absolute;
+    top: 20%;
+    margin-top: -7px;
+    left: 50%;
+    margin-left: -25px;
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: #6a6a6a;
+    border-radius: 50%;
+    z-index:-1;
+}
+
+.content ul li:hover {
+    border-radius: 8px;
+    /*background-color: rgba(255,255,255,.5);*/
+    background: rgba(255, 255, 255, 0.5) url(../images/xx.png) no-repeat 80px 10px;
+}
+

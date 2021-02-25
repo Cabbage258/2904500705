@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+</head>
+<body>
+<input type="checkbox" class="allCheck">全选
+<input type="button" value="反选" class="btn">
+<ul>
+    <li>
+        <input type="checkbox" class="check1" name="items">张三
+    </li>
+    <li>
+        <input type="checkbox" class="check2" name="items">李四
+    </li>
+    <li>
+        <input type="checkbox" class="check3" name="items">麻子
+    </li>
+</ul>
+</body>
+</html>
+<script>
+        /*$(function(){
+        //全选
+        $(".allCheck").click(function(){
+            $(":checkbox").attr("checked",true);
+        });
+        //反选
+        $(".btn").click(function(){
+        //先找到所有的复选框,然后循环遍历每一个复选框 each()相当于foreach()
+        $(":checkbox[name=items]").each(function(){
+        $(this).attr("checked",!$(this).attr("checked"));
+    });
+    });
+
+    });*/
+        $(function () {
+            //全选或全不选
+            $(".allCheck").click(function(){
+                if(this.checked){
+                    $(":checkbox").prop("checked", true);
+                }else{
+                    $(":checkbox").prop("checked", false);
+                }
+            });
+            //全选
+            $("#selectAll").click(function () {
+                $(":checkbox").prop("checked", true);
+            });
+            //反选
+            $(".btn").click(function () {
+                $(":checkbox").each(function () {
+                    $(this).prop("checked", !$(this).prop("checked"));
+                });
+                allchk();
+            });
+
+            //设置全选复选框
+            $(":checkbox").click(function(){
+                allchk();
+            });
+        function allchk(){
+            var chknum = $(":checkbox").size();//选项总个数
+            var chk = 0;
+            $(":checkbox").each(function () {
+                if($(this).prop("checked")==true){
+                    chk++;
+                }
+            });
+            if(chknum==chk){//全选
+                $("#all").prop("checked",true);
+            }else{//不全选
+                $("#all").prop("checked",false);
+            }
+        }})
+
+</script>

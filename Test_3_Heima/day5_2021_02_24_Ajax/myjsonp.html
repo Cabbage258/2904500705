@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    myJsonp({
+        url:'http://www.liulongbin.top:3006/api/jsonp',
+        data:{
+            name:'张三',
+            age:'18'
+        },
+        success:function(res){
+            console.log(res)
+        }
+    })
+    //对象转为查询参数
+    function A(data){
+        let rows = []
+        for(let k in data){
+            rows.push(k + '=' + data[k])
+        }
+        return rows.join("&")
+    }
+    //封装
+    //利用script标签的src实现jsonp
+    //  options.url     options.data   options.success()
+    function myJsonp(options){
+        //1.data数据转换为查询参数
+        options.data = A(options.data)
+        //创建DOM元素script标签
+        const script = document.createElement("script")
+        //动态生成回调函数名字(随机数)
+        const randomName = "myJsonp" + Math.random().toString().substr(2)
+        //回调函数添加到window对象里面
+        window[randomName] = function(ret){
+            //回调success,返回结果
+            options.success && options.success(ret)
+            //请求完清空script
+            script.remove()
+            //请求完清除添加到window的回调函数
+            delete this[randomName]
+        }
+        //配置src信息(拼接src信息)
+        script.src = options.url + '?' + options.data + "&callback=" + randomName
+        //将script添加到DOM head里
+        document.head.appendChild(script)
+    }
+
+    console.log(window)
+</script>

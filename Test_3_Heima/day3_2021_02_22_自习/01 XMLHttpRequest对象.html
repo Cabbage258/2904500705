@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>XMLHttpRequest对象</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var xhr = new XMLHttpRequest()
+    console.log(XMLHttpRequest.constructor)
+    console.log(xhr)
+    console.log(xhr.__proto__ === XMLHttpRequest.prototype)
+    var obj = {}
+    console.log(obj.__proto__ === Object.prototype)
+</script>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>draft2</title>
+    <script src="js/jquery.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+            color:red;
+            font-weight: 700;
+        }
+        body{
+            background-color: #eeeeee;
+        }
+        .lt_check{
+            margin-right: 300px;
+        }
+        .item{
+            width: 800px;
+            height: 100px;
+            border:2px solid skyblue;
+            box-sizing: border-box;
+            background-color: #fff;
+        }
+        .item_num{
+            width: 15px;
+            outline: none;
+            border: none;
+            background-color: #fff;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+<input type="checkbox" title="" class="checkAll">全选
+<div class="item">
+    1<input type="checkbox" title="" class="lt_check">
+    <div class="item_price">$10.00</div>
+    <a href="javascript:" class="jian">-</a>
+    <input type="text" class="item_num" title="" value="1">
+    <a href="javascript:" class="jia">+</a>
+    <div class="item_prices">1</div>
+</div>
+<div class="item">
+    2<input type="checkbox" title="" class="lt_check">
+    <div class="item_price">$10.00</div>
+    <a href="javascript:" class="jian">-</a>
+    <input type="text" class="item_num" title="" value="1">
+    <a href="javascript:" class="jia">+</a>
+    <div class="item_prices"></div>
+</div>
+<div class="item">
+    3<input type="checkbox" title="" class="lt_check">
+    <div class="item_price">$10.00</div>
+    <a href="javascript:" class="jian">-</a>
+    <input type="text" class="item_num" title="" value="1">
+    <a href="javascript:" class="jia">+</a>
+    <div class="item_prices"></div>
+</div>
+<input type="checkbox" title="" class="checkAll">全选
+<div class="item_numSs"></div>
+<div class="item_pricesAll"></div>
+</body>
+</html>
+<script>
+$(function(){
+        $('.item_prices').html($('.item_price').html())
+    //全选
+        //将全选按钮的状态赋值给三个小的按钮
+        $('.checkAll').change(function(){
+            //拿到全选按钮的checked值,赋给所有item的checked
+            $('.lt_check,.checkAll').prop('checked',$(this).prop('checked'))
+            getSum();
+        })
+
+    //判断item内checked是否全为true改变checkAll内checked值(表单选择器 :checked)
+        $('.lt_check').change(function(){
+            if($('.lt_check:checked').length === $('.lt_check').length){
+                $('.checkAll').prop('checked',true)
+            }else{
+                $('.checkAll').prop('checked',false)
+            }
+            getSum();
+        })
+
+    //声明一个局部变量,每次点击.jia,变量++(this)
+    $('.jia').click(function(){
+        console.log('123')
+        var n = $(this).siblings('.item_num').val()
+        n++
+        $(this).siblings('.item_num').val(n)
+        //点击时价格跟随变化
+        //价格:当前.item_num的value值 乘 当前.item_price(单价)
+        //获取.item_price,算式赋值
+        var p = $(this).siblings('.item_price').html()
+        p = p.substr(1)
+        console.log(p)
+        $(this).siblings('.item_prices').html('$' + (p * n).toFixed(2))
+        //总计
+        getSum();
+    })
+
+
+
+
+    $('.jian').click(function(){
+        console.log('123')
+        var n = $(this).siblings('.item_num').val()
+        if(n == 1){
+            return false
+        }
+        n--
+        $(this).siblings('.item_num').val(n)
+        var p = $(this).siblings('.item_price').html()
+        p = p.substr(1)
+        $(this).siblings('.item_prices').html('$' + (p * n).toFixed(2))
+        //总计
+        getSum()
+    })
+    //用户修改文本框的值 计算 总计
+    /*$('.item_num').change(function(){
+        $(this)
+    })*/
+    //
+
+
+
+
+
+    //总计
+    function getSum(){
+        var nums = 0
+        var prcAll = 0
+        $('.item_num').each(function(i,ele){
+            nums += parseInt($(ele).val())
+        })
+        $('.item_numSs').text(nums)
+        $('.item_prices').each(function(i,ele){
+            prcAll += parseInt($(ele).text().substr(1))
+        })
+        $('.item_pricesAll').text('$' + (prcAll).toFixed(2))
+    }
+})
+</script>
+

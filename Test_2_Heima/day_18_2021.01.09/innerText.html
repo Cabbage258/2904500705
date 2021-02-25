@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>innerText改变元素内容</title>
+</head>
+<body>
+<button>显示当前系统时间</button>
+<div>某个时间</div>
+<p>1123</p>
+<script>
+    //需求:点击按钮,div文字变化
+    //1.获取元素
+    var btn = document.querySelector('button'),div = document.querySelector('div')
+    //2.注册事件
+    btn.onclick = function(){
+        //div.innerText =
+        div.innerHTML = getDate()
+    }
+    function getDate(){
+        var date = new Date()
+        // 拼接一个当前日期
+        var year = date.getFullYear(),month = date.getMonth() + 1,dates = date.getDate()
+        var arr = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'],day = date.getDay()
+        return '今天是:' + year + '年' + month + '月' + dates + '日' + arr[day]
+    }
+
+</script>
+</body>
+</html>

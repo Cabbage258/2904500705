@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //需求:先找出字符串'85872637471533203552943982'中出现次数最多的数字及次数
+    //    然后去重后并排序(不准使用sort),使得到结果为'0123456789'
+    //    1.找到出现最多的数字和出现的次数
+    //    2.去除字符串中重复的数字
+    //    3.对去重后的字符串排序
+    //    4.代码规范
+    //------------------------------------------------------------------
+    //1.找到出现最多的数字和出现的次数
+    var str = '85872637471533203552943982', obj = [];
+    for (var i = 0; i < str.length; i++) {
+        var key = str[i];
+        if (!obj[key]) {
+            obj[key] = 1;
+        } else {
+            obj[key]++;
+        }
+    }
+    var max = -1;
+    var max_key = '';
+    var key;
+    for (key in obj) {
+        if (max < obj[key]) {
+            max = obj[key];
+            max_key = key;
+        }
+    }
+    console.log(max_key + "为最多出现字符，出现的次数为" + max);
+    //2.去除重复数字
+    var newStr = new Set(str)
+    console.log(newStr)
+
+</script>

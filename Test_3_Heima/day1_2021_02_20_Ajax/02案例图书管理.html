@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="lib/bootstrap.css"/>
+    <script src="lib/jquery.js"></script>
+</head>
+
+<body style="padding: 15px;">
+<!-- 添加图书的Panel面板 -->
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">添加新图书</h3>
+    </div>
+    <div class="panel-body form-inline">
+
+        <div class="input-group">
+            <div class="input-group-addon">书名</div>
+            <input type="text" class="form-control" id="iptBookname" placeholder="请输入书名">
+        </div>
+
+        <div class="input-group">
+            <div class="input-group-addon">作者</div>
+            <input type="text" class="form-control" id="iptAuthor" placeholder="请输入作者">
+        </div>
+
+        <div class="input-group">
+            <div class="input-group-addon">出版社</div>
+            <input type="text" class="form-control" id="iptPublisher" placeholder="请输入出版社">
+        </div>
+
+        <button id="btnAdd" class="btn btn-primary">添加</button>
+
+    </div>
+</div>
+
+
+<!-- 图书的表格 -->
+<table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>书名</th>
+        <th>作者</th>
+        <th>出版社</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody id="tb"></tbody>
+</table>
+
+</body>
+
+</html>
+<script>
+    /*$(function () {
+        //1.获取图书列表
+        $.get('http://www.liulongbin.top:3006/api/getbooks', function (ret) {
+            if (ret.status !== 200) alert(ret.msg)  //判断是否成功取到数据
+            //遍历显示
+            //  声明一个空数组存放遍历出来的标签
+            let rows = []
+            //  遍历
+            ret.data.forEach(function (item) {
+                let tr = `<tr>
+                            <th>${item.id}</th>
+                            <th>${item.bookname}</th>
+                            <th>${item.author}</th>
+                            <th>${item.publisher}</th>
+                            <th><a href="javascript:">删除</a></th>
+                          </tr>`
+                //每次遍历的结果添加到数组尾部
+                rows.push(tr)
+            })
+            //使用join方法把数组转换为字符串,默认分隔符为  ,   所以设置分隔符为空,将所有数组元素转换为字符串赋给str
+            let str = rows.join('')         //用join方法付把数组转为字符串
+            $('#tb').empty().append(str)
+        })
+    })*/
+    $(function () {
+        getBookList()
+        //封装
+        function getBookList() {
+            $.get('http://www.liulongbin.top:3006/api/getbooks', function (ret) {
+                if (ret.status !== 200) alert(ret.msg)  //判断是否成功取到数据
+                //遍历显示
+                let rows = []
+                ret.data.forEach(function (item) {
+                    let tr = `<tr>
+                            <th>${item.id}</th>
+                            <th>${item.bookname}</th>
+                            <th>${item.author}</th>
+                            <th>${item.publisher}</th>
+                            <th><a href="javascript:" class="del" data-id="${item.id}">删除</a></th>
+                          </tr>`
+                    rows.push(tr)
+                })
+                let str = rows.join('')         //用join方法付把数组转为字符串
+                $('#tb').empty().append(str)
+            })
+            $('#tb').on('click', 'a', function () {
+                //获取id
+                const id = $(this).attr('data-id')
+                //ajax根据id删除数据
+                $.ajax({
+                    url: 'http://www.liulongbin.top:3006/api/delbook',
+                    data: {id: id},
+                    success: function (ret) {
+                        getBookList()
+                    },
+                    error: function (err) {
+                        alert('删除失败')
+                    }
+                })
+            })
+            //添加
+            $('#btnAdd').on('click', function () {
+                //对提交内容进行非空校验,trim去除两端空格
+                //  默认值去空后赋给
+                const bookname = $('#iptBookname').val().trim()
+                const author = $('#iptAuthor').val().trim()
+                const publisher = $('#iptPublisher').val().trim()
+                //  判断,非空校验
+                if (bookname.length == 0 || author.length == 0 || publisher.length == 0) {
+                    return alert('请输入合法数据')
+                }
+                //处理好后提交数据
+                $.ajax({
+                    type: 'post',
+                    url: 'http://www.liulongbin.top:3006/api/addbook',
+                    data: {
+                        bookname: bookname,
+                        author: author,
+                        publisher: publisher,
+                    },
+                    success: function (ret) {
+                        alert('添加成功')
+                        $('.form-control').val('')
+                        getBookList()
+                    },
+                    error: function () {
+                        alert('添加失败')
+                    }
+                })
+            })
+        }
+    })
+</script>

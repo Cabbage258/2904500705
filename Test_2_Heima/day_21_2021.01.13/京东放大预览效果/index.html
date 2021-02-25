@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>狗东放大预览</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: #cccccc;
+        }
+
+        .box {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            /*background-color: skyblue;*/
+            margin: 100px auto;
+            background: url(./upload/b3.png) round;
+            border: 1px solid skyblue;
+        }
+
+        .box span {
+            display: none;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            color: greenyellow;
+            background-color: rgba(0, 0, 0, .6);
+        }
+        .span2{
+            display: none;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            color:greenyellow;
+            background-color: rgba(0, 0, 0, .6);
+        }
+
+        .magnify {
+            display: none;
+            width: 250px;
+            height: 250px;
+            position: absolute;
+            box-sizing: border-box;
+            border: 1px solid #f58a1a;
+            background-color: rgba(245, 120, 26, 0.1);
+        }
+
+        .btmbox {
+            margin: 50px auto;
+            width: 400px;
+            height: 80px;
+        }
+
+        .ltbox {
+            float: left;
+            width: 80px;
+            height: 80px;
+            background: url(./upload/b3.png) round;
+            border: 2px solid transparent;
+
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+
+        .ltbox:hover {
+            border: 2px solid red;
+        }
+
+        .ltbox:nth-of-type(2) {
+            border: 2px solid red;
+        }
+
+        .gtfix {
+            display: none;
+            position: fixed;
+            top: 100px;
+            right: 50px;
+            width: 500px;
+            height: 500px;
+            border: 2px solid #ccc;
+            background: skyblue url(./upload/big.jpg) no-repeat;
+            /*background-position: 10px -100px;*/
+        }
+    </style>
+</head>
+<body>
+
+<div class="box"><span class="span1"></span>
+    <div class="magnify"></div>
+</div>
+<div class="gtfix">
+    <span class="span2"></span>
+</div>
+<div class="btmbox">
+    <div class="ltbox"></div>
+    <div class="ltbox"></div>
+    <div class="ltbox"></div>
+    <div class="ltbox"></div>
+    <div class="ltbox"></div>
+</div>
+
+
+<!--JS-->
+<script>
+    //抓取DOM
+    var ltbox = document.querySelector('.ltbox')
+    var box = document.querySelector('.box')
+    var span1 = document.querySelector('.span1'), span2 = document.querySelector('.span2')
+    var magnify = document.querySelector('.magnify')
+    var gtfix = document.querySelector('.gtfix')
+    //绑定事件:鼠标移入
+    box.addEventListener('mouseover', fn1)
+
+    function fn1() {
+        span1.style.display = 'block'
+        span2.style.display = 'block'
+        magnify.style.display = 'block'
+        gtfix.style.display = 'block'
+        //绑定事件:鼠标移动
+        box.addEventListener('mousemove', function (e) {
+            var X = e.pageX - this.offsetLeft
+            var Y = e.pageY - this.offsetTop
+            var magnifyMax = this.offsetWidth - magnify.offsetWidth
+            var magnifyX = X - (magnify.offsetWidth / 2), magnifyY = Y - (magnify.offsetWidth / 2)
+            //遮挡层最大移动距离
+            if (magnifyX <= 0) {
+                magnifyX = 0
+            } else if (magnifyX >= magnifyMax) {
+                magnifyX = magnifyMax - 1
+            }
+            if (magnifyY <= 0) {
+                magnifyY = 0
+            } else if (magnifyY >= magnifyMax) {
+                magnifyY = magnifyMax - 1
+            }
+            //放大预览的图片坐标
+            //magnify看作box的视窗,则gtfix为big.jpg图片的视窗
+            //magnifyMax与gtfixMax的比例为坐标比例
+
+            // gtfixX           gtfixMax                                gtfixMax
+            // ------     =    ----------         =>      gtfixX =    ------------ * magnifyX
+            //magnifyX         magnifyMax                              magnifyMax
+
+            //gtfix的位置即为图片position = magnify坐标 * gtfixMax / magnifyMax
+            //magnify已设置限制区域,所以gtfix赋值后直接代入backgroundposition
+            //y轴同上
+            //加入为背景图,所以宽度为背景图宽度 - gtfix宽度
+            var gtfixMax = 800 - gtfix.offsetWidth
+            var gtfixX = magnifyX * gtfixMax / magnifyMax, gtfixY = magnifyY * gtfixMax / magnifyMax
+            //放大预览图片坐标
+            gtfix.style.backgroundPosition = -gtfixX + 'px' + ' ' + -gtfixY + 'px'
+
+            span1.innerHTML = '鼠标在此盒子内坐标:' + ' X ' + X + ' ,' + ' Y ' + Y
+            span2.innerHTML = '放大图中图片的定位:' + ' X ' + parseInt(gtfixX) + ' ,' + ' Y ' + parseInt(gtfixY)
+
+            magnify.style.top = magnifyY + 'px'
+            magnify.style.left = magnifyX + 'px'
+        })
+        //span.innerHTML = X + ',' + Y
+    }
+    //绑定事件:鼠标移出
+    box.addEventListener('mouseout', function (e) {
+        span1.style.display = 'none'
+        span2.style.display = 'none'
+        magnify.style.display = 'none'
+        gtfix.style.display = 'none'
+        //return false
+    })
+
+    var url = style.backgroundImage;
+
+</script>
+
+</body>
+</html>

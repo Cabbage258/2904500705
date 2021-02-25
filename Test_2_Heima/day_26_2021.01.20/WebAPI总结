@@ -1,0 +1,271 @@
+WebAPI
+    1.样式属性操作
+        a.行内样式操作
+            element.style
+
+        b.类名样式操作
+            element.className
+            直接更改元素的类名,会覆盖原先的类名
+
+    自定义属性
+        setAttribute(要设置的属性名,该属性名对应的值)
+        getAttribute(获取)
+        removeAttribute(删除)
+
+    节点操作
+        1)父节点  parentNode
+            得到的是离元素最近的父级节点,如没有则返回null
+        2)子节点 children
+            childrenNodes   获取过来是所有的节点(包含了文本、空格、换行、注释等等)
+            需要条件判断 nodeType == 1 证明是一个元素节点
+
+            children[0]                     //首个节点
+            children[element.length - 1]    //最后一个节点
+            兄弟节点
+                只需索引号 + -
+        3)
+            a.第一个节点,不管是文本节点还是元素节点
+                .firstChild
+                .lastChild
+            b.返回第一个节点
+                .firstElementChild
+                .lastElementChild
+        4)创建节点
+            语法:
+                document.createElement('要创建的元素名')
+        5)添加节点(给父元素添加)
+            appendChild()
+                一次性只能添加一个
+            append()
+                一次性添加多个
+
+                语法结构相同
+                    父节点.appendChild()
+                    父节点.append()
+        6)删除节点
+            removeChild()
+                语法:
+                    父元素.removeChild(this.parentNode)
+                    移除节点时,移除的节点必须是父元素的亲子代
+        7)克隆节点
+            cloneNode()
+                括号为控或者里面是false    浅克隆  只复制标签不复制里面的内容
+                括号内为true             深克隆  复制标签复制内容
+
+    事件注册方式
+        1.传统事件onclick来注册   兼容所有情况
+            .onclick = function(){}
+            传统方式注册只能注册一次,后面解析的会覆盖前面的
+
+        2.监听事件  addEventListener()  有兼容问题(IE8及以下不支持)
+            注册一个点击事件,事件不能带on
+                .addEvenListener('click',function(){})
+                    时间冒泡和事件捕获的过程
+                可以注册多次相同类型的事件
+
+                如果不写第三个参数,或者写为false的时候,那么这个事件只有冒泡过程
+                如果想要他有捕获过程,那么第三个参数必须为true
+
+        3.针对IE低版本的事件注册
+            attachEvent('onclick',function(){})     必须带on
+            能兼容IE10及以下版本
+
+    移除事件方式
+        1.移除传统的时间
+            .onclick = function(){}
+            .onclick = null
+
+        2.清除addEventListener注册的事件
+            .addEventListener('',fn)
+            .removeEventListener('',fn)
+            function fn(){}
+
+    事件对象
+        属性
+            e.target                返回触发事件的对象
+            e.srcElement            返回触发事件的对象       (IE6-8使用)
+            e.type                  返回事件的类型(事件不带on)
+            e.cancelBubble          阻止冒泡              (IE6-8使用)
+            e.returnValue           阻止默认事件(默认行为)  (IE6-8使用)
+
+        方法:
+            e.preventDefault()      阻止默认事件(默认行为)
+            e.stopPropagation()     阻止冒泡
+
+        使用
+            清除默认行为
+                1)用事件对象属性           e.returnValue           仅限IE低版本使用
+                2)用事件对象方法           e.preventDefault()      需考虑兼容问题
+                3)用return false
+
+            阻止冒泡效果
+                1)用事件对象方法           e.stopPropagation()     需考虑兼容问题
+                2)用事件对象属性           e.cancelBubble
+
+        鼠标事件对象
+            event对象代表事件的状态,跟事件相关的一系列信息的集合
+            对象
+                e.clientX               返回鼠标相对于浏览器窗口可视区的X坐标
+                e.clientY               返回鼠标相对于浏览器窗口可视区的Y坐标
+                e.pageX                 返回鼠标相对于文档页面的X坐标  (IE9以上支持)
+                e.pageY                 返回鼠标相对于文档页面的Y坐标  (IE9以上支持)
+                e.screenX               返回鼠标相对于电脑屏幕的X坐标
+                e.screenY               返回鼠标相对于电脑屏幕的Y坐标
+        键盘事件
+            onkeyup             按键弹起(不识别大小写)
+            onkeydown           按键按下(不识别大小写)
+            onkeypress          按键按下(不能识别功能键,如ctrl,shift,↑↓←→等)(识别大小写)
+
+            Tips:
+                三个事件执行顺序 keydown > keypress > keyup
+            e.keyCode   返回按下按键的ASCII码值
+
+    DOM操作
+        事件
+            window.onload               等页面内容全部加载完(包括图片、flash、css文件等)
+            window.DOMContentLoaded     DOM加载完毕后(不包括图片,flash,css样式等)
+
+            window.resize               调整窗口大小
+            window.innerWidth           当前屏幕的宽度
+
+            定时器
+                setTimeout              一次性定时器
+                clearTimeout            停止一次性定时器
+
+                setInterval             重复调用定时器
+                    Tips:可以在开启之前先调用一次,防止刚开始显示空白
+                clearInterval           停止重复调用定时器
+
+        location对象
+            href:       用来获取和设置地址栏的地址,在js里面可以操作按钮进行页面的跳转
+            search:     获取传递过来的参数的              格式为:   ?abc=123&a=456&b=789
+
+                1.先用字符串截取       str.substr(1)
+                2.把截取过后的字符串 以&符号为分隔符(split('&')       //转化为数组[abc=123][a=456][b=789]
+                3.遍历,得到每一项元素值为abc=123   a=456   b=789
+                4.对每一项的元素值进行转换 以等号为分隔符   转换为数组 [abc.123]  [a,456]  [b,789]
+
+        元素偏移量offset系列
+            offset(偏移量)
+            1.element.offsetParent
+                返回元素距离带有定位的父元素的位置(如果父级都无定位返回body)(返回值不带单位)
+
+            2.element.offsetWidth/element.offsetHeight
+                返回元素自身的大小(包括padding、边框、内容区)(返回值不带单位)
+
+            3.element.offsetTop/element.offsetLeft
+                返回元素相对带有定位的父元素 上方/左边框 的偏移
+
+            offset与style的区别:
+                offset可以得到任意样式表中的样式值
+                offset系列获得的数值是没有单位的
+                offsetWidth/offsetHeight等属性是只读属性,只能获取不能赋值
+                style只能得到行内样式表中的样式值(因为行内样式表作为标签的属性写在标签内)
+                style.width获得的是带有单位的字符串
+                style.width获得不包含padding和border的值
+                style,width是可读写属性
+
+            元素可视区client系列
+                client(客户端)
+                1.element.clientTop/element.clientLeft
+                    返回元素 上/左 边框的大小
+                2.element.clientWidth/element.clientHeight
+                    返回自身包括padding、内容区的 宽/高 度,不含边框,返回数值不带单位
+
+            元素滚动scroll系列
+                scroll(滚动的)
+                页面被卷曲的头部:
+                    浏览器高度不足以显示整个页面时,会自动出现滚动条,滚动条向下移动时,页面上面被隐藏掉的高度
+                    滚动条在滚动时会触发onscroll事件
+                1.element.scrollTop/element.scrollLeft
+                    返回被卷曲的 上侧/左侧 距离,返回数值不带单位
+                2.element.scrollWidth/element.scrollHeight
+                    返回自身实际的(未超出盒子返回盒子 高度/宽度 ,超出盒子返回实际内容 高度/宽度) 宽度/高度 ,不含边框,返回数值不带单位
+
+            mouseover与mouseenter的区别
+                mouseenter没有冒泡
+
+            js动画
+                原理:
+                    通过定时器setInterval()不断移动盒子位置
+                步骤:
+                    获得盒子当前位置
+                    让盒子在当前位置+1个单位的移动距离
+                    定时器重复
+                    (条件)结束定时器
+
+    动画函数封装
+        缓动效果原理
+            核心算法
+                (目标值-现在的位置) - 10 作为每次移动的距离步长
+                    注意步长值需要取整
+
+        动画函数多个目标之间移动
+
+        动画函数添加回调函数
+            将这个函数作为参数传到另一个函数里面,当那个函数执行完之后,在执行传进去的这个函数
+            位置:定时器结束的位置
+
+        节流阀
+            防止轮播图按钮连续点击造成播放过快
+            目的
+                当上一个函数动画执行完毕,再去执行下一个函数动画,让事件无法连续触发
+            实现
+                利用回调函数,添加一个变量来控制,锁住函数和解锁函数
+                设置一个变量 var flag = true
+                if(flag)(flag = false;do something)         //关阀门
+                利用回调函数动画执行完毕    flag = true         //开阀门
+
+    移动端触屏事件
+        touchstart
+            手指触摸到一个DOM元素时触发
+        touchmove
+            手指在一个DOM元素上滑动时触发
+        touchend
+            手指从一个DOM元素上移开时触发
+
+        触摸事件对象(TouchEvent)
+            touches
+                正在触摸屏幕的所有手指的一个列表
+            targetTouches
+                正在触摸当前DOM元素上的手指的一个列表
+            changedTouches
+                手指状态发生了改变的列表,从无到有,从有到无变化
+
+        拖动元素
+            · 触摸元素touchstart        获取手指初始坐标
+            · 移动手指touchmove         计算手指的滑动距离,并且移动盒子
+            · 离开手指touchend
+                Tips:
+                    手指移动也会触发滚动屏幕所以这里要阻止默认的屏幕滚动
+                        e,preventDefault()
+
+
+        classList(HTML5,ie10+)
+            可以获取到当前元素对象的所有类名,并且放在一个伪数组里
+
+            element.classList.add()
+                添加类名,不影响原类名存在
+            element.classList.remove()
+                移除类名,不影响原类名存在
+            element.classList.toggle()
+                切换类名
+
+
+    本地存储
+        localStorage
+            20M      除非手动清除,否则一直存在
+            方法:
+                setItem(键,值)
+                getItem(键)
+                removeItem(键)
+
+        sessionStorage
+            5M       关闭浏览器就结束
+            方法:
+                setItem(键,值)
+                getItem(键)
+                removeItem(键)
+
+        cookie
+            4kb     后期用它来保存登录状态的

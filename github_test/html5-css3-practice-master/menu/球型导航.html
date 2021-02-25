@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>球型导航</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            list-style: none;
+        }
+        
+        body {
+            background: #34495e;
+        }
+        
+        nav {
+            position: absolute;     /*父元素body定位*/
+            margin: 0 auto;
+            left: 45%;
+            top: 30%;
+            width: 180px;
+            height: 180px;
+            background: #34495e;
+            border-radius: 50%;     /*圆*/
+            text-align: center;
+            line-height: 180px;
+            color: #2c3e50;
+            font-weight: bold;
+            font-size: 2em;
+            background: #f1c40f;
+            box-shadow: 0 0 15px rgba(0, 0, 0, .5); /*圆下阴影拖影15px #000透明.5*/
+            cursor: pointer;
+            display: flex;                          /*弹性盒子*/
+            justify-content: center;                /*上下居中*/
+            align-items: center;                    /*左右居中*/
+        }
+        
+        nav strong {
+            position: absolute;                     /*相对于父元素 .nav 定位*/
+        }
+        
+        nav:hover ul {
+            transform: scale(1.3);                  /*鼠标放入时 缩放1.3倍*/
+        }
+        /*原宽高正常缩放为给定值的0,鼠标放入时缩放为给定值的1.3倍且*/
+        ul {
+            transform: scale(1.3);                    /*缩放为0*/
+            border: 150px solid transparent;        /*边框线150px 隐藏*/
+            transition: .3s ease-out;                        /*过渡动画时间.5s*/
+            cursor: pointer;
+            z-index: -1;                            /*z轴-1*/
+        }
+        
+        ul li {
+            position: absolute;                     /*相对于 .nav 定位*/
+            top: -100px;                            /**/
+            left: -100px;
+            width: 50px;
+            height: 50px;
+            background: #e67e22;
+            border-radius: 50%;                     /*小圆*/
+            display: flex;                          /*弹性盒子*/
+            justify-content: center;                /*行中心对齐*/
+            line-height: 1.5em;
+            transition: all 1.5s ease-in-out;
+            transform-origin: 100px 100px;          /*元素被置于x轴100px y轴100px*/
+            box-shadow: 0 0 15px rgba(0, 0, 0, .8); /*圆外阴影*/
+        }
+        
+        ul li span {
+            transition: all 1s;                     /*小标签过渡动画1s*/
+        }
+        
+        nav:hover ul li:nth-child(1) {              /*鼠标放在 .nav 时,第一个li旋转40度*/
+            transform: rotate(40deg);
+        }
+        
+        nav:hover ul li:nth-child(1) span {
+            transform: rotate(1040deg);             /*鼠标放在.nav 时,第一个span旋转1040度*/
+        }
+        
+        nav:hover ul li:nth-child(2) {
+            transform: rotate(80deg);               /*鼠标放在时,第二个80度*/
+        }
+        
+        nav:hover ul li:nth-child(2) span {
+            transform: rotate(1000deg);
+        }
+        
+        nav:hover ul li:nth-child(3) {
+            transform: rotate(120deg);
+        }
+        
+        nav:hover ul li:nth-child(3) span {
+            transform: rotate(1680deg);
+        }
+        
+        nav:hover ul li:nth-child(4) {
+            transform: rotate(160deg);
+        }
+        
+        nav:hover ul li:nth-child(4) span {
+            transform: rotate(560deg);
+        }
+        
+        nav:hover ul li:nth-child(5) {
+            transform: rotate(200deg);
+        }
+        
+        nav:hover ul li:nth-child(5) span {
+            transform: rotate(520deg);
+        }
+        
+        nav:hover ul li:nth-child(6) {
+            transform: rotate(240deg);
+        }
+        
+        nav:hover ul li:nth-child(6) span {
+            transform: rotate(480deg);
+        }
+        
+        nav:hover ul li:nth-child(7) {
+            transform: rotate(280deg);
+        }
+        
+        nav:hover ul li:nth-child(7) span {
+            transform: rotate(440deg);
+        }
+        
+        nav:hover ul li:nth-child(8) {
+            transform: rotate(320deg);
+        }
+        
+        nav:hover ul li:nth-child(8) span {
+            transform: rotate(400deg);
+        }
+        
+        nav:hover ul li:nth-child(9) {
+            transform: rotate(360deg);
+        }
+        
+        nav:hover ul li:nth-child(9) span {
+            transform: rotate(720deg);
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><span>1</span></li>
+            <li><span>2</span></li>
+            <li><span>3</span></li>
+            <li><span>4</span></li>
+            <li><span>5</span></li>
+            <li><span>6</span></li>
+            <li><span>7</span></li>
+            <li><span>8</span></li>
+            <li><span>9</span></li>
+        </ul>
+    </nav>
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>input元素</title>
+</head>
+<body>
+    <form action="123.php" method="post">
+        <!--1.text 文本框 用户可以里面输入任何蚊子-->
+        用户名: <input type="text" placeholder="请输入用户名" name="username"><br />
+
+        <!--2.password 密码框 -->
+        密码: <input type="password" name="pwd" placeholder="请输入密码">
+            <!--hidden 定义隐藏的输入字段-->
+        <input type="password" name="pwd" placeholder="请输入密码" hidden><br />
+
+        <!--3.radio 单选按钮 多选一-->
+        <!--  name 表单元素名字 单选钮必须有相同的名字name 才可以实现多选1-->
+        <!-- checked 页面加载时默认选择-->
+        性别:男 <input type="radio" name="sex" checked> 女 <input type="radio" name="sex"><br />
+
+        <!--4.checkbox 复选框 实现多选效果-->
+        爱好: 吃饭 <input type="checkbox" name="hobby"> 睡觉<input type="checkbox"> 打豆豆<input type="checkbox"><br />
+
+        <!--5.submit 提交按钮 数据提交到后台-->
+        <input type="submit" value="注册">
+
+        <!--6.reset 重置按钮 可以还原为初始状态-->
+        <input type="reset" value="重置"><br />
+
+        <!--7.button 普通按钮 -->
+        <input type="button" value="获取短信验证码"><br />
+
+        <!--8.file 上传文件按钮-->
+        上传文件:&nbsp;<input type="file">
+
+        <!-- label -->
+        性别:男 <input type="radio" name="sex" checked> 女 <input type="radio" name="sex"><br />
+    </form>
+</body>
+</html>

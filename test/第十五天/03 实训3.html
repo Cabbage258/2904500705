@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实训3</title>
+</head>
+<body>
+<script>
+    //需求:将[1,2,2,3,5,4,3,3,3,3,5,4,6,7,6,9,9,9,9]数组去重复
+    var arr = [1,2,2,3,5,4,3,3,3,3,5,4,6,7,6,9,9,9,9],newArr = [];
+    for(var i=0;i<arr.length;i++){
+        if(newArr.indexOf(arr[i])<0){//indexOf用来返回指定数据在数组中出现的位置,如果没找到,则返回-1
+        newArr.push(arr[i]);
+        }
+    }
+    console.log(newArr)
+</script>
+</body>
+</html>

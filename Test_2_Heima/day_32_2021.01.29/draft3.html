@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>draft3</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*var f = function(){
+        console.log(this.x)
+    }
+
+    var x = 1
+    var obj = {
+        f: f,
+        x: 2,
+    }
+    f()     //1
+    obj.f() //2*/
+
+    /*var Obj = function(p){
+        this.p = p
+    }
+    var o = new Obj('Hello World!')
+    console.log(o.p)    //Hello World!*/
+
+    /*function add(a,b){
+        return a + b
+    }
+
+    console.log(add.call(this,1,2))*/
+
+    /*var obj = {}
+    obj.hasOwnProperty('toString')
+    console.log(obj.hasOwnProperty('toString'))
+
+    //覆盖掉继承的hasOwnProperty方法
+    obj.hasOwnProperty = function(){
+        return true;
+    }
+    obj.hasOwnProperty('toString')
+    console.log(obj.hasOwnProperty('toString'))//false
+
+    Object.prototype.hasOwnProperty.call(obj,'toString')//true
+    console.log(Object.prototype.hasOwnProperty.call(obj,'toString'))//false*/
+
+    /*var counter = {
+        count:0,
+        inc:function(){
+            this.count++;
+        }
+    }
+    var func = counter.inc.bind(counter)
+    func()
+    console.log(counter.count)
+    //上面代码中,counter.inc()方法被赋值给变量func.这时必须用bind()方法将inc()内部的this
+    //绑定到counter,否则就会出错*/
+
+    var add = function(x,y){
+        return x * this.m + y * this.n;
+    }
+    var obj ={
+        m:2,
+        n:2
+    }
+    var newAdd = add.bind(obj,5)
+    console.log(newAdd(5))
+</script>

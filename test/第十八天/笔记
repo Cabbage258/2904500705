@@ -1,0 +1,62 @@
+JQuery
+1.认识JQuery
+    JQ是JS库,是对JavaScript的一个封装,也即是说JQ提供了大量的API,在开发时,以最少的代码实现最多的功能
+    于2006年开源,现在已经发展成为集JS、CSS、DOM、Ajax于一体的强大的框架体系.
+2.学习文档
+    中文文档:https://www.jquery123.com/
+    API学习或查询:https://jquery.cuishifeng.cn/
+3.JQ功能
+    1)控制页面样式
+    2)访问和操作DOM
+    3)事件处理
+    4)提供了大量的插件
+    5)与Ajax技术的封装
+    6)提供了大量动画处理
+    ......
+4.使用JQ
+    1)本地引入
+        <script src="./js/jquery-3.3.1.min.js"></script>
+    2)CDN引入
+        <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+
+    注意:JQ必须先引入,然后才能调它的API.可以在head标签中引入,也可以在最后引入
+5.选择器
+    1)基本选择器
+        id: #id
+        class: .class
+        element: element
+        *  :选择所有标签(项目开发时不要用,性能差)
+        ,  :选择多个DOM
+    2)层次选择器
+        选择器1 选择器2;    选择选择器1的所有的后代元素(选择器2)
+        选择器1>选择器2;    只选择选择器1的子元素
+        选择器1+选择器2;    紧挨着选择器1的相邻元素(兄弟元素)
+        选择器1~选择器2;    选择选择器1的所有兄弟元素
+    3)过滤选择器
+        a.简单过滤选择器
+            :first或first()          第一个元素
+            :last或last()            最后一个元素
+            :not(selector)          除selector之外的元素
+            :even                   偶数元素
+            :odd                    奇数元素
+            :eq(index)              第n个元素(n为索引)
+            :gt(index)              大于第n个元素后的元素
+            lt(index)               小于第n个元素后的元素
+            :header                 选择h1至h6所有标题元素
+        b.内容过滤选择器
+            :contains(text)         获取包含指定文本内容的元素
+            :empty                  获取不包含子元素和文本内容的元素
+            :has(selector)          获取含有选择器所匹配的元素
+            :parent                 获取含有子元素或文本的元素
+        c.可见性过滤选择器
+            :hidden                 选择display:none或隐藏文本域
+            :visible                选择display:block的元素
+        d.属性过滤选择器
+            [attr]                  获取含有指定属性的元素
+            [attr=value]            获取属性值为value的元素
+            [attr!=value]           获取属性值不为value的元素
+            [attr^=value]           获取属性值以value开头的元素
+            [attr$=value]           获取属性值以value结尾的元素
+            [attr*=value]           获取属性值含有value的元素
+            [attr1][attr2][attr3]   获取含有指定多个属性的元素
+    4)表单选择器

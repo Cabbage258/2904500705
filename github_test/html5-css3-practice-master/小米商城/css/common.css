@@ -1,0 +1,100 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+.clearfix {
+  *zoom: 1;
+}
+
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+  font-size: 0;
+  height: 0;
+}
+
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+.show {
+  display: block !important;
+}
+
+.hide {
+  display: none !important;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.dv {
+  display: inline-block;
+  vertical-align: middle;
+  *display: inline;
+  *zoom: 1;
+}
+
+.di {
+  display: inline;
+  *display: inline;
+  *zoom: 1;
+}
+
+.cl {
+  overflow: hidden;
+  *zoom: 1;
+}
+
+.text-hide {
+  border: 0;
+  background-color: transparent;
+  font-size: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+}
+
+.text-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.btn {
+  display: inline-block;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  *display: inline;
+  *zoom: 1;
+}
+
+.btn:hover {
+  text-decoration: none;
+}

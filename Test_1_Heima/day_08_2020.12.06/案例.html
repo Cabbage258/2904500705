@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>土豆网</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box, .play {
+            width: 448px;
+            height: 252px;
+        }
+
+        .box {
+            margin: 200px auto;
+            background: url(images/tudou.jpg);
+        }
+
+        .box:hover .play {
+            display: block;
+        }
+
+        .play {
+            display: none;
+            position: relative;
+            background-color: rgba(0, 0, 0, .5);
+        }
+
+        .play a {
+            display: block;
+            width: 34px;
+            height: 34px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -17px;
+            margin-top: -17px;
+            background: url(images/arr.png);
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="play"><a href="#"></a></div>
+    </div>
+</body>
+</html>

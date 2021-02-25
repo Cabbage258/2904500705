@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>刮刮乐</title>
+    <style>
+        .ggk{
+            position: relative;
+            width: 230px;
+            height: 120px;
+            margin: 20px auto;
+            border: 1px solid #999;
+            color: red;
+        }
+        .ggk span {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            line-height: 120px;
+            text-align: center;
+            font-size: 50px;
+            user-select: none;
+        }
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+    <!---
+        刮刮卡原理：利用HTML5的画布Canvas，结合其提供的API，在Canvas元素上绘制一个灰色蒙层，
+        然后通过检测用户鼠标移到和手势来绘制一个透明的图形，
+        这样就能看到Canvas背景下的真实图片，就达到刮刮卡效果。
+    -->
+</head>
+<body>
+    <div class="ggk">
+        <span id="result"></span>
+        <canvas id="ggk"></canvas>
+    </div>
+</body>
+
+<script type="text/javascript">
+
+init();
+
+function init() {
+    let canvas = document.querySelector('#ggk');
+    let ctx = canvas.getContext('2d');
+    // 绘制涂层
+    paintingCover(canvas, ctx);
+    // 获取刮卡结果
+    genResult();
+    // 处理刮刮卡事件
+    handleShave(canvas, ctx);
+}
+
+function genResult() {
+    let span = document.querySelector('#result');
+    let resultArray = ['100元', '200元', '300元', '谢谢', '再来一次'];
+    let resultText = resultArray[Math.floor(Math.random() * 5)];
+    span.innerHTML = resultText;
+}
+
+function paintingCover(canvas, ctx) {
+    canvas.width = 230;
+    canvas.height = 120;
+    ctx.save();
+    ctx.fillStyle = 'rgb(100, 100, 100)';
+    ctx.fillRect(0, 0, 230, 120);
+    ctx.restore();
+    console.log(ctx.getImageData().data.length);
+}
+
+function handleShave(canvas, ctx) {
+    canvas.onmousedown = function(e) {
+        e.preventDefault();
+        let downX = e.offsetX;
+        let downY = e.offsetY;
+        ctx.lineWidth = 10;
+        ctx.beginPath();
+        ctx.moveTo(downX, downY);
+        ctx.globalCompositeOperation = 'destination-out';
+
+        canvas.onmousemove = function(e) {
+            let moveX = e.offsetX;
+            let moveY = e.offsetY;
+            ctx.lineTo(moveX, moveY);
+            ctx.stroke();
+        }
+    }
+    canvas.onmouseup = function(e) {
+        e.preventDefault();
+        console.log(ctx.getImageData().data.length);
+        canvas.onmousemove = null;
+    }
+}
+
+</script>
+</html>

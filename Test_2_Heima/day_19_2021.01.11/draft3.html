@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>我是第01个li</li>
+    <li>我是第02个li</li>
+    <li>我是第03个li</li>
+    <li>我是第04个li</li>
+    <li>我是第05个li</li>
+    <li>我是第06个li</li>
+    <li>我是第07个li</li>
+    <li>我是第08个li</li>
+    <li>我是第09个li</li>
+    <li>我是第10个li</li>
+</ul>
+<script>
+    //需求:鼠标移入变为红色
+    //1.获取所有li元素对象
+    var lis = document.querySelectorAll('li')
+    //2.给每一个li元素对象注册事件
+    //3.遍历
+    for(var i = 0;i < lis.length;i++){
+        lis[i].onmouseover = function(){
+            //
+            for(var j = 0;j < lis.length;j++){
+                lis[j].style.backgroundColor = ''
+            }
+            //this指向触发当前事件的事件源对象
+            this.style.backgroundColor = 'red'
+        }
+        //
+        lis[i].onmouseout = function(){
+            for(var j = 0;j < lis.length;j++){
+                lis[j].style.backgroundColor = ''
+            }
+        }
+    }
+    //4.
+</script>
+</body>
+</html>

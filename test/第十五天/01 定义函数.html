@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定义函数</title>
+</head>
+<body>
+<script>
+    //无参
+    function show1(){
+        console.log('这是我的第一个函数!');
+    }
+    var show2 = function (){
+        console.log('这是我的第二个函数!');
+    }
+
+    show1();//如果不传参,这里的括号不能省略
+    show2();
+
+
+    //有参
+    function sum1(a,b){
+        var rs = a + b;
+        console.log(rs);
+    }
+    var sum2 = function (x,y){
+        var rs = x + y;
+        console.log(rs);
+    }
+
+    sum1(10,20);//如果不传参,这里的括号不能省略
+    sum2(20,-30);
+
+
+
+    //参数个数匹配:实参格式超过形参个数,将实参依次传给形参
+    function sum3(a,b){
+        var rs = a + b;
+        console.log(rs);
+    }
+    sum3(10,20,30);
+
+
+    //参数个数匹配:形参个数超过实参个数,将形参依次传给实参.如果形参没有鱼实参匹配的值,那么形参的值默认为undefined
+    function sum4(a,b,c,d){
+        var rs = a + b + c + d;
+        console.log(rs);//NaN
+        console.log(a,b,c,d);//10 20 30 undefined
+    }
+    sum4(10,20,30);
+
+    //IIFE
+    (function (){
+        var rs = 12 + 13;
+        console.log(rs);
+    })()
+
+    ;(function (a,b){//为了避免与前面代码拼接到一起
+        var rs = a + b;
+        console.log(rs);
+    })(11,12)
+</script>
+</body>
+</html>

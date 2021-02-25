@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浮动布局</title>
+    <style>
+        .info-show{
+            width:600px;
+            padding:20px;
+            border: 1px solid #ccc;
+            margin:100px auto;
+            overflow:hidden;
+        }
+        .head-sculpture{
+            float:left;
+            text-align: center;
+            margin-right: 20px ;
+        }
+        .head-sculpture .photo{
+            width:200px;
+            height:300px;
+            border: 1px solid #ccc;
+            text-align: center;
+            display:table-cell;
+            vertical-align:middle;/*垂直居中*/
+            background-color: #eee;
+
+        }
+
+        .description{
+            width:350px;
+            border:1px solid #ccc;
+            height:290px;
+            float:left;
+            padding:10px 0 0 20px;/*上 右 下 左*/
+        }
+    </style>
+</head>
+<body>
+<div class="info-show">
+    <div class="head-sculpture">
+        <div class="photo">头像</div>
+        <div class="name">姓名</div>
+    </div>
+    <div class="description">自我描述</div>
+</div>
+</body>
+</html>

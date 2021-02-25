@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration:none;
+}
+li{
+    list-style-type: none;
+}
+body{
+    font: 16px 微软雅黑,serif;
+}
+h1{
+    text-align: center;
+    font-size: 30px;
+    font-weight: 400;
+
+}
+.nav{
+    text-align:center;
+    margin:20px auto 10px;
+}
+.desc{
+    color:#ccc;
+    font-size: 11px;
+}
+.sousuo{
+    font-weight:700;
+}
+p{
+    text-indent:2em;
+    line-height:35px;
+
+}
+.pic{
+    text-align: center;
+
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function类型</title>
+</head>
+<body>
+<script>
+    //创建函数
+    //1.普通方式
+    function fn1(n){
+        console.log(n);
+    }
+    fn1(10);
+
+    //2.使用变量初始化函数
+    var fn2 = function(n){
+        console.log(n)
+    }
+    fn2(100);
+
+    //3.new创建
+    var fn3 = new Function();//通过Function构建了一个函数对象fn3
+    fn3 = function(n1,n2){
+        console.log(n1 + n2)
+    }
+    fn3(10,20);
+
+    //函数传参
+    //1.不传参(哑参)
+    function show(){
+        console.log('大家好!')
+    }
+    show();
+
+    //2.传参(参数可以是变量、对象、数组、表达式、函数等)
+    function person(obj){
+        return obj.name + ',' + obj.sex
+    }
+    console.log(person({name:'张三',sex:'男',age:18}));
+
+
+    function person(obj,info='是一位好学生'){
+        //拿到obj内的name,sex
+        return obj.name + ',' + obj.sex + ',' + info
+    }
+    console.log(person({name:'张三',sex:'男',age:18}));
+    console.log(person({name:'张三',sex:'男',age:18},'学习不错!'));
+
+    function box(sumFunction, num){
+        return sumFunction(num);
+    }
+    function sum(num){
+        return num + 10;
+    }
+    var result = box(sum,10);   //传递函数到另一个函数里
+    console.log(result);//20
+
+</script>
+</body>
+</html>

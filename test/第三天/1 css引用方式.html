@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css引用方式</title>
+    <!--3.引入外部样式文件-->
+    <!--Emmet语法写法:link:css-->
+    <link rel="stylesheet" href="style.css" />
+    <!--2.内部样式表-->
+    <style type="text/css">
+        @import"test.css";
+        p{
+            background-color:#eeeeee;
+            font-size:18px;
+            font-style:italic
+        }
+    </style>
+</head>
+<body>
+    <!--1.行间样式(嵌入式样式)-->
+    <div style=" color:olive;width:100px;border:1px solid blue;">行间样式测试1</div>
+    <div>行间样式测试2</div>
+
+    <p>段落1</p>
+    <p>段落2</p>
+
+    <span>外部样式测试</span>
+    <span>外部样式测试</span>
+    <span>外部样式测试</span>
+    <span>外部样式测试</span>
+    <span>外部样式测试</span>
+
+
+    <div class="box">导入外部样式</div>
+    <div class="box">导入外部样式</div>
+    <div class="box">导入外部样式</div>
+
+
+    <em class="box">同学们好!</em>
+
+</body>
+</html>

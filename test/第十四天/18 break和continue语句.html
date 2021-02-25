@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    //break语句
+    //需求:求100-999之间能被3和7整除的数
+    /*for(var i = 100;i < 1000;i++){
+        if(i % 3 == 0 && i % 7 == 0){
+            document.write(i + ' ');
+            break;
+        }
+    }*/
+
+
+
+
+
+    //continue语句
+    for(var i = 100;i < 1000;i++){
+        if(i % 3 == 0 && i % 7 == 0){
+            document.write(i + ' ');
+            continue;//终止本次循环,继续下一次循环,遇到continue时,不管它后面有多少语句,都将执行不到
+            alert('aaaaaaaaaaaaaaaaaa')//这条语句不会执行
+        }
+    }
+    document.write('<br />');
+
+
+    for(var i = 100;i < 1000;i++){
+        if(i % 3 !== 0 || i % 7 !== 0){
+            continue;
+        }else{
+            document.write(i + ' ');
+
+        }
+    }
+</script>
+</body>
+</html>

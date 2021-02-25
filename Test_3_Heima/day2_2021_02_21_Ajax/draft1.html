@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>draft1</title>
+    <script src="js/jquery.min.js"></script>
+</head>
+<body>
+<button>发送get请求</button>
+</body>
+</html>
+<script>
+    //事件 获取 展示
+    //事件
+    function gain(text){
+        $('button').on('click',function(){
+            //获取
+            $.ajax({
+                type:'',
+                url:'',
+                //async:'',
+                data:{},
+                //dataType:'',
+                success:function(res){
+
+                },
+                error:function(err){
+
+                },
+                //timeout:100
+            })
+        })
+    }
+    //展示时调用
+    gain(text)
+</script>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS3选择器</title>
+    <style>
+        /*3.目标伪类
+            :target :匹配url指向的元素
+        */
+        /*p,div{
+            height: 600px;
+        }
+        p:target{
+            color:red;
+        }*/
+        /*4.UI元素状态伪类*/
+        input:disabled{
+            background-color: #67e302;
+        }
+        input:enabled{
+            background-color: #0aa0f1;
+        }
+        input:checked{/*:checked  :只在Opera中有效*/
+            color:#ac8829;
+        }
+        ::selection{/*::selection :被选中的文本*/
+            color: #f4fa04;
+        }
+
+        /*5.否定伪类
+            :not()
+        */
+        p{
+            height: 10px;
+        }
+        .container :not(p){
+            color: #c30bee;
+        }
+
+        /*6.通用兄弟元素选择*/
+
+        .div1~.div3{
+            color:red;
+        }
+
+    </style>
+</head>
+<body>
+    <a href="#jump1">跳转1</a>
+    <a href="#jump2">跳转2</a>
+    <a href="#jump3">跳转3</a>
+    <br><br><br><br>
+    <p id="jump1">这是段落1的内容</p><!--id="jump1"这里的id表示设置了一个锚点,用来实现页内跳转的-->
+    <div id="jump2">这是段落2的内容</div>
+    <p id="jump3">这是段落3的内容</p>
+    <form action="">
+        <input type="text" disabled> <br />
+        <input type="text"> <br />
+        <input type="text"> <br />
+        <input type="checkbox" name="face" checked>党员
+        <input type="checkbox" name="face" >团员
+        <input type="checkbox" name="face" >无党派人士<br />
+
+        <select>
+            <option>大前端开发</option>
+            <option selected>大数据开发</option>
+            <option>UI设计</option>
+        </select>
+    </form>
+    <div class="container">
+        <p>p1</p>
+        <p>p2</p>
+        <span>span</span>
+        <em>em</em>
+    </div>
+
+    <div class="test">
+        <div class="div1">div1</div>
+        <div class="div2">div2</div>
+        <strong>strong</strong>
+        <div class="div3"> <span>span</span></div>
+    </div>
+</body>
+</html>

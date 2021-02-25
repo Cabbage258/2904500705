@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定时器</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .box{
+            width: 600px;
+            height: 200px;
+            box-sizing: border-box;
+
+            margin:100px auto;
+        }
+        .box span{
+            float: left;
+            width: 25%;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            height: 200px;
+            background-color: skyblue;
+        }
+        .box span:nth-of-type(4){
+            margin-right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</body>
+<script>
+    //需求:倒计时
+    //
+
+
+    var spans = document.querySelectorAll('span')
+    fn()
+    setInterval(fn,1000)
+
+    function fn(){
+        var fttim = new Date('2021-02-05 00:00:00')
+        var nowtim = new Date()
+        var chazhi = parseInt((fttim - nowtim) / 1000 + '')
+        var day = parseInt(chazhi / 60 / 60 / 24 + '')
+        var hour = parseInt(chazhi / 60 / 60 - day * 24 + '')
+        var minute = parseInt(chazhi / 60 - day * 24 * 60 - hour * 60  + '')
+        var second = parseInt(chazhi - day * 24 * 60 * 60 - hour * 60 * 60 - minute * 60 +'')
+
+        day = day < 10 ? '0' + day : day
+        hour = hour < 10 ? '0' + hour : hour
+        minute = minute < 10 ? '0' + minute : minute
+        second = second < 10 ? '0' + second : second
+        spans[0].innerHTML = day + '天'
+        spans[1].innerHTML = hour + '时'
+        spans[2].innerHTML = minute + '分'
+        spans[3].innerHTML = second + '秒'
+    }
+
+
+
+</script>
+</html>

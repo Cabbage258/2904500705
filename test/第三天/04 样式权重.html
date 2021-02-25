@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>样式权重</title>
+    <style>
+        p{
+            color:blue!important;
+        }
+
+        #content div.main_content h2{/*权重:100+1+10+1=112*/
+            color:red;
+        }
+        #content .main_content h2{/*权重:100+10+1=111*/
+             color:blue;
+         }
+
+    </style>
+</head>
+<body>
+    <p style="color:red">这是内容1</p>
+    <p>这是内容2</p>
+
+    <div id="content">
+            <div class="main_content">
+                52
+                <h2>这是一个h2标签</h2>
+            </div>
+    </div>
+</body>
+</html>

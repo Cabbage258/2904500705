@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>draft5</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    class abc {
+        constructor(x){
+            this.a = x
+            this.fn = function(){
+                console.log('123')
+            }
+        }
+        c(){
+            console.log('456')
+        }
+    }
+    var b = new abc(100)
+    console.log(b)                            //abc {a:100,fn:f}
+    b.c()                                     //456
+    b.fn()                                    //123
+    console.log(abc.prototype)                //Object{c:f c(),...}
+    console.log(b.c === abc.prototype.c)      //true
+    console.log(abc.constructor()  )          //f anonymous(){}                 ?????
+    console.log(b.fn === abc.fn)              //false
+    console.log(b.fn === abc.anonymous)       //false
+    //console.log(abc.anonymous())            //not a function                  ?????
+    console.log(abc.constructor)              //f Function(){[native code]}     ¿¿¿¿¿
+    console.log(abc)
+    console.log(Function())
+    //abc.constructor = Function()
+    console.log(abc.constructor)              //f anonymous(){}                 ?????
+    /*abc.constructor = null
+    console.log(abc.constructor)              //null*/
+    console.log(abc.constructor === abc.constructor())
+    console.log(abc.constructor())
+    //即
+    //类本质是构造函数的语法糖
+    //在类中的constructor内添加的属性方法会添加到类的实例化对象本身上
+    //类中直接写的属性方法会添加到类的原型对象中
+    //实例化之后调用属性方法优先寻找constructor中的,即优先寻找实例化对象本身的属性方法
+    //如果没有,再向上寻找,即寻找在类的原型对象中的属性方法
+    //
+</script>

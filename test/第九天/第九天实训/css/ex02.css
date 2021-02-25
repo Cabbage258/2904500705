@@ -1,0 +1,196 @@
+/*引入外部字体*/
+@font-face {
+    font-family: 'economica';
+    src: url(../fonts/Economica-Bold-OTF.otf) format("OpenType");
+}
+
+@font-face {
+    font-family: 'kaushan';
+    src: url(../fonts/KaushanScript-Regular.otf) format("OpenType");
+}
+
+@font-face {
+    font-family: 'economica';
+    src: url(../fonts/Economica-Bold-OTF.otf) format("opentype");
+}
+
+/*初始化*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+body {
+    font: 12px Arial;
+    background: url(../images/ambitios_header_bg.gif), url(../images/ambitios_first_row_bg.gif), url(../images/ambitios_footer_bg.gif);
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-position: center top, center 64px, center 925px;
+}
+
+.wrapper {
+    width: 960px;
+    margin: 0 auto;
+}
+
+/*header部分*/
+header {
+    height: 64px;
+    overflow: hidden;
+}
+
+header h1 {
+    font: normal 40px economica;
+    color: #eee;
+    text-shadow: 3px 3px 5px #000;
+    padding-top: 8px;
+    float: left;
+}
+
+/*nav*/
+header ul {
+    padding-top: 15px;
+    float: right;
+}
+
+header ul li {
+    display: inline-block;
+    font-size: 15px;
+    text-transform: capitalize; /*首字母大写*/
+}
+
+header ul li a {
+    display: block;
+    color: #fff;
+    float: right;
+    padding: 8px 10px;
+}
+
+header ul li a:hover {
+    background-color: #09598a;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.active {
+    background-color: #fff;
+    color: #000;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+/*banner*/
+.banner {
+    padding-top: 35px;
+    height: 375px;
+    overflow: hidden;
+}
+
+.banner .leftimg {
+    float: left;
+    margin-right: 40px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 28px 30px #a7a7a7;
+    -moz-box-shadow: 0 28px 30px #a7a7a7;
+    box-shadow: 0 28px 30px #a7a7a7;
+}
+
+.banner h2 {
+    font: normal 36px/1em kaushan;
+    color: #fff;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+    word-spacing: 5px;
+}
+
+.banner p {
+    font-size: 15px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.banner .button {
+    margin-top: 12px;
+    -webkit-box-shadow: 0 28px 30px #a7a7a7;
+    -moz-box-shadow: 0 28px 30px #a7a7a7;
+    box-shadow: 0 28px 30px #a7a7a7;
+}
+
+/*content*/
+.content {
+    padding-top: 30px;
+    display: flex;
+}
+
+.content h2 {
+    font: normal 24px Arial, sans-serif;
+    color: #fff;
+    text-align: center;
+    height: 80px;
+    line-height: 1em;
+    padding-top: 10px;
+    background-color: #70b0e0;
+    -webkit-border-radius: 10px 10px 0 0;
+    -moz-border-radius: 10px 10px 0 0;
+    border-radius: 10px 10px 0 0;
+    background: linear-gradient(to bottom, #70b0e0 0, #115fa3 100%);
+}
+
+.box1, .box2, .box3, .box4 {
+    flex: 1;
+    width: 225px;
+    height: 400px;
+    margin-right: 20px;
+    background-color: #eeeeee;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 2px 2px 5px #999;
+    -moz-box-shadow: 2px 2px 5px #999;
+    box-shadow: 2px 2px 5px #999;
+}
+
+.box4 {
+    margin-right: 0;
+}
+
+.box {
+    padding: 0 20px;
+}
+
+.content p {
+    color: #666;
+    line-height: 1.5em;
+    margin: 20px 0;
+}
+
+.content ul {
+    margin-left: 20px;
+    color: #666;
+}
+
+.content ul li {
+    margin: 5px 20px;
+    list-style-type: disc;
+}
+
+/*footer*/
+footer {
+    padding: 15px 0 15px 5px;
+    color: #fff;
+    margin-top: 20px;
+}
+
+
+

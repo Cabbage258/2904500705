@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>情况语句switch</title>
+</head>
+<body>
+<script>
+    //需求:根据学生的成绩情况,如果90分-100分输出"优秀",如果80分-89分输出"良好",如
+    // 果70分-79分输出"中等",如果60分-70分输出"及格",60分一下输出"不及格"
+    var score = parseFloat(prompt('请输入学生成绩:'));// parseInt()将字符型数值转换为整形术之,parseFloat():将字符
+    var rs = '';
+    //switch写法
+    /*switch(Math.floor(score/10)){//Math.floor():向下取整
+        case 0:
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5: rs = '不及格' ;break;
+        case 6: rs = '及格' ;break;
+        case 7: rs = '中等';break;
+        case 8: rs = '良好';break;
+        case 9:
+        case 10: rs = '优秀';break;
+        default: rs = '您输入的成绩的格式错误,请输入100及以下数字!'
+         }
+    document.write('您的成绩为:' + rs + '.');*/
+
+    //if写法
+    if(score>=90 && score<=100){
+        rs = '优秀';
+    }else if(score>=80 && score<90){
+        rs = '良好'
+    }else if(score>=70 && score<80){
+        rs = '中等'
+    }else if(score>=60 && score<70){
+        rs = '及格'
+    }else if(score<60){
+        rs = '不及格'
+    }else{
+        rs = '您输入的成绩的格式不对,请输入0-100之间的数字!';
+    }
+    document.write('您的成绩为:' + rs);
+</script>
+</body>
+</html>

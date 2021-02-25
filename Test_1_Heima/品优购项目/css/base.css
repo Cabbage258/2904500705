@@ -1,0 +1,18 @@
+*{
+    margin:0;
+    padding:0;
+}
+.shortcut{
+    height:31px;
+    float:left;
+    background-color: #e5dfdf;
+}
+.wrapper{
+    text-align:center;
+}
+li{
+    list-style: none;
+}
+.box1{
+    float:left;
+}

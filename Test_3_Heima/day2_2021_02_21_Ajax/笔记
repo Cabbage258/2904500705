@@ -1,0 +1,109 @@
+Form表单
+    1.表单的组成部分
+    <表单标签>
+        表单域:包含了文本框,密码框,隐藏域,多行文本框,复选框...等等
+        表单按钮:通过设置type属性为submit来触发表单的提交
+    </表单标签>
+    注意:
+        必须为每个表单元素添加name属性
+    2.form标签的属性
+        i)action
+            用来规定当提交表单时,向何处发送表单数据.(URL地址)(默认为当前页面的URL的地址)
+            当提交表单后,会立即跳转到action属性指定的URL地址
+        ii)target
+            用来规定在何处打开action URL,五个可选值:
+                _blank              在新窗口中打开
+                _self(默认值)        在相同的框架中打开
+                _parent             在父框架集中打开
+                _top                在整个窗口中打开
+                framename           在指定的框架中打开
+        iii)method
+            用来规定以何种方式把表单数据提交到action URL,两个可选值:
+                get(默认值)          适合提交少量的,简单的数据
+                post                适合提交大量的,复杂的,或包含文件上传的数据
+        iv)enctype
+            用来规定在发送表单数据之前如何对数据进行编码
+                application.x-www-form-urlencoded(默认)    在发送前编码所有字符
+                multipart/form-data                       不对字符编码.在使用包含文件上传控件的表单时,必须使用该值.
+                text/plain                                空格转换为"+"加号,但不对特殊字符编码(很少用)
+    3.表单同步提交
+        通过点击submit按钮,触发表单提交的操作,从而使页面跳转到action URL的行为.
+        缺点:
+            · 提交后页面发生跳转,用户体验差
+            · 提交后页面之前的状态数据会丢失
+        解决方案:
+            通过Ajax提交表单数据
+
+    4.通过Ajax提交表单数据
+        i)监听表单提交事件(在jquery中)
+            方式一:
+                $(表单DOM).submit(function(e){
+                    ...
+                })
+            方式二:
+                $(表单DOM).on('submit',function(){
+                    ...
+                })
+        ii)阻止表单默认行为
+            方式一:
+                $(表单DOM).submit(function(e){
+                    e.preventDefault()
+                })
+            方式二:
+                $(表单DOM).on('submit',function(e){
+                    e.preventDefault()
+                })
+        iii)快速获取表单数据(jquery)
+            serialize()函数  通过序列化表单值创建URL编码文本字符串(一次性获取表单数据)
+                $(选择器).serialize()
+             · 使用时每个表单元素必须有唯一name属性(具体name按照接口文档要求)
+            调用结果:
+                键=值&键=值&键=值&...
+            ajax中data支持serialize()返回的键值对形式
+
+    5.模版引擎
+        i)art-template的使用
+            使用步骤:
+                · 导入art-template
+                · 定义数据
+                · 定义模版(模版内可以直接使用数据对象的属性)
+                · 调用template函数(返回值为渲染好的html结构的字符串)
+                · 渲染HTML结构
+            例如:
+                ...
+                <script src="js/template.js"></script>
+                <script src="js/jquery.min.js"></script>
+                ...
+                <body><div id="container"></div></body>
+                ...
+                <!--模版-->
+                <script type="text/html" id="demo">
+                    <h1>{{name}}</h1>
+                </script>
+                <!--js-->
+                <script>
+                    var data = {
+                        name:'张三'
+                    }
+                    //template('demo',data),('模版id',数据对象名)返回值为渲染好的html结构的字符串
+                    $('#container').html(template('demo',data))
+                </script>
+
+        ii)标准语法
+            art-template提供了{{}}语法格式,在{{}}中可以进行变量输出或循环数组等操作.
+            输出
+            · 原文输出
+                {{@ value}}
+                value值中包含了html结构时,需要在前面加上@输出,保证被当做dom元素渲染
+            · 条件输出
+                {{if value}}按序输出的内容{{/if}}
+                {{if v1}}value1{{else if v2}}value2{{/if}}
+                v1成立时输出value1;v2成立时输出value2
+            · 循环输出
+                {{each arr}}
+                    {{$index}}{{$value}}
+                {{/each}}
+            · 过滤器(function函数)
+                {{value | filterName}}
+                基本语法:
+                    template.defaults.imports.filterName = function(value){return处理的结果}

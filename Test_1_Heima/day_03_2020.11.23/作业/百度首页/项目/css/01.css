@@ -1,0 +1,84 @@
+*{
+    margin:0;
+    padding:0;
+}
+a{
+    /*text-decoration:none;*/
+}
+li{
+    list-style-type:none;
+}
+.wrapper{
+    width:1000px;
+    margin:0 auto;
+    text-align: center;
+    font-family:黑体,serif;
+
+}
+.caption{
+    overflow: hidden;
+}
+.nav{
+    width:1000px;
+    /*margin:0 auto;*/
+}
+.nav ul{
+    padding:0 0 10px;
+}
+.nav ul li{
+    display: inline-block;
+    padding:0 6px 0;
+}
+.nav ul li a:hover{
+    color:orangered;
+}
+.shuru{
+    padding-left:230px;
+    float:left;
+}
+input[type*=text]{
+    width:540px;
+    height:40px;
+}
+input[type*=submit]{
+    height:40px;
+    width:120px;
+    box-shadow:2px 2px 2px #ccc;
+}
+.search{
+    float:right;
+    padding-right:100px;
+}
+.nav1 ul{
+    padding-top:80px;
+}
+.nav1 ul li{
+    display: inline-block;
+    padding:0 5px;
+
+}
+.hao123{
+    border-right:1px solid #000;
+}.hao123 a{
+    margin-right:10px;
+}
+.map{
+    margin-top:140px;
+    font-size:10px;
+}
+
+.nav2{
+    margin-top:140px;
+    font-size:12px;
+}
+.nav2 ol li{
+    display: inline-block;
+}
+.nav2 ul li{
+    display: inline-block;
+    padding-right:6px;
+    border-right:1px solid #000;
+}
+.copyright{
+    color: #807a7a;
+}
