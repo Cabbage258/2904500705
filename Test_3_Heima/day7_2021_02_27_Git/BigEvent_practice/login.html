@@ -18,7 +18,10 @@
 <div class="loginAndRegBox">
     <div class="title-box"></div>
     <!--登录的div-->
-    <div class="login-box"></div>
+    <div class="login-box">
+        <!--登录表单-->
+
+    </div>
     <!--注册的div-->
     <div class="reg-box"></div>
 </div>
@@ -29,7 +32,14 @@
     $(function(){
         //点击"去注册账号"的连接
         $('#link_reg').on('click',function(){
-
+            $('login-box').hide()
+            $('.reg-box').show()
+        })
+        //点击"去登陆"的连接
+        $('#link_login').on('click',function(){
+            $('.login-box').show()
+            $('.reg-box').hide()
         })
     })
+
 </script>
