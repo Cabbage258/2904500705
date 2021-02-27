@@ -19,3 +19,6 @@ html,body{
     height: 60px;
     background: url('../images/login_title.png') no-repeat center;
 }
+.reg-box{
+    display: none;
+}
