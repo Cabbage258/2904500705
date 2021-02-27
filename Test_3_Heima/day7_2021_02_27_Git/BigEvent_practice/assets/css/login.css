@@ -7,5 +7,11 @@ html,body{
     background-size: cover;
 }
 .loginAndRegBox{
-
+    width: 400px;
+    height: 310px;
+    background-color: #fff;
+    position:absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
 }
