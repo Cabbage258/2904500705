@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .box {
+            width: 900px;
+            border: 1px solid red;
+            padding: 5px;
+            margin: 0 auto;
+        }
+
+        .box span {
+            float: left;
+            width: 90px;
+            height: 40px;
+            background-color: skyblue;
+            margin: 5px;
+            text-align: center;
+            line-height: 40px;
+        }
+
+        .box .curr_select {
+            background-color: red;
+            font-weight: 700;
+        }
+
+        h1 {
+            display: inline-block;
+        }
+
+        .nav {
+            width: 800px;
+            margin: 10px auto;
+        }
+
+        .nav>* {
+            float: right;
+            margin-right: 20px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <h1>33期点名表 </h1>
+    <div class="nav clearfix">
+        <input id="cb" type="button" onclick="javascript:recover();" value="位置还原">
+        <input id="cb" type="button" onclick="javascript:flushStu(),fillSpan();" value="重新排列位置">
+        <input id="cb" type="button" onclick="javascript:randname();" value="随机点名">
+    </div>
+
+
+    <div class="box clearfix">
+
+    </div>
+
+
+    <script>
+        var names = ["张三","李四","..."]
+
+
+        var box = null;
+        var allspan = null;
+        var COUNT = names.length;
+        var cb_reflush_stu = null;
+
+        // slice 将数组中的一部分取出，生成新的数组
+        var names_backup = names.slice(0, names.length);
+
+        window.onload = function (e) {
+            box = document.querySelector(".box");
+            cb_reflush_stu = document.getElementById('cb');
+            fillSpan();
+        };
+
+        Array.prototype.remove = function (index) {
+            var j = 0
+            for (var i = 0; i < this.length; i++) {
+                if (i != index) {
+                    this[j] = this[i]
+                    j++;
+                }
+            }
+            this.length -= 1;
+        }
+        function flushStu() {
+
+            var rand_names = [];
+            for (let index = 0; index < COUNT; index++) {
+                var random_index = Math.floor(Math.random() * names.length);
+                // console.log("random_index : " + random_index);
+                rand_names.push(names[random_index]);
+                names.remove(random_index);
+            }
+            names = rand_names;
+        }
+
+        function recover() {
+            names = names_backup.slice(0, names_backup.length);
+            fillSpan();
+        }
+
+        function fillSpan() {
+            var con = "";
+            for (let index = 0; index < names.length; index++) {
+                con += "<span>" + names[index] + "</span>";
+            }
+            box.innerHTML = con;
+            allspan = document.querySelectorAll(".box span");
+        }
+
+        var start_index = 0;
+        var length = 0;
+        var curr_num = 0;
+        var anim = null;
+
+
+        function randname() {
+            // 取消之前的选择
+            allspan[(start_index + curr_num) % names.length].className = "";
+
+            // 刷新学生顺序
+            if (cb_reflush_stu.checked) {
+                flushStu();
+                fillSpan();
+            }
+            // 获得随机数
+            start_index = Math.floor(Math.random() * names.length);
+            length = Math.floor(Math.random() * names.length);
+            console.log(length + " -- " + start_index);
+
+            // 选中第一个            
+            allspan[start_index].className = "curr_select";
+            curr_num = 0;
+
+            // 开始动画
+            duation = 100
+            anim = setTimeout(anim_select, duation);
+        }
+
+        // 间隔时间
+        var duation = 100;
+        function anim_select() {
+            if (curr_num == length) {
+                clearTimeout(anim)
+            } else {
+                allspan[(start_index + curr_num) % names.length].className = "";
+                curr_num++;
+                allspan[(start_index + curr_num) % names.length].className = "curr_select";
+
+                // 计算下一次的间隔时间
+                // duation += length;
+                // duation = duation > 500 ? 500 : duation;
+                // console.log("duation : " + duation);
+                setTimeout(anim_select, 50);
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>
