@@ -1,0 +1,82 @@
+node.js
+    简介
+        Node.js是一个基于Chrome V8引擎的JavaScript运行环境
+        · 浏览器是JavaScript的前端运行环境
+        · Node.js是JavaSCript的后端运行环境
+        · Node.js中无法调用DOM和BOM等浏览器内置API
+    终端常用快捷键
+        ↑ 快速定位到上一次执行的命令
+        tab 无内容时切换当前目录下文件名,有内容自动补全当前目录下包含关键字的文件名
+        esc 快速清空当前已输入的命令
+        cls 清空终端
+    fs模块
+        用于与文件系统进行交互
+        导入fs模块
+            const fs = require('fs')
+            所有的文件系统操作都具有同步的、回调的、以及基于promise的形式
+        fs.readFile(path[,options],callback)
+            异步的读取文件的全部内容
+            path: 文件名或文件描述符
+            options: 编码
+                        如果没有指定字符编码,则返回原始的buffer
+                        如果是字符串,则指定字符编码,如utf8
+            callback: 回调,参数err:失败信息,成功为null;data:文件的内容
+        fs.writeFile(file,data[,options],callback)
+            异步写入数据到文件(如果文件已存在,则覆盖文件内容;如果最后一级目录下文件不存在,创建该文件并写入)
+            file: 文件名或文件描述符
+            data: 写入内容
+            options: 编码格式,默认值为utf8
+            callback: 回调函数,参数err:
+
+    路径动态拼接的问题
+        使用fs模块操作文件时,如果提供的操作路径是以./或./开头的相对路径时,很容易出现路径动态拼接错误的问题.
+        原因:
+            代码在运行的时候,会以执行node命令时所处的目录,动态拼接处备操作文件的完整路径
+        解决方案:
+            在使用fs模块操作文件时,直接提供完整的路径
+                __dirname + './文件夹/文件名'
+                __dirname表示当前文件所处的目录
+
+    path路径
+        用于处理路径的模块
+        导入path模块
+            const path = require('path')
+        path.join([...paths])
+            会将所有给定的path片段连接到一起(使用平台特定的分隔符作为定界符),然后规范化生成的路径
+            ...paths: 路径片段的序列(长度为0的片段会被忽略,如果连接后的路径字符串为长度为0的字符串,则返回'.',表示当前的工作目录)
+            例
+                path.join('/目录1','目录2','目录3/目录4','目录5')
+                    //返回: '/目录1/目录2/目录3/目录4/目录5'
+                //如果任何的路径片段不是字符串,则抛出TypeError
+                path.join('目录1',{},'目录2')
+                    //抛出'TypeError: Path must be a string. Received {}'
+
+        path.basename(path[,ext])
+            返回path的最后一部分.尾部的目录分隔符将被忽略.
+            例:
+                path.basename('/foo/bar/baz/asdf/quux.html')
+                    //返回 'quux.html'
+                path.basename('/foo/bar/baz/adsf/quux.html','.html')
+                    //返回 'quux'
+            Tips:
+                该方法会将扩展名视为区分大小写的字符串.(注意大小写)
+                如果path不是字符串、或者给定了ext但不是字符串,则抛出TypeError
+
+        path.extname(path)
+            返回path的扩展名,即path的最后一部分中从最后一次出现.(句点)字符直到字符串结束.
+            如果在path的最后一部分中没有 . 或者如果path的基本名称除了第一个字符以外没有 . ,则返回空字符串.
+            例:
+                path.extname('index.html')
+                    //返回 '.html'
+                path.extname('index.coffee.md')
+                    //返回 '.md'
+                path.extname('index.')
+                    //返回 '.'
+                path.extname('index')
+                    //返回 ''
+                path.extname('.index')
+                    //返回 ''
+                path.extname('.index.md')
+                    //返回 '.md'
+            如果path不是字符串,则抛出TypeError
+

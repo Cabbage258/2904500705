@@ -4568,7 +4568,7 @@ if (typeof module !== "undefined" && module.exports && typeof require == "functi
 
 /**
  * @depend ../sinon.js
- * @depend test.js
+ * @depend readFile.js
  */
 /*jslint eqeqeq: false, onevar: false, eqeqeq: false*/
 /*global module, require, sinon*/

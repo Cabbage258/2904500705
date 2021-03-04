@@ -5429,7 +5429,7 @@ Suite.prototype.eachTest = function(fn){
 
 }); // module: suite.js
 
-require.register("test.js", function(module, exports, require){
+require.register("readFile.js", function(module, exports, require){
 
 /**
  * Module dependencies.
@@ -5467,7 +5467,7 @@ Test.prototype = new F;
 Test.prototype.constructor = Test;
 
 
-}); // module: test.js
+}); // module: readFile.js
 
 require.register("utils.js", function(module, exports, require){
 /**

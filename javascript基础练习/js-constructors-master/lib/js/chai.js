@@ -4634,7 +4634,7 @@ module.exports = function (ctx, name, method, chainingBehavior) {
 };
 
 });
-require.register("chai/lib/chai/utils/test.js", function(exports, require, module){
+require.register("chai/lib/chai/utils/readFile.js", function(exports, require, module){
 /*!
  * Chai - test utility
  * Copyright(c) 2012-2014 Jake Luer <jake@alogicalparadox.com>

@@ -125,7 +125,7 @@
 4.媒体查询
     步骤:
         1)设置meta标签
-                <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,usr-scalable=no">
+                <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 
                 说明:
                     以上标签的内容只能被移动设备识别
