@@ -60,4 +60,3 @@
         resolveJavascript(dataStr)
         resolveHTML(dataStr)
     })
-
