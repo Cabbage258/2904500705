@@ -1,0 +1,8 @@
+http模块
+    导入使用
+        const http = require('http')
+    创建最基本的web服务器
+        · 导入http模块
+        · 创建web服务器实例
+        · 为服务器实例绑定 request 事件,监听客户端的请求
+        · 启动服务器
