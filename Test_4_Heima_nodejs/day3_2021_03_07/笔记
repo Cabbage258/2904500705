@@ -1,0 +1,59 @@
+模块化
+    模块化是指解决一个复杂问题时,自顶向下逐层把系统划分成若干模块的过程.
+    对于整个系统来说,模块是可组合、分解和更换的单元.
+    优点
+        提高了代码的复用性
+        提高了代码的可维护性
+        可以实现按需加载
+    1.module对象
+        每个.js自定义模块中都有一个module对象,存储了和当前模块有关的信息
+    2.module.exports对象
+        可以使用module.exports对象,将模块内的成员暴露给外部
+        Tips:
+            使用require()方法导入模块时,导入的结果,永远以module.exports指向的对象为准
+    3.exports对象
+        node提供了exports对象以简化向外共享成员的代码
+        默认情况下,exports和module.exports指向的是同一个对象
+            module.exports === exports //true
+        实际exports对象相当于对module.exports对象的引用,所以
+        最终共享的结果,还是以module.exports指向的对象为准
+包管理配置文件
+    I)项目根目录下的package.json的配置文件记录了项目中安装了哪些包
+        当前目录下创建package.json(目录中不能出现中文和空格)
+            npm init -y
+    II)dependencies节点
+        在package.json中,记录使用npm install命令安装了哪些包
+    III)一次性安装所有包
+        在拿到一个剔除了node_modules的项目之后,需要先把所有的包下载到项目中.
+            npm install
+    IV)卸载包
+        npm uninstall 包名
+        卸载后包名会从package.json的dependencies中移除
+    V)devDependencies节点
+        记录只在开发阶段使用的包
+包的分类
+    I)项目包
+        安装到项目的node_modules目录中的包都是项目包
+            · 开发依赖包(被记录到devDependencies节点中的包,旨在开发期间会用到)
+                npm i 包名 -D  #开发依赖包
+            · 核心依赖包(被记录到dependencies节点中的包,在开发期间和项目上线之后都会用到)
+                npm i 包名     #核心依赖包
+    II)全局包
+        全局包会被安装到C:\Users\用户目录\AppData\Roaming\npm\nod_modules目录下
+            npm i 包名 -g  #全局安装
+            npm uninstall 包名 -g #卸载全局包
+        Tips:
+            只有工具性质的包,才有全局安装的必要性,以为内他们提供了和奥用的终端命令
+            判断某个包是否需要全局安装后才能使用,可以参考官方提供的使用说明即可
+规范的包的结构
+    一个规范的包,必须符合以下三点要求
+    · 包必须以单独的目录存在
+    · 包的顶级目录下要必须包含package.json这个包管理配置文件
+    · package.json中必须包含name,version,main这三个属性,分别代表包的名字、版本奥、包的入口
+开发包流程
+    1.初始化包的基本结构
+        新建itheima-tools_36Cabbage258文件夹作为包的根目录(命名唯一)
+        新建子文件
+            · package.json  包管理配置文件
+            · index.js      包的入口文件
+            · README.md     包的说明文档

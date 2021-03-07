@@ -1,0 +1,8 @@
+{
+  "name": "itheima-36cabbage",
+  "version": "1.0.0",
+  "main": "index.js",
+  "description": "提供了格式化时间的功能、HTMLEscape的功能",
+  "keywords": ["itheima","dateFormat","HTMLEscape"],
+  "license": "ISC"
+}

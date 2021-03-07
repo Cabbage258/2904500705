@@ -25,7 +25,7 @@
         res.end(str)
         })
 //调用服务器实例的.listen()方法,启动当前的web服务器实例
-    //启动服务器
+    //启动服务器0
     server.listen(80,() => {
         console.log('server running at http://127.0.0.1:80')
     })

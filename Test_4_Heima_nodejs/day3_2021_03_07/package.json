@@ -1,0 +1,16 @@
+{
+  "name": "day3_2021_03_07",
+  "version": "1.0.0",
+  "description": "",
+  "main": "01 module,module.exports.js",
+  "dependencies": {
+    "moment": "^2.29.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
