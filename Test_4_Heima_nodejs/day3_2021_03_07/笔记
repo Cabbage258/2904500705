@@ -49,7 +49,7 @@
     一个规范的包,必须符合以下三点要求
     · 包必须以单独的目录存在
     · 包的顶级目录下要必须包含package.json这个包管理配置文件
-    · package.json中必须包含name,version,main这三个属性,分别代表包的名字、版本奥、包的入口
+    · package.json中必须包含name,version,main这三个属性,分别代表包的名字、版本号、包的入口
 开发包流程
     1.初始化包的基本结构
         新建itheima-tools_36Cabbage258文件夹作为包的根目录(命名唯一)

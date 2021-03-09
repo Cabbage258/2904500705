@@ -2,7 +2,7 @@ node.js
     简介
         Node.js是一个基于Chrome V8引擎的JavaScript运行环境
         · 浏览器是JavaScript的前端运行环境
-        · Node.js是JavaSCript的后端运行环境
+        · Node.js是JavaScript的后端运行环境
         · Node.js中无法调用DOM和BOM等浏览器内置API
     终端常用快捷键
         ↑ 快速定位到上一次执行的命令

@@ -1,0 +1,40 @@
+路由
+    广义上路由就是映射关系
+    每当一个请求到打服务器之后,需要先经过路由的匹配,只有匹配成功之后,才会调用对应的处理函数
+    在匹配时会按照路由的顺序进行匹配,如果请求类型和请求的URL同时匹配成功,则
+    Express会将这次请求,转交给对应的function函数进行处理
+    路由的使用
+        · 创建路由模块对应的.js文件
+        · 调用express.Router()函数创建路由对象
+        · 向路由对象上挂载具体的路由
+        · 使用module.exports向外共享路由对象
+        · 使用app.use()函数注册路由模块
+    express的基本使用
+    安装
+        npm i express
+    导入
+        const express = require('express')
+    实例化一个web服务器
+        const app = express()
+    调用listen(端口号,启动成功后的回调函数)
+        app.listen(80,() => {
+            console.log('express server running at http://127.0.0.1:80'
+        })
+    监听请求,响应
+        监听get请求
+            app.get('请求url',(req,res) => {
+            //响应
+                res.send({键:值,})
+                })
+        监听post请求
+            app.post('请求url',(req,res) => {
+            //响应
+                res.send('请求成功!')
+                })
+    通过req.query对象,可以访问到客户端通过查询字符串的形式发送到服务器的参数
+        例
+            客户端使用?name=zhangsan&age=20这种查询字符串形式
+            使用req.query对象可以访问到
+                req.query.name    req.query.age
+    通过req.params对象,可以访问到url中通过 : 匹配到的动态参数
+        req.params默认为一个空对象,里面存放通过 : 动态匹配到的参数值
