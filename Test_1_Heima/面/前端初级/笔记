@@ -265,7 +265,7 @@
 12.请描述一下cookies,sessionStorage和localStorage的区别?
     · cookie 是网站为了标示用户身份而储存在用户本地终端(Client Side)上的数据(通常经过加密)
     ·cookie 数据始终在同源的http请求中携带(即使不需要),即会在浏览器和服务器间来回传递
-    ·sessionStorage和localStorage不会自动把数据发给服务器,尽在本地保存
+    ·sessionStorage和localStorage不会自动把数据发给服务器,仅在本地保存
     ·存储大小:
         cookie数据大小不能超过4k
         sessionStorage 和 localStorage 虽然也有存储大小的限制,但比cookie大得多,可以达到5M或更大
