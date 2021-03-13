@@ -24,7 +24,7 @@
             //将cors注册为全局中间件
                 app.use(cors())
     1.3配置解析表单数据的中间件
-        1.铜鼓欧下的代码,配置解析 application/x-www-form-urlencoded 格式的表单数据的中间件
+        1.通过如下的代码,配置解析 application/x-www-form-urlencoded 格式的表单数据的中间件
             app.use(express.urlencoded({extended:false}))
     1.4初始化路由相关的文件夹
         1.在项目根目录中,新建router文件夹,用来存放所有的路由模块
