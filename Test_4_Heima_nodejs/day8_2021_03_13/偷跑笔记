@@ -135,7 +135,7 @@
                 res.send({status:0,message:'注册成功!'})
     2.4优化res.send()代码
         在处理函数中,需要多次调用res.send()向客户端响应处理失败的结果,为了简化代码,可以手动封装一个res.cc()函数
-            1.在app.js中,所有路由之前,声明一个全局中间件,为res对象挂在一个res.cc()函数:
+            1.在app.js中,所有路由之前,声明一个全局中间件,为res对象挂载一个res.cc()函数:
             //响应数据的中间件
                 app.use((req,res,next) => {
             //status = 0为成功;status = 1为失败;默认将status的值设置为1,方便处理失败的情况

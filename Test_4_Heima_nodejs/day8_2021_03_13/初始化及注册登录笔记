@@ -1,0 +1,184 @@
+大事件后台项目(初始化,注册,登录)
+    1.初始化
+        1.1创建项目
+            1.新建api_server文件夹作为项目根目录,并初始化包管理配置文件
+                npm init -y
+            2.安装特定版本的express
+                npm i express@4.17.1
+            3.在项目根目录中新建app.js作为整个项目的入口文件并初始化
+            //导入express模块
+                const express = require('express')
+            //创建express实例
+                const app = express()
+            //后续代码
+                ...
+            //调用app.listen()指定端口号启动web服务器
+                app.listen(80,() => {
+                    console.log('http://127.0.0.1:80')
+                })
+        1.2配置cors跨域
+            1.安装cors中间件
+                npm i cors@2.8.5
+            2.在app.js中导入并配置cors中间件
+            //导入cors中间件
+                const cors = require('cors')
+            //将cors注册为全局中间件
+                app.use(cors())
+        1.3配置解析表单数据的中间件
+            1.配置解析application/x-www-form-urlencoded格式的表单数据的中间件
+            //express.urlencoded()函数是一个内置的快速中间件功能.根据主体解析器来
+            //解析带有urlencoded有效负载的传入请求
+                app.use(express.urlencoded({extended:false})
+        1.4初始化路由相关的文件夹
+            1.在项目根目录中,新建router文件夹,用来存放所有的路由模块
+                路由模块中,只存放客户端的请求与处理函数之间的映射关系
+            2.在项目根目录中,新建router_handler文件夹,存放所有的路由处理函数模块
+                路由处理函数模块中,有专门负责存放每个路由对应的处理函数
+        1.5初始化用户路由模块
+            1.在router文件夹中,新建user,js文件,作为用户的路由模块,并初始化
+            //导入express
+                const express = require('express')
+            //创建路由对象
+                const router = express.Router()
+            //注册新用户
+            //为保证路由模块的纯粹性,所有的路由处理函数,必须抽离到对应的路由处理函数模块中
+                router.post('/reguser',注册处理函数)
+            //登录
+                router.post('/login',登录处理函数)
+            //暴露路由对象
+                module.exports = router
+            2.在app.js中导入并使用用户路由模块
+            //导入用户路由模块
+                const userRouter = require('./router/user')
+            //注册用户路由模块
+                app.use('/api',userRouter)
+        1.6抽离用户路由模块中的处理函数
+            1.在/router_handler/user.js中,使用exports对象暴露下面两个路由处理函数
+            //注册用户的处理函数
+            exports.regUser = (req,res) => {
+            //后续代码
+            }
+            //登录的处理函数
+            exports.login = (req,res) => {
+            //后续代码
+            }
+            2.将/router/user.s中的代码修改为
+                const express = require('express')
+                const router - express.Router()
+            //导入用户路由处理函数模块
+                const userHandler = require('../router_handler/user')
+            //注册
+                router.post('/reguser',userHandler.regUser)
+            //登录
+                router.post('/login',userHandler.login)
+    2.登录注册
+        2.1在库my_db_01中新建ev_users表
+        2.2安装并配置mysql模块连接和操作MySQL数据库
+            1.安装mysql模块
+                npm i mysql@2.18.1
+            2.在项目根目录中新建/db/index.js文件,用来自定义模块中创建数据库的连接对象
+            //导入mysql模块
+                const mysql = require('mysql')
+            //创建数据库连接对象
+                const db = mysql.createPool({
+                    host:'127.0.0.1',           //数据库ip地址
+                    user:'root',                //数据库用户名
+                    password:'',                //数据库密码
+                    database:'my_db_01'         //数据库名
+                })
+            //暴露db数据库连接对象
+                module.exports = db
+        2.3注册
+            实现步骤
+                I)检测表单数据是否合法
+                    //判断用户名和密码是否为空
+                    //接收客户端表单数据
+                        const userinfo = req.body
+                    //判断数据是否合法
+                        if (!userinfo.username || !userinfo.password) return res.send({status:1,emssage:'密码不能为空!'})
+
+                II)检测用户名是否被占用
+                    //导入数据库操作模块
+                        const db = require('../db/index')
+                    //定义SQL语句
+                        const sql = 'select * from ev_users where username=?'
+                    //执行SQL语句
+                        db.query(sql,userinfo.username,(err,results) => {
+                        //执行失败
+                            if (err) return res.send({status:1,message:err.message})
+                        //执行成功,但用户名被占用
+                            if (results.length > 0) return res.send({status:1,message:'用户名已注册,请更换其他用户名!})
+                        //执行成功且用户名可用
+                        //后续代码
+
+                III)对密码进行加密处理
+                    为了保证密码的安全性,不建议在数据库以明文的形式保存用户密码,推荐对密码进行加密存储
+                    在当前项目中使用bcryptjs第三方中间件对用户密码进行加密,优点
+                        · 加密之后的密码无法被逆向破解
+                        · 同一明文密码多次加密,得到的加密结果各不相同,保证了安全性
+                    1.安装bcryptjs中间件
+                        npm i bcryptjs@2.4.3
+                    2.在/router_handler/user.js中导入
+                        const bcrypt = require('bcryptjs')
+                    3.在注册用户的处理函数中,确认用户名可用之后,调用bcrypt.hashSync(明文密码,随机盐的长度)方法,对用户的密码进行加密处理
+                    //对用户的密码使用上述方法进行加密
+                        userinfo.password = bcrypt.hashSync(userinfo.password,10)
+
+                IV)插入新用户
+                    //定义SQL语句
+                        const sql = 'insert into ev_users set ?'
+                    //执行SQL语句
+                        db.query(sql,{username:userinfo.username,password:userinfo.password},(err,results) => {
+                        //执行失败
+                            if (err) return res.send({status:1,message:err.message})
+                        //执行成功,但作用行数不为1
+                            if (results.affectedRows !== 1) return res.send({statys:1,message:'注册用户失败,清号后再试'})
+                        //注册成功
+                        //后续代码
+                        }
+        2.4优化res.send()响应代码
+            在处理函数中,需要多次调用res.send()向客户端响应处理失败的结果,为了简化代码,将其封装为res.cc()
+            1.在app.js中的所有路由之前,声明一个全局中渐渐,为res对象注册一个res.cc()函数
+            //注册响应的中间件
+                app.use((req,ers,next) => {
+                //默认将status的值设为1,方便处理失败的情况.
+                    res.cc = function (err,status = 1){
+                        res.send({
+                        //状态码
+                            status,
+                        //状态描述信息,判断其传入的参数是字符串还是错误对象.
+                            message: err instanceof Error ? err.message : err
+                        })
+                    }
+                    //中间件接力
+                    next()
+                })
+        2.5优化表单数据验证
+            表单验证的原则:前端验证为辅,后端为主,后端永远不能相信前端提交过来的任何内容
+            1.安装@hapi/joi包
+                npm i @hapi/joi@17.1.0
+            2.安装@escook/express-joi中间件,来实现自动对表单数据进行验证的功能
+                npm i @escook/express-joi
+            3.新建/schema/user.js作为用户信息验证规则模块,初始化代码
+            //导入@hapi/joi
+                const joi = require('@hapi/joi')
+            /*
+            以下为各方法限制条件
+            string()            值必须是字符串
+            alphanum()          值只能是包含a-zA-Z0-9的字符串
+            min(length)         最小长度
+            max(length)         最大长度
+            required()          值为必填项,不能为undefined
+            pattern(正则表达式)   自定义正则表达式限制(值必须符合正则表达式的规则)
+            */
+            //定义用户名的验证规则
+            //必须为字符串,只能为包含a-zA-Z0-9的字符串,最小长度1,最大长度10,必填
+                const username = joi.string().alphanum().min(1).max(10).required()
+            //定义密码的验证规则
+            //必须为字符串,正则表达式/^[\S]{6,12}$/限制,必填
+                const password = joi.string().pattern(/^[\S]{6,12}$/).required()
+            //暴露用户名和密码的验证规则
+                exports.reg_login_schema = {
+
+                }
+
