@@ -1,0 +1,79 @@
+...
+3.个人信息
+    3.1.0实现步骤
+        I)初始化路由模块
+            1.创建/router/userinfo.js路由模块,初始化
+            //导入express
+                const express = require('express')
+            //实例化一个路由对象
+                const router = express.Router()
+            //获取用户的基本信息
+                router.get('/userinfo',获取用户基本信息的处理函数)
+            //暴露路由对象
+                module.exports = router
+            2.在app.js中导入并使用个人中心的路由模块
+            //导入用户信息路由模块
+                const userinfoRouter - require(''../router/userinfo')
+            //注册
+                app.use('/my',userinfoRouter)
+        II)初始化路由处理函数模块
+            1.创建/router_handler/userinfo.js路由处理函数模块,初始化
+            //定义获取用户基本信息的处理函数
+                exports.getUserInfo = (req,res) => {
+                    res.send('ok')
+                }
+            2.修改/router/userinfo.js中的代码
+            //导入express
+                const express = require('express')
+            //实例化一个路由对象
+                const router = express.Router()
+            //导入用户信息的处理函数模块
+                const userinfo_handler = require('../router_handeler/userinfo')
+            //获取用户的基本信息
+                router.get('./userinfo',userinfo_handler.getUserInfo)
+            //暴露路由对象
+                module.exports = router
+        III)获取用户的基本信息
+            1.在router_handler/userinfo.js中的头部导入数据库操作模块
+            //导入
+                const db = require('../db/index')
+            //定义sql语句
+                const sql = 'select id,username,nickname,email,user_pic from ev_users where id=?'
+            //执行
+                db.query(sql,req.user.id,(err,results) => {
+                    //执行失败
+                    if (err) return res.cc(err)
+                    //执行成功,作用行不为1
+                    if (results.length !== 1) return res.cc('获取用户信息失败!')
+                    //获取成功
+                    res.send({
+                        status:0,
+                        message:'获取用户信息成功!',
+                        data:results[0]
+                    })
+                }
+    3.2.0更新用户的基本信息
+        实现步骤
+            I)定义路由和处理函数
+                1.在/router/userinfo.js模块中,新增更新用户基本信息的路由
+                //更新用户的基本信息
+                    router.post('/userinfo',userinfo_handler.updateUserInfo)
+                2.在/router_handler/userinfo.js模块中,定义并暴露更新用户基本信息的路由处理函数
+                //更新用户基本信息的处理函数
+                    exports.updateUserInfo = (req,res) => {
+                        res.send('ok')
+                    }
+
+            II)验证表单数据
+                1.在/schema/user.js验证规则模块中,定义id,nickname,email的雁阵规则
+                //定义id,nickname.email的验证骨子额
+                //number()          必须为一个数
+                //integer(0         必须为整数
+                    const id = joi.number().integer().min(1).required()
+                    const nickname = joi.string().required()
+                    const email = joi.string().email().required()
+                2.暴露验证规则对象
+                //验证规则对象-更新用户基本信息
+                    exports.update_userinfo_schema = {
+
+            III)实现更新用户基本信息的功能
