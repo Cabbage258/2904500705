@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+<!--    v-text填充纯文本
+    <p v-text="text"></p>
+&lt;!&ndash;    v-html填充html片段&ndash;&gt;
+    <p v-html="html"></p>
+    <p v-text="message"></p>
+    &lt;!&ndash;跳过这个元素和它的子元素的编译过程&ndash;&gt;
+    <span v-pre>{{message}}</span>&lt;!&ndash;直接显示{{message}}&ndash;&gt;
+
+    &lt;!&ndash;v-model双向数据绑定 &ndash;&gt;
+    <input type="text" v-model="message">
+    <br />
+    <div>
+        <div>{{num}}</div>
+        <button @click="handle1(1,2,$event)">click1</button>
+        <button></button>
+        <button></button >
+    </div>-->
+    <p v-text="username"></p>
+    用户名<input type="text" v-on:keyup.delete="handle2">
+    密码<input type="text">
+    <button>提交</button>
+
+</div>
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            message:'message',
+            text:'<span>text-span</span>',
+            html:'<span>html-span</span>',
+            num:0,
+            username:'jack',
+        },
+        methods:{
+            handle1:function(n1,n2,event){
+                //这里this指向Vue的实例对象vm
+                this.num++
+                console.log(n1 + n2)
+                console.log(event.target.innerHTML)
+            },
+            handle2:function(event){
+                console.log(1)
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

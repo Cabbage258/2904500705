@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    [v-cloak]{
+        display:none
+    }
+</style>
+<body>
+
+<div id="app">
+    <!--1. v-cloak用于防止出现闪动问题-->
+        <!--<div v-cloak>{{msg}}</div>-->
+    <!--2. v-text用于将数据填充到标签中,作用与插值表达式类似,但无闪动问题(单向绑定)-->
+        <!--<div v-text="msg"></div>-->
+    <!--3. 用法和v-text类似,但可以将html片段填充到标签中.一般只在可信内容上使用,不能用在用户提交的内容上    -->
+        <!--<div v-html="msg"></div>-->
+    <!--4. v-pre 显示原始信息跳过编译过程;跳过这个元素和饿它的子元素的编译过程    -->
+        <!--<div v-pre>{{msg}}</div>-->
+    <!--5. v-once 执行一次性的插值(后期数据改变时,插值处的内容不会继续更新)-->
+        <!--<div v-once>{{msg}}</div>-->
+<!--双向数据绑定:数据与视图互相同步-->
+    <!--6.v-model 限制在 input  select  textarea  components 中使用-->
+            <!--<div>{{msg}}</div>
+                <input type="text" v-model="msg">-->
+    <!--7.v-on 用来绑定事件-->
+        <!--<div>{{msg}}</div>
+        <div>{{num}}</div>
+        &lt;!&ndash;如果直接绑定函数名,会默认传递$event事件对象作为第一个参数&ndash;&gt;
+        <button @click="handle_1">点击1</button>
+        &lt;!&ndash;如果绑定函数调用,那么事件对象必须作为最后一个参数显式传递,并且名称必须是$event&ndash;&gt;
+        <button @click="handle_2('参数1','参数2',$event)">点击2</button>
+        <button>点击3</button>-->
+    <!--8. 事件修饰符-->
+        <!--修饰符是由点开头的指令后缀来表示的-->
+            <!--阻止单击事件的继续传播-->
+            <!--<a v-on:click.stop="doThis"></a>
+            &lt;!&ndash;提交事件不再重载页面&ndash;&gt;
+            <form @submit.prevent="onsubmit"></form>
+            &lt;!&ndash;修饰符可以串联,即阻止冒泡也阻止默认事件&ndash;&gt;
+            <a @click.stop.prevent="doThat"></a>
+            &lt;!&ndash;只当在event.target是当前元素自身时触发处理函数&ndash;&gt;
+            &lt;!&ndash;即事件不是从内部元素触发的&ndash;&gt;
+            <div @click.self="doThat">...</div>-->
+    <!--9. 按键修饰符-->
+        <!--&lt;!&ndash;为v-on在监听键盘事件时添加按键修饰符&ndash;&gt;
+            &lt;!&ndash;只有在keyCode是13时调用vm.submit()&ndash;&gt;
+            <input @keyup.13="submit">
+            &lt;!&ndash;当点击enter时调用vm.submit()&ndash;&gt;
+            <input @keyup.enter="submit">
+            &lt;!&ndash;当点击enter或者space时,调用vm.alertMe()&ndash;&gt;
+            <input @keyup.enter.space="alertMe">-->
+    <!--10. v-bind 响应地更新HTML属性,v-bind:href可以缩写为 :href -->
+        <!--可以给v-bind:class一个对象,以动态地切换class-->
+        <!--注意:  :class可以与普通的class属性共存-->
+    <!--11. v-if 通过条件判断展示或者隐藏某个元素或者多个元素-->
+        <!--内容为true时加载,否则不加载-->
+    <!--12.v-show和v-if的区别-->
+        <!--v-show本质就是标签display设置为none,控制隐藏.-->
+        <!--v-if是动态的向DOM树内添加或者删除DOM元素-->
+        <!--v-if切换有一个局部的编译/卸载过程,切换过程中合适地销毁和重建内部的事件监听和子组件-->
+    <!--13.v-for 循环结构-->
+        <!--
+        < li v-for="自定义名 in data中的数组名" :key="自定义名.id">
+        {{自定义名.data中数组中的属性名}}
+        </li>
+        -->
+    <!--当v-if 与 v-for同时使用时,v-for具有比v-if更高的优先级-->
+    <!--key的作用:给每一个节点做一个唯一的标识.更高效地更新虚拟DOM-->
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            msg:'<p>防止闪动</p>',
+            num:1,
+
+        },
+        methods:{
+            handle_1:function(event){
+                alert('点击1' + event.target.innerHTML)
+            },
+            handle_2:function(n1,n2,event){
+                alert(n1 + n2 + event.target.innerHTML)
+                this.num++
+            }
+        }
+    })
+</script>
+</body>
+</html>

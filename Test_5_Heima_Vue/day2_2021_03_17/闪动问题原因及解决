@@ -1,0 +1,21 @@
+原因:
+    JavaScript在操作DOM时,都会等待DOM加载完成.
+    但Vue.js、angular.js这些会在DOM完全加载后才解析HTML视图模版.所以对于Chrome这类能够快速解析的
+    浏览器会有闪动情况出现,而对于某解析稍慢的垃圾浏览器(IE7,8)大部分情况下不会出现这个问题.
+解决方法:
+    Vue.js : 使用#v-cloak指令
+    用法
+        和CSS规则如[v-cloak]{display:none;}一起用时,这个指令可以隐藏未编译的标签直到实例准备完毕
+    例如:
+        <style>
+        [v-cloak]{
+            display:none;
+        }
+        </style>
+        ...
+        <div v-cloak>{{msg}}</div>
+        ...
+
+    原理:
+        带有v-cloak的元素设置为display:none隐藏掉,在等到vue解析到带有v-cloak的节点时,会把属性和
+        类名同时清除掉.

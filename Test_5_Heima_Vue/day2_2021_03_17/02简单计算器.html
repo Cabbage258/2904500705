@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+    <!--<div>
+        <span>数值A</span><input type="text" v-model="a">
+    </div>
+    <div>
+        <span>数值B</span><input type="text" v-model="b">
+    </div>
+    <button >计算</button>
+    <span>计算结果</span>
+    <p></p>-->
+    <div>{{message}}</div>
+    <input type="text" v-bind:value="message" v-on:input="handle">
+    <input type="text" v-bind:value="message" v-on:input="handle">
+    <input type="text" v-model="message">
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    let num = new Vue({
+        el:'#app',
+        data:{
+            a:'',
+            b:'',
+            sum:'',
+            message:'hello'
+        },
+        methods:{
+            handle:function(){
+                // this.sum = this.a + this.b - 0
+                this.message = target.value
+            }
+        }
+    })
+</script>
+</body>
+</html>
