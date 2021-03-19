@@ -1,0 +1,84 @@
+Vue常用特性
+    表单基本操作
+        I)通过v-model获取单选框、复选框、下拉菜单、文本框中的值
+        II)表单修饰符
+            · .number转换为数值
+            · .trim自动过滤用户输入的首尾空白字符
+            · .lazy将input事件切换成change事件
+                延迟了同步更新属性值的时机,即将原本绑定在input事件的同步逻辑转变为绑定在change事件上.
+            · 在失去焦点或者按下回车键
+        III)自定义指令
+            使用Vue.directive注册全局指令
+                Vue.directive(指令名,{inserted:(){}})
+            注册全局指令,带参数
+                Vue.directive(指令名,{bind:function(el,binding){
+                    //binding为自定义的函数形参,通过自定义属性传递过来的值,存在binding.value里
+                    ...
+                }}
+                }
+
+            自定义指令局部指令
+            · 需要定义在directives的选项,用法与全局一样
+            · 只能在当前组件内使用
+            · 冲突时优先级高于全局指令
+            let vm = new Vue({
+                el:'',
+                data:{},
+                directives:{
+                    指令名:{
+                        bind:function(el,binding){
+                            ...
+                        }
+                    }
+                }
+            })
+
+        IV)计算属性 computed
+            · 计算属性是基于它们的响应式依赖进行缓存的
+            · computed适合对多个变量或者对象进行处理后返回一个结果只,也就是数多个变量中的某一个值发生了变化则我们监控的这个值也就会发生变化.
+            //属性定义和data以及methods平级.
+                ...
+                data:{
+                    num:100,
+                }
+                computed:{
+                    自定义名:function(){
+                    var total = 0
+                    //当data中的num改变时,会自动发生计算
+                    for(var i = 0;i <= this.num;i++){
+                        total += i
+                    }
+                    //必须设置返回
+                    return total
+                    }
+                    }
+                }
+        V)侦听器 watch
+            · 使用watch来响应数据的变化
+            · 以便用于异步或者开销较大的操作
+            · 侦听器中的属性必须是data中已存在的数据
+            · 当需要监听一个对象的改变时,普通的watch方法无法监听到对象内部属性的改变,只有data中的数据才能够
+              监听到变化,此时需要deep属性对对象进行深度监听(deep的意思就是深入观察,监听器会一层层的向下遍历,给对象的所有属性都加上这个监听器)
+            ...
+            data:{
+                键1:值1,
+                键2:值2,
+                ..
+            },
+            watch:{
+                键1:function(val){
+                    //触发时执行内容
+                },
+                键2:function(val){
+                    //触发时执行内容
+                }
+            },
+            ...
+
+        VI)过滤器
+            · Vue允许自定义过滤器来格式化数据
+            · 用在两个地方 双花括号插值和v-bind表达式
+            · 不改变data,只改变渲染的结果,返回过滤后的值
+            · 全局注册filter,局部过滤器filters
+                {{插值 | 过滤器1(val,arg1,arg2,...) | 过滤器2}}
+

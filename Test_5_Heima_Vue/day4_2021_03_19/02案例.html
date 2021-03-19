@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>案例</title>
+</head>
+<body>
+<div id="app">
+    用户名:
+    <input type="text" v-model.lazy="uname">
+    <span>{{tip}}</span>
+</div>
+<script src="jquery.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            uname:'',
+            tip:'',
+
+        },
+        methods:{
+          checkName:function(uname){
+              /*
+              //模拟接口调用
+              let that = this
+              setTimeout(function (){
+                  if(uname == 'admin'){
+                      that.tip = '重复'
+                  }else{
+                      that.tip = '可用'
+                  }
+              },3000)
+              */
+              let that = this
+            $.ajax({
+                url:'http://localhost:80/username',
+                data:{
+                    username:uname
+                },
+                success:function(res){
+                    that.tip = res.msg
+                }
+            })
+          }
+        },
+        watch:{
+            uname:function(val){
+                //调用接口校验
+                console.log(val)
+                this.checkName(val)
+                this.tip = 'loading...'
+            }
+        }
+    })
+</script>
+</body>
+</html>
