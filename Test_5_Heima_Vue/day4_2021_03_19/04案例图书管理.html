@@ -65,9 +65,9 @@
                 <td>{{item.name}}</td>
                 <td>{{item.date | format('yyyy-MM-dd hh:mm:ss')}}</td>
                 <td>
-                    <a href="" @click.prevent>修改</a>
+                    <a href="" @click.prevent="toEdit(item.id)">修改</a>
                     <span>|</span>
-                    <a href="" @click.prevent>删除</a>
+                    <a href="" @click.prevent="deleteBook(item.id)">删除</a>
                 </td>
             </tr>
             </tbody>
@@ -80,6 +80,13 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script>
 //需求:添加图书
+//自定义指令:表单自动获取焦点
+Vue.directive('focus',{
+    inserted:function(el){
+        el.focus()
+    }
+})
+//时间格式化过滤器
 Vue.filter('format',function(value,arg) {
 //cv时间格式化----------------------------------------------
     function dateFormat(date, format) {
@@ -179,11 +186,21 @@ let vm = new Vue({
         },
         deleteBook: function(id){
             //需求:删除图书
+            /*
+            //1.数组filter方法
             this.books = this.books.filter(function(item){
+                //删除后剩下的
                 return item.id != id
             })
+            */
+            //2.根据id查找
+            let index = this.books.findIndex(function(item){
+                return item.id == id
+            })
+            this.books.splice(index,1)
         }
     },
+    //计算属性:获取图书总数
     computed:{
         total: function(){
             //总数
@@ -193,6 +210,7 @@ let vm = new Vue({
     watch:{
         name: function(val){
             //验证图书名是否已存在
+            //添加标记flag
             let flag = this.books.some(function(item){
                 return item.name == val
             })

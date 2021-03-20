@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <div :style="{fontSize:fontSize + 'px'}">{{msg}}</div>
+    <gt :arr="arr" @test="handle($event)"></gt>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    //子组件向父组件传值$emit
+    Vue.component('gt',{
+        props:['gt'],
+        template:`
+        <div>
+          <ul>
+            <li :key="index" v-for="(item,index) in arr">{{item}}</li>
+          </ul>
+        <button @click="$emit('test',5)">boost</button>
+        <button @click="$emit('test',10)">boost boost</button>
+        </div>
+        `
+    })
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            msg:'父组件内容',
+            arr:['1','2','3'],
+            fontSize:10
+        },
+        methods:{
+            handle:function(val){
+                this.fontSize += val
+            }
+        }
+    })
+</script>
+</body>
+</html>
