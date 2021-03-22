@@ -1,0 +1,20 @@
+前后端交互模式
+    接口调用方式
+        · 原生ajax
+        · 基于jQuery的ajax
+        · fetch
+        · axios
+    ...
+    axios
+        · 支持浏览器和node,js
+        · 支持promise
+        · 拦截请求和响应
+        · 自动转换json格式数据
+    使用
+        axios.get('http://127.0.0.1:80/adata').then(ret => {
+            console.log(ret.data)
+        })
+    全局配置
+        axios.defaults.baseURL = ''         配置默认地址
+        axios.defaults.timeout = 3000       配置超时时间
+        axios.defaults.headers.

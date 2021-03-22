@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .grid {
+            margin: auto;
+            width: 500px;
+            text-align: center;
+        }
+
+        .grid table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .grid th, td {
+            padding: 10px;
+            border: 1px dashed orange;
+            height: 35px;
+            line-height: 35px;
+        }
+
+        .grid th {
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div class="grid">
+        <div>
+            <h1>图书管理</h1>
+            <div class="book">
+                <div>
+                    <label for="id">
+                        编号:
+                    </label>
+                    <input type="text" id="id" v-model="id" :disabled="flag" v-focus>
+                    <label for="name">
+                        名称:
+                    </label>
+                    <input type="text" id="name" v-model="name">
+                    <button @click="handle" :disabled="submitFlag">提交</button>
+                </div>
+            </div>
+        </div>
+        <div class="total">
+            <span>图书总数:</span>
+            <span>{{total}}</span>
+        </div>
+        <table>
+            <thead>
+            <tr>
+                <th>编号</th>
+                <th>名称</th>
+                <th>时间</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr :key='item.id' v-for='item in books'>
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.date | format('yyyy-MM-dd hh:mm:ss')}}</td>
+                <td>
+                    <a href="" @click.prevent="toEdit(item.id)">修改</a>
+                    <span>|</span>
+                    <a href="" @click.prevent="deleteBook(item.id)">删除</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
+
+
+<script src=""></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+
+</script>
+
+
