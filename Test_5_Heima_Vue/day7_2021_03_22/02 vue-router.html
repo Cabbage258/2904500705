@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./node_modules/vue-router/dist/vue-router.js"></script>
+
+</head>
+<body>
+<div id="app">
+    <router-link to="/u1">u1</router-link>
+    <router-link to="/u2">u2</router-link>
+    <router-view></router-view>
+</div>
+</body>
+</html>
+<script>
+    //定义组件
+    const u1 = {
+        template:`
+        <h1>u1 组件</h1>
+        `
+    }
+    const u2 = {
+        template:`
+        <div>
+        <h1>u2 组件</h1>
+        <router-link to="/u2/t1">u2&gt;t1</router-link>
+        <router-link to="/u2/t2">u2&gt;t2</router-link>
+        <router-view></router-view>
+        </div>
+        `
+    }
+    const t1 = {
+        template:`
+        <h3>t1</h3>
+        `
+    }
+    const t2 = {
+        template:`
+        <h3>t2</h3>
+        `
+    }
+    //创建路由实例对象
+    const router = new VueRouter({
+        routes:[
+            {path:'/',redirect:'/u1'},
+            {path:'/u1',component:u1},
+            //子路由规则
+            {path:'/u2',component:u2,children:[
+                    {path:'/u2/t1',component:t1},
+                    {path:'/u2/t2',component:t2}
+                ]}
+        ]
+    })
+
+
+    let vm = new Vue({
+        el:'#app',
+        data:{
+
+        },
+        //挂载路由实例对象
+        //router:router
+        router
+    })
+</script>

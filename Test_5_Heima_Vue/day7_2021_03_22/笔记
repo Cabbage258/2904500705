@@ -1,0 +1,188 @@
+Vue基础总结
+    ...
+    数据与方法
+          当一个Vue实例被创建时,它将data对象中的所有属性(property)加入到Vue的响应式系统中,
+        当这些属性的值发生改变时,视图将会产生"响应",即匹配更新为新的值.
+            · 只有当实例被创建时就已经存在于data中的property才是响应式的,也就是说如果添加一个
+                新的属性,对于该属性的改动不会触发任何视图的更新.如果要添加,需要一开始就设置初始值,比如[]
+              唯一的例外是使用Object.freeze(),这会阻止修改现有的属性,也意味着响应系统无法再追踪变化.
+            · 另外除了数据属性,Vue实例还暴露了一些有用的实例属性与方法,它们都有前缀$,以便与用户定义的属性区分开.
+
+    实例生命周期钩子
+        每个Vue实例在被创建时都要经过一系列的初始化过程,在这个过程中也会运行一些叫做声明周期钩子的函数,
+        这给了用户在不同阶段添加自己的代码的机会(生命周期钩子的this上下文指向调用它的Vue实例)
+        注意
+            不要再选项属性或回调上使用箭头函数,因为箭头函数并没有this,this会作为变量一直向上级词法作用域
+            查找,但可以在function(){}内使用箭头函数.
+
+    钩子函数与回调函数
+        · 钩子函数和回调函数一般都可用来处理事件回调
+        · 回调函数是留下处理方法给事件,事件发生后会自动执行留下的处理方法
+        · 在某种意义上,回调函数做的处理过程跟钩子函数中要调用回调方法一样
+          但是钩子函数一般是由事件发生者提供的.
+
+    表单基本操作
+        I)通过v-model获取单选框、复选框、下拉菜单、文本框中的值
+        Ii)表单修饰符
+            · .number转换为数值
+            · .trim自动过滤用户输入的首尾空白字符
+            · .lazy将input事件切换成change事件
+                延迟了同步更新属性值的时机,即将原本绑定在input事件的同步逻辑转换为绑定在change事件上.
+        III)自定义指令
+            使用Vue.directive注册全局指令
+                Vue.directive(指令名,{inserted:(){}}
+            注册全局指令,带参数
+                Vue.directive(指令名,{bind:function(el,binding){
+                    //binding为自定义的函数形参,通过自定义属性传递过来的值,存在binding.value里
+                    ...
+                }}
+                }
+
+            自定义局部指令
+                · 需要定义在direvtives的选项,用法与全局一样.
+                · 只能在当前组件内使用
+                · 冲突时优先级高于全局指令.
+                let vm = new Vue({
+                    el:'',
+                    data:{},
+                    directives:{
+                        指令名:{
+                            bind:function(el,binding){
+                                ...
+                            }
+                        }
+                    }
+                })
+
+        IV)计算属性 computed
+            · 计算属性是基于它们的响应式依赖进行缓存的
+            · computed适合对多个变量或者对象进行处理后返回一个结果值,也就是数多个变量中的某一个值发生了
+                变化,则我们监控的这个值也就会发生变化.
+            //属性定义和data一级methods平级
+                ...
+                data:{
+                    num:100
+                },
+                computed:{
+                    自定义名:function(){
+                        let total = 0
+                        //当data中的num改变时,会自动发生计算.
+                        for(let i = 0;i <= this.num;i++){
+                            total += i
+                        }
+                    }
+                    //设置返回(必须)
+                    return total
+                }
+        V)侦听器 watch
+            · 使用watch来响应数据的变化
+            · 用于异步或者开销较大的操作
+            · 侦听器中的属性必须是data中已存在的数据
+            · 当需要监听一个对象的改变时,普通的watch方法无法监听到对象内部属性的改变,只有data中的数据才能够
+              监听到变化,此时需要deep属性对对象进行深度坚挺(deep的意思就是深入观察,监听器会一层层的向下遍历,
+              给对象的所有属性都加上这个监听器)
+              ...
+              data:{
+                键1:值1,
+                键2:值2,
+                ...
+              },
+              watch:{
+                键1:function(val){
+                    //触发时执行的函数体
+                },
+                键2:function(val){
+                    //触发时执行的函数体
+                }
+              },
+              ...
+        VI)过滤器
+            · Vue允许自定义过滤器来格式化数据
+            · 用在两个地方: 双花括号插值和v-bind表达式
+            · 不改变data,只改变渲染的结果,返回过滤后的值
+            · 全局注册filter,局部过滤器filters
+                {{插值 丨 过滤器1(val,arg1,arg2,...) 丨 过滤器2}}
+
+    组件
+        简介
+            组件(Component)是Vue.js中很强大的一个功能,可以将一些可重用的代码进行封装重用,所有的Vue组件同时也是
+            Vue实例,可以接受使用相同的选项对象和提供相同的生命周期钩子.
+            即 组件就是可以扩展HTML元素,封装可重用的HTML代码,可以将组件看作自定义的HTML元素
+        使用
+            前提: 使用组件名的时候需要先实例化Vue,因为组件现在是扩展在Vue中,想使用Vue中的组件就需要先实例化获得这个
+                    组件才能够使用.
+            1.创建组件
+                创建组件即在Vue构造函数中通过extend()方法添加该组件
+            2.注册组件
+                注册组件即在Vue构造函数中通过一个属性名与之联系在一起.
+                注册的组件可分为全局注册与局部注册,区别:
+                    · 注册的地方不一致,全局注册就是只要是实例化Vue的范围都可以使用该组件,
+                    · 局部注册只能子啊某一个Vue实例的范围内使用该组件.
+                全局注册:
+                    例:
+                        //使用组件
+                            <div id='app'>
+                                <my-component></my-component>
+                            </div>
+                        //要确保是在初始化根实例之前注册组件
+                            Vue.component('my-component',{
+                                template:'<div> component test!</div>
+                            })
+                        //创建根实例
+                            new vm = new Vue({
+                                el:'#app',
+                                data:{},
+                                components:{ App },
+                                template:'',
+                            })
+                        //最终渲染为
+                            <div id="app"><div>component test!</div></div>
+                · 局部注册
+                    每个组件都注册到全局的方式显然很不合理,更多的时候采用的往往是局部注册的方式,
+                    可以通过某个Vue实例/组件的实力选项components 注册仅在其作用域中可用的组件
+                    例
+                        var Child = {
+                          template: '< div>一个局部注册的组件!< /div>'
+                        }
+                        new Vue({
+                          components: {
+                          // < localRegistration>  只在父组件模板中才可用
+                            'localRegistration': Child
+                          }
+                        })
+    前后端交互模式
+        接口调用方式
+            · 原生ajax
+            · 基于jQuery的ajax
+            · fetch
+            · axios
+        ...
+        axios
+            · 支持浏览器和node.js
+            · 支持promise
+            · 拦截请求和响应
+            · 自动转换json格式数据
+        使用
+            //ret是一个对象,所有的对象都存在ret.data里
+            axios.get(地址).then(ret => {})
+            axios.get(地址,{
+            params:{
+                id:1,
+                ...
+            }
+            })
+        全局配置
+            axios.defaults.baseURL = ''                                      配置默认地址
+            axios.defaults.timeout = 1000                                    配置超时时间
+            axios.defaults.headers.common['Authorization'] = AUTH_TOKEN      配置请求头
+
+
+    async 和 await
+        async作为一个关键字放到函数前面
+            · 任何一个async函数都会隐式返回一个promise
+        await关键字只能用在使用async定义的函数中
+            · await后面可以直接跟一个promise实例对象
+            · await函数不能单独使用(await只在异步函数里面才会起作用)
+            await关键字会使JavaScript运行时暂停于此行,允许其他代码在此期间执行,直到异步函数调用返回其结果.
+    
+

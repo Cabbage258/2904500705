@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="item/vue.js"></script>
+    <script src="item/vue-router.js"></script>
+</head>
+<body>
+<!--  通过组合组件来组成应用程序  -->
+<!--将组件components映射到路由routes,然后告诉Vue Router在哪里渲染它们-->
+
+
+<div id="app">
+    <h1>Hello App!</h1>
+    <p>
+        <!--使用router-link组件来导航-->
+        <!--通过传入 to 属性指定链接-->
+        <!-- <router-link> 默认会被渲染成一个 a 标签-->
+        <router-link to="/foo">Go to foo</router-link>
+        <router-link to="/bar">Go to bar</router-link>
+
+        <!--路由出口-->
+        <!--路由匹配到的组件将渲染在这里-->
+        <router-view></router-view>
+    </p>
+</div>
+</body>
+</html>
+<script>
+    //1.定义(路由)组件
+    //可以从其他文件import进来
+    const Foo = {template:`
+    <div>
+        foo
+    </div>
+    `}
+    const Bar = {template:`
+    <div>
+        bar
+    </div>
+    `}
+
+    //2.定义路由
+    //每个路由应该映射一个组件,其中 component可以是↓
+    //通过Vue.extend()创建的组件构造器
+    //或者只是一个组件配置对象
+    const routes = [
+        {path:'/foo',component: Foo},
+        {path:'/bar',component: Bar}
+    ]
+
+    //3.创建router实例,然后传'routes'配置
+    //也可以在后面传别的参数
+    const router = new VueRouter({
+        //缩写,相当于routes:routes
+        routes
+    })
+
+    //4.创建和挂载实例
+    //记得要通过router配置参数注入路由
+    //从而让整个应用都有路由功能
+    let vm = new Vue({
+        el:'#app',
+        data:{},
+        router
+    })
+    //通过注入路由器,可以在任何组件内通过this.$router访问路由器
+    //也可以通过this.$route访问当前路由
+
+</script>

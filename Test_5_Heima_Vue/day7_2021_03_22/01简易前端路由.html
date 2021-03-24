@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./node_modules/vue-router/dist/vue-router.js"></script>
+</head>
+<body>
+<div id="app">
+    <a href="#/zhuye">主页</a>
+    <a href="#/keji">科技</a>
+    <a href="#/caijing">财经</a>
+    <a href="#/yule">娱乐</a>
+
+    <component :is="comName"></component>
+</div>
+
+
+
+<script>
+    const zhuye = {
+        template: '<h1>主页信息</h1>'
+    }
+    const keji = {
+        template: '<h1>科技信息</h1>'
+    }
+    const caijing = {
+        template: '<h1>财经信息</h1>'
+    }
+    const yule = {
+        template: '<h1>娱乐信息</h1>'
+    }
+
+
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            comName: 'zhuye'
+        },
+        //注册组件
+        components: {
+            zhuye,
+            keji,
+            caijing,
+            yule
+        }
+    })
+    //坚挺onhashchange事件
+    onhashchange = () => {
+        //通过location.hash获取最新的hash值
+        //switch循环:
+        //先执行条件语句,然后与case后面的值匹配,匹配到就执行语句,break结束.
+        switch(location.hash.slice(1)){
+            case '/zhuye':
+                //匹配到就切换到相应的名称
+                vm.comName = 'zhuye'
+                break
+            case '/keji' :
+                vm.comName = 'keji'
+                break
+            case '/caijing' :
+                vm.comName = 'caijing'
+                break
+            case '/yule' :
+                vm.comName = 'yule'
+                break
+        }
+    }
+</script>
+</body>
+</html>

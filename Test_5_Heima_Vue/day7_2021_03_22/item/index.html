@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+    <script src="vue-router.js"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<div id="app">
+
+</div>
+</body>
+</html>
+<script>
+    //定义app根组件
+    const App = {
+        template: `
+        <div>
+            <header class="header">cv后台管理系统</header>
+            <div class="main">
+                <div class="content left">
+                    <ul>
+                        <li><router-link to=""></router-link></li>
+                        <li><router-link to=""></router-link></li>
+                        <li><router-link to=""></router-link></li>
+                        <li><router-link to=""></router-link></li>
+                        <li><router-link to=""></router-link></li>
+                    </ul>
+                </div>
+                <div class="content right">
+                    <div class="main-content">
+                        <router-view></router-view>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer">
+                版权信息
+            </footer>
+        </div>
+        `
+    }
+
+    //子组件
+    const Users = {
+        data() {
+            return {
+                userlist: [
+                    {
+                        id: 1,
+                        name: '张三',
+                        age: 10
+                    }, {
+                        id: 2,
+                        name: '张4',
+                        age: 20
+                    }, {
+                        id: 3,
+                        name: '张5',
+                        age: 30
+                    }, {
+                        id: 4,
+                        name: '张6',
+                        age: 40
+                    },
+                ]
+            }
+        },
+        methods:{
+            //转到详细
+            goDetail(id){
+                ////通过this.$router访问路由器
+                this.$router.push('/userinfo/' + id)
+            }
+        },
+        template:`
+        <div>
+            <h3>用户管理区域</h3>
+            <table>
+                <thead>
+                    <tr>
+                    <th>编号</th>
+                    <th>姓名</th>
+                    <th>年龄</th>
+                    <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr :key="item.id" v-for="item in userlist">
+                        <td>{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.age}}</td>
+                        <td>
+                            /*<!--点击调用转到详细-->*/
+                            <a href="javascript:" @click="goDetail(item.id)">详情</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        `
+    }
+    //定义用户详情页
+
+
+    let vm = new Vue({
+        el: '#app',
+        data: {},
+        components: {}
+    })
+</script>

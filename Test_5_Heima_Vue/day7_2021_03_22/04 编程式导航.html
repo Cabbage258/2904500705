@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./node_modules/vue-router/dist/vue-router.js"></script>
+</head>
+<body>
+<div id="app">
+    <router-link :to="">user go</router-link>
+    <router-link >user back</router-link>
+    <router-link to="userinfo"></router-link>
+
+</div>
+
+
+
+</body>
+</html>
+<script>
+
+    const user = {
+        props:['id','uname','age'],
+        template:`
+          <div>
+          <h1>user组件--用户id为:{{id}} -- 姓名为:{{uname}} -- 年龄为:{{age}}</h1>
+          <button @click="goNext">跳转</button>
+          </div>
+        `,
+        methods:{
+            goNext(){
+                this.$router.push('/userinfo')
+            }
+        }
+    }
+    const userinfo = {
+        template:`
+        <div>
+            <h1>userinfo页面</h1>
+            <button @click="goBack">回退</button>
+        </div>
+        `
+    }
+
+
+    let vm = new Vue({
+        el:'#app',
+        data:{},
+
+    })
+</script>

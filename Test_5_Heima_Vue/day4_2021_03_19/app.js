@@ -3,6 +3,7 @@
     const app = express()
     const cors = require('cors')
     const router = express.Router()
+
 //注册
     app.use(cors())
 //配置解析数据

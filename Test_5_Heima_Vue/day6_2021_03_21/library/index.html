@@ -2,9 +2,261 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>图书管理</title>
+    <style type="text/css">
+        .grid {
+            margin: auto;
+            width: 500px;
+            text-align: center;
+        }
+
+        .grid table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .grid th, td {
+            padding: 10px;
+            border: 1px dashed orange;
+            height: 35px;
+            line-height: 35px;
+        }
+
+        .grid th {
+            background-color: orange;
+        }
+    </style>
 </head>
 <body>
+<div id="app">
+    <div class="grid">
+        <div>
+            <h1>图书管理</h1>
+            <div class="book">
+                <div>
+                    <label for="id">
+                        编号:
+                    </label>
+                    <input type="text" id="id" v-model="id" :disabled="flag" v-focus>
+                    <label for="name">
+                        名称:
+                    </label>
+                    <input type="text" id="name" v-model="name">
+                    <button @click="handle" :disabled="submitFlag">提交</button>
+                </div>
+            </div>
+        </div>
+        <div class="total">
+            <span>图书总数:</span>
+            <span>{{total}}</span>
+        </div>
+        <table>
+            <thead>
+            <tr>
+                <th>编号</th>
+                <th>名称</th>
+                <th>时间</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr :key='item.id' v-for='item in books'>
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.date | format('yyyy-MM-dd hh:mm:ss')}}</td>
+                <td>
+                    <a href="" @click.prevent="toEdit(item.id)">修改</a>
+                    <span>|</span>
+                    <a href="" @click.prevent="deleteBook(item.id)">删除</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 
+
+<script src="jquery.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    //需求:添加图书
+    //自定义指令:表单自动获取焦点
+    Vue.directive('focus',{
+        inserted:function(el){
+            el.focus()
+        }
+    })
+    //时间格式化过滤器
+    Vue.filter('format',function(value,arg) {
+//cv时间格式化----------------------------------------------
+        function dateFormat(date, format) {
+            if (typeof date === "string") {
+                var mts = date.match(/(\/Date\((\d+)\)\/)/);
+                if (mts && mts.length >= 3) {
+                    date = parseInt(mts[2]);
+                }
+            }
+            date = new Date(date);
+            if (!date || date.toUTCString() == "Invalid Date") {
+                return "";
+            }
+            var map = {
+                "M": date.getMonth() + 1, //月份
+                "d": date.getDate(), //日
+                "h": date.getHours(), //小时
+                "m": date.getMinutes(), //分
+                "s": date.getSeconds(), //秒
+                "q": Math.floor((date.getMonth() + 3) / 3), //季度
+                "S": date.getMilliseconds() //毫秒
+            };
+
+            format = format.replace(/([yMdhmsqS])+/g, function (all, t) {
+                var v = map[t];
+                if (v !== undefined) {
+                    if (all.length > 1) {
+                        v = '0' + v;
+                        v = v.substr(v.length - 2);
+                    }
+                    return v;
+                } else if (t === 'y') {
+                    return (date.getFullYear() + '').substr(4 - all.length);
+                }
+                return all;
+            });
+            return format;
+        }
+        //----------------------------------------------------
+        //调用该方法
+        return dateFormat(value,arg)
+    })
+    //实例化一个Vue组件
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            flag:false,
+            submitFlag:false,
+            id:'',
+            name:'',
+            books:[]
+        },
+        methods:{
+            handle:function(){
+                if(this.flag){
+                    //需求:编辑图书
+                    //根据当前id更新数组里对应数据
+                    //箭头函数this向上级找到vm对象拿数据
+                    //Tips:
+                    //  some方法会按升序索引顺序对每个数组元素调用函数,直到函数返回true.
+                    //  所以满足条件结束时必须返回true
+                    this.books.some((item) => {
+                        //找到数据,更新名字
+                        if(item.id == this.id){
+                            item.name = this.name
+                            //结束循环
+                            return true
+                        }
+                    })
+                    this.flag = false
+                }else{
+                    //添加图书
+                    let book = {}
+                    book.id = this.id
+                    book.name = this.name
+                    book.date = ''
+                    this.books.push(book)
+                    //清空表单
+                    this.id = ''
+                    this.name = ''
+                }
+                this.id = ''
+                this.name = ''
+            },
+            toEdit: function(id){
+                //禁止修改id
+                this.flag = true
+                console.log(id)
+                //根据id查询出要编辑的数据
+                let book = this.books.filter(function(item){
+                    return item.id == id
+                })
+                console.log(book)
+                //填入表单
+                this.id = book[0].id
+                this.name = book[0].name
+            },
+            deleteBook:async function(id){
+                //需求:删除图书
+                /*
+                //1.数组filter方法
+                this.books = this.books.filter(function(item){
+                    //删除后剩下的
+                    return item.id != id
+                })
+                */
+                //2.根据id查找
+                let index = this.books.findIndex(function(item){
+                    return item.id == id
+                })
+                this.books.splice(index,1)
+                let ret = await axios.delete('books/' + id)
+                if(status == 200){
+
+                }
+            },
+
+        },
+        //计算属性:获取图书总数
+        computed:{
+            total: function(){
+                //总数
+                return this.books.length
+            }
+        },
+        watch:{
+            name: function(val){
+                //验证图书名是否已存在
+                //添加标记flag
+                let flag = this.books.some(function(item){
+                    return item.name == val
+                })
+                if(flag){
+                    //有该书
+                    this.submitFlag = true
+                }else{
+                    //无
+                    this.submitFlag = false
+                }
+            }
+        },
+        mounted: function(){
+            //组件创建阶段最后一个生命周期函数;此时页面已经真正的渲染好了,用户已经
+            //可以看到真实的页面数据了.该生命周期函数执行完,组件就离开了创建阶段,进入
+            //了运行阶段.
+            //由于此时html已经渲染出来,所以可以直接操作DOM,因此在该钩子函数中可以进行获取后台数据然后填充到模版
+            //Tips
+            // 如果用到了一些第三方UI插件,而且该插件需要被初始化,那么必须在mounted中来初始化插件
+            let data = [{
+                id: 1,
+                name: '三国演义',
+                date: ''
+            },{
+                id: 2,
+                name: '四国演义',
+                date: ''
+            },{
+                id: 3,
+                name: '五国演义',
+                date: ''
+            },{
+                id: 4,
+                name: '三国演义 * 2',
+                date: ''
+            }]
+            //传值渲染
+            this.books = data
+        }
+    })
+</script>
 </body>
 </html>
