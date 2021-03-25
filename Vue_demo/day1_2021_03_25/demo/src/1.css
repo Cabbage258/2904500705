@@ -1,0 +1,15 @@
+body{
+  margin:0;
+  padding:0;
+  list-style-type: none;
+}
+ul{
+    padding:0;
+    margin:0;
+  }
+#box{
+    width: 580px;
+    height: 340px;
+    background-color: skyblue;
+    background: url('../images/1.jpg');
+}

@@ -1,0 +1,18 @@
+    ES6模块化的语法规范
+        在ES6模块中自动采用严格模式
+        · 变量必须先声明
+        · 函数参数不能有同名属性
+        · 不能使用with
+        · 对只读属性赋值,delete不可删除属性直接报错
+        · 不可删除变量delete prop,只能删除属性delete global[prop]
+        · eval不会在外层作用域引入变量
+        · eval和arguments不可重新赋值
+        · arguments不会自动反映函数参数变化
+        · 禁止this指向全局
+        · 增加保留字
+        (顶层this为undefined,不应被使用)
+
+    I)export命令
+        export语句输出的接口是对应值的引用,也就是一种动态绑定关系,通过该接口可以获取模块内部实时的值.
+            (commonJS模块输出的值是缓存,不存在动态更新)
+        export命令规定要处于模块顶层,一旦出现在
